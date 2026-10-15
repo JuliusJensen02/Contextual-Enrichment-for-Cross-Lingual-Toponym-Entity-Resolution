@@ -1,0 +1,24 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+SELECT ?item ?he ?ar
+       (SAMPLE(?coord) AS ?coord1)
+       (COUNT(DISTINCT ?coord) AS ?nCoords)
+       (GROUP_CONCAT(DISTINCT STR(?type); separator="|") AS ?types)
+       (GROUP_CONCAT(DISTINCT ?typeLabel; separator="|") AS ?typeLabels)
+       (SAMPLE(?admin) AS ?admin1) (SAMPLE(?inception) AS ?inception1)
+       (SAMPLE(?pleiades) AS ?pleiadesId)
+       (SAMPLE(?heWiki) AS ?heArticle) (SAMPLE(?arWiki) AS ?arArticle)
+WHERE {
+  ?item wdt:P625 ?coord ;
+        rdfs:label ?he , ?ar .
+  FILTER(LANG(?he) = "he") FILTER(LANG(?ar) = "ar")
+  OPTIONAL { ?item wdt:P31 ?type . OPTIONAL { ?type rdfs:label ?typeLabel . FILTER(LANG(?typeLabel) = "en") } }
+  OPTIONAL { ?item wdt:P131 ?admin }
+  OPTIONAL { ?item wdt:P571 ?inception }
+  OPTIONAL { ?item wdt:P1584 ?pleiades }
+  OPTIONAL { ?heWiki schema:about ?item ; schema:isPartOf <https://he.wikipedia.org/> }
+  OPTIONAL { ?arWiki schema:about ?item ; schema:isPartOf <https://ar.wikipedia.org/> }
+}
+GROUP BY ?item ?he ?ar
