@@ -1,0 +1,5481 @@
+entity1	entity2	entity1_name	entity2_name
+2	1494	Lissabon	Lisbon
+2	2750	Lissabon	Lisbonne
+2	3275	Lissabon	LisBOKNE
+3	1453	Gibraltar	Gibraltar
+3	1487	Gibraltar	loGibraltar
+3	2346	Gibraltar	Gibraltar
+11	1446	Leyden	LEYDEN
+14	613	Haag	dem Haag
+14	1401	Haag	Den Haag
+15	247	Holland	Niederlanden
+15	340	Holland	Hollands
+15	1239	Holland	Iolland
+15	1244	Holland	IIoll.
+15	1951	Holland	Ho
+15	2209	Holland	Hollande
+15	2366	Holland	lande
+15	2984	Holland	Hol
+15	3217	Holland	Pays-Bas
+16	718	Brüssel	Brussel
+16	1299	Brüssel	Prussel
+16	1365	Brüssel	Vrü f fel
+16	1366	Brüssel	Viüssel
+16	1370	Brüssel	Stüffel
+16	1441	Brüssel	Brufl'els
+16	1443	Brüssel	Bruliel
+16	1728	Brüssel	ofBruffels
+16	1729	Brüssel	Brufiels
+16	2062	Brüssel	BRUXELLES
+16	3742	Brüssel	Bru xelles
+21	23	Trochtelfingen	Gemeine Trochtelfingen
+22	2748	Konstanz	Constance
+24	121	Spanien	einheit¬ lichen Spanien
+24	125	Spanien	Spaniens
+24	1497	Spanien	Spain
+24	1746	Spanien	SPAIN
+24	1946	Spanien	Esp
+24	2069	Spanien	ESPAGNE
+24	2222	Spanien	Espagne
+24	2232	Spanien	Esoagne
+24	2233	Spanien	F.
+24	2234	Spanien	espngne
+24	3073	Spanien	EFpagne
+25	1749	Sevilla	Seville—drove
+29	111	Madrid	Rabrlih
+29	124	Madrid	Madrids
+29	2070	Madrid	MADRID
+29	2225	Madrid	Madrid
+29	3600	Madrid	ffltadrid
+31	32	Arragonische Hauptstadt Sa¬ ragossa	Saragossa
+31	119	Arragonische Hauptstadt Sa¬ ragossa	Zaragoza
+31	2073	Arragonische Hauptstadt Sa¬ ragossa	SARIUGOSSE
+31	2075	Arragonische Hauptstadt Sa¬ ragossa	Sarragosse
+31	3278	Arragonische Hauptstadt Sa¬ ragossa	Saragosse
+31	3282	Arragonische Hauptstadt Sa¬ ragossa	SARRAGOSSE
+31	3283	Arragonische Hauptstadt Sa¬ ragossa	Sarrogosse
+32	119	Saragossa	Zaragoza
+32	2073	Saragossa	SARIUGOSSE
+32	2075	Saragossa	Sarragosse
+32	3278	Saragossa	Saragosse
+32	3282	Saragossa	SARRAGOSSE
+32	3283	Saragossa	Sarrogosse
+37	368	Cantons Aargau	Aargau
+37	807	Cantons Aargau	Kanton Aargau
+37	1142	Cantons Aargau	Kantons Aargau
+37	2144	Cantons Aargau	Argovie
+37	2409	Cantons Aargau	lWrgovic
+37	2548	Cantons Aargau	ARGOVIE
+37	3126	Cantons Aargau	cantons d'Argovie
+48	91	Italien	Iratien
+48	575	Italien	Italiens
+48	1201	Italien	Ita¬ lien
+48	1232	Italien	Italicn
+48	1300	Italien	Ifalien
+48	1450	Italien	ITALY
+48	1656	Italien	Italy
+48	1934	Italien	Italie
+48	1941	Italien	It
+48	1975	Italien	ITALIE
+48	2987	Italien	Ita
+49	81	Rom	Roms
+49	566	Rom	R o m
+49	576	Rom	Ram
+49	580	Rom	Nom
+49	1655	Rom	ROME
+49	1658	Rom	Rome
+49	2027	Rom	Rbmè
+49	2337	Rom	ROME
+49	2339	Rom	ROKE
+49	2340	Rom	Rome
+49	2598	Rom	Borne
+50	737	Bayern	Königreichs Baiern
+50	2517	Bayern	Bavière
+50	3087	Bayern	royaume de Bavière
+51	568	Neapel	Neapels
+51	2302	Neapel	grosdeNaples
+51	2704	Neapel	ples
+52	818	Griechenland	Griechenlands
+52	2360	Griechenland	Grèce
+53	258	Deutschland	Deutschlands
+53	273	Deutschland	Deutsehland
+53	279	Deutschland	Deutseh¬ lands
+53	524	Deutschland	Deutschlandfrage
+53	779	Deutschland	Dentschland
+53	1242	Deutschland	Deutschl.
+53	1318	Deutschland	Deutseh¬ land
+53	1319	Deutschland	Deutsehlands
+53	1321	Deutschland	Deutschlunel
+53	1322	Deutschland	Doutschlands
+53	1621	Deutschland	Germany—one
+53	1877	Deutschland	Allemagne
+53	1947	Deutschland	Ail
+53	1972	Deutschland	ALLEMAGNE
+53	2351	Deutschland	Germanie
+53	2780	Deutschland	Deutschland
+57	3187	Hannover	Hanovre
+58	82	Preußen	Preußens
+58	2024	Preußen	Prusse
+59	369	Schwyz	hohe Stand Schwyz
+59	370	Schwyz	alte Land Schwyz
+59	371	Schwyz	alten Landes Schwyz
+59	372	Schwyz	Kantons Schwyz
+59	373	Schwyz	K. Schwyz
+59	2143	Schwyz	Schwytz
+59	2350	Schwyz	canton de Schwytz
+59	2449	Schwyz	Scliwylz
+59	2464	Schwyz	Schwylz
+59	2491	Schwyz	Schwyiz
+59	3219	Schwyz	Schwitz
+61	434	Bucharest	Bukarest
+61	659	Bucharest	Butarest
+61	3308	Bucharest	BUCHAREST
+62	63	Rußland	Rußlands
+62	876	Rußland	Rußland's
+62	956	Rußland	Ruß¬ land
+62	1431	Rußland	Ruffia
+62	1866	Rußland	Russie
+62	1867	Rußland	Grande-Russie
+62	1983	Rußland	Ruffic
+62	2654	Rußland	RUSSIE
+62	3397	Rußland	Bussie
+63	876	Rußlands	Rußland's
+63	956	Rußlands	Ruß¬ land
+63	1431	Rußlands	Ruffia
+63	1866	Rußlands	Russie
+63	1867	Rußlands	Grande-Russie
+63	1983	Rußlands	Ruffic
+63	2654	Rußlands	RUSSIE
+63	3397	Rußlands	Bussie
+65	2085	Verona	Vérone
+67	290	Frankreich	Frankpeich
+67	338	Frankreich	Frankreichs
+67	349	Frankreich	Frank reichs
+67	530	Frankreich	Prankreich
+67	538	Frankreich	Frank¬ reich
+67	1156	Frankreich	Frank¬ reichs
+67	1241	Frankreich	Frankr.
+67	1352	Frankreich	Frank« reich
+67	1432	Frankreich	France
+67	1476	Frankreich	Frtnce
+67	1739	Frankreich	Fiance
+67	1878	Frankreich	France
+67	1945	Frankreich	Fr
+67	1953	Frankreich	République française
+67	2433	Frankreich	FRANCE
+67	2505	Frankreich	FRANGE
+67	2986	Frankreich	Fra
+67	3084	Frankreich	Fiance
+67	3137	Frankreich	1 rance
+67	3413	Frankreich	ELANCE
+68	882	Orleans	Or¬ leans
+70	264	England	Englands
+70	454	England	Eng¬ land
+70	539	England	Eusland
+70	589	England	©nglanb
+70	593	England	Englanb
+70	597	England	E n g l a n b
+70	634	England	Enßlmrds
+70	877	England	England's
+70	1475	England	England
+70	1915	England	Angleterre
+70	2053	England	ANGLETERRE
+70	3655	England	England
+70	3694	England	Angle * terre
+71	1485	Bristol	Biistol
+72	301	London	Landem
+72	528	London	Lon don
+72	565	London	l'ont» on
+72	595	London	Lonbon
+72	596	London	Sondon
+72	598	London	Sonbon
+72	704	London	Lon¬ don
+72	1296	London	Lond
+72	1305	London	bondon
+72	1307	London	london
+72	1478	London	London
+72	1492	London	L ondon
+72	1727	London	LONDON
+72	1883	London	Londres
+72	1899	London	LONDRES
+72	2571	London	Londires
+72	3180	London	ville de Londres
+72	3503	London	Iiondres
+73	660	New-York	NewYork
+73	1035	New-York	Stadt New-York
+73	1493	New-York	NEW-YORK
+73	1764	New-York	New York
+73	1769	New-York	New- York
+73	1821	New-York	New York City
+73	1962	New-York	New York
+73	1965	New-York	Big Apple
+73	1966	New-York	NEW YORK
+73	2359	New-York	New. York
+73	2611	New-York	New-York
+73	2781	New-York	» féw-York
+73	2853	New-York	NEW-YORK
+73	3465	New-York	ÎVcw-York
+73	3757	New-York	New » York
+74	277	Amerika	Vereinigten Stuaten von Amerikea
+74	288	Amerika	Amerikka
+74	346	Amerika	Vereinigten Staaten
+74	347	Amerika	U. S. A.
+74	381	Amerika	Vereinigten Staaten Amerikas
+74	403	Amerika	Vereinigten Staaten von Nord¬ amerika
+74	1033	Amerika	Vereinigten Staaten von Nordamerika
+74	1043	Amerika	Ame¬ rika
+74	1044	Amerika	Ver.
+74	1303	Amerika	Vereinigten Staaten von Amerika
+74	1306	Amerika	Vereinigten Stanten
+74	1315	Amerika	U.S.A.
+74	1414	Amerika	Vereinigten - Staaten
+74	1426	Amerika	Unitec?
+74	1430	Amerika	the Uni¬ ted Srates
+74	1433	Amerika	America
+74	1481	Amerika	United States
+74	1491	Amerika	U. States
+74	1500	Amerika	United States of America
+74	1512	Amerika	the U. S.
+74	1555	Amerika	the United States
+74	1651	Amerika	United Stat-s
+74	1722	Amerika	Uni¬ ted Stares
+74	1757	Amerika	United Stares
+74	1758	Amerika	United Slates
+74	1762	Amerika	Unit ;d States
+74	1819	Amerika	American
+74	1900	Amerika	Etats-Unis
+74	1949	Amerika	EU
+74	2645	Amerika	USA
+74	2778	Amerika	Amérique
+74	2857	Amerika	Etals-Unis
+74	3485	Amerika	Etats-Uuis
+74	3673	Amerika	Etais-Unis
+74	3747	Amerika	Lesta-Unis
+74	3833	Amerika	Améru _/ ue
+75	126	Schweiz	Eidgenossenschaft
+75	365	Schweiz	Schweizerische Eidgenossenschaft
+75	860	Schweiz	chweiz
+75	1214	Schweiz	Suisse
+75	1234	Schweiz	Schwciz
+75	1237	Schweiz	Sehweie
+75	1238	Schweiz	Schw.
+75	1240	Schweiz	Schi.
+75	1246	Schweiz	Gelte
+75	1247	Schweiz	Schwe.
+75	1302	Schweiz	Sehweiz
+75	1859	Schweiz	_Puisse
+75	1865	Schweiz	SUISSE
+75	1868	Schweiz	Suisse
+75	1870	Schweiz	Confédération
+75	1943	Schweiz	S
+75	2125	Schweiz	YHelvélie
+75	2402	Schweiz	RÉPUBLIQUE HELVÉTIQUE
+75	2434	Schweiz	Helvétie
+75	2443	Schweiz	CONFÉDÉRATION SUISSE
+75	2445	Schweiz	Confédération Suisse
+75	2772	Schweiz	_Suiraa
+75	2810	Schweiz	Confédération suisse
+75	3043	Schweiz	Helvetie
+75	3132	Schweiz	OnydiftingtiedesnomsquifontchersàlaSuiffe
+75	3139	Schweiz	enSiriffe
+75	3404	Schweiz	CONFÉDMATÏM SUISSE
+75	3420	Schweiz	CONFEDERATION SUISSE
+75	3432	Schweiz	Sdisse
+75	3831	Schweiz	Mm
+76	970	nördliche Deutschland	Nord¬ deutschland
+76	1389	nördliche Deutschland	Norddeutschland
+77	2969	Liverpool	Liverpool
+78	415	Bordeäux	Bordeaux
+78	2113	Bordeäux	Bordeaux
+81	566	Roms	R o m
+81	576	Roms	Ram
+81	580	Roms	Nom
+81	1655	Roms	ROME
+81	1658	Roms	Rome
+81	2027	Roms	Rbmè
+81	2337	Roms	ROME
+81	2339	Roms	ROKE
+81	2340	Roms	Rome
+81	2598	Roms	Borne
+82	2024	Preußens	Prusse
+85	1913	Türkei	Turquie
+85	1979	Türkei	TURQUIE
+88	1839	Aarau	Aarau
+88	2479	Aarau	Arau
+89	136	Bern	Staat Bern
+89	1840	Bern	Berne
+89	1842	Bern	BERNE
+89	1843	Bern	ville de Berne
+89	2355	Bern	Jura bernois
+89	2814	Bern	berne
+89	3597	Bern	Beras
+90	522	Paris	Paxis
+90	1471	Paris	Paris
+90	1887	Paris	PARIS
+90	1896	Paris	Paris
+90	2538	Paris	PAÏU 8
+90	2563	Paris	Parisrlo
+90	3468	Paris	B'rtriw
+90	3762	Paris	APARIS
+91	575	Iratien	Italiens
+91	1201	Iratien	Ita¬ lien
+91	1232	Iratien	Italicn
+91	1300	Iratien	Ifalien
+91	1450	Iratien	ITALY
+91	1656	Iratien	Italy
+91	1934	Iratien	Italie
+91	1941	Iratien	It
+91	1975	Iratien	ITALIE
+91	2987	Iratien	Ita
+92	266	Berlin	Berlins
+92	615	Berlin	Stadt Berlin
+92	1391	Berlin	Verlin
+92	2049	Berlin	BERUN
+92	2065	Berlin	Berlin
+92	2369	Berlin	BERLIN
+92	3661	Berlin	àBerlin
+93	3069	Charlottenburg	Charlottenbourg
+93	3070	Charlottenburg	CharlotteRboutg
+95	113	Zürich	Stadt Zürich
+95	210	Zürich	Zürichs
+95	517	Zürich	Städte Zürich
+95	852	Zürich	Zürichputsch
+95	1029	Zürich	Zü¬ rich
+95	1031	Zürich	Bezirke Zürich
+95	1179	Zürich	gf.
+95	1182	Zürich	Türioh
+95	1956	Zürich	Zurich
+95	2818	Zürich	ZURICH
+95	2867	Zürich	rich
+96	2261	Liestal	Liestal
+97	2458	Baselland	Baie campagne
+99	219	Genfer-See	Leman
+99	2103	Genfer-See	lac de Genève
+99	2928	Genfer-See	Léman
+100	2387	Thurgau	Thurgovie
+100	2701	Thurgau	THURGOVIE
+100	2702	Thurgau	canton de Thurgovie
+100	3131	Thurgau	Ture ; nvie
+100	3362	Thurgau	cajilon de Thurgovie
+101	3554	Ermatingen	Ermatingen
+102	1852	Wallis	VALAIS
+102	1961	Wallis	Valais
+102	2452	Wallis	Palais
+108	1706	Georgia	Georgia
+109	361	Württemberg	Königreich Wür¬ temberg
+109	783	Württemberg	Würtemberg
+109	3088	Württemberg	Wurtemberg
+110	1967	Basel	Bâle
+110	2727	Basel	BALE
+110	2816	Basel	BALE-VILLE
+110	2835	Basel	BÛIe
+110	2847	Basel	Bâle-Ville
+110	2848	Basel	Bâle-Campagne
+110	3124	Basel	BASLE
+110	3471	Basel	Haie
+111	124	Rabrlih	Madrids
+111	2070	Rabrlih	MADRID
+111	2225	Rabrlih	Madrid
+111	3600	Rabrlih	ffltadrid
+113	210	Stadt Zürich	Zürichs
+113	517	Stadt Zürich	Städte Zürich
+113	852	Stadt Zürich	Zürichputsch
+113	1029	Stadt Zürich	Zü¬ rich
+113	1031	Stadt Zürich	Bezirke Zürich
+113	1179	Stadt Zürich	gf.
+113	1182	Stadt Zürich	Türioh
+113	1956	Stadt Zürich	Zurich
+113	2818	Stadt Zürich	ZURICH
+113	2867	Stadt Zürich	rich
+114	122	Toledo	To¬ ledo
+114	3218	Toledo	Toledo
+117	2083	Leon	Léun
+119	2073	Zaragoza	SARIUGOSSE
+119	2075	Zaragoza	Sarragosse
+119	3278	Zaragoza	Saragosse
+119	3282	Zaragoza	SARRAGOSSE
+119	3283	Zaragoza	Sarrogosse
+121	125	einheit¬ lichen Spanien	Spaniens
+121	1497	einheit¬ lichen Spanien	Spain
+121	1746	einheit¬ lichen Spanien	SPAIN
+121	1946	einheit¬ lichen Spanien	Esp
+121	2069	einheit¬ lichen Spanien	ESPAGNE
+121	2222	einheit¬ lichen Spanien	Espagne
+121	2232	einheit¬ lichen Spanien	Esoagne
+121	2233	einheit¬ lichen Spanien	F.
+121	2234	einheit¬ lichen Spanien	espngne
+121	3073	einheit¬ lichen Spanien	EFpagne
+122	3218	To¬ ledo	Toledo
+124	2070	Madrids	MADRID
+124	2225	Madrids	Madrid
+124	3600	Madrids	ffltadrid
+125	1497	Spaniens	Spain
+125	1746	Spaniens	SPAIN
+125	1946	Spaniens	Esp
+125	2069	Spaniens	ESPAGNE
+125	2222	Spaniens	Espagne
+125	2232	Spaniens	Esoagne
+125	2233	Spaniens	F.
+125	2234	Spaniens	espngne
+125	3073	Spaniens	EFpagne
+126	365	Eidgenossenschaft	Schweizerische Eidgenossenschaft
+126	860	Eidgenossenschaft	chweiz
+126	1214	Eidgenossenschaft	Suisse
+126	1234	Eidgenossenschaft	Schwciz
+126	1237	Eidgenossenschaft	Sehweie
+126	1238	Eidgenossenschaft	Schw.
+126	1240	Eidgenossenschaft	Schi.
+126	1246	Eidgenossenschaft	Gelte
+126	1247	Eidgenossenschaft	Schwe.
+126	1302	Eidgenossenschaft	Sehweiz
+126	1859	Eidgenossenschaft	_Puisse
+126	1865	Eidgenossenschaft	SUISSE
+126	1868	Eidgenossenschaft	Suisse
+126	1870	Eidgenossenschaft	Confédération
+126	1943	Eidgenossenschaft	S
+126	2125	Eidgenossenschaft	YHelvélie
+126	2402	Eidgenossenschaft	RÉPUBLIQUE HELVÉTIQUE
+126	2434	Eidgenossenschaft	Helvétie
+126	2443	Eidgenossenschaft	CONFÉDÉRATION SUISSE
+126	2445	Eidgenossenschaft	Confédération Suisse
+126	2772	Eidgenossenschaft	_Suiraa
+126	2810	Eidgenossenschaft	Confédération suisse
+126	3043	Eidgenossenschaft	Helvetie
+126	3132	Eidgenossenschaft	OnydiftingtiedesnomsquifontchersàlaSuiffe
+126	3139	Eidgenossenschaft	enSiriffe
+126	3404	Eidgenossenschaft	CONFÉDMATÏM SUISSE
+126	3420	Eidgenossenschaft	CONFEDERATION SUISSE
+126	3432	Eidgenossenschaft	Sdisse
+126	3831	Eidgenossenschaft	Mm
+127	378	Ostschweiz	östliche Schweiz
+127	3264	Ostschweiz	Suisse orientale
+128	1905	Freiburg	Fribourg-en-Brisgau
+128	2182	Freiburg	Èribourg
+128	2292	Freiburg	Fribourg
+128	3759	Freiburg	FRIBOURG
+129	366	Freiburg	Freyburg
+129	1857	Freiburg	canton de Fribourg
+129	2459	Freiburg	Fribourg
+129	2473	Freiburg	FIUBOUKG
+129	2703	Freiburg	FRIBOURG
+131	132	Enge	Kirchgemeinde Enge
+133	134	Kantons Zürich	Kanton Zürich
+133	379	Kantons Zürich	Kantonen Zürich
+133	385	Kantons Zürich	Zürich
+133	792	Kantons Zürich	Kantons Zü¬ rich
+133	2446	Kantons Zürich	Zurich
+133	3044	Kantons Zürich	çahton de'Zurich
+133	3388	Kantons Zürich	ZURICH
+133	3403	Kantons Zürich	cantons de Zurich
+134	379	Kanton Zürich	Kantonen Zürich
+134	385	Kanton Zürich	Zürich
+134	792	Kanton Zürich	Kantons Zü¬ rich
+134	2446	Kanton Zürich	Zurich
+134	3044	Kanton Zürich	çahton de'Zurich
+134	3388	Kanton Zürich	ZURICH
+134	3403	Kanton Zürich	cantons de Zurich
+136	1840	Staat Bern	Berne
+136	1842	Staat Bern	BERNE
+136	1843	Staat Bern	ville de Berne
+136	2355	Staat Bern	Jura bernois
+136	2814	Staat Bern	berne
+136	3597	Staat Bern	Beras
+139	1177	Thalweil	Thalwil
+139	2383	Thalweil	THALWIL
+139	2385	Thalweil	Thalwil
+141	142	Rümlang	Ge¬ meinde Rümlang
+143	2547	Interlaken	Interlaken
+150	3560	Grindelwald	Grindelwald
+150	3691	Grindelwald	Grindehvald
+153	155	Küßnacht am Rigi	Küßnacht
+153	2696	Küßnacht am Rigi	Kûssnacht
+155	2696	Küßnacht	Kûssnacht
+157	3113	Weimar	Weiœar
+157	3115	Weimar	Weimar
+163	341	Belgien	Belgiens
+163	1233	Belgien	Belaien
+163	1235	Belgien	Bel¬ gien
+163	1942	Belgien	Be
+163	2068	Belgien	Belgique
+163	2982	Belgien	Bel
+166	2774	Lothringen	Lorraine
+175	2139	Elsaß	Alsace
+188	546	Stadt Luxemburg	Suremburg
+188	547	Stadt Luxemburg	Lurcmburg
+188	556	Stadt Luxemburg	Lmemburg
+188	562	Stadt Luxemburg	ïuiemburg
+188	584	Stadt Luxemburg	Luxemburg
+188	1324	Stadt Luxemburg	Luremburg
+188	2251	Stadt Luxemburg	Luxembourg
+190	3799	Waterloo	Waterloo
+192	1046	Budapest	innere Stadt Budapest
+192	2661	Budapest	Budapest
+192	3459	Budapest	Pesth
+201	435	Brasso	Kronstadt
+202	661	Prag	"Pra"""
+202	664	Prag	Fraq
+202	2038	Prag	Prague
+202	2876	Prag	PRAGUE
+203	967	Oesterreich-Ungarn	Oester¬ reich-Ungarn
+203	1010	Oesterreich-Ungarn	Oesterreich
+203	2120	Oesterreich-Ungarn	Autriche
+203	2170	Oesterreich-Ungarn	Autriche-Hongrie
+204	205	Konstantinopel	Kon¬ anninopel
+204	208	Konstantinopel	Kon¬ stantinopel
+204	1980	Konstantinopel	Conflantinople
+204	2343	Konstantinopel	Constantinople
+204	3457	Konstantinopel	Constanlinople
+205	208	Kon¬ anninopel	Kon¬ stantinopel
+205	1980	Kon¬ anninopel	Conflantinople
+205	2343	Kon¬ anninopel	Constantinople
+205	3457	Kon¬ anninopel	Constanlinople
+207	3447	Bosporus	Bosphore
+208	1980	Kon¬ stantinopel	Conflantinople
+208	2343	Kon¬ stantinopel	Constantinople
+208	3457	Kon¬ stantinopel	Constanlinople
+209	1449	Wien	Vienna
+209	1465	Wien	VIENNA
+209	1930	Wien	Vienne
+209	2798	Wien	VIENNE
+210	517	Zürichs	Städte Zürich
+210	852	Zürichs	Zürichputsch
+210	1029	Zürichs	Zü¬ rich
+210	1031	Zürichs	Bezirke Zürich
+210	1179	Zürichs	gf.
+210	1182	Zürichs	Türioh
+210	1956	Zürichs	Zurich
+210	2818	Zürichs	ZURICH
+210	2867	Zürichs	rich
+211	220	Westschweiz	Welschland
+211	222	Westschweiz	welsche Schweiz
+211	227	Westschweiz	welschen Schweiz
+211	1904	Westschweiz	Suisse mande
+211	1957	Westschweiz	Suisse romande
+211	2145	Westschweiz	Suisse française
+211	2869	Westschweiz	Suisses romands
+216	501	Lausanne	Lau¬ sanne
+216	2040	Lausanne	Lausanne
+216	2123	Lausanne	LAUSANNE
+216	2480	Lausanne	LAESANMÎ
+216	3170	Lausanne	Laufanne
+216	3596	Lausanne	lausanne
+216	3598	Lausanne	Laasanne
+216	3729	Lausanne	sanne
+216	3800	Lausanne	Ville de Lausanne
+217	855	Luzern	Luzerns
+217	1185	Luzern	Lusern
+217	2238	Luzern	Lucerne
+217	2390	Luzern	LUCERNE
+217	3470	Luzern	Iiiicerric
+219	2103	Leman	lac de Genève
+219	2928	Leman	Léman
+220	222	Welschland	welsche Schweiz
+220	227	Welschland	welschen Schweiz
+220	1904	Welschland	Suisse mande
+220	1957	Welschland	Suisse romande
+220	2145	Welschland	Suisse française
+220	2869	Welschland	Suisses romands
+221	878	Waadt	Kanton Waadt
+221	1847	Waadt	VAUD
+221	1848	Waadt	canton de Vaud
+221	1869	Waadt	Vaud
+221	2451	Waadt	fond
+221	2481	Waadt	canton de VpûdV'
+221	3364	Waadt	Fatal
+221	3572	Waadt	CANTON DE VAÏÏD
+222	227	welsche Schweiz	welschen Schweiz
+222	1904	welsche Schweiz	Suisse mande
+222	1957	welsche Schweiz	Suisse romande
+222	2145	welsche Schweiz	Suisse française
+222	2869	welsche Schweiz	Suisses romands
+223	800	Neuen¬ burg	Neuenburg
+223	1861	Neuen¬ burg	Neuchâtel
+223	2269	Neuen¬ burg	Neuchatel
+223	2331	Neuen¬ burg	NEUCHATEL
+223	2444	Neuen¬ burg	Neuchâld
+223	2766	Neuen¬ burg	Neu » châtel
+223	2851	Neuen¬ burg	NeuchâteL
+223	2901	Neuen¬ burg	ville de Neuchâtel
+223	2902	Neuen¬ burg	vill a de Neuchâtel
+223	2989	Neuen¬ burg	Ville de Neuchâtel
+223	3012	Neuen¬ burg	NEUCHÂTEL
+223	3820	Neuen¬ burg	Neucbâtel
+224	2504	Jura	Jura
+224	2890	Jura	outre-Jura
+224	2942	Jura	JURA
+225	841	Bellinzona	Bellin¬ zona
+225	2490	Bellinzona	Bellinzone
+226	2146	italienische Schweiz	italienne
+227	1904	welschen Schweiz	Suisse mande
+227	1957	welschen Schweiz	Suisse romande
+227	2145	welschen Schweiz	Suisse française
+227	2869	welschen Schweiz	Suisses romands
+229	2846	St. Gallen	Saint-Gall
+229	3489	St. Gallen	St-Gall
+230	3816	Jouxtale	Vallée de Joux
+231	2764	Besançon	Besançon
+231	3227	Besançon	Bezanqon
+234	520	Frankfurt	Franke¬ furt
+234	654	Frankfurt	Frankfurt am Main
+234	869	Frankfurt	Frank¬ furt
+234	1410	Frankfurt	Frankfurt a. M.
+234	2036	Frankfurt	Francfort
+234	2806	Frankfurt	FRANCFORT
+238	2540	Ardennen	Ardennes
+240	700	Lyon	GemeindeLyon
+240	701	Lyon	Gemeinde Lyon
+240	2110	Lyon	Lyon
+243	2066	Elberkeld	Eberfeld
+245	2064	Köln	Cologne
+247	340	Niederlanden	Hollands
+247	1239	Niederlanden	Iolland
+247	1244	Niederlanden	IIoll.
+247	1951	Niederlanden	Ho
+247	2209	Niederlanden	Hollande
+247	2366	Niederlanden	lande
+247	2984	Niederlanden	Hol
+247	3217	Niederlanden	Pays-Bas
+249	456	Japan	Japans
+249	1619	Japan	Japan
+249	1969	Japan	Japon
+250	1990	Schweden	Suède
+250	3197	Schweden	S. éde
+254	2216	Norschach	Rorschach
+256	2549	Rheinfelden	Rheinfelden
+258	273	Deutschlands	Deutsehland
+258	279	Deutschlands	Deutseh¬ lands
+258	524	Deutschlands	Deutschlandfrage
+258	779	Deutschlands	Dentschland
+258	1242	Deutschlands	Deutschl.
+258	1318	Deutschlands	Deutseh¬ land
+258	1319	Deutschlands	Deutsehlands
+258	1321	Deutschlands	Deutschlunel
+258	1322	Deutschlands	Doutschlands
+258	1621	Deutschlands	Germany—one
+258	1877	Deutschlands	Allemagne
+258	1947	Deutschlands	Ail
+258	1972	Deutschlands	ALLEMAGNE
+258	2351	Deutschlands	Germanie
+258	2780	Deutschlands	Deutschland
+259	320	Oesterreich	D e st exxe i d)
+259	323	Oesterreich	Oesterrcich
+259	326	Oesterreich	O est er reich
+259	328	Oesterreich	Ocstcrrcich
+259	445	Oesterreich	Oesterreichs
+259	743	Oesterreich	Oester¬ reichischen
+259	1011	Oesterreich	Deutschösterreich
+259	1211	Oesterreich	Oester¬ reich
+259	1385	Oesterreich	Österreichs
+259	1474	Oesterreich	Austria
+259	2012	Oesterreich	Autriche
+260	265	Sowjetunion	Rulland
+260	267	Sowjetunion	Rulsland
+260	293	Sowjetunion	Rulslands
+260	1200	Sowjetunion	Sowjetrußlands
+260	1202	Sowjetunion	Sowjetrußland
+260	1392	Sowjetunion	Nußlanb
+260	1394	Sowjetunion	Ruhlanb
+260	1398	Sowjetunion	Rußlands
+260	1399	Sowjetunion	Ruhlanbs
+260	1400	Sowjetunion	Rufzlanb
+260	2609	Sowjetunion	Union soviétique
+260	2958	Sowjetunion	URSS
+261	287	nationalsozialistischen Deutschland	Deutschland
+261	1203	nationalsozialistischen Deutschland	Deutsch¬ land
+261	1210	nationalsozialistischen Deutschland	Dritten Reiches
+261	1386	nationalsozialistischen Deutschland	Deutschlands
+261	1387	nationalsozialistischen Deutschland	Deut' schen Reiches
+261	2660	nationalsozialistischen Deutschland	Reich
+261	3720	nationalsozialistischen Deutschland	Allemagne
+262	268	Europas	Puropa
+262	276	Europas	Buropahilse
+262	363	Europas	Europens
+262	402	Europas	Europa
+262	537	Europas	Luropa
+262	785	Europas	Europa's
+262	1309	Europas	louropa
+262	1336	Europas	continentale» Europa
+262	1524	Europas	Europe
+262	1785	Europas	European
+262	1871	Europas	Europe
+262	2237	Europas	Eurone
+262	3751	Europas	Vieux-Continent
+264	454	Englands	Eng¬ land
+264	539	Englands	Eusland
+264	589	Englands	©nglanb
+264	593	Englands	Englanb
+264	597	Englands	E n g l a n b
+264	634	Englands	Enßlmrds
+264	877	Englands	England's
+264	1475	Englands	England
+264	1915	Englands	Angleterre
+264	2053	Englands	ANGLETERRE
+264	3655	Englands	England
+264	3694	Englands	Angle * terre
+265	267	Rulland	Rulsland
+265	293	Rulland	Rulslands
+265	1200	Rulland	Sowjetrußlands
+265	1202	Rulland	Sowjetrußland
+265	1392	Rulland	Nußlanb
+265	1394	Rulland	Ruhlanb
+265	1398	Rulland	Rußlands
+265	1399	Rulland	Ruhlanbs
+265	1400	Rulland	Rufzlanb
+265	2609	Rulland	Union soviétique
+265	2958	Rulland	URSS
+266	615	Berlins	Stadt Berlin
+266	1391	Berlins	Verlin
+266	2049	Berlins	BERUN
+266	2065	Berlins	Berlin
+266	2369	Berlins	BERLIN
+266	3661	Berlins	àBerlin
+267	293	Rulsland	Rulslands
+267	1200	Rulsland	Sowjetrußlands
+267	1202	Rulsland	Sowjetrußland
+267	1392	Rulsland	Nußlanb
+267	1394	Rulsland	Ruhlanb
+267	1398	Rulsland	Rußlands
+267	1399	Rulsland	Ruhlanbs
+267	1400	Rulsland	Rufzlanb
+267	2609	Rulsland	Union soviétique
+267	2958	Rulsland	URSS
+268	276	Puropa	Buropahilse
+268	363	Puropa	Europens
+268	402	Puropa	Europa
+268	537	Puropa	Luropa
+268	785	Puropa	Europa's
+268	1309	Puropa	louropa
+268	1336	Puropa	continentale» Europa
+268	1524	Puropa	Europe
+268	1785	Puropa	European
+268	1871	Puropa	Europe
+268	2237	Puropa	Eurone
+268	3751	Puropa	Vieux-Continent
+269	280	Moskau	Moskeau
+269	281	Moskau	Moskaus
+269	285	Moskau	Mloskau
+269	527	Moskau	Mo-kau
+269	1616	Moskau	Moscow
+269	1919	Moskau	Moscou
+270	275	Westdeutschland	West¬ deutschland
+270	278	Westdeutschland	Westdeutschlands
+270	2633	Westdeutschland	Aile-, magne occidentale
+270	3785	Westdeutschland	RFA
+270	3808	Westdeutschland	Allemagne
+273	279	Deutsehland	Deutseh¬ lands
+273	524	Deutsehland	Deutschlandfrage
+273	779	Deutsehland	Dentschland
+273	1242	Deutsehland	Deutschl.
+273	1318	Deutsehland	Deutseh¬ land
+273	1319	Deutsehland	Deutsehlands
+273	1321	Deutsehland	Deutschlunel
+273	1322	Deutsehland	Doutschlands
+273	1621	Deutsehland	Germany—one
+273	1877	Deutsehland	Allemagne
+273	1947	Deutsehland	Ail
+273	1972	Deutsehland	ALLEMAGNE
+273	2351	Deutsehland	Germanie
+273	2780	Deutsehland	Deutschland
+274	343	Westeuropa	Westeuropas
+274	541	Westeuropa	Mesteuropa
+274	972	Westeuropa	Westen Europa's
+274	1304	Westeuropa	West¬ curopa
+274	2235	Westeuropa	Europe occidentale
+274	3782	Westeuropa	Europe
+275	278	West¬ deutschland	Westdeutschlands
+275	2633	West¬ deutschland	Aile-, magne occidentale
+275	3785	West¬ deutschland	RFA
+275	3808	West¬ deutschland	Allemagne
+276	363	Buropahilse	Europens
+276	402	Buropahilse	Europa
+276	537	Buropahilse	Luropa
+276	785	Buropahilse	Europa's
+276	1309	Buropahilse	louropa
+276	1336	Buropahilse	continentale» Europa
+276	1524	Buropahilse	Europe
+276	1785	Buropahilse	European
+276	1871	Buropahilse	Europe
+276	2237	Buropahilse	Eurone
+276	3751	Buropahilse	Vieux-Continent
+277	288	Vereinigten Stuaten von Amerikea	Amerikka
+277	346	Vereinigten Stuaten von Amerikea	Vereinigten Staaten
+277	347	Vereinigten Stuaten von Amerikea	U. S. A.
+277	381	Vereinigten Stuaten von Amerikea	Vereinigten Staaten Amerikas
+277	403	Vereinigten Stuaten von Amerikea	Vereinigten Staaten von Nord¬ amerika
+277	1033	Vereinigten Stuaten von Amerikea	Vereinigten Staaten von Nordamerika
+277	1043	Vereinigten Stuaten von Amerikea	Ame¬ rika
+277	1044	Vereinigten Stuaten von Amerikea	Ver.
+277	1303	Vereinigten Stuaten von Amerikea	Vereinigten Staaten von Amerika
+277	1306	Vereinigten Stuaten von Amerikea	Vereinigten Stanten
+277	1315	Vereinigten Stuaten von Amerikea	U.S.A.
+277	1414	Vereinigten Stuaten von Amerikea	Vereinigten - Staaten
+277	1426	Vereinigten Stuaten von Amerikea	Unitec?
+277	1430	Vereinigten Stuaten von Amerikea	the Uni¬ ted Srates
+277	1433	Vereinigten Stuaten von Amerikea	America
+277	1481	Vereinigten Stuaten von Amerikea	United States
+277	1491	Vereinigten Stuaten von Amerikea	U. States
+277	1500	Vereinigten Stuaten von Amerikea	United States of America
+277	1512	Vereinigten Stuaten von Amerikea	the U. S.
+277	1555	Vereinigten Stuaten von Amerikea	the United States
+277	1651	Vereinigten Stuaten von Amerikea	United Stat-s
+277	1722	Vereinigten Stuaten von Amerikea	Uni¬ ted Stares
+277	1757	Vereinigten Stuaten von Amerikea	United Stares
+277	1758	Vereinigten Stuaten von Amerikea	United Slates
+277	1762	Vereinigten Stuaten von Amerikea	Unit ;d States
+277	1819	Vereinigten Stuaten von Amerikea	American
+277	1900	Vereinigten Stuaten von Amerikea	Etats-Unis
+277	1949	Vereinigten Stuaten von Amerikea	EU
+277	2645	Vereinigten Stuaten von Amerikea	USA
+277	2778	Vereinigten Stuaten von Amerikea	Amérique
+277	2857	Vereinigten Stuaten von Amerikea	Etals-Unis
+277	3485	Vereinigten Stuaten von Amerikea	Etats-Uuis
+277	3673	Vereinigten Stuaten von Amerikea	Etais-Unis
+277	3747	Vereinigten Stuaten von Amerikea	Lesta-Unis
+277	3833	Vereinigten Stuaten von Amerikea	Améru _/ ue
+278	2633	Westdeutschlands	Aile-, magne occidentale
+278	3785	Westdeutschlands	RFA
+278	3808	Westdeutschlands	Allemagne
+279	524	Deutseh¬ lands	Deutschlandfrage
+279	779	Deutseh¬ lands	Dentschland
+279	1242	Deutseh¬ lands	Deutschl.
+279	1318	Deutseh¬ lands	Deutseh¬ land
+279	1319	Deutseh¬ lands	Deutsehlands
+279	1321	Deutseh¬ lands	Deutschlunel
+279	1322	Deutseh¬ lands	Doutschlands
+279	1621	Deutseh¬ lands	Germany—one
+279	1877	Deutseh¬ lands	Allemagne
+279	1947	Deutseh¬ lands	Ail
+279	1972	Deutseh¬ lands	ALLEMAGNE
+279	2351	Deutseh¬ lands	Germanie
+279	2780	Deutseh¬ lands	Deutschland
+280	281	Moskeau	Moskaus
+280	285	Moskeau	Mloskau
+280	527	Moskeau	Mo-kau
+280	1616	Moskeau	Moscow
+280	1919	Moskeau	Moscou
+281	285	Moskaus	Mloskau
+281	527	Moskaus	Mo-kau
+281	1616	Moskaus	Moscow
+281	1919	Moskaus	Moscou
+282	284	Kulrgebiet	Rulirgebiet
+282	519	Kulrgebiet	Ruhrgebiet
+282	526	Kulrgebiet	Ruhrgebiets
+282	529	Kulrgebiet	Ruhn¬ gebiet
+282	533	Kulrgebiet	Ruhr¬ gebiets
+283	2009	Warschau	Varsovie
+283	3299	Warschau	VARSOVIE
+284	519	Rulirgebiet	Ruhrgebiet
+284	526	Rulirgebiet	Ruhrgebiets
+284	529	Rulirgebiet	Ruhn¬ gebiet
+284	533	Rulirgebiet	Ruhr¬ gebiets
+285	527	Mloskau	Mo-kau
+285	1616	Mloskau	Moscow
+285	1919	Mloskau	Moscou
+286	327	Pots¬ dam	Potsdam
+287	1203	Deutschland	Deutsch¬ land
+287	1210	Deutschland	Dritten Reiches
+287	1386	Deutschland	Deutschlands
+287	1387	Deutschland	Deut' schen Reiches
+287	2660	Deutschland	Reich
+287	3720	Deutschland	Allemagne
+288	346	Amerikka	Vereinigten Staaten
+288	347	Amerikka	U. S. A.
+288	381	Amerikka	Vereinigten Staaten Amerikas
+288	403	Amerikka	Vereinigten Staaten von Nord¬ amerika
+288	1033	Amerikka	Vereinigten Staaten von Nordamerika
+288	1043	Amerikka	Ame¬ rika
+288	1044	Amerikka	Ver.
+288	1303	Amerikka	Vereinigten Staaten von Amerika
+288	1306	Amerikka	Vereinigten Stanten
+288	1315	Amerikka	U.S.A.
+288	1414	Amerikka	Vereinigten - Staaten
+288	1426	Amerikka	Unitec?
+288	1430	Amerikka	the Uni¬ ted Srates
+288	1433	Amerikka	America
+288	1481	Amerikka	United States
+288	1491	Amerikka	U. States
+288	1500	Amerikka	United States of America
+288	1512	Amerikka	the U. S.
+288	1555	Amerikka	the United States
+288	1651	Amerikka	United Stat-s
+288	1722	Amerikka	Uni¬ ted Stares
+288	1757	Amerikka	United Stares
+288	1758	Amerikka	United Slates
+288	1762	Amerikka	Unit ;d States
+288	1819	Amerikka	American
+288	1900	Amerikka	Etats-Unis
+288	1949	Amerikka	EU
+288	2645	Amerikka	USA
+288	2778	Amerikka	Amérique
+288	2857	Amerikka	Etals-Unis
+288	3485	Amerikka	Etats-Uuis
+288	3673	Amerikka	Etais-Unis
+288	3747	Amerikka	Lesta-Unis
+288	3833	Amerikka	Améru _/ ue
+289	400	Washingtons	Wa¬ shington
+289	401	Washingtons	Washington
+289	404	Washingtons	Wafhington
+289	540	Washingtons	Mashington
+289	1040	Washingtons	Washing¬ ton
+289	1375	Washingtons	"Nwshln^-""'"
+289	1531	Washingtons	City of Washington
+289	1768	Washingtons	Washington
+289	1776	Washingtons	District of Columbia
+289	1778	Washingtons	It 'asliington
+289	2673	Washingtons	Washington
+290	338	Frankpeich	Frankreichs
+290	349	Frankpeich	Frank reichs
+290	530	Frankpeich	Prankreich
+290	538	Frankpeich	Frank¬ reich
+290	1156	Frankpeich	Frank¬ reichs
+290	1241	Frankpeich	Frankr.
+290	1352	Frankpeich	Frank« reich
+290	1432	Frankpeich	France
+290	1476	Frankpeich	Frtnce
+290	1739	Frankpeich	Fiance
+290	1878	Frankpeich	France
+290	1945	Frankpeich	Fr
+290	1953	Frankpeich	République française
+290	2433	Frankpeich	FRANCE
+290	2505	Frankpeich	FRANGE
+290	2986	Frankpeich	Fra
+290	3084	Frankpeich	Fiance
+290	3137	Frankpeich	1 rance
+290	3413	Frankpeich	ELANCE
+291	296	GroGönikannien	Grolbritannien
+291	337	GroGönikannien	Großbritanniens
+291	532	GroGönikannien	Groz¬ brikannien
+291	808	GroGönikannien	vereinigten Kö¬ nigreichs
+291	1047	GroGönikannien	Großbritannien
+291	1136	GroGönikannien	Groß¬ britannien
+291	1280	GroGönikannien	Grolbnikannien
+291	1308	GroGönikannien	Grollbnitanniens
+291	2231	GroGönikannien	Grande-Brelanm
+291	2317	GroGönikannien	Grande-Bretagne
+291	3748	GroGönikannien	lita de-Bretagne
+292	2953	Kreml	Kremlin
+293	1200	Rulslands	Sowjetrußlands
+293	1202	Rulslands	Sowjetrußland
+293	1392	Rulslands	Nußlanb
+293	1394	Rulslands	Ruhlanb
+293	1398	Rulslands	Rußlands
+293	1399	Rulslands	Ruhlanbs
+293	1400	Rulslands	Rufzlanb
+293	2609	Rulslands	Union soviétique
+293	2958	Rulslands	URSS
+294	303	Kairo	Cairo
+294	304	Kairo	Eniro
+294	1986	Kairo	Caire
+294	2643	Kairo	Le Caire
+295	298	Aexypten	Aegypten
+295	299	Aexypten	Aegyptens
+295	300	Aexypten	Aesppten
+295	774	Aexypten	Aegyp¬ ten
+295	1643	Aexypten	Egypt
+295	1984	Aexypten	Egypte
+296	337	Grolbritannien	Großbritanniens
+296	532	Grolbritannien	Groz¬ brikannien
+296	808	Grolbritannien	vereinigten Kö¬ nigreichs
+296	1047	Grolbritannien	Großbritannien
+296	1136	Grolbritannien	Groß¬ britannien
+296	1280	Grolbritannien	Grolbnikannien
+296	1308	Grolbritannien	Grollbnitanniens
+296	2231	Grolbritannien	Grande-Brelanm
+296	2317	Grolbritannien	Grande-Bretagne
+296	3748	Grolbritannien	lita de-Bretagne
+298	299	Aegypten	Aegyptens
+298	300	Aegypten	Aesppten
+298	774	Aegypten	Aegyp¬ ten
+298	1643	Aegypten	Egypt
+298	1984	Aegypten	Egypte
+299	300	Aegyptens	Aesppten
+299	774	Aegyptens	Aegyp¬ ten
+299	1643	Aegyptens	Egypt
+299	1984	Aegyptens	Egypte
+300	774	Aesppten	Aegyp¬ ten
+300	1643	Aesppten	Egypt
+300	1984	Aesppten	Egypte
+301	528	Landem	Lon don
+301	565	Landem	l'ont» on
+301	595	Landem	Lonbon
+301	596	Landem	Sondon
+301	598	Landem	Sonbon
+301	704	Landem	Lon¬ don
+301	1296	Landem	Lond
+301	1305	Landem	bondon
+301	1307	Landem	london
+301	1478	Landem	London
+301	1492	Landem	L ondon
+301	1727	Landem	LONDON
+301	1883	Landem	Londres
+301	1899	Landem	LONDRES
+301	2571	Landem	Londires
+301	3180	Landem	ville de Londres
+301	3503	Landem	Iiondres
+303	304	Cairo	Eniro
+303	1986	Cairo	Caire
+303	2643	Cairo	Le Caire
+304	1986	Eniro	Caire
+304	2643	Eniro	Le Caire
+306	307	Paliistina	Paliistinn
+308	309	Neumarkte	Neumarkt
+320	323	D e st exxe i d)	Oesterrcich
+320	326	D e st exxe i d)	O est er reich
+320	328	D e st exxe i d)	Ocstcrrcich
+320	445	D e st exxe i d)	Oesterreichs
+320	743	D e st exxe i d)	Oester¬ reichischen
+320	1011	D e st exxe i d)	Deutschösterreich
+320	1211	D e st exxe i d)	Oester¬ reich
+320	1385	D e st exxe i d)	Österreichs
+320	1474	D e st exxe i d)	Austria
+320	2012	D e st exxe i d)	Autriche
+321	3171	Leipzig	LEIPSIG
+321	3200	Leipzig	Leipzig
+322	330	Olmütz	Dlmü&
+322	3107	Olmütz	Oltnutz
+322	3110	Olmütz	Olmutz
+323	326	Oesterrcich	O est er reich
+323	328	Oesterrcich	Ocstcrrcich
+323	445	Oesterrcich	Oesterreichs
+323	743	Oesterrcich	Oester¬ reichischen
+323	1011	Oesterrcich	Deutschösterreich
+323	1211	Oesterrcich	Oester¬ reich
+323	1385	Oesterrcich	Österreichs
+323	1474	Oesterrcich	Austria
+323	2012	Oesterrcich	Autriche
+324	1113	Ungarn	Ungarns
+324	1447	Ungarn	Hungary
+324	2354	Ungarn	Hongrie
+324	3314	Ungarn	HONGRIE
+325	329	Broatien	(Kroatien
+325	923	Broatien	Kroatien
+325	3342	Broatien	Croatie
+326	328	O est er reich	Ocstcrrcich
+326	445	O est er reich	Oesterreichs
+326	743	O est er reich	Oester¬ reichischen
+326	1011	O est er reich	Deutschösterreich
+326	1211	O est er reich	Oester¬ reich
+326	1385	O est er reich	Österreichs
+326	1474	O est er reich	Austria
+326	2012	O est er reich	Autriche
+328	445	Ocstcrrcich	Oesterreichs
+328	743	Ocstcrrcich	Oester¬ reichischen
+328	1011	Ocstcrrcich	Deutschösterreich
+328	1211	Ocstcrrcich	Oester¬ reich
+328	1385	Ocstcrrcich	Österreichs
+328	1474	Ocstcrrcich	Austria
+328	2012	Ocstcrrcich	Autriche
+329	923	(Kroatien	Kroatien
+329	3342	(Kroatien	Croatie
+330	3107	Dlmü&	Oltnutz
+330	3110	Dlmü&	Olmutz
+331	332	Preußen	Preußenland
+331	762	Preußen	Preussen
+331	1212	Preußen	Preußens
+332	762	Preußenland	Preussen
+332	1212	Preußenland	Preußens
+334	1342	Oesterreich	Ocsterreichs
+334	3359	Oesterreich	Autriche
+337	532	Großbritanniens	Groz¬ brikannien
+337	808	Großbritanniens	vereinigten Kö¬ nigreichs
+337	1047	Großbritanniens	Großbritannien
+337	1136	Großbritanniens	Groß¬ britannien
+337	1280	Großbritanniens	Grolbnikannien
+337	1308	Großbritanniens	Grollbnitanniens
+337	2231	Großbritanniens	Grande-Brelanm
+337	2317	Großbritanniens	Grande-Bretagne
+337	3748	Großbritanniens	lita de-Bretagne
+338	349	Frankreichs	Frank reichs
+338	530	Frankreichs	Prankreich
+338	538	Frankreichs	Frank¬ reich
+338	1156	Frankreichs	Frank¬ reichs
+338	1241	Frankreichs	Frankr.
+338	1352	Frankreichs	Frank« reich
+338	1432	Frankreichs	France
+338	1476	Frankreichs	Frtnce
+338	1739	Frankreichs	Fiance
+338	1878	Frankreichs	France
+338	1945	Frankreichs	Fr
+338	1953	Frankreichs	République française
+338	2433	Frankreichs	FRANCE
+338	2505	Frankreichs	FRANGE
+338	2986	Frankreichs	Fra
+338	3084	Frankreichs	Fiance
+338	3137	Frankreichs	1 rance
+338	3413	Frankreichs	ELANCE
+339	531	Beneluxstaaten	Benelux
+340	1239	Hollands	Iolland
+340	1244	Hollands	IIoll.
+340	1951	Hollands	Ho
+340	2209	Hollands	Hollande
+340	2366	Hollands	lande
+340	2984	Hollands	Hol
+340	3217	Hollands	Pays-Bas
+341	1233	Belgiens	Belaien
+341	1235	Belgiens	Bel¬ gien
+341	1942	Belgiens	Be
+341	2068	Belgiens	Belgique
+341	2982	Belgiens	Bel
+342	345	Luxemburgs	Luxemburg
+342	544	Luxemburgs	Lurem biurg
+342	545	Luxemburgs	Lurcmburg
+342	548	Luxemburgs	Luremburg
+342	569	Luxemburgs	SujemDurg
+342	1236	Luxemburgs	Luxem¬ burg
+342	1243	Luxemburgs	Lux.
+342	1245	Luxemburgs	inre
+342	1337	Luxemburgs	L rnnburg
+342	2063	Luxemburgs	Luxembourg
+343	541	Westeuropas	Mesteuropa
+343	972	Westeuropas	Westen Europa's
+343	1304	Westeuropas	West¬ curopa
+343	2235	Westeuropas	Europe occidentale
+343	3782	Westeuropas	Europe
+344	1356	Bartringen	Bariringen
+345	544	Luxemburg	Lurem biurg
+345	545	Luxemburg	Lurcmburg
+345	548	Luxemburg	Luremburg
+345	569	Luxemburg	SujemDurg
+345	1236	Luxemburg	Luxem¬ burg
+345	1243	Luxemburg	Lux.
+345	1245	Luxemburg	inre
+345	1337	Luxemburg	L rnnburg
+345	2063	Luxemburg	Luxembourg
+346	347	Vereinigten Staaten	U. S. A.
+346	381	Vereinigten Staaten	Vereinigten Staaten Amerikas
+346	403	Vereinigten Staaten	Vereinigten Staaten von Nord¬ amerika
+346	1033	Vereinigten Staaten	Vereinigten Staaten von Nordamerika
+346	1043	Vereinigten Staaten	Ame¬ rika
+346	1044	Vereinigten Staaten	Ver.
+346	1303	Vereinigten Staaten	Vereinigten Staaten von Amerika
+346	1306	Vereinigten Staaten	Vereinigten Stanten
+346	1315	Vereinigten Staaten	U.S.A.
+346	1414	Vereinigten Staaten	Vereinigten - Staaten
+346	1426	Vereinigten Staaten	Unitec?
+346	1430	Vereinigten Staaten	the Uni¬ ted Srates
+346	1433	Vereinigten Staaten	America
+346	1481	Vereinigten Staaten	United States
+346	1491	Vereinigten Staaten	U. States
+346	1500	Vereinigten Staaten	United States of America
+346	1512	Vereinigten Staaten	the U. S.
+346	1555	Vereinigten Staaten	the United States
+346	1651	Vereinigten Staaten	United Stat-s
+346	1722	Vereinigten Staaten	Uni¬ ted Stares
+346	1757	Vereinigten Staaten	United Stares
+346	1758	Vereinigten Staaten	United Slates
+346	1762	Vereinigten Staaten	Unit ;d States
+346	1819	Vereinigten Staaten	American
+346	1900	Vereinigten Staaten	Etats-Unis
+346	1949	Vereinigten Staaten	EU
+346	2645	Vereinigten Staaten	USA
+346	2778	Vereinigten Staaten	Amérique
+346	2857	Vereinigten Staaten	Etals-Unis
+346	3485	Vereinigten Staaten	Etats-Uuis
+346	3673	Vereinigten Staaten	Etais-Unis
+346	3747	Vereinigten Staaten	Lesta-Unis
+346	3833	Vereinigten Staaten	Améru _/ ue
+347	381	U. S. A.	Vereinigten Staaten Amerikas
+347	403	U. S. A.	Vereinigten Staaten von Nord¬ amerika
+347	1033	U. S. A.	Vereinigten Staaten von Nordamerika
+347	1043	U. S. A.	Ame¬ rika
+347	1044	U. S. A.	Ver.
+347	1303	U. S. A.	Vereinigten Staaten von Amerika
+347	1306	U. S. A.	Vereinigten Stanten
+347	1315	U. S. A.	U.S.A.
+347	1414	U. S. A.	Vereinigten - Staaten
+347	1426	U. S. A.	Unitec?
+347	1430	U. S. A.	the Uni¬ ted Srates
+347	1433	U. S. A.	America
+347	1481	U. S. A.	United States
+347	1491	U. S. A.	U. States
+347	1500	U. S. A.	United States of America
+347	1512	U. S. A.	the U. S.
+347	1555	U. S. A.	the United States
+347	1651	U. S. A.	United Stat-s
+347	1722	U. S. A.	Uni¬ ted Stares
+347	1757	U. S. A.	United Stares
+347	1758	U. S. A.	United Slates
+347	1762	U. S. A.	Unit ;d States
+347	1819	U. S. A.	American
+347	1900	U. S. A.	Etats-Unis
+347	1949	U. S. A.	EU
+347	2645	U. S. A.	USA
+347	2778	U. S. A.	Amérique
+347	2857	U. S. A.	Etals-Unis
+347	3485	U. S. A.	Etats-Uuis
+347	3673	U. S. A.	Etais-Unis
+347	3747	U. S. A.	Lesta-Unis
+347	3833	U. S. A.	Améru _/ ue
+349	530	Frank reichs	Prankreich
+349	538	Frank reichs	Frank¬ reich
+349	1156	Frank reichs	Frank¬ reichs
+349	1241	Frank reichs	Frankr.
+349	1352	Frank reichs	Frank« reich
+349	1432	Frank reichs	France
+349	1476	Frank reichs	Frtnce
+349	1739	Frank reichs	Fiance
+349	1878	Frank reichs	France
+349	1945	Frank reichs	Fr
+349	1953	Frank reichs	République française
+349	2433	Frank reichs	FRANCE
+349	2505	Frank reichs	FRANGE
+349	2986	Frank reichs	Fra
+349	3084	Frank reichs	Fiance
+349	3137	Frank reichs	1 rance
+349	3413	Frank reichs	ELANCE
+350	3085	Seeland	Séelande
+351	2101	Kopenhagen	Copenhague
+351	2381	Kopenhagen	COPENHAGUE
+353	354	Dänemark	Dä¬ nemark
+353	864	Dänemark	Däne¬ mark
+353	1950	Dänemark	Dan
+353	2242	Dänemark	Danemark
+353	3296	Dänemark	Danemarck
+354	864	Dä¬ nemark	Däne¬ mark
+354	1950	Dä¬ nemark	Dan
+354	2242	Dä¬ nemark	Danemark
+354	3296	Dä¬ nemark	Danemarck
+356	358	Petersburg	Peters¬ burg
+356	895	Petersburg	St. Petersburg
+356	902	Petersburg	St. Peters¬ burg
+356	1929	Petersburg	Saint-Pétersbourg
+356	1988	Petersburg	PBTERSBOURG
+356	1995	Petersburg	Pétersbourg
+356	2349	Petersburg	ST-PéTEESBODEG
+356	2755	Petersburg	PETROGRAD
+356	2757	Petersburg	Pétrograd
+356	2758	Petersburg	PÉTROGRAD
+356	3298	Petersburg	St-Pélersbourg
+356	3300	Petersburg	StrPélersbourg
+356	3458	Petersburg	St-Pétersbourg
+358	895	Peters¬ burg	St. Petersburg
+358	902	Peters¬ burg	St. Peters¬ burg
+358	1929	Peters¬ burg	Saint-Pétersbourg
+358	1988	Peters¬ burg	PBTERSBOURG
+358	1995	Peters¬ burg	Pétersbourg
+358	2349	Peters¬ burg	ST-PéTEESBODEG
+358	2755	Peters¬ burg	PETROGRAD
+358	2757	Peters¬ burg	Pétrograd
+358	2758	Peters¬ burg	PÉTROGRAD
+358	3298	Peters¬ burg	St-Pélersbourg
+358	3300	Peters¬ burg	StrPélersbourg
+358	3458	Peters¬ burg	St-Pétersbourg
+360	2875	Nürnberg	Nuremberg
+360	2881	Nürnberg	NUREMBERG
+361	783	Königreich Wür¬ temberg	Würtemberg
+361	3088	Königreich Wür¬ temberg	Wurtemberg
+362	392	Stuttgart	Stutt¬ gart
+362	3345	Stuttgart	STUTTGARD
+363	402	Europens	Europa
+363	537	Europens	Luropa
+363	785	Europens	Europa's
+363	1309	Europens	louropa
+363	1336	Europens	continentale» Europa
+363	1524	Europens	Europe
+363	1785	Europens	European
+363	1871	Europens	Europe
+363	2237	Europens	Eurone
+363	3751	Europens	Vieux-Continent
+365	860	Schweizerische Eidgenossenschaft	chweiz
+365	1214	Schweizerische Eidgenossenschaft	Suisse
+365	1234	Schweizerische Eidgenossenschaft	Schwciz
+365	1237	Schweizerische Eidgenossenschaft	Sehweie
+365	1238	Schweizerische Eidgenossenschaft	Schw.
+365	1240	Schweizerische Eidgenossenschaft	Schi.
+365	1246	Schweizerische Eidgenossenschaft	Gelte
+365	1247	Schweizerische Eidgenossenschaft	Schwe.
+365	1302	Schweizerische Eidgenossenschaft	Sehweiz
+365	1859	Schweizerische Eidgenossenschaft	_Puisse
+365	1865	Schweizerische Eidgenossenschaft	SUISSE
+365	1868	Schweizerische Eidgenossenschaft	Suisse
+365	1870	Schweizerische Eidgenossenschaft	Confédération
+365	1943	Schweizerische Eidgenossenschaft	S
+365	2125	Schweizerische Eidgenossenschaft	YHelvélie
+365	2402	Schweizerische Eidgenossenschaft	RÉPUBLIQUE HELVÉTIQUE
+365	2434	Schweizerische Eidgenossenschaft	Helvétie
+365	2443	Schweizerische Eidgenossenschaft	CONFÉDÉRATION SUISSE
+365	2445	Schweizerische Eidgenossenschaft	Confédération Suisse
+365	2772	Schweizerische Eidgenossenschaft	_Suiraa
+365	2810	Schweizerische Eidgenossenschaft	Confédération suisse
+365	3043	Schweizerische Eidgenossenschaft	Helvetie
+365	3132	Schweizerische Eidgenossenschaft	OnydiftingtiedesnomsquifontchersàlaSuiffe
+365	3139	Schweizerische Eidgenossenschaft	enSiriffe
+365	3404	Schweizerische Eidgenossenschaft	CONFÉDMATÏM SUISSE
+365	3420	Schweizerische Eidgenossenschaft	CONFEDERATION SUISSE
+365	3432	Schweizerische Eidgenossenschaft	Sdisse
+365	3831	Schweizerische Eidgenossenschaft	Mm
+366	1857	Freyburg	canton de Fribourg
+366	2459	Freyburg	Fribourg
+366	2473	Freyburg	FIUBOUKG
+366	2703	Freyburg	FRIBOURG
+367	2217	Schaffhausen	SCHAFFHOUSE
+367	2454	Schaffhausen	Schaff Iwtme
+367	3045	Schaffhausen	Schaffonfcn
+367	3130	Schaffhausen	Schaffhoufe
+367	3373	Schaffhausen	Schaffliqus ^
+367	3434	Schaffhausen	canton de Scbaflhouse
+368	807	Aargau	Kanton Aargau
+368	1142	Aargau	Kantons Aargau
+368	2144	Aargau	Argovie
+368	2409	Aargau	lWrgovic
+368	2548	Aargau	ARGOVIE
+368	3126	Aargau	cantons d'Argovie
+369	370	hohe Stand Schwyz	alte Land Schwyz
+369	371	hohe Stand Schwyz	alten Landes Schwyz
+369	372	hohe Stand Schwyz	Kantons Schwyz
+369	373	hohe Stand Schwyz	K. Schwyz
+369	2143	hohe Stand Schwyz	Schwytz
+369	2350	hohe Stand Schwyz	canton de Schwytz
+369	2449	hohe Stand Schwyz	Scliwylz
+369	2464	hohe Stand Schwyz	Schwylz
+369	2491	hohe Stand Schwyz	Schwyiz
+369	3219	hohe Stand Schwyz	Schwitz
+370	371	alte Land Schwyz	alten Landes Schwyz
+370	372	alte Land Schwyz	Kantons Schwyz
+370	373	alte Land Schwyz	K. Schwyz
+370	2143	alte Land Schwyz	Schwytz
+370	2350	alte Land Schwyz	canton de Schwytz
+370	2449	alte Land Schwyz	Scliwylz
+370	2464	alte Land Schwyz	Schwylz
+370	2491	alte Land Schwyz	Schwyiz
+370	3219	alte Land Schwyz	Schwitz
+371	372	alten Landes Schwyz	Kantons Schwyz
+371	373	alten Landes Schwyz	K. Schwyz
+371	2143	alten Landes Schwyz	Schwytz
+371	2350	alten Landes Schwyz	canton de Schwytz
+371	2449	alten Landes Schwyz	Scliwylz
+371	2464	alten Landes Schwyz	Schwylz
+371	2491	alten Landes Schwyz	Schwyiz
+371	3219	alten Landes Schwyz	Schwitz
+372	373	Kantons Schwyz	K. Schwyz
+372	2143	Kantons Schwyz	Schwytz
+372	2350	Kantons Schwyz	canton de Schwytz
+372	2449	Kantons Schwyz	Scliwylz
+372	2464	Kantons Schwyz	Schwylz
+372	2491	Kantons Schwyz	Schwyiz
+372	3219	Kantons Schwyz	Schwitz
+373	2143	K. Schwyz	Schwytz
+373	2350	K. Schwyz	canton de Schwytz
+373	2449	K. Schwyz	Scliwylz
+373	2464	K. Schwyz	Schwylz
+373	2491	K. Schwyz	Schwyiz
+373	3219	K. Schwyz	Schwitz
+374	375	hohen Standes Neuenburg	Neuenburg
+374	376	hohen Standes Neuenburg	Neuen¬ burg
+374	802	hohen Standes Neuenburg	Fürsten¬ thum Neuenburg
+374	1126	hohen Standes Neuenburg	Kanton Neuenburg
+374	1858	hohen Standes Neuenburg	canton de Neuohâtel
+374	2462	hohen Standes Neuenburg	Neuchâlel
+374	2761	hohen Standes Neuenburg	canton de Neuchâtel
+374	3367	hohen Standes Neuenburg	Neucliâtel
+374	3368	hohen Standes Neuenburg	IS'euchûtel
+374	3442	hohen Standes Neuenburg	Neuchàtel
+374	3557	hohen Standes Neuenburg	Neuchâtel
+375	376	Neuenburg	Neuen¬ burg
+375	802	Neuenburg	Fürsten¬ thum Neuenburg
+375	1126	Neuenburg	Kanton Neuenburg
+375	1858	Neuenburg	canton de Neuohâtel
+375	2462	Neuenburg	Neuchâlel
+375	2761	Neuenburg	canton de Neuchâtel
+375	3367	Neuenburg	Neucliâtel
+375	3368	Neuenburg	IS'euchûtel
+375	3442	Neuenburg	Neuchàtel
+375	3557	Neuenburg	Neuchâtel
+376	802	Neuen¬ burg	Fürsten¬ thum Neuenburg
+376	1126	Neuen¬ burg	Kanton Neuenburg
+376	1858	Neuen¬ burg	canton de Neuohâtel
+376	2462	Neuen¬ burg	Neuchâlel
+376	2761	Neuen¬ burg	canton de Neuchâtel
+376	3367	Neuen¬ burg	Neucliâtel
+376	3368	Neuen¬ burg	IS'euchûtel
+376	3442	Neuen¬ burg	Neuchàtel
+376	3557	Neuen¬ burg	Neuchâtel
+378	3264	östliche Schweiz	Suisse orientale
+379	385	Kantonen Zürich	Zürich
+379	792	Kantonen Zürich	Kantons Zü¬ rich
+379	2446	Kantonen Zürich	Zurich
+379	3044	Kantonen Zürich	çahton de'Zurich
+379	3388	Kantonen Zürich	ZURICH
+379	3403	Kantonen Zürich	cantons de Zurich
+381	403	Vereinigten Staaten Amerikas	Vereinigten Staaten von Nord¬ amerika
+381	1033	Vereinigten Staaten Amerikas	Vereinigten Staaten von Nordamerika
+381	1043	Vereinigten Staaten Amerikas	Ame¬ rika
+381	1044	Vereinigten Staaten Amerikas	Ver.
+381	1303	Vereinigten Staaten Amerikas	Vereinigten Staaten von Amerika
+381	1306	Vereinigten Staaten Amerikas	Vereinigten Stanten
+381	1315	Vereinigten Staaten Amerikas	U.S.A.
+381	1414	Vereinigten Staaten Amerikas	Vereinigten - Staaten
+381	1426	Vereinigten Staaten Amerikas	Unitec?
+381	1430	Vereinigten Staaten Amerikas	the Uni¬ ted Srates
+381	1433	Vereinigten Staaten Amerikas	America
+381	1481	Vereinigten Staaten Amerikas	United States
+381	1491	Vereinigten Staaten Amerikas	U. States
+381	1500	Vereinigten Staaten Amerikas	United States of America
+381	1512	Vereinigten Staaten Amerikas	the U. S.
+381	1555	Vereinigten Staaten Amerikas	the United States
+381	1651	Vereinigten Staaten Amerikas	United Stat-s
+381	1722	Vereinigten Staaten Amerikas	Uni¬ ted Stares
+381	1757	Vereinigten Staaten Amerikas	United Stares
+381	1758	Vereinigten Staaten Amerikas	United Slates
+381	1762	Vereinigten Staaten Amerikas	Unit ;d States
+381	1819	Vereinigten Staaten Amerikas	American
+381	1900	Vereinigten Staaten Amerikas	Etats-Unis
+381	1949	Vereinigten Staaten Amerikas	EU
+381	2645	Vereinigten Staaten Amerikas	USA
+381	2778	Vereinigten Staaten Amerikas	Amérique
+381	2857	Vereinigten Staaten Amerikas	Etals-Unis
+381	3485	Vereinigten Staaten Amerikas	Etats-Uuis
+381	3673	Vereinigten Staaten Amerikas	Etais-Unis
+381	3747	Vereinigten Staaten Amerikas	Lesta-Unis
+381	3833	Vereinigten Staaten Amerikas	Améru _/ ue
+383	2990	Simplon	Simplon
+384	2150	Sitten	Sion
+385	792	Zürich	Kantons Zü¬ rich
+385	2446	Zürich	Zurich
+385	3044	Zürich	çahton de'Zurich
+385	3388	Zürich	ZURICH
+385	3403	Zürich	cantons de Zurich
+386	516	Wetzikon	Gemeinde Wetzikon
+388	793	Kanton Bern	Kantone Bern
+388	955	Kanton Bern	Bern
+388	2326	Kanton Bern	Berne
+388	2472	Kanton Bern	BERNE
+388	2732	Kanton Bern	canton de Berne
+388	3366	Kanton Bern	Reme
+389	796	St. Gallen	Kantons St. Gallen
+389	821	St. Gallen	St. Gollen
+389	1267	St. Gallen	Kanton St. Gallen
+389	2410	St. Gallen	St. Gall
+389	2455	St. Gallen	St-Gall
+389	2489	St. Gallen	Sl-Gall
+389	3135	St. Gallen	ST.
+389	3263	St. Gallen	St.
+390	3086	Augsburg	AUGSBOURG
+391	3828	Karlsruhe	Carlsrahe
+392	3345	Stutt¬ gart	STUTTGARD
+393	847	Bünden	Graubünden
+393	2189	Bünden	Grisons
+393	2457	Bünden	Gri sons
+393	2468	Bünden	GRISONS
+393	3261	Bünden	Grisbris
+393	3358	Bünden	canton des Grisons
+394	850	Chur	Stadt Chur
+394	2469	Chur	Cornu
+394	3374	Chur	COIRE
+394	3379	Chur	ville de Coire
+395	786	Appenzell A. Rh.	Appenzell-Außerrhoden
+395	2849	Appenzell A. Rh.	Appenzell Extérieures
+397	2411	Genf	Genève
+397	2456	Genf	Gerièue
+397	2476	Genf	GENÈVE
+397	3356	Genf	canton de Genève
+398	2713	Persien	Perso
+399	2241	Nordamerika	Amérique
+399	3612	Nordamerika	AMERIQUE
+400	401	Wa¬ shington	Washington
+400	404	Wa¬ shington	Wafhington
+400	540	Wa¬ shington	Mashington
+400	1040	Wa¬ shington	Washing¬ ton
+400	1375	Wa¬ shington	"Nwshln^-""'"
+400	1531	Wa¬ shington	City of Washington
+400	1768	Wa¬ shington	Washington
+400	1776	Wa¬ shington	District of Columbia
+400	1778	Wa¬ shington	It 'asliington
+400	2673	Wa¬ shington	Washington
+401	404	Washington	Wafhington
+401	540	Washington	Mashington
+401	1040	Washington	Washing¬ ton
+401	1375	Washington	"Nwshln^-""'"
+401	1531	Washington	City of Washington
+401	1768	Washington	Washington
+401	1776	Washington	District of Columbia
+401	1778	Washington	It 'asliington
+401	2673	Washington	Washington
+402	537	Europa	Luropa
+402	785	Europa	Europa's
+402	1309	Europa	louropa
+402	1336	Europa	continentale» Europa
+402	1524	Europa	Europe
+402	1785	Europa	European
+402	1871	Europa	Europe
+402	2237	Europa	Eurone
+402	3751	Europa	Vieux-Continent
+403	1033	Vereinigten Staaten von Nord¬ amerika	Vereinigten Staaten von Nordamerika
+403	1043	Vereinigten Staaten von Nord¬ amerika	Ame¬ rika
+403	1044	Vereinigten Staaten von Nord¬ amerika	Ver.
+403	1303	Vereinigten Staaten von Nord¬ amerika	Vereinigten Staaten von Amerika
+403	1306	Vereinigten Staaten von Nord¬ amerika	Vereinigten Stanten
+403	1315	Vereinigten Staaten von Nord¬ amerika	U.S.A.
+403	1414	Vereinigten Staaten von Nord¬ amerika	Vereinigten - Staaten
+403	1426	Vereinigten Staaten von Nord¬ amerika	Unitec?
+403	1430	Vereinigten Staaten von Nord¬ amerika	the Uni¬ ted Srates
+403	1433	Vereinigten Staaten von Nord¬ amerika	America
+403	1481	Vereinigten Staaten von Nord¬ amerika	United States
+403	1491	Vereinigten Staaten von Nord¬ amerika	U. States
+403	1500	Vereinigten Staaten von Nord¬ amerika	United States of America
+403	1512	Vereinigten Staaten von Nord¬ amerika	the U. S.
+403	1555	Vereinigten Staaten von Nord¬ amerika	the United States
+403	1651	Vereinigten Staaten von Nord¬ amerika	United Stat-s
+403	1722	Vereinigten Staaten von Nord¬ amerika	Uni¬ ted Stares
+403	1757	Vereinigten Staaten von Nord¬ amerika	United Stares
+403	1758	Vereinigten Staaten von Nord¬ amerika	United Slates
+403	1762	Vereinigten Staaten von Nord¬ amerika	Unit ;d States
+403	1819	Vereinigten Staaten von Nord¬ amerika	American
+403	1900	Vereinigten Staaten von Nord¬ amerika	Etats-Unis
+403	1949	Vereinigten Staaten von Nord¬ amerika	EU
+403	2645	Vereinigten Staaten von Nord¬ amerika	USA
+403	2778	Vereinigten Staaten von Nord¬ amerika	Amérique
+403	2857	Vereinigten Staaten von Nord¬ amerika	Etals-Unis
+403	3485	Vereinigten Staaten von Nord¬ amerika	Etats-Uuis
+403	3673	Vereinigten Staaten von Nord¬ amerika	Etais-Unis
+403	3747	Vereinigten Staaten von Nord¬ amerika	Lesta-Unis
+403	3833	Vereinigten Staaten von Nord¬ amerika	Améru _/ ue
+404	540	Wafhington	Mashington
+404	1040	Wafhington	Washing¬ ton
+404	1375	Wafhington	"Nwshln^-""'"
+404	1531	Wafhington	City of Washington
+404	1768	Wafhington	Washington
+404	1776	Wafhington	District of Columbia
+404	1778	Wafhington	It 'asliington
+404	2673	Wafhington	Washington
+405	2019	Insel St. Thomas	St. Thomas
+408	2523	Galizien	Gallicie
+411	3650	Mailand	Milan
+412	451	Amerika	Amerikas
+412	1523	Amerika	America
+412	1786	Amerika	Americans
+412	1968	Amerika	outre-Atlantique
+412	2227	Amerika	Amérique
+412	3392	Amerika	AMERIQUE
+415	2113	Bordeaux	Bordeaux
+416	422	Jupiters	Jupiter
+417	420	Planeten Merkur	Merkur
+424	667	Bulgarien	Bulgariens
+424	2052	Bulgarien	Bulgarie
+432	2236	Rumänien	Roumanie
+434	659	Bukarest	Butarest
+434	3308	Bukarest	BUCHAREST
+436	2133	Königgrätz	Kœniggr < B « z
+437	620	Deutschland	Deutfchland
+437	1173	Deutschland	Deutschen Reiches
+437	3499	Deutschland	Allemagne
+439	973	Frankreich	Frankreich's
+443	1338	Orient	Orientfriedens
+443	2044	Orient	ÔRÎENT
+443	2051	Orient	Orient
+444	2168	Serbien	Serbie
+444	3050	Serbien	Servie
+445	743	Oesterreichs	Oester¬ reichischen
+445	1011	Oesterreichs	Deutschösterreich
+445	1211	Oesterreichs	Oester¬ reich
+445	1385	Oesterreichs	Österreichs
+445	1474	Oesterreichs	Austria
+445	2012	Oesterreichs	Autriche
+446	2165	Bosnien	Bosnie
+447	2362	Belgrad	BELGRADE
+447	2363	Belgrad	Belgrade
+448	450	China	Chinas
+448	1045	China	China's
+449	2674	Peking	Pékin
+450	1045	Chinas	China's
+451	1523	Amerikas	America
+451	1786	Amerikas	Americans
+451	1968	Amerikas	outre-Atlantique
+451	2227	Amerikas	Amérique
+451	3392	Amerikas	AMERIQUE
+452	455	Rußland	Rußlands
+452	1009	Rußland	Czarenreiches
+452	1987	Rußland	RUSSIE
+452	1989	Rußland	Ruffie
+452	1991	Rußland	Empire
+452	2344	Rußland	Russie
+452	3116	Rußland	Ruflio
+454	539	Eng¬ land	Eusland
+454	589	Eng¬ land	©nglanb
+454	593	Eng¬ land	Englanb
+454	597	Eng¬ land	E n g l a n b
+454	634	Eng¬ land	Enßlmrds
+454	877	Eng¬ land	England's
+454	1475	Eng¬ land	England
+454	1915	Eng¬ land	Angleterre
+454	2053	Eng¬ land	ANGLETERRE
+454	3655	Eng¬ land	England
+454	3694	Eng¬ land	Angle * terre
+455	1009	Rußlands	Czarenreiches
+455	1987	Rußlands	RUSSIE
+455	1989	Rußlands	Ruffie
+455	1991	Rußlands	Empire
+455	2344	Rußlands	Russie
+455	3116	Rußlands	Ruflio
+456	1619	Japans	Japan
+456	1969	Japans	Japon
+459	2121	Böhmen	Bohême
+459	2122	Böhmen	Bohême révolutionnée
+461	2586	La Basséekanal	canal de La Bassée
+475	483	Champagne	Cham¬ pagne
+476	3348	Mannheim	Mannheiui
+487	810	Balkankriegsschauplatz	Balkan
+487	2610	Balkankriegsschauplatz	Balkans
+494	495	Jernsalem	Jerusalems
+494	497	Jernsalem	Jeru¬ salem
+494	567	Jernsalem	Jerusalem
+494	1644	Jernsalem	Jerusalem
+494	1645	Jernsalem	Jeru¬ salem
+494	2513	Jernsalem	Jérusalem
+495	497	Jerusalems	Jeru¬ salem
+495	567	Jerusalems	Jerusalem
+495	1644	Jerusalems	Jerusalem
+495	1645	Jerusalems	Jeru¬ salem
+495	2513	Jerusalems	Jérusalem
+496	1910	Israel	Israël
+497	567	Jeru¬ salem	Jerusalem
+497	1644	Jeru¬ salem	Jerusalem
+497	1645	Jeru¬ salem	Jeru¬ salem
+497	2513	Jeru¬ salem	Jérusalem
+501	2040	Lau¬ sanne	Lausanne
+501	2123	Lau¬ sanne	LAUSANNE
+501	2480	Lau¬ sanne	LAESANMÎ
+501	3170	Lau¬ sanne	Laufanne
+501	3596	Lau¬ sanne	lausanne
+501	3598	Lau¬ sanne	Laasanne
+501	3729	Lau¬ sanne	sanne
+501	3800	Lau¬ sanne	Ville de Lausanne
+502	503	Ritterhaufes Bubikon	Ritterhauses Bubikon
+502	506	Ritterhaufes Bubikon	Ritterhaus von Bubikon
+503	506	Ritterhauses Bubikon	Ritterhaus von Bubikon
+504	505	Bubikon	Gemeinde Bubi¬ kon
+517	852	Städte Zürich	Zürichputsch
+517	1029	Städte Zürich	Zü¬ rich
+517	1031	Städte Zürich	Bezirke Zürich
+517	1179	Städte Zürich	gf.
+517	1182	Städte Zürich	Türioh
+517	1956	Städte Zürich	Zurich
+517	2818	Städte Zürich	ZURICH
+517	2867	Städte Zürich	rich
+518	928	Winterthur	Gemeinde Winterthur
+518	1013	Winterthur	Winter¬ thur
+518	1014	Winterthur	Winterthurs
+518	2557	Winterthur	Winterthour
+518	3259	Winterthur	YVintertliour
+518	3405	Winterthur	deWinterthour
+519	526	Ruhrgebiet	Ruhrgebiets
+519	529	Ruhrgebiet	Ruhn¬ gebiet
+519	533	Ruhrgebiet	Ruhr¬ gebiets
+520	654	Franke¬ furt	Frankfurt am Main
+520	869	Franke¬ furt	Frank¬ furt
+520	1410	Franke¬ furt	Frankfurt a. M.
+520	2036	Franke¬ furt	Francfort
+520	2806	Franke¬ furt	FRANCFORT
+521	535	Rulrkonsortium	Ruhrstaat
+521	536	Rulrkonsortium	Ruhrprodubte
+521	1310	Rulrkonsortium	Ruhrindustrie
+521	1311	Rulrkonsortium	Ruhrstatut
+521	1312	Rulrkonsortium	Ruhrproduktion
+521	1313	Rulrkonsortium	Ruhrdirektorium
+521	1314	Rulrkonsortium	Ruhrdiktat
+521	1316	Rulrkonsortium	Ruhr
+521	1317	Rulrkonsortium	Ruhrfrage
+521	1320	Rulrkonsortium	Ruhrproduletion
+521	1323	Rulrkonsortium	Ruhrbehörde
+522	1471	Paxis	Paris
+522	1887	Paxis	PARIS
+522	1896	Paxis	Paris
+522	2538	Paxis	PAÏU 8
+522	2563	Paxis	Parisrlo
+522	3468	Paxis	B'rtriw
+522	3762	Paxis	APARIS
+524	779	Deutschlandfrage	Dentschland
+524	1242	Deutschlandfrage	Deutschl.
+524	1318	Deutschlandfrage	Deutseh¬ land
+524	1319	Deutschlandfrage	Deutsehlands
+524	1321	Deutschlandfrage	Deutschlunel
+524	1322	Deutschlandfrage	Doutschlands
+524	1621	Deutschlandfrage	Germany—one
+524	1877	Deutschlandfrage	Allemagne
+524	1947	Deutschlandfrage	Ail
+524	1972	Deutschlandfrage	ALLEMAGNE
+524	2351	Deutschlandfrage	Germanie
+524	2780	Deutschlandfrage	Deutschland
+526	529	Ruhrgebiets	Ruhn¬ gebiet
+526	533	Ruhrgebiets	Ruhr¬ gebiets
+527	1616	Mo-kau	Moscow
+527	1919	Mo-kau	Moscou
+528	565	Lon don	l'ont» on
+528	595	Lon don	Lonbon
+528	596	Lon don	Sondon
+528	598	Lon don	Sonbon
+528	704	Lon don	Lon¬ don
+528	1296	Lon don	Lond
+528	1305	Lon don	bondon
+528	1307	Lon don	london
+528	1478	Lon don	London
+528	1492	Lon don	L ondon
+528	1727	Lon don	LONDON
+528	1883	Lon don	Londres
+528	1899	Lon don	LONDRES
+528	2571	Lon don	Londires
+528	3180	Lon don	ville de Londres
+528	3503	Lon don	Iiondres
+529	533	Ruhn¬ gebiet	Ruhr¬ gebiets
+530	538	Prankreich	Frank¬ reich
+530	1156	Prankreich	Frank¬ reichs
+530	1241	Prankreich	Frankr.
+530	1352	Prankreich	Frank« reich
+530	1432	Prankreich	France
+530	1476	Prankreich	Frtnce
+530	1739	Prankreich	Fiance
+530	1878	Prankreich	France
+530	1945	Prankreich	Fr
+530	1953	Prankreich	République française
+530	2433	Prankreich	FRANCE
+530	2505	Prankreich	FRANGE
+530	2986	Prankreich	Fra
+530	3084	Prankreich	Fiance
+530	3137	Prankreich	1 rance
+530	3413	Prankreich	ELANCE
+532	808	Groz¬ brikannien	vereinigten Kö¬ nigreichs
+532	1047	Groz¬ brikannien	Großbritannien
+532	1136	Groz¬ brikannien	Groß¬ britannien
+532	1280	Groz¬ brikannien	Grolbnikannien
+532	1308	Groz¬ brikannien	Grollbnitanniens
+532	2231	Groz¬ brikannien	Grande-Brelanm
+532	2317	Groz¬ brikannien	Grande-Bretagne
+532	3748	Groz¬ brikannien	lita de-Bretagne
+535	536	Ruhrstaat	Ruhrprodubte
+535	1310	Ruhrstaat	Ruhrindustrie
+535	1311	Ruhrstaat	Ruhrstatut
+535	1312	Ruhrstaat	Ruhrproduktion
+535	1313	Ruhrstaat	Ruhrdirektorium
+535	1314	Ruhrstaat	Ruhrdiktat
+535	1316	Ruhrstaat	Ruhr
+535	1317	Ruhrstaat	Ruhrfrage
+535	1320	Ruhrstaat	Ruhrproduletion
+535	1323	Ruhrstaat	Ruhrbehörde
+536	1310	Ruhrprodubte	Ruhrindustrie
+536	1311	Ruhrprodubte	Ruhrstatut
+536	1312	Ruhrprodubte	Ruhrproduktion
+536	1313	Ruhrprodubte	Ruhrdirektorium
+536	1314	Ruhrprodubte	Ruhrdiktat
+536	1316	Ruhrprodubte	Ruhr
+536	1317	Ruhrprodubte	Ruhrfrage
+536	1320	Ruhrprodubte	Ruhrproduletion
+536	1323	Ruhrprodubte	Ruhrbehörde
+537	785	Luropa	Europa's
+537	1309	Luropa	louropa
+537	1336	Luropa	continentale» Europa
+537	1524	Luropa	Europe
+537	1785	Luropa	European
+537	1871	Luropa	Europe
+537	2237	Luropa	Eurone
+537	3751	Luropa	Vieux-Continent
+538	1156	Frank¬ reich	Frank¬ reichs
+538	1241	Frank¬ reich	Frankr.
+538	1352	Frank¬ reich	Frank« reich
+538	1432	Frank¬ reich	France
+538	1476	Frank¬ reich	Frtnce
+538	1739	Frank¬ reich	Fiance
+538	1878	Frank¬ reich	France
+538	1945	Frank¬ reich	Fr
+538	1953	Frank¬ reich	République française
+538	2433	Frank¬ reich	FRANCE
+538	2505	Frank¬ reich	FRANGE
+538	2986	Frank¬ reich	Fra
+538	3084	Frank¬ reich	Fiance
+538	3137	Frank¬ reich	1 rance
+538	3413	Frank¬ reich	ELANCE
+539	589	Eusland	©nglanb
+539	593	Eusland	Englanb
+539	597	Eusland	E n g l a n b
+539	634	Eusland	Enßlmrds
+539	877	Eusland	England's
+539	1475	Eusland	England
+539	1915	Eusland	Angleterre
+539	2053	Eusland	ANGLETERRE
+539	3655	Eusland	England
+539	3694	Eusland	Angle * terre
+540	1040	Mashington	Washing¬ ton
+540	1375	Mashington	"Nwshln^-""'"
+540	1531	Mashington	City of Washington
+540	1768	Mashington	Washington
+540	1776	Mashington	District of Columbia
+540	1778	Mashington	It 'asliington
+540	2673	Mashington	Washington
+541	972	Mesteuropa	Westen Europa's
+541	1304	Mesteuropa	West¬ curopa
+541	2235	Mesteuropa	Europe occidentale
+541	3782	Mesteuropa	Europe
+543	2834	Alpen	Alpes
+544	545	Lurem biurg	Lurcmburg
+544	548	Lurem biurg	Luremburg
+544	569	Lurem biurg	SujemDurg
+544	1236	Lurem biurg	Luxem¬ burg
+544	1243	Lurem biurg	Lux.
+544	1245	Lurem biurg	inre
+544	1337	Lurem biurg	L rnnburg
+544	2063	Lurem biurg	Luxembourg
+545	548	Lurcmburg	Luremburg
+545	569	Lurcmburg	SujemDurg
+545	1236	Lurcmburg	Luxem¬ burg
+545	1243	Lurcmburg	Lux.
+545	1245	Lurcmburg	inre
+545	1337	Lurcmburg	L rnnburg
+545	2063	Lurcmburg	Luxembourg
+546	547	Suremburg	Lurcmburg
+546	556	Suremburg	Lmemburg
+546	562	Suremburg	ïuiemburg
+546	584	Suremburg	Luxemburg
+546	1324	Suremburg	Luremburg
+546	2251	Suremburg	Luxembourg
+547	556	Lurcmburg	Lmemburg
+547	562	Lurcmburg	ïuiemburg
+547	584	Lurcmburg	Luxemburg
+547	1324	Lurcmburg	Luremburg
+547	2251	Lurcmburg	Luxembourg
+548	569	Luremburg	SujemDurg
+548	1236	Luremburg	Luxem¬ burg
+548	1243	Luremburg	Lux.
+548	1245	Luremburg	inre
+548	1337	Luremburg	L rnnburg
+548	2063	Luremburg	Luxembourg
+555	557	Athenäum	Athenäums
+556	562	Lmemburg	ïuiemburg
+556	584	Lmemburg	Luxemburg
+556	1324	Lmemburg	Luremburg
+556	2251	Lmemburg	Luxembourg
+558	559	Cantons Luremburg	Canton Suremburg
+562	584	ïuiemburg	Luxemburg
+562	1324	ïuiemburg	Luremburg
+562	2251	ïuiemburg	Luxembourg
+563	564	Trier	guten altkatholischen Stadt Trier
+563	3484	Trier	Trêves
+564	3484	guten altkatholischen Stadt Trier	Trêves
+565	595	l'ont» on	Lonbon
+565	596	l'ont» on	Sondon
+565	598	l'ont» on	Sonbon
+565	704	l'ont» on	Lon¬ don
+565	1296	l'ont» on	Lond
+565	1305	l'ont» on	bondon
+565	1307	l'ont» on	london
+565	1478	l'ont» on	London
+565	1492	l'ont» on	L ondon
+565	1727	l'ont» on	LONDON
+565	1883	l'ont» on	Londres
+565	1899	l'ont» on	LONDRES
+565	2571	l'ont» on	Londires
+565	3180	l'ont» on	ville de Londres
+565	3503	l'ont» on	Iiondres
+566	576	R o m	Ram
+566	580	R o m	Nom
+566	1655	R o m	ROME
+566	1658	R o m	Rome
+566	2027	R o m	Rbmè
+566	2337	R o m	ROME
+566	2339	R o m	ROKE
+566	2340	R o m	Rome
+566	2598	R o m	Borne
+567	1644	Jerusalem	Jerusalem
+567	1645	Jerusalem	Jeru¬ salem
+567	2513	Jerusalem	Jérusalem
+568	2302	Neapels	grosdeNaples
+568	2704	Neapels	ples
+569	1236	SujemDurg	Luxem¬ burg
+569	1243	SujemDurg	Lux.
+569	1245	SujemDurg	inre
+569	1337	SujemDurg	L rnnburg
+569	2063	SujemDurg	Luxembourg
+572	1358	Gemeinde Eich	Eich
+573	759	igatnburg	Hamburg
+573	2414	igatnburg	Hambourg
+573	2653	igatnburg	Hambour'g
+573	3057	igatnburg	HAMBOURG
+574	578	Genua	©enua
+574	1454	Genua	Genoa
+574	1976	Genua	Gènes
+575	1201	Italiens	Ita¬ lien
+575	1232	Italiens	Italicn
+575	1300	Italiens	Ifalien
+575	1450	Italiens	ITALY
+575	1656	Italiens	Italy
+575	1934	Italiens	Italie
+575	1941	Italiens	It
+575	1975	Italiens	ITALIE
+575	2987	Italiens	Ita
+576	580	Ram	Nom
+576	1655	Ram	ROME
+576	1658	Ram	Rome
+576	2027	Ram	Rbmè
+576	2337	Ram	ROME
+576	2339	Ram	ROKE
+576	2340	Ram	Rome
+576	2598	Ram	Borne
+577	2303	Florenz	Florence
+578	1454	©enua	Genoa
+578	1976	©enua	Gènes
+580	1655	Nom	ROME
+580	1658	Nom	Rome
+580	2027	Nom	Rbmè
+580	2337	Nom	ROME
+580	2339	Nom	ROKE
+580	2340	Nom	Rome
+580	2598	Nom	Borne
+581	1376	Vatican	Vatikan
+581	2341	Vatican	Vatican
+584	1324	Luxemburg	Luremburg
+584	2251	Luxemburg	Luxembourg
+585	1039	Canaba	Kanada
+585	1618	Canaba	Canada
+585	2988	Canaba	Can
+585	3492	Canaba	Canada
+586	590	Neu-©üb>WaleS	Neu-Süb-Wales
+586	592	Neu-©üb>WaleS	N.-S.°WaleS
+586	3839	Neu-©üb>WaleS	Nouvelle Galles du Sud
+587	591	Victoria	Vicloria
+588	3843	QueenSlanb	Queensland
+589	593	©nglanb	Englanb
+589	597	©nglanb	E n g l a n b
+589	634	©nglanb	Enßlmrds
+589	877	©nglanb	England's
+589	1475	©nglanb	England
+589	1915	©nglanb	Angleterre
+589	2053	©nglanb	ANGLETERRE
+589	3655	©nglanb	England
+589	3694	©nglanb	Angle * terre
+590	592	Neu-Süb-Wales	N.-S.°WaleS
+590	3839	Neu-Süb-Wales	Nouvelle Galles du Sud
+592	3839	N.-S.°WaleS	Nouvelle Galles du Sud
+593	597	Englanb	E n g l a n b
+593	634	Englanb	Enßlmrds
+593	877	Englanb	England's
+593	1475	Englanb	England
+593	1915	Englanb	Angleterre
+593	2053	Englanb	ANGLETERRE
+593	3655	Englanb	England
+593	3694	Englanb	Angle * terre
+595	596	Lonbon	Sondon
+595	598	Lonbon	Sonbon
+595	704	Lonbon	Lon¬ don
+595	1296	Lonbon	Lond
+595	1305	Lonbon	bondon
+595	1307	Lonbon	london
+595	1478	Lonbon	London
+595	1492	Lonbon	L ondon
+595	1727	Lonbon	LONDON
+595	1883	Lonbon	Londres
+595	1899	Lonbon	LONDRES
+595	2571	Lonbon	Londires
+595	3180	Lonbon	ville de Londres
+595	3503	Lonbon	Iiondres
+596	598	Sondon	Sonbon
+596	704	Sondon	Lon¬ don
+596	1296	Sondon	Lond
+596	1305	Sondon	bondon
+596	1307	Sondon	london
+596	1478	Sondon	London
+596	1492	Sondon	L ondon
+596	1727	Sondon	LONDON
+596	1883	Sondon	Londres
+596	1899	Sondon	LONDRES
+596	2571	Sondon	Londires
+596	3180	Sondon	ville de Londres
+596	3503	Sondon	Iiondres
+597	634	E n g l a n b	Enßlmrds
+597	877	E n g l a n b	England's
+597	1475	E n g l a n b	England
+597	1915	E n g l a n b	Angleterre
+597	2053	E n g l a n b	ANGLETERRE
+597	3655	E n g l a n b	England
+597	3694	E n g l a n b	Angle * terre
+598	704	Sonbon	Lon¬ don
+598	1296	Sonbon	Lond
+598	1305	Sonbon	bondon
+598	1307	Sonbon	london
+598	1478	Sonbon	London
+598	1492	Sonbon	L ondon
+598	1727	Sonbon	LONDON
+598	1883	Sonbon	Londres
+598	1899	Sonbon	LONDRES
+598	2571	Sonbon	Londires
+598	3180	Sonbon	ville de Londres
+598	3503	Sonbon	Iiondres
+603	604	Provinz Hannober	Hannober
+607	663	Tschechoslowakei	Tschecho.
+607	1294	Tschechoslowakei	Tschechosloualei
+607	1419	Tschechoslowakei	CSR
+607	2658	Tschechoslowakei	Tchécoslovaquie
+607	2882	Tschechoslowakei	slovaquie
+607	3749	Tschechoslowakei	m coslovaquie
+608	1876	Schanghai	Shanghai
+610	1279	südafrikanischen Union	Füdlafnikanischen Enion
+610	1281	südafrikanischen Union	Südafxikanischen Enion
+610	1287	südafrikanischen Union	Süd¬ akrikanischen Union
+610	1288	südafrikanischen Union	Südlaspikeanischen Union
+610	1293	südafrikanischen Union	Südafrikn¬ nischen Union
+610	1424	südafrikanischen Union	Südafrika
+612	3446	Athen	Athènes
+613	1401	dem Haag	Den Haag
+615	1391	Stadt Berlin	Verlin
+615	2049	Stadt Berlin	BERUN
+615	2065	Stadt Berlin	Berlin
+615	2369	Stadt Berlin	BERLIN
+615	3661	Stadt Berlin	àBerlin
+617	618	französische Zone	französische besetzte Zone
+617	1412	französische Zone	französischen Zone
+618	1412	französische besetzte Zone	französischen Zone
+620	1173	Deutfchland	Deutschen Reiches
+620	3499	Deutfchland	Allemagne
+621	622	Mper»	Ipern
+621	624	Mper»	Ipernschlacht
+621	2199	Mper»	Ypres
+622	624	Ipern	Ipernschlacht
+622	2199	Ipern	Ypres
+623	2196	Flanderns	Flandres
+624	2199	Ipernschlacht	Ypres
+628	647	Calais	Ealgis
+628	650	Calais	Ealais
+628	2416	Calais	Calais
+632	646	Amiens	Ämiens
+634	877	Enßlmrds	England's
+634	1475	Enßlmrds	England
+634	1915	Enßlmrds	Angleterre
+634	2053	Enßlmrds	ANGLETERRE
+634	3655	Enßlmrds	England
+634	3694	Enßlmrds	Angle * terre
+637	638	VWrotko	Marokko
+637	3599	VWrotko	A ££ uroo
+637	3601	VWrotko	Maroc
+638	3599	Marokko	A ££ uroo
+638	3601	Marokko	Maroc
+639	644	Noyon	Noyons
+639	2565	Noyon	Noyon
+643	2782	Montdidier	Montdidier
+644	2565	Noyons	Noyon
+647	650	Ealgis	Ealais
+647	2416	Ealgis	Calais
+650	2416	Ealais	Calais
+651	3602	CasManca	Casablanca
+654	869	Frankfurt am Main	Frank¬ furt
+654	1410	Frankfurt am Main	Frankfurt a. M.
+654	2036	Frankfurt am Main	Francfort
+654	2806	Frankfurt am Main	FRANCFORT
+656	2614	Saarbrücken	Sarrebruck
+659	3308	Butarest	BUCHAREST
+660	1035	NewYork	Stadt New-York
+660	1493	NewYork	NEW-YORK
+660	1764	NewYork	New York
+660	1769	NewYork	New- York
+660	1821	NewYork	New York City
+660	1962	NewYork	New York
+660	1965	NewYork	Big Apple
+660	1966	NewYork	NEW YORK
+660	2359	NewYork	New. York
+660	2611	NewYork	New-York
+660	2781	NewYork	» féw-York
+660	2853	NewYork	NEW-YORK
+660	3465	NewYork	ÎVcw-York
+660	3757	NewYork	New » York
+661	664	"Pra"""	Fraq
+661	2038	"Pra"""	Prague
+661	2876	"Pra"""	PRAGUE
+662	1167	Polen	Polens
+662	2011	Polen	Pologne
+662	3301	Polen	royaume de Pologne
+662	3653	Polen	Pologne prussienne
+663	1294	Tschecho.	Tschechosloualei
+663	1419	Tschecho.	CSR
+663	2658	Tschecho.	Tchécoslovaquie
+663	2882	Tschecho.	slovaquie
+663	3749	Tschecho.	m coslovaquie
+664	2038	Fraq	Prague
+664	2876	Fraq	PRAGUE
+666	668	Albanien	Albaniens
+666	2796	Albanien	Albanie
+667	2052	Bulgariens	Bulgarie
+668	2796	Albaniens	Albanie
+669	2779	Atlantik	Atlantique
+670	1328	Tuillerien	Tuilcricn
+670	1333	Tuillerien	Tuilerie»
+677	2641	Seine	Seine
+679	681	National¬ brucke	Nationalbrücke
+680	683	Platze de la Con¬ eorde	Platz de la Con¬ corde
+680	691	Platze de la Con¬ eorde	Platz dela Concorde
+680	936	Platze de la Con¬ eorde	Concordienplatze
+683	691	Platz de la Con¬ corde	Platz dela Concorde
+683	936	Platz de la Con¬ corde	Concordienplatze
+684	692	Hof der Orangerie	Orangerie
+687	3472	Nationalpallasies	Palais-Bourbon
+690	1921	Quai d'Orsai	quai d'Orsay
+690	2861	Quai d'Orsai	Quai d'Orsay
+691	936	Platz dela Concorde	Concordienplatze
+694	3444	Versailles	\ ersailles
+694	3676	Versailles	Versailles
+700	701	GemeindeLyon	Gemeinde Lyon
+700	2110	GemeindeLyon	Lyon
+701	2110	Gemeinde Lyon	Lyon
+702	763	Großbrittannien	Großbritannien
+702	1536	Großbrittannien	Great Britain
+702	1801	Großbrittannien	Great Britian
+702	1935	Großbrittannien	Grande-Bretagne
+702	3455	Großbrittannien	Gratide-Bretagrie
+703	717	Irland.	Irland
+703	2974	Irland.	Eire
+703	2975	Irland.	Irlande
+703	2985	Irland.	Irl
+704	1296	Lon¬ don	Lond
+704	1305	Lon¬ don	bondon
+704	1307	Lon¬ don	london
+704	1478	Lon¬ don	London
+704	1492	Lon¬ don	L ondon
+704	1727	Lon¬ don	LONDON
+704	1883	Lon¬ don	Londres
+704	1899	Lon¬ don	LONDRES
+704	2571	Lon¬ don	Londires
+704	3180	Lon¬ don	ville de Londres
+704	3503	Lon¬ don	Iiondres
+705	1479	Dublin	Dublin
+705	2976	Dublin	Dublin
+706	708	Sli¬ go	Sligo
+717	2974	Irland	Eire
+717	2975	Irland	Irlande
+717	2985	Irland	Irl
+718	1299	Brussel	Prussel
+718	1365	Brussel	Vrü f fel
+718	1366	Brussel	Viüssel
+718	1370	Brussel	Stüffel
+718	1441	Brussel	Brufl'els
+718	1443	Brussel	Bruliel
+718	1728	Brussel	ofBruffels
+718	1729	Brussel	Brufiels
+718	2062	Brussel	BRUXELLES
+718	3742	Brussel	Bru xelles
+720	2112	Toulouse	Toulouse
+725	729	Trieste	Triest
+725	2404	Trieste	Trieste
+728	2016	Venedig	Venise
+729	2404	Triest	Trieste
+731	2017	Dalma¬ tien	Dalmatie
+734	1787	Asien	Asia
+734	1992	Asien	Afie
+734	2959	Asien	Asie
+735	1788	Afrika	Africa
+735	2226	Afrika	Afrique
+735	2439	Afrika	AFRIQUE
+736	1837	München	Munich
+737	2517	Königreichs Baiern	Bavière
+737	3087	Königreichs Baiern	royaume de Bavière
+740	949	Welsch¬ Tyrol	Trentino
+741	3439	Inne	rive droite de l'Inn
+741	3440	Inne	rive gauche de l'Inn
+743	1011	Oester¬ reichischen	Deutschösterreich
+743	1211	Oester¬ reichischen	Oester¬ reich
+743	1385	Oester¬ reichischen	Österreichs
+743	1474	Oester¬ reichischen	Austria
+743	2012	Oester¬ reichischen	Autriche
+744	1260	Rheinstrome	Rhein
+744	1388	Rheinstrome	Rheins
+744	2155	Rheinstrome	Rhin
+746	1258	Ober-Rhein	Oberrheins
+747	748	Stadt Mühlhausen	Mühlhausen
+747	1893	Stadt Mühlhausen	Mulhouse
+748	1893	Mühlhausen	Mulhouse
+750	3112	Erfurt	ERFTJRT
+759	2414	Hamburg	Hambourg
+759	2653	Hamburg	Hambour'g
+759	3057	Hamburg	HAMBOURG
+760	3068	Königsberg	Kcenigsberg
+760	3173	Königsberg	àKœnigsberg
+760	3399	Königsberg	Kônigsberg
+762	1212	Preussen	Preußens
+763	1536	Großbritannien	Great Britain
+763	1801	Großbritannien	Great Britian
+763	1935	Großbritannien	Grande-Bretagne
+763	3455	Großbritannien	Gratide-Bretagrie
+764	1048	Claremont	Gut Claremont
+769	3666	Greenwich	Greenwich
+774	1643	Aegyp¬ ten	Egypt
+774	1984	Aegyp¬ ten	Egypte
+775	776	St. Helena	St. He¬ lena
+779	1242	Dentschland	Deutschl.
+779	1318	Dentschland	Deutseh¬ land
+779	1319	Dentschland	Deutsehlands
+779	1321	Dentschland	Deutschlunel
+779	1322	Dentschland	Doutschlands
+779	1621	Dentschland	Germany—one
+779	1877	Dentschland	Allemagne
+779	1947	Dentschland	Ail
+779	1972	Dentschland	ALLEMAGNE
+779	2351	Dentschland	Germanie
+779	2780	Dentschland	Deutschland
+780	781	Frankfurt	Frank¬ furt
+783	3088	Würtemberg	Wurtemberg
+784	3091	Hessen	Heffe
+784	3174	Hessen	Hesse
+785	1309	Europa's	louropa
+785	1336	Europa's	continentale» Europa
+785	1524	Europa's	Europe
+785	1785	Europa's	European
+785	1871	Europa's	Europe
+785	2237	Europa's	Eurone
+785	3751	Europa's	Vieux-Continent
+786	2849	Appenzell-Außerrhoden	Appenzell Extérieures
+790	2467	Appenzell-Innerrhoden	Appenzell-intérieur
+790	2850	Appenzell-Innerrhoden	Appenzell Intérieur
+790	3127	Appenzell-Innerrhoden	Appenzell
+790	3357	Appenzell-Innerrhoden	Appenzell-inlérieur
+791	2461	Stan¬ des Zug	Zug
+792	2446	Kantons Zü¬ rich	Zurich
+792	3044	Kantons Zü¬ rich	çahton de'Zurich
+792	3388	Kantons Zü¬ rich	ZURICH
+792	3403	Kantons Zü¬ rich	cantons de Zurich
+793	955	Kantone Bern	Bern
+793	2326	Kantone Bern	Berne
+793	2472	Kantone Bern	BERNE
+793	2732	Kantone Bern	canton de Berne
+793	3366	Kantone Bern	Reme
+794	797	Luzern	Kan¬ ton Luzern
+794	2408	Luzern	Lucerne
+794	2447	Luzern	Luceme
+794	3138	Luzern	LUCKRNE
+794	3260	Luzern	canton de Lucerne
+794	3370	Luzern	Lueerne
+794	3371	Luzern	canton de Lucerue
+794	3372	Luzern	canton de Lueerne
+795	798	So¬ lothurn	Stände Solothurn
+795	2453	So¬ lothurn	Solaire
+795	3046	So¬ lothurn	Soleure
+795	3435	So¬ lothurn	canton de Soleure
+796	821	Kantons St. Gallen	St. Gollen
+796	1267	Kantons St. Gallen	Kanton St. Gallen
+796	2410	Kantons St. Gallen	St. Gall
+796	2455	Kantons St. Gallen	St-Gall
+796	2489	Kantons St. Gallen	Sl-Gall
+796	3135	Kantons St. Gallen	ST.
+796	3263	Kantons St. Gallen	St.
+797	2408	Kan¬ ton Luzern	Lucerne
+797	2447	Kan¬ ton Luzern	Luceme
+797	3138	Kan¬ ton Luzern	LUCKRNE
+797	3260	Kan¬ ton Luzern	canton de Lucerne
+797	3370	Kan¬ ton Luzern	Lueerne
+797	3371	Kan¬ ton Luzern	canton de Lucerue
+797	3372	Kan¬ ton Luzern	canton de Lueerne
+798	2453	Stände Solothurn	Solaire
+798	3046	Stände Solothurn	Soleure
+798	3435	Stände Solothurn	canton de Soleure
+799	2407	Basel	canton de Bâle
+799	2412	Basel	Bâ'e
+799	3128	Basel	Basle
+799	3262	Basel	Bâle
+800	1861	Neuenburg	Neuchâtel
+800	2269	Neuenburg	Neuchatel
+800	2331	Neuenburg	NEUCHATEL
+800	2444	Neuenburg	Neuchâld
+800	2766	Neuenburg	Neu » châtel
+800	2851	Neuenburg	NeuchâteL
+800	2901	Neuenburg	ville de Neuchâtel
+800	2902	Neuenburg	vill a de Neuchâtel
+800	2989	Neuenburg	Ville de Neuchâtel
+800	3012	Neuenburg	NEUCHÂTEL
+800	3820	Neuenburg	Neucbâtel
+801	2266	Landeron	Landeron
+802	1126	Fürsten¬ thum Neuenburg	Kanton Neuenburg
+802	1858	Fürsten¬ thum Neuenburg	canton de Neuohâtel
+802	2462	Fürsten¬ thum Neuenburg	Neuchâlel
+802	2761	Fürsten¬ thum Neuenburg	canton de Neuchâtel
+802	3367	Fürsten¬ thum Neuenburg	Neucliâtel
+802	3368	Fürsten¬ thum Neuenburg	IS'euchûtel
+802	3442	Fürsten¬ thum Neuenburg	Neuchàtel
+802	3557	Fürsten¬ thum Neuenburg	Neuchâtel
+803	1971	Neuenburgersee	lac de Neuchâtel
+807	1142	Kanton Aargau	Kantons Aargau
+807	2144	Kanton Aargau	Argovie
+807	2409	Kanton Aargau	lWrgovic
+807	2548	Kanton Aargau	ARGOVIE
+807	3126	Kanton Aargau	cantons d'Argovie
+808	1047	vereinigten Kö¬ nigreichs	Großbritannien
+808	1136	vereinigten Kö¬ nigreichs	Groß¬ britannien
+808	1280	vereinigten Kö¬ nigreichs	Grolbnikannien
+808	1308	vereinigten Kö¬ nigreichs	Grollbnitanniens
+808	2231	vereinigten Kö¬ nigreichs	Grande-Brelanm
+808	2317	vereinigten Kö¬ nigreichs	Grande-Bretagne
+808	3748	vereinigten Kö¬ nigreichs	lita de-Bretagne
+809	1525	Irland	Ireland
+809	1760	Irland	IRELAXD
+810	2610	Balkan	Balkans
+813	1383	schwarze Meer	Schwarzen Meer
+813	1981	schwarze Meer	mer Noire
+815	817	Morca	Morea
+818	2360	Griechenlands	Grèce
+819	962	Dardanellen	Dardanellenstraße
+819	1982	Dardanellen	Dardanelles
+819	3448	Dardanellen	passage des Dardanelles
+821	1267	St. Gollen	Kanton St. Gallen
+821	2410	St. Gollen	St. Gall
+821	2455	St. Gollen	St-Gall
+821	2489	St. Gollen	Sl-Gall
+821	3135	St. Gollen	ST.
+821	3263	St. Gollen	St.
+822	2695	Gemeinden Schwyz	SCHWYTZ
+828	829	Tessin	Tessins
+828	1955	Tessin	Tessin
+828	2221	Tessin	TESSIN
+828	3360	Tessin	canton du Tessin
+829	1955	Tessins	Tessin
+829	2221	Tessins	TESSIN
+829	3360	Tessins	canton du Tessin
+830	874	Lauis	Lugano
+830	2152	Lauis	Lugano
+831	2466	Unterwalden	Unlerwalden
+832	834	Cenere	Berges Cenere
+832	3387	Cenere	dumontCenere
+833	953	Italienische Schweiz	Tessins
+833	954	Italienische Schweiz	Tessin
+834	3387	Berges Cenere	dumontCenere
+836	838	Bezirken Lauis	Distrikt Lauis
+839	3008	Locarno	Locarno
+841	2490	Bellin¬ zona	Bellinzone
+845	2128	Straßburg	Strasbourg
+845	3801	Straßburg	bourg
+847	2189	Graubünden	Grisons
+847	2457	Graubünden	Gri sons
+847	2468	Graubünden	GRISONS
+847	3261	Graubünden	Grisbris
+847	3358	Graubünden	canton des Grisons
+848	1334	Piemont	Pie» mont
+848	1339	Piemont	Piémont
+848	1341	Piemont	Pie« monts
+848	3410	Piemont	Piémont
+849	2210	Veltlin	Valteline
+850	2469	Stadt Chur	Cornu
+850	3374	Stadt Chur	COIRE
+850	3379	Stadt Chur	ville de Coire
+851	1139	Baselstadt	Basel
+851	2448	Baselstadt	fiàle-ville
+851	2463	Baselstadt	Bàle-ville
+851	3365	Baselstadt	Râle
+851	3369	Baselstadt	Râle-Campagne
+851	3433	Baselstadt	canton de Bâle-Ville
+851	3556	Baselstadt	Bàle-Ville
+852	1029	Zürichputsch	Zü¬ rich
+852	1031	Zürichputsch	Bezirke Zürich
+852	1179	Zürichputsch	gf.
+852	1182	Zürichputsch	Türioh
+852	1956	Zürichputsch	Zurich
+852	2818	Zürichputsch	ZURICH
+852	2867	Zürichputsch	rich
+855	1185	Luzerns	Lusern
+855	2238	Luzerns	Lucerne
+855	2390	Luzerns	LUCERNE
+855	3470	Luzerns	Iiiicerric
+860	1214	chweiz	Suisse
+860	1234	chweiz	Schwciz
+860	1237	chweiz	Sehweie
+860	1238	chweiz	Schw.
+860	1240	chweiz	Schi.
+860	1246	chweiz	Gelte
+860	1247	chweiz	Schwe.
+860	1302	chweiz	Sehweiz
+860	1859	chweiz	_Puisse
+860	1865	chweiz	SUISSE
+860	1868	chweiz	Suisse
+860	1870	chweiz	Confédération
+860	1943	chweiz	S
+860	2125	chweiz	YHelvélie
+860	2402	chweiz	RÉPUBLIQUE HELVÉTIQUE
+860	2434	chweiz	Helvétie
+860	2443	chweiz	CONFÉDÉRATION SUISSE
+860	2445	chweiz	Confédération Suisse
+860	2772	chweiz	_Suiraa
+860	2810	chweiz	Confédération suisse
+860	3043	chweiz	Helvetie
+860	3132	chweiz	OnydiftingtiedesnomsquifontchersàlaSuiffe
+860	3139	chweiz	enSiriffe
+860	3404	chweiz	CONFÉDMATÏM SUISSE
+860	3420	chweiz	CONFEDERATION SUISSE
+860	3432	chweiz	Sdisse
+860	3831	chweiz	Mm
+861	863	Schleswig-Holstein	Schleswig¬ Holstein
+861	865	Schleswig-Holstein	Schleswig-Holsteins
+862	3487	Kiel	Kiel
+863	865	Schleswig¬ Holstein	Schleswig-Holsteins
+864	1950	Däne¬ mark	Dan
+864	2242	Däne¬ mark	Danemark
+864	3296	Däne¬ mark	Danemarck
+866	2307	Palermo	Palerme
+866	2494	Palermo	Païenne
+869	1410	Frank¬ furt	Frankfurt a. M.
+869	2036	Frank¬ furt	Francfort
+869	2806	Frank¬ furt	FRANCFORT
+870	886	Sardiniens	Sardinien
+871	2388	Muri	MURI
+873	2471	Lombardei	Luinbardie
+873	2502	Lombardei	Lombardie
+874	2152	Lugano	Lugano
+875	2887	Brünn	Brno
+875	3327	Brünn	Brùnu
+875	3332	Brünn	Brùnn
+876	956	Rußland's	Ruß¬ land
+876	1431	Rußland's	Ruffia
+876	1866	Rußland's	Russie
+876	1867	Rußland's	Grande-Russie
+876	1983	Rußland's	Ruffic
+876	2654	Rußland's	RUSSIE
+876	3397	Rußland's	Bussie
+877	1475	England's	England
+877	1915	England's	Angleterre
+877	2053	England's	ANGLETERRE
+877	3655	England's	England
+877	3694	England's	Angle * terre
+878	1847	Kanton Waadt	VAUD
+878	1848	Kanton Waadt	canton de Vaud
+878	1869	Kanton Waadt	Vaud
+878	2451	Kanton Waadt	fond
+878	2481	Kanton Waadt	canton de VpûdV'
+878	3364	Kanton Waadt	Fatal
+878	3572	Kanton Waadt	CANTON DE VAÏÏD
+880	3213	Algier	Alger
+883	884	Chambord	Cham¬ bord
+885	1087	Mittelmeer	Mittel¬ meeres
+885	1089	Mittelmeer	Mittelmeerküsten
+885	1092	Mittelmeer	Mittelmeerseeleute
+885	1094	Mittelmeer	Mittel¬ meerküste
+885	1351	Mittelmeer	mittelländischen Meere
+885	1715	Mittelmeer	Mediterranean
+885	1916	Mittelmeer	Méditerranée
+885	1978	Mittelmeer	Méditcrrannée
+888	1488	Cagliari	Cagliari
+888	2521	Cagliari	Cagliari
+890	1344	Turin	T u r i n
+890	2239	Turin	Turin
+893	989	Bosnien	Bosniens
+895	902	St. Petersburg	St. Peters¬ burg
+895	1929	St. Petersburg	Saint-Pétersbourg
+895	1988	St. Petersburg	PBTERSBOURG
+895	1995	St. Petersburg	Pétersbourg
+895	2349	St. Petersburg	ST-PéTEESBODEG
+895	2755	St. Petersburg	PETROGRAD
+895	2757	St. Petersburg	Pétrograd
+895	2758	St. Petersburg	PÉTROGRAD
+895	3298	St. Petersburg	St-Pélersbourg
+895	3300	St. Petersburg	StrPélersbourg
+895	3458	St. Petersburg	St-Pétersbourg
+902	1929	St. Peters¬ burg	Saint-Pétersbourg
+902	1988	St. Peters¬ burg	PBTERSBOURG
+902	1995	St. Peters¬ burg	Pétersbourg
+902	2349	St. Peters¬ burg	ST-PéTEESBODEG
+902	2755	St. Peters¬ burg	PETROGRAD
+902	2757	St. Peters¬ burg	Pétrograd
+902	2758	St. Peters¬ burg	PÉTROGRAD
+902	3298	St. Peters¬ burg	St-Pélersbourg
+902	3300	St. Peters¬ burg	StrPélersbourg
+902	3458	St. Peters¬ burg	St-Pétersbourg
+903	2656	Wilna	Vilna
+909	3498	Nicaragua	Nicaragua
+910	1499	Virginien	Virginia
+910	1540	Virginien	Vir¬ ginia
+910	1563	Virginien	OLD NORTH STATE VA
+912	2836	Mexiko	Mexique
+913	914	irischen Stadt Limerick	Limmerick
+916	3414	Suez-Kanal	canal de l'isthme de Suez
+921	2405	Marseille	Marseille
+921	2435	Marseille	MARSEILLE
+923	3342	Kroatien	Croatie
+924	2436	Tunis	Tunis
+928	1013	Gemeinde Winterthur	Winter¬ thur
+928	1014	Gemeinde Winterthur	Winterthurs
+928	2557	Gemeinde Winterthur	Winterthour
+928	3259	Gemeinde Winterthur	YVintertliour
+928	3405	Gemeinde Winterthur	deWinterthour
+933	3151	Vivis	Vevey
+933	3154	Vivis	Vcvcv
+933	3160	Vivis	Vtvej
+933	3760	Vivis	Vêvey
+934	2948	Carouge	Carouge
+935	2105	Asturien	Asturies
+937	1110	Pesth	Pest
+937	3315	Pesth	ville de Pesth
+937	3333	Pesth	Peslh
+937	3340	Pesth	PESTH
+938	2163	Semlin	Semlin
+938	3048	Semlin	SEMLÏN
+940	1114	Roveredo	Rovereto
+952	2460	Glarus	Glaris
+952	3129	Glarus	Glarus
+952	3406	Glarus	Claris
+953	954	Tessins	Tessin
+955	2326	Bern	Berne
+955	2472	Bern	BERNE
+955	2732	Bern	canton de Berne
+955	3366	Bern	Reme
+956	1431	Ruß¬ land	Ruffia
+956	1866	Ruß¬ land	Russie
+956	1867	Ruß¬ land	Grande-Russie
+956	1983	Ruß¬ land	Ruffic
+956	2654	Ruß¬ land	RUSSIE
+956	3397	Ruß¬ land	Bussie
+959	3052	Ruschtschuk	Rutfchuck
+959	3311	Ruschtschuk	RusUchuk
+960	3309	Silistria	Silislrie
+961	2047	Varna	aVàfna
+961	2050	Varna	Varna
+962	1982	Dardanellenstraße	Dardanelles
+962	3448	Dardanellenstraße	passage des Dardanelles
+967	1010	Oester¬ reich-Ungarn	Oesterreich
+967	2120	Oester¬ reich-Ungarn	Autriche
+967	2170	Oester¬ reich-Ungarn	Autriche-Hongrie
+968	974	Süddeutschland	südlichen Deutsch¬ lands
+969	1468	Bay¬ ern	Bavaria
+969	2026	Bay¬ ern	Bivièrëj
+969	2034	Bay¬ ern	Bavière
+970	1389	Nord¬ deutschland	Norddeutschland
+971	1166	Ungarn	Ungarns
+972	1304	Westen Europa's	West¬ curopa
+972	2235	Westen Europa's	Europe occidentale
+972	3782	Westen Europa's	Europe
+975	976	bosnischen Hauptstadt Serajewo	Sera¬ jewo
+975	981	bosnischen Hauptstadt Serajewo	Serajewo
+975	2167	bosnischen Hauptstadt Serajewo	Sarajevo
+976	981	Sera¬ jewo	Serajewo
+976	2167	Sera¬ jewo	Sarajevo
+981	2167	Serajewo	Sarajevo
+997	2118	Stettin	Stetlin
+1002	1005	Chili	Chile
+1002	2864	Chili	Chili
+1003	1408	argentinischen Republik	Argentinien
+1003	2856	argentinischen Republik	blique argentine
+1003	2863	argentinischen Republik	Képublique Argentine
+1003	2865	argentinischen Republik	Argentine
+1005	2864	Chile	Chili
+1006	1459	Philadelphia	Philadelphia
+1006	1754	Philadelphia	Phila¬ delphia
+1007	2106	Italien	Italie
+1007	2109	Italien	Ralie
+1008	1495	Portugal	Portugal
+1008	2055	Portugal	Portugal
+1008	3274	Portugal	PORTUGAL
+1009	1987	Czarenreiches	RUSSIE
+1009	1989	Czarenreiches	Ruffie
+1009	1991	Czarenreiches	Empire
+1009	2344	Czarenreiches	Russie
+1009	3116	Czarenreiches	Ruflio
+1010	2120	Oesterreich	Autriche
+1010	2170	Oesterreich	Autriche-Hongrie
+1011	1211	Deutschösterreich	Oester¬ reich
+1011	1385	Deutschösterreich	Österreichs
+1011	1474	Deutschösterreich	Austria
+1011	2012	Deutschösterreich	Autriche
+1012	2220	Schaffhausen	Schaffhouse
+1012	3005	Schaffhausen	Schallhouse
+1012	3009	Schaffhausen	Schaffliouse
+1013	1014	Winter¬ thur	Winterthurs
+1013	2557	Winter¬ thur	Winterthour
+1013	3259	Winter¬ thur	YVintertliour
+1013	3405	Winter¬ thur	deWinterthour
+1014	2557	Winterthurs	Winterthour
+1014	3259	Winterthurs	YVintertliour
+1014	3405	Winterthurs	deWinterthour
+1016	1024	Wallisellen	Walli¬ sellen
+1023	2771	Wettingen	Wettingen
+1026	2450	Glarus	Glatis
+1026	3407	Glarus	Glai ^
+1029	1031	Zü¬ rich	Bezirke Zürich
+1029	1179	Zü¬ rich	gf.
+1029	1182	Zü¬ rich	Türioh
+1029	1956	Zü¬ rich	Zurich
+1029	2818	Zü¬ rich	ZURICH
+1029	2867	Zü¬ rich	rich
+1031	1179	Bezirke Zürich	gf.
+1031	1182	Bezirke Zürich	Türioh
+1031	1956	Bezirke Zürich	Zurich
+1031	2818	Bezirke Zürich	ZURICH
+1031	2867	Bezirke Zürich	rich
+1033	1043	Vereinigten Staaten von Nordamerika	Ame¬ rika
+1033	1044	Vereinigten Staaten von Nordamerika	Ver.
+1033	1303	Vereinigten Staaten von Nordamerika	Vereinigten Staaten von Amerika
+1033	1306	Vereinigten Staaten von Nordamerika	Vereinigten Stanten
+1033	1315	Vereinigten Staaten von Nordamerika	U.S.A.
+1033	1414	Vereinigten Staaten von Nordamerika	Vereinigten - Staaten
+1033	1426	Vereinigten Staaten von Nordamerika	Unitec?
+1033	1430	Vereinigten Staaten von Nordamerika	the Uni¬ ted Srates
+1033	1433	Vereinigten Staaten von Nordamerika	America
+1033	1481	Vereinigten Staaten von Nordamerika	United States
+1033	1491	Vereinigten Staaten von Nordamerika	U. States
+1033	1500	Vereinigten Staaten von Nordamerika	United States of America
+1033	1512	Vereinigten Staaten von Nordamerika	the U. S.
+1033	1555	Vereinigten Staaten von Nordamerika	the United States
+1033	1651	Vereinigten Staaten von Nordamerika	United Stat-s
+1033	1722	Vereinigten Staaten von Nordamerika	Uni¬ ted Stares
+1033	1757	Vereinigten Staaten von Nordamerika	United Stares
+1033	1758	Vereinigten Staaten von Nordamerika	United Slates
+1033	1762	Vereinigten Staaten von Nordamerika	Unit ;d States
+1033	1819	Vereinigten Staaten von Nordamerika	American
+1033	1900	Vereinigten Staaten von Nordamerika	Etats-Unis
+1033	1949	Vereinigten Staaten von Nordamerika	EU
+1033	2645	Vereinigten Staaten von Nordamerika	USA
+1033	2778	Vereinigten Staaten von Nordamerika	Amérique
+1033	2857	Vereinigten Staaten von Nordamerika	Etals-Unis
+1033	3485	Vereinigten Staaten von Nordamerika	Etats-Uuis
+1033	3673	Vereinigten Staaten von Nordamerika	Etais-Unis
+1033	3747	Vereinigten Staaten von Nordamerika	Lesta-Unis
+1033	3833	Vereinigten Staaten von Nordamerika	Améru _/ ue
+1034	1592	Staate New-York	New York
+1034	1652	Staate New-York	State of New York
+1034	1681	Staate New-York	NEW YORK
+1034	1691	Staate New-York	Newark
+1034	3495	Staate New-York	Etat de New York
+1035	1493	Stadt New-York	NEW-YORK
+1035	1764	Stadt New-York	New York
+1035	1769	Stadt New-York	New- York
+1035	1821	Stadt New-York	New York City
+1035	1962	Stadt New-York	New York
+1035	1965	Stadt New-York	Big Apple
+1035	1966	Stadt New-York	NEW YORK
+1035	2359	Stadt New-York	New. York
+1035	2611	Stadt New-York	New-York
+1035	2781	Stadt New-York	» féw-York
+1035	2853	Stadt New-York	NEW-YORK
+1035	3465	Stadt New-York	ÎVcw-York
+1035	3757	Stadt New-York	New » York
+1038	1692	Weiße Haus	White House
+1038	2951	Weiße Haus	Maison-Blanche
+1038	3750	Weiße Haus	Maison Blanche
+1039	1618	Kanada	Canada
+1039	2988	Kanada	Can
+1039	3492	Kanada	Canada
+1040	1375	Washing¬ ton	"Nwshln^-""'"
+1040	1531	Washing¬ ton	City of Washington
+1040	1768	Washing¬ ton	Washington
+1040	1776	Washing¬ ton	District of Columbia
+1040	1778	Washing¬ ton	It 'asliington
+1040	2673	Washing¬ ton	Washington
+1043	1044	Ame¬ rika	Ver.
+1043	1303	Ame¬ rika	Vereinigten Staaten von Amerika
+1043	1306	Ame¬ rika	Vereinigten Stanten
+1043	1315	Ame¬ rika	U.S.A.
+1043	1414	Ame¬ rika	Vereinigten - Staaten
+1043	1426	Ame¬ rika	Unitec?
+1043	1430	Ame¬ rika	the Uni¬ ted Srates
+1043	1433	Ame¬ rika	America
+1043	1481	Ame¬ rika	United States
+1043	1491	Ame¬ rika	U. States
+1043	1500	Ame¬ rika	United States of America
+1043	1512	Ame¬ rika	the U. S.
+1043	1555	Ame¬ rika	the United States
+1043	1651	Ame¬ rika	United Stat-s
+1043	1722	Ame¬ rika	Uni¬ ted Stares
+1043	1757	Ame¬ rika	United Stares
+1043	1758	Ame¬ rika	United Slates
+1043	1762	Ame¬ rika	Unit ;d States
+1043	1819	Ame¬ rika	American
+1043	1900	Ame¬ rika	Etats-Unis
+1043	1949	Ame¬ rika	EU
+1043	2645	Ame¬ rika	USA
+1043	2778	Ame¬ rika	Amérique
+1043	2857	Ame¬ rika	Etals-Unis
+1043	3485	Ame¬ rika	Etats-Uuis
+1043	3673	Ame¬ rika	Etais-Unis
+1043	3747	Ame¬ rika	Lesta-Unis
+1043	3833	Ame¬ rika	Améru _/ ue
+1044	1303	Ver.	Vereinigten Staaten von Amerika
+1044	1306	Ver.	Vereinigten Stanten
+1044	1315	Ver.	U.S.A.
+1044	1414	Ver.	Vereinigten - Staaten
+1044	1426	Ver.	Unitec?
+1044	1430	Ver.	the Uni¬ ted Srates
+1044	1433	Ver.	America
+1044	1481	Ver.	United States
+1044	1491	Ver.	U. States
+1044	1500	Ver.	United States of America
+1044	1512	Ver.	the U. S.
+1044	1555	Ver.	the United States
+1044	1651	Ver.	United Stat-s
+1044	1722	Ver.	Uni¬ ted Stares
+1044	1757	Ver.	United Stares
+1044	1758	Ver.	United Slates
+1044	1762	Ver.	Unit ;d States
+1044	1819	Ver.	American
+1044	1900	Ver.	Etats-Unis
+1044	1949	Ver.	EU
+1044	2645	Ver.	USA
+1044	2778	Ver.	Amérique
+1044	2857	Ver.	Etals-Unis
+1044	3485	Ver.	Etats-Uuis
+1044	3673	Ver.	Etais-Unis
+1044	3747	Ver.	Lesta-Unis
+1044	3833	Ver.	Améru _/ ue
+1046	2661	innere Stadt Budapest	Budapest
+1046	3459	innere Stadt Budapest	Pesth
+1047	1136	Großbritannien	Groß¬ britannien
+1047	1280	Großbritannien	Grolbnikannien
+1047	1308	Großbritannien	Grollbnitanniens
+1047	2231	Großbritannien	Grande-Brelanm
+1047	2317	Großbritannien	Grande-Bretagne
+1047	3748	Großbritannien	lita de-Bretagne
+1056	1168	Rappers¬ wyl	Rapperswil
+1063	1170	Bahnhof¬ straße	Bahnhofstraße
+1077	1452	Barcelona	Barcelona
+1079	1102	Ost-	Ostseekonsulate
+1079	2004	Ost-	mer Baltique
+1080	2345	englischen Kanal	Manche
+1081	1831	Nordatlantik	North Atlantic
+1084	1088	Nord-	Nordpolexpe
+1084	1090	Nord-	Nordpol
+1084	1091	Nord-	Nordpolreisen
+1086	1155	Bai von Biscaja	Golfes von Biscava
+1087	1089	Mittel¬ meeres	Mittelmeerküsten
+1087	1092	Mittel¬ meeres	Mittelmeerseeleute
+1087	1094	Mittel¬ meeres	Mittel¬ meerküste
+1087	1351	Mittel¬ meeres	mittelländischen Meere
+1087	1715	Mittel¬ meeres	Mediterranean
+1087	1916	Mittel¬ meeres	Méditerranée
+1087	1978	Mittel¬ meeres	Méditcrrannée
+1088	1090	Nordpolexpe	Nordpol
+1088	1091	Nordpolexpe	Nordpolreisen
+1089	1092	Mittelmeerküsten	Mittelmeerseeleute
+1089	1094	Mittelmeerküsten	Mittel¬ meerküste
+1089	1351	Mittelmeerküsten	mittelländischen Meere
+1089	1715	Mittelmeerküsten	Mediterranean
+1089	1916	Mittelmeerküsten	Méditerranée
+1089	1978	Mittelmeerküsten	Méditcrrannée
+1090	1091	Nordpol	Nordpolreisen
+1092	1094	Mittelmeerseeleute	Mittel¬ meerküste
+1092	1351	Mittelmeerseeleute	mittelländischen Meere
+1092	1715	Mittelmeerseeleute	Mediterranean
+1092	1916	Mittelmeerseeleute	Méditerranée
+1092	1978	Mittelmeerseeleute	Méditcrrannée
+1094	1351	Mittel¬ meerküste	mittelländischen Meere
+1094	1715	Mittel¬ meerküste	Mediterranean
+1094	1916	Mittel¬ meerküste	Méditerranée
+1094	1978	Mittel¬ meerküste	Méditcrrannée
+1099	1105	Rio del la Plata	Rio de la Plata
+1099	3395	Rio del la Plata	rives de la Plata
+1100	1996	Finnland	Finlande
+1101	2808	Helsingford	_BELSTNGFORS
+1101	2809	Helsingford	Helsingfors
+1101	3779	Helsingford	Helsinki
+1101	3829	Helsingford	_Helsingfors
+1102	2004	Ostseekonsulate	mer Baltique
+1105	3395	Rio de la Plata	rives de la Plata
+1106	2328	Buenos Aires	Buénos-Ayrcs
+1106	2379	Buenos Aires	Buenos-Ayres
+1106	2380	Buenos Aires	BUENOS-AYRES
+1106	2860	Buenos Aires	Buenos-Aires
+1106	2862	Buenos Aires	BUENOS-AIRES
+1106	3780	Buenos Aires	Buenos Aires
+1110	3315	Pest	ville de Pesth
+1110	3333	Pest	Peslh
+1110	3340	Pest	PESTH
+1111	1112	Festung Ofen	Ofner Festung
+1113	1447	Ungarns	Hungary
+1113	2354	Ungarns	Hongrie
+1113	3314	Ungarns	HONGRIE
+1115	2492	Innsbruck	Inspruck
+1116	1117	hollands	Hollands
+1118	2903	Caracas	CARACAS
+1118	2905	Caracas	Caracas
+1119	2023	Venezuela	Venezuela
+1120	1122	Wil¬ lemstad	Willemstad
+1126	1858	Kanton Neuenburg	canton de Neuohâtel
+1126	2462	Kanton Neuenburg	Neuchâlel
+1126	2761	Kanton Neuenburg	canton de Neuchâtel
+1126	3367	Kanton Neuenburg	Neucliâtel
+1126	3368	Kanton Neuenburg	IS'euchûtel
+1126	3442	Kanton Neuenburg	Neuchàtel
+1126	3557	Kanton Neuenburg	Neuchâtel
+1133	2253	Weinfelden	Wienfelden
+1134	1393	Genf	©enf
+1134	1880	Genf	GENÈVE
+1134	1882	Genf	Genève
+1134	2413	Genf	Ge : ièva
+1134	2599	Genf	Genova
+1134	2648	Genf	J 3 ENÈVE
+1134	2706	Genf	GENèVE
+1134	2707	Genf	ville de Genève
+1134	2858	Genf	GENEVE
+1134	3814	Genf	villes de Genève
+1136	1280	Groß¬ britannien	Grolbnikannien
+1136	1308	Groß¬ britannien	Grollbnitanniens
+1136	2231	Groß¬ britannien	Grande-Brelanm
+1136	2317	Groß¬ britannien	Grande-Bretagne
+1136	3748	Groß¬ britannien	lita de-Bretagne
+1137	3830	Australien	Australie
+1139	2448	Basel	fiàle-ville
+1139	2463	Basel	Bàle-ville
+1139	3365	Basel	Râle
+1139	3369	Basel	Râle-Campagne
+1139	3433	Basel	canton de Bâle-Ville
+1139	3556	Basel	Bàle-Ville
+1140	1141	Baden	Ba¬ den
+1140	2255	Baden	Baden
+1140	3134	Baden	diftàBadcn
+1141	2255	Ba¬ den	Baden
+1141	3134	Ba¬ den	diftàBadcn
+1142	2144	Kantons Aargau	Argovie
+1142	2409	Kantons Aargau	lWrgovic
+1142	2548	Kantons Aargau	ARGOVIE
+1142	3126	Kantons Aargau	cantons d'Argovie
+1146	2332	Val-de¬ Ruz	district du Val-de-Ruz
+1149	1150	Rapperswil	Rap¬ perswil
+1156	1241	Frank¬ reichs	Frankr.
+1156	1352	Frank¬ reichs	Frank« reich
+1156	1432	Frank¬ reichs	France
+1156	1476	Frank¬ reichs	Frtnce
+1156	1739	Frank¬ reichs	Fiance
+1156	1878	Frank¬ reichs	France
+1156	1945	Frank¬ reichs	Fr
+1156	1953	Frank¬ reichs	République française
+1156	2433	Frank¬ reichs	FRANCE
+1156	2505	Frank¬ reichs	FRANGE
+1156	2986	Frank¬ reichs	Fra
+1156	3084	Frank¬ reichs	Fiance
+1156	3137	Frank¬ reichs	1 rance
+1156	3413	Frank¬ reichs	ELANCE
+1157	2357	St. Ursenstadt	Soleure
+1157	2815	St. Ursenstadt	SOLEURE
+1161	2043	Yverdon	Yverdoil
+1161	2151	Yverdon	Yverdon
+1161	2282	Yverdon	Yveidon
+1161	3798	Yverdon	dTverdon
+1161	3819	Yverdon	ïverdon
+1162	2361	Szent-Gotthard	Szen _ -f _ o. tl. ard
+1167	2011	Polens	Pologne
+1167	3301	Polens	royaume de Pologne
+1167	3653	Polens	Pologne prussienne
+1169	2477	Vierwaldstättersees	redoutédesbaleliersdulae des Quatre-Cantons
+1173	3499	Deutschen Reiches	Allemagne
+1174	1176	Lettland	Lett¬ land
+1175	2374	Stockholm	STOCKHOLM
+1175	2756	Stockholm	Stockholm
+1175	3196	Stockholm	Stocholm
+1177	2383	Thalwil	THALWIL
+1177	2385	Thalwil	Thalwil
+1179	1182	gf.	Türioh
+1179	1956	gf.	Zurich
+1179	2818	gf.	ZURICH
+1179	2867	gf.	rich
+1180	2934	Brugg	Bmgg
+1180	2935	Brugg	Brugg
+1182	1956	Türioh	Zurich
+1182	2818	Türioh	ZURICH
+1182	2867	Türioh	rich
+1183	2717	St. Brais	Saint-Brais
+1185	2238	Lusern	Lucerne
+1185	2390	Lusern	LUCERNE
+1185	3470	Lusern	Iiiicerric
+1186	1187	Düdingen	Diidingen
+1188	2207	St. Moritz-Dorf	San Mufjzzan
+1188	2208	St. Moritz-Dorf	Saint-Moritz
+1188	3696	St. Moritz-Dorf	S. t-MojiU
+1188	3697	St. Moritz-Dorf	St-Moriti
+1188	3699	St. Moritz-Dorf	St-Moritz
+1189	1190	La Chaux¬ de-Fonds	La Chaux-de¬ Fonds
+1189	1860	La Chaux¬ de-Fonds	La Chaux-de-Fonds
+1189	2272	La Chaux¬ de-Fonds	Chaux-de-Fonds
+1189	2273	La Chaux¬ de-Fonds	Chaùx-de-Fonds
+1189	2274	La Chaux¬ de-Fonds	Chaux-de Fonds
+1189	2313	La Chaux¬ de-Fonds	la Chaux-de-Fonds
+1189	2314	La Chaux¬ de-Fonds	de-Fonds
+1189	3708	La Chaux¬ de-Fonds	Cbaux-de-Fonds
+1190	1860	La Chaux-de¬ Fonds	La Chaux-de-Fonds
+1190	2272	La Chaux-de¬ Fonds	Chaux-de-Fonds
+1190	2273	La Chaux-de¬ Fonds	Chaùx-de-Fonds
+1190	2274	La Chaux-de¬ Fonds	Chaux-de Fonds
+1190	2313	La Chaux-de¬ Fonds	la Chaux-de-Fonds
+1190	2314	La Chaux-de¬ Fonds	de-Fonds
+1190	3708	La Chaux-de¬ Fonds	Cbaux-de-Fonds
+1191	2895	Thun	Thoune
+1192	2899	Olten	Olten
+1192	3547	Olten	Oiten
+1193	2546	Zentralschweiz	Suisse centrale
+1194	1197	Admiralspalast	Metropoltheater
+1199	2613	Italien	Italie fasciste
+1200	1202	Sowjetrußlands	Sowjetrußland
+1200	1392	Sowjetrußlands	Nußlanb
+1200	1394	Sowjetrußlands	Ruhlanb
+1200	1398	Sowjetrußlands	Rußlands
+1200	1399	Sowjetrußlands	Ruhlanbs
+1200	1400	Sowjetrußlands	Rufzlanb
+1200	2609	Sowjetrußlands	Union soviétique
+1200	2958	Sowjetrußlands	URSS
+1201	1232	Ita¬ lien	Italicn
+1201	1300	Ita¬ lien	Ifalien
+1201	1450	Ita¬ lien	ITALY
+1201	1656	Ita¬ lien	Italy
+1201	1934	Ita¬ lien	Italie
+1201	1941	Ita¬ lien	It
+1201	1975	Ita¬ lien	ITALIE
+1201	2987	Ita¬ lien	Ita
+1202	1392	Sowjetrußland	Nußlanb
+1202	1394	Sowjetrußland	Ruhlanb
+1202	1398	Sowjetrußland	Rußlands
+1202	1399	Sowjetrußland	Ruhlanbs
+1202	1400	Sowjetrußland	Rufzlanb
+1202	2609	Sowjetrußland	Union soviétique
+1202	2958	Sowjetrußland	URSS
+1203	1210	Deutsch¬ land	Dritten Reiches
+1203	1386	Deutsch¬ land	Deutschlands
+1203	1387	Deutsch¬ land	Deut' schen Reiches
+1203	2660	Deutsch¬ land	Reich
+1203	3720	Deutsch¬ land	Allemagne
+1204	1206	Mittel¬ europa	Mitteleuropa
+1205	2950	Fernen Osten	Extrême-Srient
+1205	2954	Fernen Osten	Extrême-Orient
+1205	3752	Fernen Osten	Extréme-Asie
+1208	1926	Nord¬ afrika	Afrique du Nord
+1209	1213	Ober¬ salzberg	Obersalzberg
+1210	1386	Dritten Reiches	Deutschlands
+1210	1387	Dritten Reiches	Deut' schen Reiches
+1210	2660	Dritten Reiches	Reich
+1210	3720	Dritten Reiches	Allemagne
+1211	1385	Oester¬ reich	Österreichs
+1211	1474	Oester¬ reich	Austria
+1211	2012	Oester¬ reich	Autriche
+1214	1234	Suisse	Schwciz
+1214	1237	Suisse	Sehweie
+1214	1238	Suisse	Schw.
+1214	1240	Suisse	Schi.
+1214	1246	Suisse	Gelte
+1214	1247	Suisse	Schwe.
+1214	1302	Suisse	Sehweiz
+1214	1859	Suisse	_Puisse
+1214	1865	Suisse	SUISSE
+1214	1868	Suisse	Suisse
+1214	1870	Suisse	Confédération
+1214	1943	Suisse	S
+1214	2125	Suisse	YHelvélie
+1214	2402	Suisse	RÉPUBLIQUE HELVÉTIQUE
+1214	2434	Suisse	Helvétie
+1214	2443	Suisse	CONFÉDÉRATION SUISSE
+1214	2445	Suisse	Confédération Suisse
+1214	2772	Suisse	_Suiraa
+1214	2810	Suisse	Confédération suisse
+1214	3043	Suisse	Helvetie
+1214	3132	Suisse	OnydiftingtiedesnomsquifontchersàlaSuiffe
+1214	3139	Suisse	enSiriffe
+1214	3404	Suisse	CONFÉDMATÏM SUISSE
+1214	3420	Suisse	CONFEDERATION SUISSE
+1214	3432	Suisse	Sdisse
+1214	3831	Suisse	Mm
+1215	1216	San Bernardinopaß	San Bernardino¬ paß
+1215	1226	San Bernardinopaß	Bernardinokehren
+1215	1248	San Bernardinopaß	San Vernardino
+1216	1226	San Bernardino¬ paß	Bernardinokehren
+1216	1248	San Bernardino¬ paß	San Vernardino
+1221	1223	Splügen	Splügen-Dorf
+1221	1225	Splügen	Dorf Splügen
+1221	3381	Splügen	Splugen
+1223	1225	Splügen-Dorf	Dorf Splügen
+1223	3381	Splügen-Dorf	Splugen
+1225	3381	Dorf Splügen	Splugen
+1226	1248	Bernardinokehren	San Vernardino
+1228	1229	Dorf San Bernardino	San Bernardino
+1232	1300	Italicn	Ifalien
+1232	1450	Italicn	ITALY
+1232	1656	Italicn	Italy
+1232	1934	Italicn	Italie
+1232	1941	Italicn	It
+1232	1975	Italicn	ITALIE
+1232	2987	Italicn	Ita
+1233	1235	Belaien	Bel¬ gien
+1233	1942	Belaien	Be
+1233	2068	Belaien	Belgique
+1233	2982	Belaien	Bel
+1234	1237	Schwciz	Sehweie
+1234	1238	Schwciz	Schw.
+1234	1240	Schwciz	Schi.
+1234	1246	Schwciz	Gelte
+1234	1247	Schwciz	Schwe.
+1234	1302	Schwciz	Sehweiz
+1234	1859	Schwciz	_Puisse
+1234	1865	Schwciz	SUISSE
+1234	1868	Schwciz	Suisse
+1234	1870	Schwciz	Confédération
+1234	1943	Schwciz	S
+1234	2125	Schwciz	YHelvélie
+1234	2402	Schwciz	RÉPUBLIQUE HELVÉTIQUE
+1234	2434	Schwciz	Helvétie
+1234	2443	Schwciz	CONFÉDÉRATION SUISSE
+1234	2445	Schwciz	Confédération Suisse
+1234	2772	Schwciz	_Suiraa
+1234	2810	Schwciz	Confédération suisse
+1234	3043	Schwciz	Helvetie
+1234	3132	Schwciz	OnydiftingtiedesnomsquifontchersàlaSuiffe
+1234	3139	Schwciz	enSiriffe
+1234	3404	Schwciz	CONFÉDMATÏM SUISSE
+1234	3420	Schwciz	CONFEDERATION SUISSE
+1234	3432	Schwciz	Sdisse
+1234	3831	Schwciz	Mm
+1235	1942	Bel¬ gien	Be
+1235	2068	Bel¬ gien	Belgique
+1235	2982	Bel¬ gien	Bel
+1236	1243	Luxem¬ burg	Lux.
+1236	1245	Luxem¬ burg	inre
+1236	1337	Luxem¬ burg	L rnnburg
+1236	2063	Luxem¬ burg	Luxembourg
+1237	1238	Sehweie	Schw.
+1237	1240	Sehweie	Schi.
+1237	1246	Sehweie	Gelte
+1237	1247	Sehweie	Schwe.
+1237	1302	Sehweie	Sehweiz
+1237	1859	Sehweie	_Puisse
+1237	1865	Sehweie	SUISSE
+1237	1868	Sehweie	Suisse
+1237	1870	Sehweie	Confédération
+1237	1943	Sehweie	S
+1237	2125	Sehweie	YHelvélie
+1237	2402	Sehweie	RÉPUBLIQUE HELVÉTIQUE
+1237	2434	Sehweie	Helvétie
+1237	2443	Sehweie	CONFÉDÉRATION SUISSE
+1237	2445	Sehweie	Confédération Suisse
+1237	2772	Sehweie	_Suiraa
+1237	2810	Sehweie	Confédération suisse
+1237	3043	Sehweie	Helvetie
+1237	3132	Sehweie	OnydiftingtiedesnomsquifontchersàlaSuiffe
+1237	3139	Sehweie	enSiriffe
+1237	3404	Sehweie	CONFÉDMATÏM SUISSE
+1237	3420	Sehweie	CONFEDERATION SUISSE
+1237	3432	Sehweie	Sdisse
+1237	3831	Sehweie	Mm
+1238	1240	Schw.	Schi.
+1238	1246	Schw.	Gelte
+1238	1247	Schw.	Schwe.
+1238	1302	Schw.	Sehweiz
+1238	1859	Schw.	_Puisse
+1238	1865	Schw.	SUISSE
+1238	1868	Schw.	Suisse
+1238	1870	Schw.	Confédération
+1238	1943	Schw.	S
+1238	2125	Schw.	YHelvélie
+1238	2402	Schw.	RÉPUBLIQUE HELVÉTIQUE
+1238	2434	Schw.	Helvétie
+1238	2443	Schw.	CONFÉDÉRATION SUISSE
+1238	2445	Schw.	Confédération Suisse
+1238	2772	Schw.	_Suiraa
+1238	2810	Schw.	Confédération suisse
+1238	3043	Schw.	Helvetie
+1238	3132	Schw.	OnydiftingtiedesnomsquifontchersàlaSuiffe
+1238	3139	Schw.	enSiriffe
+1238	3404	Schw.	CONFÉDMATÏM SUISSE
+1238	3420	Schw.	CONFEDERATION SUISSE
+1238	3432	Schw.	Sdisse
+1238	3831	Schw.	Mm
+1239	1244	Iolland	IIoll.
+1239	1951	Iolland	Ho
+1239	2209	Iolland	Hollande
+1239	2366	Iolland	lande
+1239	2984	Iolland	Hol
+1239	3217	Iolland	Pays-Bas
+1240	1246	Schi.	Gelte
+1240	1247	Schi.	Schwe.
+1240	1302	Schi.	Sehweiz
+1240	1859	Schi.	_Puisse
+1240	1865	Schi.	SUISSE
+1240	1868	Schi.	Suisse
+1240	1870	Schi.	Confédération
+1240	1943	Schi.	S
+1240	2125	Schi.	YHelvélie
+1240	2402	Schi.	RÉPUBLIQUE HELVÉTIQUE
+1240	2434	Schi.	Helvétie
+1240	2443	Schi.	CONFÉDÉRATION SUISSE
+1240	2445	Schi.	Confédération Suisse
+1240	2772	Schi.	_Suiraa
+1240	2810	Schi.	Confédération suisse
+1240	3043	Schi.	Helvetie
+1240	3132	Schi.	OnydiftingtiedesnomsquifontchersàlaSuiffe
+1240	3139	Schi.	enSiriffe
+1240	3404	Schi.	CONFÉDMATÏM SUISSE
+1240	3420	Schi.	CONFEDERATION SUISSE
+1240	3432	Schi.	Sdisse
+1240	3831	Schi.	Mm
+1241	1352	Frankr.	Frank« reich
+1241	1432	Frankr.	France
+1241	1476	Frankr.	Frtnce
+1241	1739	Frankr.	Fiance
+1241	1878	Frankr.	France
+1241	1945	Frankr.	Fr
+1241	1953	Frankr.	République française
+1241	2433	Frankr.	FRANCE
+1241	2505	Frankr.	FRANGE
+1241	2986	Frankr.	Fra
+1241	3084	Frankr.	Fiance
+1241	3137	Frankr.	1 rance
+1241	3413	Frankr.	ELANCE
+1242	1318	Deutschl.	Deutseh¬ land
+1242	1319	Deutschl.	Deutsehlands
+1242	1321	Deutschl.	Deutschlunel
+1242	1322	Deutschl.	Doutschlands
+1242	1621	Deutschl.	Germany—one
+1242	1877	Deutschl.	Allemagne
+1242	1947	Deutschl.	Ail
+1242	1972	Deutschl.	ALLEMAGNE
+1242	2351	Deutschl.	Germanie
+1242	2780	Deutschl.	Deutschland
+1243	1245	Lux.	inre
+1243	1337	Lux.	L rnnburg
+1243	2063	Lux.	Luxembourg
+1244	1951	IIoll.	Ho
+1244	2209	IIoll.	Hollande
+1244	2366	IIoll.	lande
+1244	2984	IIoll.	Hol
+1244	3217	IIoll.	Pays-Bas
+1245	1337	inre	L rnnburg
+1245	2063	inre	Luxembourg
+1246	1247	Gelte	Schwe.
+1246	1302	Gelte	Sehweiz
+1246	1859	Gelte	_Puisse
+1246	1865	Gelte	SUISSE
+1246	1868	Gelte	Suisse
+1246	1870	Gelte	Confédération
+1246	1943	Gelte	S
+1246	2125	Gelte	YHelvélie
+1246	2402	Gelte	RÉPUBLIQUE HELVÉTIQUE
+1246	2434	Gelte	Helvétie
+1246	2443	Gelte	CONFÉDÉRATION SUISSE
+1246	2445	Gelte	Confédération Suisse
+1246	2772	Gelte	_Suiraa
+1246	2810	Gelte	Confédération suisse
+1246	3043	Gelte	Helvetie
+1246	3132	Gelte	OnydiftingtiedesnomsquifontchersàlaSuiffe
+1246	3139	Gelte	enSiriffe
+1246	3404	Gelte	CONFÉDMATÏM SUISSE
+1246	3420	Gelte	CONFEDERATION SUISSE
+1246	3432	Gelte	Sdisse
+1246	3831	Gelte	Mm
+1247	1302	Schwe.	Sehweiz
+1247	1859	Schwe.	_Puisse
+1247	1865	Schwe.	SUISSE
+1247	1868	Schwe.	Suisse
+1247	1870	Schwe.	Confédération
+1247	1943	Schwe.	S
+1247	2125	Schwe.	YHelvélie
+1247	2402	Schwe.	RÉPUBLIQUE HELVÉTIQUE
+1247	2434	Schwe.	Helvétie
+1247	2443	Schwe.	CONFÉDÉRATION SUISSE
+1247	2445	Schwe.	Confédération Suisse
+1247	2772	Schwe.	_Suiraa
+1247	2810	Schwe.	Confédération suisse
+1247	3043	Schwe.	Helvetie
+1247	3132	Schwe.	OnydiftingtiedesnomsquifontchersàlaSuiffe
+1247	3139	Schwe.	enSiriffe
+1247	3404	Schwe.	CONFÉDMATÏM SUISSE
+1247	3420	Schwe.	CONFEDERATION SUISSE
+1247	3432	Schwe.	Sdisse
+1247	3831	Schwe.	Mm
+1249	1252	Alten Rheins	Alter Rhein
+1249	1265	Alten Rheins	alten Rheinlaufes
+1252	1265	Alter Rhein	alten Rheinlaufes
+1253	1261	St. Margrethen	St. Mar¬ grethen
+1254	1259	Boden¬ see	Bodensee
+1254	1266	Boden¬ see	Boden¬ sees
+1254	3402	Boden¬ see	lac de Constance
+1259	1266	Bodensee	Boden¬ sees
+1259	3402	Bodensee	lac de Constance
+1260	1388	Rhein	Rheins
+1260	2155	Rhein	Rhin
+1266	3402	Boden¬ sees	lac de Constance
+1267	2410	Kanton St. Gallen	St. Gall
+1267	2455	Kanton St. Gallen	St-Gall
+1267	2489	Kanton St. Gallen	Sl-Gall
+1267	3135	Kanton St. Gallen	ST.
+1267	3263	Kanton St. Gallen	St.
+1273	3338	Lemberg	LEMBERG
+1273	3339	Lemberg	Lemberg
+1275	1276	Siidrhodesiens	Siidrhodlesien
+1275	1277	Siidrhodesiens	Südrhodesiens
+1275	1285	Siidrhodesiens	Südrhodesieus
+1275	1286	Siidrhodesiens	Rhodlesiens
+1275	1289	Siidrhodesiens	Südlehoclesien
+1275	1290	Siidrhodesiens	Südrhoelesien
+1275	1291	Siidrhodesiens	Südchodesien
+1275	1292	Siidrhodesiens	Südrhodesien
+1276	1277	Siidrhodlesien	Südrhodesiens
+1276	1285	Siidrhodlesien	Südrhodesieus
+1276	1286	Siidrhodlesien	Rhodlesiens
+1276	1289	Siidrhodlesien	Südlehoclesien
+1276	1290	Siidrhodlesien	Südrhoelesien
+1276	1291	Siidrhodlesien	Südchodesien
+1276	1292	Siidrhodlesien	Südrhodesien
+1277	1285	Südrhodesiens	Südrhodesieus
+1277	1286	Südrhodesiens	Rhodlesiens
+1277	1289	Südrhodesiens	Südlehoclesien
+1277	1290	Südrhodesiens	Südrhoelesien
+1277	1291	Südrhodesiens	Südchodesien
+1277	1292	Südrhodesiens	Südrhodesien
+1279	1281	Füdlafnikanischen Enion	Südafxikanischen Enion
+1279	1287	Füdlafnikanischen Enion	Süd¬ akrikanischen Union
+1279	1288	Füdlafnikanischen Enion	Südlaspikeanischen Union
+1279	1293	Füdlafnikanischen Enion	Südafrikn¬ nischen Union
+1279	1424	Füdlafnikanischen Enion	Südafrika
+1280	1308	Grolbnikannien	Grollbnitanniens
+1280	2231	Grolbnikannien	Grande-Brelanm
+1280	2317	Grolbnikannien	Grande-Bretagne
+1280	3748	Grolbnikannien	lita de-Bretagne
+1281	1287	Südafxikanischen Enion	Süd¬ akrikanischen Union
+1281	1288	Südafxikanischen Enion	Südlaspikeanischen Union
+1281	1293	Südafxikanischen Enion	Südafrikn¬ nischen Union
+1281	1424	Südafxikanischen Enion	Südafrika
+1282	1283	Transvaal	Pransvaal
+1285	1286	Südrhodesieus	Rhodlesiens
+1285	1289	Südrhodesieus	Südlehoclesien
+1285	1290	Südrhodesieus	Südrhoelesien
+1285	1291	Südrhodesieus	Südchodesien
+1285	1292	Südrhodesieus	Südrhodesien
+1286	1289	Rhodlesiens	Südlehoclesien
+1286	1290	Rhodlesiens	Südrhoelesien
+1286	1291	Rhodlesiens	Südchodesien
+1286	1292	Rhodlesiens	Südrhodesien
+1287	1288	Süd¬ akrikanischen Union	Südlaspikeanischen Union
+1287	1293	Süd¬ akrikanischen Union	Südafrikn¬ nischen Union
+1287	1424	Süd¬ akrikanischen Union	Südafrika
+1288	1293	Südlaspikeanischen Union	Südafrikn¬ nischen Union
+1288	1424	Südlaspikeanischen Union	Südafrika
+1289	1290	Südlehoclesien	Südrhoelesien
+1289	1291	Südlehoclesien	Südchodesien
+1289	1292	Südlehoclesien	Südrhodesien
+1290	1291	Südrhoelesien	Südchodesien
+1290	1292	Südrhoelesien	Südrhodesien
+1291	1292	Südchodesien	Südrhodesien
+1293	1424	Südafrikn¬ nischen Union	Südafrika
+1294	1419	Tschechosloualei	CSR
+1294	2658	Tschechosloualei	Tchécoslovaquie
+1294	2882	Tschechosloualei	slovaquie
+1294	3749	Tschechosloualei	m coslovaquie
+1296	1305	Lond	bondon
+1296	1307	Lond	london
+1296	1478	Lond	London
+1296	1492	Lond	L ondon
+1296	1727	Lond	LONDON
+1296	1883	Lond	Londres
+1296	1899	Lond	LONDRES
+1296	2571	Lond	Londires
+1296	3180	Lond	ville de Londres
+1296	3503	Lond	Iiondres
+1299	1365	Prussel	Vrü f fel
+1299	1366	Prussel	Viüssel
+1299	1370	Prussel	Stüffel
+1299	1441	Prussel	Brufl'els
+1299	1443	Prussel	Bruliel
+1299	1728	Prussel	ofBruffels
+1299	1729	Prussel	Brufiels
+1299	2062	Prussel	BRUXELLES
+1299	3742	Prussel	Bru xelles
+1300	1450	Ifalien	ITALY
+1300	1656	Ifalien	Italy
+1300	1934	Ifalien	Italie
+1300	1941	Ifalien	It
+1300	1975	Ifalien	ITALIE
+1300	2987	Ifalien	Ita
+1301	2240	Shandinavien	pays Scandinaves
+1301	3658	Shandinavien	Scandinave
+1302	1859	Sehweiz	_Puisse
+1302	1865	Sehweiz	SUISSE
+1302	1868	Sehweiz	Suisse
+1302	1870	Sehweiz	Confédération
+1302	1943	Sehweiz	S
+1302	2125	Sehweiz	YHelvélie
+1302	2402	Sehweiz	RÉPUBLIQUE HELVÉTIQUE
+1302	2434	Sehweiz	Helvétie
+1302	2443	Sehweiz	CONFÉDÉRATION SUISSE
+1302	2445	Sehweiz	Confédération Suisse
+1302	2772	Sehweiz	_Suiraa
+1302	2810	Sehweiz	Confédération suisse
+1302	3043	Sehweiz	Helvetie
+1302	3132	Sehweiz	OnydiftingtiedesnomsquifontchersàlaSuiffe
+1302	3139	Sehweiz	enSiriffe
+1302	3404	Sehweiz	CONFÉDMATÏM SUISSE
+1302	3420	Sehweiz	CONFEDERATION SUISSE
+1302	3432	Sehweiz	Sdisse
+1302	3831	Sehweiz	Mm
+1303	1306	Vereinigten Staaten von Amerika	Vereinigten Stanten
+1303	1315	Vereinigten Staaten von Amerika	U.S.A.
+1303	1414	Vereinigten Staaten von Amerika	Vereinigten - Staaten
+1303	1426	Vereinigten Staaten von Amerika	Unitec?
+1303	1430	Vereinigten Staaten von Amerika	the Uni¬ ted Srates
+1303	1433	Vereinigten Staaten von Amerika	America
+1303	1481	Vereinigten Staaten von Amerika	United States
+1303	1491	Vereinigten Staaten von Amerika	U. States
+1303	1500	Vereinigten Staaten von Amerika	United States of America
+1303	1512	Vereinigten Staaten von Amerika	the U. S.
+1303	1555	Vereinigten Staaten von Amerika	the United States
+1303	1651	Vereinigten Staaten von Amerika	United Stat-s
+1303	1722	Vereinigten Staaten von Amerika	Uni¬ ted Stares
+1303	1757	Vereinigten Staaten von Amerika	United Stares
+1303	1758	Vereinigten Staaten von Amerika	United Slates
+1303	1762	Vereinigten Staaten von Amerika	Unit ;d States
+1303	1819	Vereinigten Staaten von Amerika	American
+1303	1900	Vereinigten Staaten von Amerika	Etats-Unis
+1303	1949	Vereinigten Staaten von Amerika	EU
+1303	2645	Vereinigten Staaten von Amerika	USA
+1303	2778	Vereinigten Staaten von Amerika	Amérique
+1303	2857	Vereinigten Staaten von Amerika	Etals-Unis
+1303	3485	Vereinigten Staaten von Amerika	Etats-Uuis
+1303	3673	Vereinigten Staaten von Amerika	Etais-Unis
+1303	3747	Vereinigten Staaten von Amerika	Lesta-Unis
+1303	3833	Vereinigten Staaten von Amerika	Améru _/ ue
+1304	2235	West¬ curopa	Europe occidentale
+1304	3782	West¬ curopa	Europe
+1305	1307	bondon	london
+1305	1478	bondon	London
+1305	1492	bondon	L ondon
+1305	1727	bondon	LONDON
+1305	1883	bondon	Londres
+1305	1899	bondon	LONDRES
+1305	2571	bondon	Londires
+1305	3180	bondon	ville de Londres
+1305	3503	bondon	Iiondres
+1306	1315	Vereinigten Stanten	U.S.A.
+1306	1414	Vereinigten Stanten	Vereinigten - Staaten
+1306	1426	Vereinigten Stanten	Unitec?
+1306	1430	Vereinigten Stanten	the Uni¬ ted Srates
+1306	1433	Vereinigten Stanten	America
+1306	1481	Vereinigten Stanten	United States
+1306	1491	Vereinigten Stanten	U. States
+1306	1500	Vereinigten Stanten	United States of America
+1306	1512	Vereinigten Stanten	the U. S.
+1306	1555	Vereinigten Stanten	the United States
+1306	1651	Vereinigten Stanten	United Stat-s
+1306	1722	Vereinigten Stanten	Uni¬ ted Stares
+1306	1757	Vereinigten Stanten	United Stares
+1306	1758	Vereinigten Stanten	United Slates
+1306	1762	Vereinigten Stanten	Unit ;d States
+1306	1819	Vereinigten Stanten	American
+1306	1900	Vereinigten Stanten	Etats-Unis
+1306	1949	Vereinigten Stanten	EU
+1306	2645	Vereinigten Stanten	USA
+1306	2778	Vereinigten Stanten	Amérique
+1306	2857	Vereinigten Stanten	Etals-Unis
+1306	3485	Vereinigten Stanten	Etats-Uuis
+1306	3673	Vereinigten Stanten	Etais-Unis
+1306	3747	Vereinigten Stanten	Lesta-Unis
+1306	3833	Vereinigten Stanten	Améru _/ ue
+1307	1478	london	London
+1307	1492	london	L ondon
+1307	1727	london	LONDON
+1307	1883	london	Londres
+1307	1899	london	LONDRES
+1307	2571	london	Londires
+1307	3180	london	ville de Londres
+1307	3503	london	Iiondres
+1308	2231	Grollbnitanniens	Grande-Brelanm
+1308	2317	Grollbnitanniens	Grande-Bretagne
+1308	3748	Grollbnitanniens	lita de-Bretagne
+1309	1336	louropa	continentale» Europa
+1309	1524	louropa	Europe
+1309	1785	louropa	European
+1309	1871	louropa	Europe
+1309	2237	louropa	Eurone
+1309	3751	louropa	Vieux-Continent
+1310	1311	Ruhrindustrie	Ruhrstatut
+1310	1312	Ruhrindustrie	Ruhrproduktion
+1310	1313	Ruhrindustrie	Ruhrdirektorium
+1310	1314	Ruhrindustrie	Ruhrdiktat
+1310	1316	Ruhrindustrie	Ruhr
+1310	1317	Ruhrindustrie	Ruhrfrage
+1310	1320	Ruhrindustrie	Ruhrproduletion
+1310	1323	Ruhrindustrie	Ruhrbehörde
+1311	1312	Ruhrstatut	Ruhrproduktion
+1311	1313	Ruhrstatut	Ruhrdirektorium
+1311	1314	Ruhrstatut	Ruhrdiktat
+1311	1316	Ruhrstatut	Ruhr
+1311	1317	Ruhrstatut	Ruhrfrage
+1311	1320	Ruhrstatut	Ruhrproduletion
+1311	1323	Ruhrstatut	Ruhrbehörde
+1312	1313	Ruhrproduktion	Ruhrdirektorium
+1312	1314	Ruhrproduktion	Ruhrdiktat
+1312	1316	Ruhrproduktion	Ruhr
+1312	1317	Ruhrproduktion	Ruhrfrage
+1312	1320	Ruhrproduktion	Ruhrproduletion
+1312	1323	Ruhrproduktion	Ruhrbehörde
+1313	1314	Ruhrdirektorium	Ruhrdiktat
+1313	1316	Ruhrdirektorium	Ruhr
+1313	1317	Ruhrdirektorium	Ruhrfrage
+1313	1320	Ruhrdirektorium	Ruhrproduletion
+1313	1323	Ruhrdirektorium	Ruhrbehörde
+1314	1316	Ruhrdiktat	Ruhr
+1314	1317	Ruhrdiktat	Ruhrfrage
+1314	1320	Ruhrdiktat	Ruhrproduletion
+1314	1323	Ruhrdiktat	Ruhrbehörde
+1315	1414	U.S.A.	Vereinigten - Staaten
+1315	1426	U.S.A.	Unitec?
+1315	1430	U.S.A.	the Uni¬ ted Srates
+1315	1433	U.S.A.	America
+1315	1481	U.S.A.	United States
+1315	1491	U.S.A.	U. States
+1315	1500	U.S.A.	United States of America
+1315	1512	U.S.A.	the U. S.
+1315	1555	U.S.A.	the United States
+1315	1651	U.S.A.	United Stat-s
+1315	1722	U.S.A.	Uni¬ ted Stares
+1315	1757	U.S.A.	United Stares
+1315	1758	U.S.A.	United Slates
+1315	1762	U.S.A.	Unit ;d States
+1315	1819	U.S.A.	American
+1315	1900	U.S.A.	Etats-Unis
+1315	1949	U.S.A.	EU
+1315	2645	U.S.A.	USA
+1315	2778	U.S.A.	Amérique
+1315	2857	U.S.A.	Etals-Unis
+1315	3485	U.S.A.	Etats-Uuis
+1315	3673	U.S.A.	Etais-Unis
+1315	3747	U.S.A.	Lesta-Unis
+1315	3833	U.S.A.	Améru _/ ue
+1316	1317	Ruhr	Ruhrfrage
+1316	1320	Ruhr	Ruhrproduletion
+1316	1323	Ruhr	Ruhrbehörde
+1317	1320	Ruhrfrage	Ruhrproduletion
+1317	1323	Ruhrfrage	Ruhrbehörde
+1318	1319	Deutseh¬ land	Deutsehlands
+1318	1321	Deutseh¬ land	Deutschlunel
+1318	1322	Deutseh¬ land	Doutschlands
+1318	1621	Deutseh¬ land	Germany—one
+1318	1877	Deutseh¬ land	Allemagne
+1318	1947	Deutseh¬ land	Ail
+1318	1972	Deutseh¬ land	ALLEMAGNE
+1318	2351	Deutseh¬ land	Germanie
+1318	2780	Deutseh¬ land	Deutschland
+1319	1321	Deutsehlands	Deutschlunel
+1319	1322	Deutsehlands	Doutschlands
+1319	1621	Deutsehlands	Germany—one
+1319	1877	Deutsehlands	Allemagne
+1319	1947	Deutsehlands	Ail
+1319	1972	Deutsehlands	ALLEMAGNE
+1319	2351	Deutsehlands	Germanie
+1319	2780	Deutsehlands	Deutschland
+1320	1323	Ruhrproduletion	Ruhrbehörde
+1321	1322	Deutschlunel	Doutschlands
+1321	1621	Deutschlunel	Germany—one
+1321	1877	Deutschlunel	Allemagne
+1321	1947	Deutschlunel	Ail
+1321	1972	Deutschlunel	ALLEMAGNE
+1321	2351	Deutschlunel	Germanie
+1321	2780	Deutschlunel	Deutschland
+1322	1621	Doutschlands	Germany—one
+1322	1877	Doutschlands	Allemagne
+1322	1947	Doutschlands	Ail
+1322	1972	Doutschlands	ALLEMAGNE
+1322	2351	Doutschlands	Germanie
+1322	2780	Doutschlands	Deutschland
+1324	2251	Luremburg	Luxembourg
+1326	1327	Rne Lepelletier	Nue
+1326	1329	Rne Lepelletier	Nur Lepellctier
+1327	1329	Nue	Nur Lepellctier
+1328	1333	Tuilcricn	Tuilerie»
+1332	2544	Seine	Seine
+1332	3352	Seine	département delà Seine
+1334	1339	Pie» mont	Piémont
+1334	1341	Pie» mont	Pie« monts
+1334	3410	Pie» mont	Piémont
+1336	1524	continentale» Europa	Europe
+1336	1785	continentale» Europa	European
+1336	1871	continentale» Europa	Europe
+1336	2237	continentale» Europa	Eurone
+1336	3751	continentale» Europa	Vieux-Continent
+1337	2063	L rnnburg	Luxembourg
+1338	2044	Orientfriedens	ÔRÎENT
+1338	2051	Orientfriedens	Orient
+1339	1341	Piémont	Pie« monts
+1339	3410	Piémont	Piémont
+1341	3410	Pie« monts	Piémont
+1342	3359	Ocsterreichs	Autriche
+1344	2239	T u r i n	Turin
+1346	3451	Brest	Brest
+1347	2310	Nizza	Nice
+1350	2244	La Spezzia	La Spezia
+1351	1715	mittelländischen Meere	Mediterranean
+1351	1916	mittelländischen Meere	Méditerranée
+1351	1978	mittelländischen Meere	Méditcrrannée
+1352	1432	Frank« reich	France
+1352	1476	Frank« reich	Frtnce
+1352	1739	Frank« reich	Fiance
+1352	1878	Frank« reich	France
+1352	1945	Frank« reich	Fr
+1352	1953	Frank« reich	République française
+1352	2433	Frank« reich	FRANCE
+1352	2505	Frank« reich	FRANGE
+1352	2986	Frank« reich	Fra
+1352	3084	Frank« reich	Fiance
+1352	3137	Frank« reich	1 rance
+1352	3413	Frank« reich	ELANCE
+1365	1366	Vrü f fel	Viüssel
+1365	1370	Vrü f fel	Stüffel
+1365	1441	Vrü f fel	Brufl'els
+1365	1443	Vrü f fel	Bruliel
+1365	1728	Vrü f fel	ofBruffels
+1365	1729	Vrü f fel	Brufiels
+1365	2062	Vrü f fel	BRUXELLES
+1365	3742	Vrü f fel	Bru xelles
+1366	1370	Viüssel	Stüffel
+1366	1441	Viüssel	Brufl'els
+1366	1443	Viüssel	Bruliel
+1366	1728	Viüssel	ofBruffels
+1366	1729	Viüssel	Brufiels
+1366	2062	Viüssel	BRUXELLES
+1366	3742	Viüssel	Bru xelles
+1370	1441	Stüffel	Brufl'els
+1370	1443	Stüffel	Bruliel
+1370	1728	Stüffel	ofBruffels
+1370	1729	Stüffel	Brufiels
+1370	2062	Stüffel	BRUXELLES
+1370	3742	Stüffel	Bru xelles
+1371	1886	Buckinghampalast	Palais de Buckingham
+1375	1531	"Nwshln^-""'"	City of Washington
+1375	1768	"Nwshln^-""'"	Washington
+1375	1776	"Nwshln^-""'"	District of Columbia
+1375	1778	"Nwshln^-""'"	It 'asliington
+1375	2673	"Nwshln^-""'"	Washington
+1376	2341	Vatikan	Vatican
+1380	1381	U^erer Lieben Frau von Hanswijck	U. L. F. oon Hanswi,ck
+1383	1981	Schwarzen Meer	mer Noire
+1385	1474	Österreichs	Austria
+1385	2012	Österreichs	Autriche
+1386	1387	Deutschlands	Deut' schen Reiches
+1386	2660	Deutschlands	Reich
+1386	3720	Deutschlands	Allemagne
+1387	2660	Deut' schen Reiches	Reich
+1387	3720	Deut' schen Reiches	Allemagne
+1388	2155	Rheins	Rhin
+1391	2049	Verlin	BERUN
+1391	2065	Verlin	Berlin
+1391	2369	Verlin	BERLIN
+1391	3661	Verlin	àBerlin
+1392	1394	Nußlanb	Ruhlanb
+1392	1398	Nußlanb	Rußlands
+1392	1399	Nußlanb	Ruhlanbs
+1392	1400	Nußlanb	Rufzlanb
+1392	2609	Nußlanb	Union soviétique
+1392	2958	Nußlanb	URSS
+1393	1880	©enf	GENÈVE
+1393	1882	©enf	Genève
+1393	2413	©enf	Ge : ièva
+1393	2599	©enf	Genova
+1393	2648	©enf	J 3 ENÈVE
+1393	2706	©enf	GENèVE
+1393	2707	©enf	ville de Genève
+1393	2858	©enf	GENEVE
+1393	3814	©enf	villes de Genève
+1394	1398	Ruhlanb	Rußlands
+1394	1399	Ruhlanb	Ruhlanbs
+1394	1400	Ruhlanb	Rufzlanb
+1394	2609	Ruhlanb	Union soviétique
+1394	2958	Ruhlanb	URSS
+1398	1399	Rußlands	Ruhlanbs
+1398	1400	Rußlands	Rufzlanb
+1398	2609	Rußlands	Union soviétique
+1398	2958	Rußlands	URSS
+1399	1400	Ruhlanbs	Rufzlanb
+1399	2609	Ruhlanbs	Union soviétique
+1399	2958	Ruhlanbs	URSS
+1400	2609	Rufzlanb	Union soviétique
+1400	2958	Rufzlanb	URSS
+1403	1405	PARAGUAY	Paraguays
+1403	1406	PARAGUAY	Paraguay
+1403	2855	PARAGUAY	Paraguay
+1403	2859	PARAGUAY	république du Paraguay
+1404	1498	Brasilien	Braziel
+1404	1890	Brasilien	Brésil
+1405	1406	Paraguays	Paraguay
+1405	2855	Paraguays	Paraguay
+1405	2859	Paraguays	république du Paraguay
+1406	2855	Paraguay	Paraguay
+1406	2859	Paraguay	république du Paraguay
+1408	2856	Argentinien	blique argentine
+1408	2863	Argentinien	Képublique Argentine
+1408	2865	Argentinien	Argentine
+1409	2367	Uruguay	Uruguay
+1410	2036	Frankfurt a. M.	Francfort
+1410	2806	Frankfurt a. M.	FRANCFORT
+1411	1415	Bi-Zone	Bi-Zonen
+1414	1426	Vereinigten - Staaten	Unitec?
+1414	1430	Vereinigten - Staaten	the Uni¬ ted Srates
+1414	1433	Vereinigten - Staaten	America
+1414	1481	Vereinigten - Staaten	United States
+1414	1491	Vereinigten - Staaten	U. States
+1414	1500	Vereinigten - Staaten	United States of America
+1414	1512	Vereinigten - Staaten	the U. S.
+1414	1555	Vereinigten - Staaten	the United States
+1414	1651	Vereinigten - Staaten	United Stat-s
+1414	1722	Vereinigten - Staaten	Uni¬ ted Stares
+1414	1757	Vereinigten - Staaten	United Stares
+1414	1758	Vereinigten - Staaten	United Slates
+1414	1762	Vereinigten - Staaten	Unit ;d States
+1414	1819	Vereinigten - Staaten	American
+1414	1900	Vereinigten - Staaten	Etats-Unis
+1414	1949	Vereinigten - Staaten	EU
+1414	2645	Vereinigten - Staaten	USA
+1414	2778	Vereinigten - Staaten	Amérique
+1414	2857	Vereinigten - Staaten	Etals-Unis
+1414	3485	Vereinigten - Staaten	Etats-Uuis
+1414	3673	Vereinigten - Staaten	Etais-Unis
+1414	3747	Vereinigten - Staaten	Lesta-Unis
+1414	3833	Vereinigten - Staaten	Améru _/ ue
+1417	2169	Jugoslawien	Yougoslavie
+1418	3059	Bratislava	PRESBOURG
+1418	3063	Bratislava	Presbourg
+1418	3066	Bratislava	Presbonrg
+1419	2658	CSR	Tchécoslovaquie
+1419	2882	CSR	slovaquie
+1419	3749	CSR	m coslovaquie
+1420	1421	Irland	neue Republik Eire
+1420	1422	Irland	Eire
+1420	1423	Irland	Republik Eire
+1420	1425	Irland	Eires
+1420	2116	Irland	Irlande
+1421	1422	neue Republik Eire	Eire
+1421	1423	neue Republik Eire	Republik Eire
+1421	1425	neue Republik Eire	Eires
+1421	2116	neue Republik Eire	Irlande
+1422	1423	Eire	Republik Eire
+1422	1425	Eire	Eires
+1422	2116	Eire	Irlande
+1423	1425	Republik Eire	Eires
+1423	2116	Republik Eire	Irlande
+1425	2116	Eires	Irlande
+1426	1430	Unitec?	the Uni¬ ted Srates
+1426	1433	Unitec?	America
+1426	1481	Unitec?	United States
+1426	1491	Unitec?	U. States
+1426	1500	Unitec?	United States of America
+1426	1512	Unitec?	the U. S.
+1426	1555	Unitec?	the United States
+1426	1651	Unitec?	United Stat-s
+1426	1722	Unitec?	Uni¬ ted Stares
+1426	1757	Unitec?	United Stares
+1426	1758	Unitec?	United Slates
+1426	1762	Unitec?	Unit ;d States
+1426	1819	Unitec?	American
+1426	1900	Unitec?	Etats-Unis
+1426	1949	Unitec?	EU
+1426	2645	Unitec?	USA
+1426	2778	Unitec?	Amérique
+1426	2857	Unitec?	Etals-Unis
+1426	3485	Unitec?	Etats-Uuis
+1426	3673	Unitec?	Etais-Unis
+1426	3747	Unitec?	Lesta-Unis
+1426	3833	Unitec?	Améru _/ ue
+1427	1429	Point Petre	Point a Petre
+1430	1433	the Uni¬ ted Srates	America
+1430	1481	the Uni¬ ted Srates	United States
+1430	1491	the Uni¬ ted Srates	U. States
+1430	1500	the Uni¬ ted Srates	United States of America
+1430	1512	the Uni¬ ted Srates	the U. S.
+1430	1555	the Uni¬ ted Srates	the United States
+1430	1651	the Uni¬ ted Srates	United Stat-s
+1430	1722	the Uni¬ ted Srates	Uni¬ ted Stares
+1430	1757	the Uni¬ ted Srates	United Stares
+1430	1758	the Uni¬ ted Srates	United Slates
+1430	1762	the Uni¬ ted Srates	Unit ;d States
+1430	1819	the Uni¬ ted Srates	American
+1430	1900	the Uni¬ ted Srates	Etats-Unis
+1430	1949	the Uni¬ ted Srates	EU
+1430	2645	the Uni¬ ted Srates	USA
+1430	2778	the Uni¬ ted Srates	Amérique
+1430	2857	the Uni¬ ted Srates	Etals-Unis
+1430	3485	the Uni¬ ted Srates	Etats-Uuis
+1430	3673	the Uni¬ ted Srates	Etais-Unis
+1430	3747	the Uni¬ ted Srates	Lesta-Unis
+1430	3833	the Uni¬ ted Srates	Améru _/ ue
+1431	1866	Ruffia	Russie
+1431	1867	Ruffia	Grande-Russie
+1431	1983	Ruffia	Ruffic
+1431	2654	Ruffia	RUSSIE
+1431	3397	Ruffia	Bussie
+1432	1476	France	Frtnce
+1432	1739	France	Fiance
+1432	1878	France	France
+1432	1945	France	Fr
+1432	1953	France	République française
+1432	2433	France	FRANCE
+1432	2505	France	FRANGE
+1432	2986	France	Fra
+1432	3084	France	Fiance
+1432	3137	France	1 rance
+1432	3413	France	ELANCE
+1433	1481	America	United States
+1433	1491	America	U. States
+1433	1500	America	United States of America
+1433	1512	America	the U. S.
+1433	1555	America	the United States
+1433	1651	America	United Stat-s
+1433	1722	America	Uni¬ ted Stares
+1433	1757	America	United Stares
+1433	1758	America	United Slates
+1433	1762	America	Unit ;d States
+1433	1819	America	American
+1433	1900	America	Etats-Unis
+1433	1949	America	EU
+1433	2645	America	USA
+1433	2778	America	Amérique
+1433	2857	America	Etals-Unis
+1433	3485	America	Etats-Uuis
+1433	3673	America	Etais-Unis
+1433	3747	America	Lesta-Unis
+1433	3833	America	Améru _/ ue
+1436	1872	China—that	Chine
+1441	1443	Brufl'els	Bruliel
+1441	1728	Brufl'els	ofBruffels
+1441	1729	Brufl'els	Brufiels
+1441	2062	Brufl'els	BRUXELLES
+1441	3742	Brufl'els	Bru xelles
+1443	1728	Bruliel	ofBruffels
+1443	1729	Bruliel	Brufiels
+1443	2062	Bruliel	BRUXELLES
+1443	3742	Bruliel	Bru xelles
+1447	2354	Hungary	Hongrie
+1447	3314	Hungary	HONGRIE
+1449	1465	Vienna	VIENNA
+1449	1930	Vienna	Vienne
+1449	2798	Vienna	VIENNE
+1450	1656	ITALY	Italy
+1450	1934	ITALY	Italie
+1450	1941	ITALY	It
+1450	1975	ITALY	ITALIE
+1450	2987	ITALY	Ita
+1453	1487	Gibraltar	loGibraltar
+1453	2346	Gibraltar	Gibraltar
+1454	1976	Genoa	Gènes
+1455	2308	Dijon	Dijon
+1455	3229	Dijon	Dij on
+1459	1754	Philadelphia	Phila¬ delphia
+1462	1464	the State of Rbcde-Island	State of Rboda-Island
+1465	1930	VIENNA	Vienne
+1465	2798	VIENNA	VIENNE
+1467	1469	Bmuuiau	Brau- nau
+1467	1470	Bmuuiau	Br.iuniu
+1467	1472	Bmuuiau	Braunao
+1467	1473	Bmuuiau	Brennan
+1468	2026	Bavaria	Bivièrëj
+1468	2034	Bavaria	Bavière
+1469	1470	Brau- nau	Br.iuniu
+1469	1472	Brau- nau	Braunao
+1469	1473	Brau- nau	Brennan
+1470	1472	Br.iuniu	Braunao
+1470	1473	Br.iuniu	Brennan
+1471	1887	Paris	PARIS
+1471	1896	Paris	Paris
+1471	2538	Paris	PAÏU 8
+1471	2563	Paris	Parisrlo
+1471	3468	Paris	B'rtriw
+1471	3762	Paris	APARIS
+1472	1473	Braunao	Brennan
+1474	2012	Austria	Autriche
+1475	1915	England	Angleterre
+1475	2053	England	ANGLETERRE
+1475	3655	England	England
+1475	3694	England	Angle * terre
+1476	1739	Frtnce	Fiance
+1476	1878	Frtnce	France
+1476	1945	Frtnce	Fr
+1476	1953	Frtnce	République française
+1476	2433	Frtnce	FRANCE
+1476	2505	Frtnce	FRANGE
+1476	2986	Frtnce	Fra
+1476	3084	Frtnce	Fiance
+1476	3137	Frtnce	1 rance
+1476	3413	Frtnce	ELANCE
+1478	1492	London	L ondon
+1478	1727	London	LONDON
+1478	1883	London	Londres
+1478	1899	London	LONDRES
+1478	2571	London	Londires
+1478	3180	London	ville de Londres
+1478	3503	London	Iiondres
+1479	2976	Dublin	Dublin
+1481	1491	United States	U. States
+1481	1500	United States	United States of America
+1481	1512	United States	the U. S.
+1481	1555	United States	the United States
+1481	1651	United States	United Stat-s
+1481	1722	United States	Uni¬ ted Stares
+1481	1757	United States	United Stares
+1481	1758	United States	United Slates
+1481	1762	United States	Unit ;d States
+1481	1819	United States	American
+1481	1900	United States	Etats-Unis
+1481	1949	United States	EU
+1481	2645	United States	USA
+1481	2778	United States	Amérique
+1481	2857	United States	Etals-Unis
+1481	3485	United States	Etats-Uuis
+1481	3673	United States	Etais-Unis
+1481	3747	United States	Lesta-Unis
+1481	3833	United States	Améru _/ ue
+1487	2346	loGibraltar	Gibraltar
+1488	2521	Cagliari	Cagliari
+1491	1500	U. States	United States of America
+1491	1512	U. States	the U. S.
+1491	1555	U. States	the United States
+1491	1651	U. States	United Stat-s
+1491	1722	U. States	Uni¬ ted Stares
+1491	1757	U. States	United Stares
+1491	1758	U. States	United Slates
+1491	1762	U. States	Unit ;d States
+1491	1819	U. States	American
+1491	1900	U. States	Etats-Unis
+1491	1949	U. States	EU
+1491	2645	U. States	USA
+1491	2778	U. States	Amérique
+1491	2857	U. States	Etals-Unis
+1491	3485	U. States	Etats-Uuis
+1491	3673	U. States	Etais-Unis
+1491	3747	U. States	Lesta-Unis
+1491	3833	U. States	Améru _/ ue
+1492	1727	L ondon	LONDON
+1492	1883	L ondon	Londres
+1492	1899	L ondon	LONDRES
+1492	2571	L ondon	Londires
+1492	3180	L ondon	ville de Londres
+1492	3503	L ondon	Iiondres
+1493	1764	NEW-YORK	New York
+1493	1769	NEW-YORK	New- York
+1493	1821	NEW-YORK	New York City
+1493	1962	NEW-YORK	New York
+1493	1965	NEW-YORK	Big Apple
+1493	1966	NEW-YORK	NEW YORK
+1493	2359	NEW-YORK	New. York
+1493	2611	NEW-YORK	New-York
+1493	2781	NEW-YORK	» féw-York
+1493	2853	NEW-YORK	NEW-YORK
+1493	3465	NEW-YORK	ÎVcw-York
+1493	3757	NEW-YORK	New » York
+1494	2750	Lisbon	Lisbonne
+1494	3275	Lisbon	LisBOKNE
+1495	2055	Portugal	Portugal
+1495	3274	Portugal	PORTUGAL
+1497	1746	Spain	SPAIN
+1497	1946	Spain	Esp
+1497	2069	Spain	ESPAGNE
+1497	2222	Spain	Espagne
+1497	2232	Spain	Esoagne
+1497	2233	Spain	F.
+1497	2234	Spain	espngne
+1497	3073	Spain	EFpagne
+1498	1890	Braziel	Brésil
+1499	1540	Virginia	Vir¬ ginia
+1499	1563	Virginia	OLD NORTH STATE VA
+1500	1512	United States of America	the U. S.
+1500	1555	United States of America	the United States
+1500	1651	United States of America	United Stat-s
+1500	1722	United States of America	Uni¬ ted Stares
+1500	1757	United States of America	United Stares
+1500	1758	United States of America	United Slates
+1500	1762	United States of America	Unit ;d States
+1500	1819	United States of America	American
+1500	1900	United States of America	Etats-Unis
+1500	1949	United States of America	EU
+1500	2645	United States of America	USA
+1500	2778	United States of America	Amérique
+1500	2857	United States of America	Etals-Unis
+1500	3485	United States of America	Etats-Uuis
+1500	3673	United States of America	Etais-Unis
+1500	3747	United States of America	Lesta-Unis
+1500	3833	United States of America	Améru _/ ue
+1505	1565	Massachu¬ setts	Massachusetts
+1505	1579	Massachu¬ setts	State of Massa chusetts
+1507	1526	Alexandria	Alexandria, (D . C.)
+1512	1555	the U. S.	the United States
+1512	1651	the U. S.	United Stat-s
+1512	1722	the U. S.	Uni¬ ted Stares
+1512	1757	the U. S.	United Stares
+1512	1758	the U. S.	United Slates
+1512	1762	the U. S.	Unit ;d States
+1512	1819	the U. S.	American
+1512	1900	the U. S.	Etats-Unis
+1512	1949	the U. S.	EU
+1512	2645	the U. S.	USA
+1512	2778	the U. S.	Amérique
+1512	2857	the U. S.	Etals-Unis
+1512	3485	the U. S.	Etats-Uuis
+1512	3673	the U. S.	Etais-Unis
+1512	3747	the U. S.	Lesta-Unis
+1512	3833	the U. S.	Améru _/ ue
+1513	1514	RICHMOND	Richmond
+1515	1585	Missouri	state of Missouri
+1515	1588	Missouri	Miasour
+1515	1590	Missouri	Mo
+1523	1786	America	Americans
+1523	1968	America	outre-Atlantique
+1523	2227	America	Amérique
+1523	3392	America	AMERIQUE
+1524	1785	Europe	European
+1524	1871	Europe	Europe
+1524	2237	Europe	Eurone
+1524	3751	Europe	Vieux-Continent
+1525	1760	Ireland	IRELAXD
+1531	1768	City of Washington	Washington
+1531	1776	City of Washington	District of Columbia
+1531	1778	City of Washington	It 'asliington
+1531	2673	City of Washington	Washington
+1532	1771	Pennsylvania	Penn¬ sylvania
+1532	1772	Pennsylvania	Pensylvania
+1532	1773	Pennsylvania	Pencj-lrnnia
+1533	1534	Baltimore	BaltimorCy
+1536	1801	Great Britain	Great Britian
+1536	1935	Great Britain	Grande-Bretagne
+1536	3455	Great Britain	Gratide-Bretagrie
+1540	1563	Vir¬ ginia	OLD NORTH STATE VA
+1543	1548	Chat- lahoochy	Chattahoochy
+1544	1551	Appalachy	Ap¬ palachy
+1554	3469	Rambouillet	Rambouillet
+1555	1651	the United States	United Stat-s
+1555	1722	the United States	Uni¬ ted Stares
+1555	1757	the United States	United Stares
+1555	1758	the United States	United Slates
+1555	1762	the United States	Unit ;d States
+1555	1819	the United States	American
+1555	1900	the United States	Etats-Unis
+1555	1949	the United States	EU
+1555	2645	the United States	USA
+1555	2778	the United States	Amérique
+1555	2857	the United States	Etals-Unis
+1555	3485	the United States	Etats-Uuis
+1555	3673	the United States	Etais-Unis
+1555	3747	the United States	Lesta-Unis
+1555	3833	the United States	Améru _/ ue
+1565	1579	Massachusetts	State of Massa chusetts
+1568	1573	Nebras ka	Nebraska
+1569	1572	Tsxas	Texas
+1570	1577	Dakota	TERRITORY OF DAKOTA
+1571	1931	Colorado	Colorado
+1575	1576	the Missouri River	the Mis- souri
+1583	1584	Chanton county	the county of Chariton
+1583	1587	Chanton county	Chariton county
+1583	1596	Chanton county	CHARITON COUNTY
+1584	1587	the county of Chariton	Chariton county
+1584	1596	the county of Chariton	CHARITON COUNTY
+1585	1588	state of Missouri	Miasour
+1585	1590	state of Missouri	Mo
+1587	1596	Chariton county	CHARITON COUNTY
+1588	1590	Miasour	Mo
+1592	1652	New York	State of New York
+1592	1681	New York	NEW YORK
+1592	1691	New York	Newark
+1592	3495	New York	Etat de New York
+1603	2910	Washington	Washington
+1603	2911	Washington	WASHINGTON
+1605	1793	Chicago	Chi¬ cago
+1605	3493	Chicago	Chicago
+1616	1919	Moscow	Moscou
+1618	2988	Canada	Can
+1618	3492	Canada	Canada
+1619	1969	Japan	Japon
+1621	1877	Germany—one	Allemagne
+1621	1947	Germany—one	Ail
+1621	1972	Germany—one	ALLEMAGNE
+1621	2351	Germany—one	Germanie
+1621	2780	Germany—one	Deutschland
+1641	1650	Cookeville	Cooke¬ ville
+1642	1649	Nashville, Tenn.	NashvUle
+1643	1984	Egypt	Egypte
+1644	1645	Jerusalem	Jeru¬ salem
+1644	2513	Jerusalem	Jérusalem
+1645	2513	Jeru¬ salem	Jérusalem
+1646	1809	Gainesboro	GAINESBORO
+1646	1811	Gainesboro	Gainesboro, Tenn
+1651	1722	United Stat-s	Uni¬ ted Stares
+1651	1757	United Stat-s	United Stares
+1651	1758	United Stat-s	United Slates
+1651	1762	United Stat-s	Unit ;d States
+1651	1819	United Stat-s	American
+1651	1900	United Stat-s	Etats-Unis
+1651	1949	United Stat-s	EU
+1651	2645	United Stat-s	USA
+1651	2778	United Stat-s	Amérique
+1651	2857	United Stat-s	Etals-Unis
+1651	3485	United Stat-s	Etats-Uuis
+1651	3673	United Stat-s	Etais-Unis
+1651	3747	United Stat-s	Lesta-Unis
+1651	3833	United Stat-s	Améru _/ ue
+1652	1681	State of New York	NEW YORK
+1652	1691	State of New York	Newark
+1652	3495	State of New York	Etat de New York
+1655	1658	ROME	Rome
+1655	2027	ROME	Rbmè
+1655	2337	ROME	ROME
+1655	2339	ROME	ROKE
+1655	2340	ROME	Rome
+1655	2598	ROME	Borne
+1656	1934	Italy	Italie
+1656	1941	Italy	It
+1656	1975	Italy	ITALIE
+1656	2987	Italy	Ita
+1658	2027	Rome	Rbmè
+1658	2337	Rome	ROME
+1658	2339	Rome	ROKE
+1658	2340	Rome	Rome
+1658	2598	Rome	Borne
+1659	1661	Mich¬ igan	Michigan
+1681	1691	NEW YORK	Newark
+1681	3495	NEW YORK	Etat de New York
+1684	1686	Norfolk, Ya	Norfolk
+1684	1714	Norfolk, Ya	Nor¬ folk Virginia
+1685	1687	Columbia.	Columbia, Tenn
+1685	1689	Columbia.	Columbia
+1686	1714	Norfolk	Nor¬ folk Virginia
+1687	1689	Columbia, Tenn	Columbia
+1688	1829	Atlanta.	Atlanta, Ga
+1691	3495	Newark	Etat de New York
+1692	2951	White House	Maison-Blanche
+1692	3750	White House	Maison Blanche
+1715	1916	Mediterranean	Méditerranée
+1715	1978	Mediterranean	Méditcrrannée
+1722	1757	Uni¬ ted Stares	United Stares
+1722	1758	Uni¬ ted Stares	United Slates
+1722	1762	Uni¬ ted Stares	Unit ;d States
+1722	1819	Uni¬ ted Stares	American
+1722	1900	Uni¬ ted Stares	Etats-Unis
+1722	1949	Uni¬ ted Stares	EU
+1722	2645	Uni¬ ted Stares	USA
+1722	2778	Uni¬ ted Stares	Amérique
+1722	2857	Uni¬ ted Stares	Etals-Unis
+1722	3485	Uni¬ ted Stares	Etats-Uuis
+1722	3673	Uni¬ ted Stares	Etais-Unis
+1722	3747	Uni¬ ted Stares	Lesta-Unis
+1722	3833	Uni¬ ted Stares	Améru _/ ue
+1723	1724	New-Hampshire	New-Humpfhire
+1723	1725	New-Hampshire	New-Hampffiire
+1723	1726	New-Hampshire	New- Hampfttire
+1724	1725	New-Humpfhire	New-Hampffiire
+1724	1726	New-Humpfhire	New- Hampfttire
+1725	1726	New-Hampffiire	New- Hampfttire
+1727	1883	LONDON	Londres
+1727	1899	LONDON	LONDRES
+1727	2571	LONDON	Londires
+1727	3180	LONDON	ville de Londres
+1727	3503	LONDON	Iiondres
+1728	1729	ofBruffels	Brufiels
+1728	2062	ofBruffels	BRUXELLES
+1728	3742	ofBruffels	Bru xelles
+1729	2062	Brufiels	BRUXELLES
+1729	3742	Brufiels	Bru xelles
+1739	1878	Fiance	France
+1739	1945	Fiance	Fr
+1739	1953	Fiance	République française
+1739	2433	Fiance	FRANCE
+1739	2505	Fiance	FRANGE
+1739	2986	Fiance	Fra
+1739	3084	Fiance	Fiance
+1739	3137	Fiance	1 rance
+1739	3413	Fiance	ELANCE
+1746	1946	SPAIN	Esp
+1746	2069	SPAIN	ESPAGNE
+1746	2222	SPAIN	Espagne
+1746	2232	SPAIN	Esoagne
+1746	2233	SPAIN	F.
+1746	2234	SPAIN	espngne
+1746	3073	SPAIN	EFpagne
+1747	1750	Cadiz	Cadiz—cap
+1757	1758	United Stares	United Slates
+1757	1762	United Stares	Unit ;d States
+1757	1819	United Stares	American
+1757	1900	United Stares	Etats-Unis
+1757	1949	United Stares	EU
+1757	2645	United Stares	USA
+1757	2778	United Stares	Amérique
+1757	2857	United Stares	Etals-Unis
+1757	3485	United Stares	Etats-Uuis
+1757	3673	United Stares	Etais-Unis
+1757	3747	United Stares	Lesta-Unis
+1757	3833	United Stares	Améru _/ ue
+1758	1762	United Slates	Unit ;d States
+1758	1819	United Slates	American
+1758	1900	United Slates	Etats-Unis
+1758	1949	United Slates	EU
+1758	2645	United Slates	USA
+1758	2778	United Slates	Amérique
+1758	2857	United Slates	Etals-Unis
+1758	3485	United Slates	Etats-Uuis
+1758	3673	United Slates	Etais-Unis
+1758	3747	United Slates	Lesta-Unis
+1758	3833	United Slates	Améru _/ ue
+1762	1819	Unit ;d States	American
+1762	1900	Unit ;d States	Etats-Unis
+1762	1949	Unit ;d States	EU
+1762	2645	Unit ;d States	USA
+1762	2778	Unit ;d States	Amérique
+1762	2857	Unit ;d States	Etals-Unis
+1762	3485	Unit ;d States	Etats-Uuis
+1762	3673	Unit ;d States	Etais-Unis
+1762	3747	Unit ;d States	Lesta-Unis
+1762	3833	Unit ;d States	Améru _/ ue
+1764	1769	New York	New- York
+1764	1821	New York	New York City
+1764	1962	New York	New York
+1764	1965	New York	Big Apple
+1764	1966	New York	NEW YORK
+1764	2359	New York	New. York
+1764	2611	New York	New-York
+1764	2781	New York	» féw-York
+1764	2853	New York	NEW-YORK
+1764	3465	New York	ÎVcw-York
+1764	3757	New York	New » York
+1768	1776	Washington	District of Columbia
+1768	1778	Washington	It 'asliington
+1768	2673	Washington	Washington
+1769	1821	New- York	New York City
+1769	1962	New- York	New York
+1769	1965	New- York	Big Apple
+1769	1966	New- York	NEW YORK
+1769	2359	New- York	New. York
+1769	2611	New- York	New-York
+1769	2781	New- York	» féw-York
+1769	2853	New- York	NEW-YORK
+1769	3465	New- York	ÎVcw-York
+1769	3757	New- York	New » York
+1771	1772	Penn¬ sylvania	Pensylvania
+1771	1773	Penn¬ sylvania	Pencj-lrnnia
+1772	1773	Pensylvania	Pencj-lrnnia
+1774	1775	Elizabeth Cita’ Co., A'a.	Elisabeth City County, Ea
+1776	1778	District of Columbia	It 'asliington
+1776	2673	District of Columbia	Washington
+1778	2673	It 'asliington	Washington
+1785	1871	European	Europe
+1785	2237	European	Eurone
+1785	3751	European	Vieux-Continent
+1786	1968	Americans	outre-Atlantique
+1786	2227	Americans	Amérique
+1786	3392	Americans	AMERIQUE
+1787	1992	Asia	Afie
+1787	2959	Asia	Asie
+1788	2226	Africa	Afrique
+1788	2439	Africa	AFRIQUE
+1789	2983	Australia	Aus
+1793	3493	Chi¬ cago	Chicago
+1797	3501	Maine	Maine
+1801	1935	Great Britian	Grande-Bretagne
+1801	3455	Great Britian	Gratide-Bretagrie
+1803	1884	Scotland	Ecosse
+1806	1808	.	Tennessee
+1807	1812	Putnam County	Putnam county
+1809	1811	GAINESBORO	Gainesboro, Tenn
+1816	1817	EDENTON	Edcnton
+1816	1818	EDENTON	Edenton
+1817	1818	Edcnton	Edenton
+1819	1900	American	Etats-Unis
+1819	1949	American	EU
+1819	2645	American	USA
+1819	2778	American	Amérique
+1819	2857	American	Etals-Unis
+1819	3485	American	Etats-Uuis
+1819	3673	American	Etais-Unis
+1819	3747	American	Lesta-Unis
+1819	3833	American	Améru _/ ue
+1820	1823	Haitian	Haiti
+1820	2677	Haitian	Haïti
+1821	1962	New York City	New York
+1821	1965	New York City	Big Apple
+1821	1966	New York City	NEW YORK
+1821	2359	New York City	New. York
+1821	2611	New York City	New-York
+1821	2781	New York City	» féw-York
+1821	2853	New York City	NEW-YORK
+1821	3465	New York City	ÎVcw-York
+1821	3757	New York City	New » York
+1823	2677	Haiti	Haïti
+1824	1826	state of Florida	Florida
+1824	2678	state of Florida	Floride
+1824	3178	state of Florida	Florides
+1826	2678	Florida	Floride
+1826	3178	Florida	Florides
+1839	2479	Aarau	Arau
+1840	1842	Berne	BERNE
+1840	1843	Berne	ville de Berne
+1840	2355	Berne	Jura bernois
+1840	2814	Berne	berne
+1840	3597	Berne	Beras
+1841	3136	Frauenfeld	FRAUEKFiit
+1841	3636	Frauenfeld	Fraueafeld
+1842	1843	BERNE	ville de Berne
+1842	2355	BERNE	Jura bernois
+1842	2814	BERNE	berne
+1842	3597	BERNE	Beras
+1843	2355	ville de Berne	Jura bernois
+1843	2814	ville de Berne	berne
+1843	3597	ville de Berne	Beras
+1844	3543	Lôtschberg	Lœtschberg
+1847	1848	VAUD	canton de Vaud
+1847	1869	VAUD	Vaud
+1847	2451	VAUD	fond
+1847	2481	VAUD	canton de VpûdV'
+1847	3364	VAUD	Fatal
+1847	3572	VAUD	CANTON DE VAÏÏD
+1848	1869	canton de Vaud	Vaud
+1848	2451	canton de Vaud	fond
+1848	2481	canton de Vaud	canton de VpûdV'
+1848	3364	canton de Vaud	Fatal
+1848	3572	canton de Vaud	CANTON DE VAÏÏD
+1849	1850	Bex	BeX
+1849	2621	Bex	BEX
+1850	2621	BeX	BEX
+1852	1961	VALAIS	Valais
+1852	2452	VALAIS	Palais
+1857	2459	canton de Fribourg	Fribourg
+1857	2473	canton de Fribourg	FIUBOUKG
+1857	2703	canton de Fribourg	FRIBOURG
+1858	2462	canton de Neuohâtel	Neuchâlel
+1858	2761	canton de Neuohâtel	canton de Neuchâtel
+1858	3367	canton de Neuohâtel	Neucliâtel
+1858	3368	canton de Neuohâtel	IS'euchûtel
+1858	3442	canton de Neuohâtel	Neuchàtel
+1858	3557	canton de Neuohâtel	Neuchâtel
+1859	1865	_Puisse	SUISSE
+1859	1868	_Puisse	Suisse
+1859	1870	_Puisse	Confédération
+1859	1943	_Puisse	S
+1859	2125	_Puisse	YHelvélie
+1859	2402	_Puisse	RÉPUBLIQUE HELVÉTIQUE
+1859	2434	_Puisse	Helvétie
+1859	2443	_Puisse	CONFÉDÉRATION SUISSE
+1859	2445	_Puisse	Confédération Suisse
+1859	2772	_Puisse	_Suiraa
+1859	2810	_Puisse	Confédération suisse
+1859	3043	_Puisse	Helvetie
+1859	3132	_Puisse	OnydiftingtiedesnomsquifontchersàlaSuiffe
+1859	3139	_Puisse	enSiriffe
+1859	3404	_Puisse	CONFÉDMATÏM SUISSE
+1859	3420	_Puisse	CONFEDERATION SUISSE
+1859	3432	_Puisse	Sdisse
+1859	3831	_Puisse	Mm
+1860	2272	La Chaux-de-Fonds	Chaux-de-Fonds
+1860	2273	La Chaux-de-Fonds	Chaùx-de-Fonds
+1860	2274	La Chaux-de-Fonds	Chaux-de Fonds
+1860	2313	La Chaux-de-Fonds	la Chaux-de-Fonds
+1860	2314	La Chaux-de-Fonds	de-Fonds
+1860	3708	La Chaux-de-Fonds	Cbaux-de-Fonds
+1861	2269	Neuchâtel	Neuchatel
+1861	2331	Neuchâtel	NEUCHATEL
+1861	2444	Neuchâtel	Neuchâld
+1861	2766	Neuchâtel	Neu » châtel
+1861	2851	Neuchâtel	NeuchâteL
+1861	2901	Neuchâtel	ville de Neuchâtel
+1861	2902	Neuchâtel	vill a de Neuchâtel
+1861	2989	Neuchâtel	Ville de Neuchâtel
+1861	3012	Neuchâtel	NEUCHÂTEL
+1861	3820	Neuchâtel	Neucbâtel
+1863	2298	Saint-Biaise	St.
+1863	2299	Saint-Biaise	Voëns
+1863	3550	Saint-Biaise	Sl-Blaiso
+1863	3551	Saint-Biaise	St-Blaise
+1865	1868	SUISSE	Suisse
+1865	1870	SUISSE	Confédération
+1865	1943	SUISSE	S
+1865	2125	SUISSE	YHelvélie
+1865	2402	SUISSE	RÉPUBLIQUE HELVÉTIQUE
+1865	2434	SUISSE	Helvétie
+1865	2443	SUISSE	CONFÉDÉRATION SUISSE
+1865	2445	SUISSE	Confédération Suisse
+1865	2772	SUISSE	_Suiraa
+1865	2810	SUISSE	Confédération suisse
+1865	3043	SUISSE	Helvetie
+1865	3132	SUISSE	OnydiftingtiedesnomsquifontchersàlaSuiffe
+1865	3139	SUISSE	enSiriffe
+1865	3404	SUISSE	CONFÉDMATÏM SUISSE
+1865	3420	SUISSE	CONFEDERATION SUISSE
+1865	3432	SUISSE	Sdisse
+1865	3831	SUISSE	Mm
+1866	1867	Russie	Grande-Russie
+1866	1983	Russie	Ruffic
+1866	2654	Russie	RUSSIE
+1866	3397	Russie	Bussie
+1867	1983	Grande-Russie	Ruffic
+1867	2654	Grande-Russie	RUSSIE
+1867	3397	Grande-Russie	Bussie
+1868	1870	Suisse	Confédération
+1868	1943	Suisse	S
+1868	2125	Suisse	YHelvélie
+1868	2402	Suisse	RÉPUBLIQUE HELVÉTIQUE
+1868	2434	Suisse	Helvétie
+1868	2443	Suisse	CONFÉDÉRATION SUISSE
+1868	2445	Suisse	Confédération Suisse
+1868	2772	Suisse	_Suiraa
+1868	2810	Suisse	Confédération suisse
+1868	3043	Suisse	Helvetie
+1868	3132	Suisse	OnydiftingtiedesnomsquifontchersàlaSuiffe
+1868	3139	Suisse	enSiriffe
+1868	3404	Suisse	CONFÉDMATÏM SUISSE
+1868	3420	Suisse	CONFEDERATION SUISSE
+1868	3432	Suisse	Sdisse
+1868	3831	Suisse	Mm
+1869	2451	Vaud	fond
+1869	2481	Vaud	canton de VpûdV'
+1869	3364	Vaud	Fatal
+1869	3572	Vaud	CANTON DE VAÏÏD
+1870	1943	Confédération	S
+1870	2125	Confédération	YHelvélie
+1870	2402	Confédération	RÉPUBLIQUE HELVÉTIQUE
+1870	2434	Confédération	Helvétie
+1870	2443	Confédération	CONFÉDÉRATION SUISSE
+1870	2445	Confédération	Confédération Suisse
+1870	2772	Confédération	_Suiraa
+1870	2810	Confédération	Confédération suisse
+1870	3043	Confédération	Helvetie
+1870	3132	Confédération	OnydiftingtiedesnomsquifontchersàlaSuiffe
+1870	3139	Confédération	enSiriffe
+1870	3404	Confédération	CONFÉDMATÏM SUISSE
+1870	3420	Confédération	CONFEDERATION SUISSE
+1870	3432	Confédération	Sdisse
+1870	3831	Confédération	Mm
+1871	2237	Europe	Eurone
+1871	3751	Europe	Vieux-Continent
+1873	1875	ïokio	Tokio
+1873	2924	ïokio	Tokyo
+1874	2941	Balais fédéral	Palais fédéral
+1875	2924	Tokio	Tokyo
+1877	1947	Allemagne	Ail
+1877	1972	Allemagne	ALLEMAGNE
+1877	2351	Allemagne	Germanie
+1877	2780	Allemagne	Deutschland
+1878	1945	France	Fr
+1878	1953	France	République française
+1878	2433	France	FRANCE
+1878	2505	France	FRANGE
+1878	2986	France	Fra
+1878	3084	France	Fiance
+1878	3137	France	1 rance
+1878	3413	France	ELANCE
+1880	1882	GENÈVE	Genève
+1880	2413	GENÈVE	Ge : ièva
+1880	2599	GENÈVE	Genova
+1880	2648	GENÈVE	J 3 ENÈVE
+1880	2706	GENÈVE	GENèVE
+1880	2707	GENÈVE	ville de Genève
+1880	2858	GENÈVE	GENEVE
+1880	3814	GENÈVE	villes de Genève
+1882	2413	Genève	Ge : ièva
+1882	2599	Genève	Genova
+1882	2648	Genève	J 3 ENÈVE
+1882	2706	Genève	GENèVE
+1882	2707	Genève	ville de Genève
+1882	2858	Genève	GENEVE
+1882	3814	Genève	villes de Genève
+1883	1899	Londres	LONDRES
+1883	2571	Londres	Londires
+1883	3180	Londres	ville de Londres
+1883	3503	Londres	Iiondres
+1887	1896	PARIS	Paris
+1887	2538	PARIS	PAÏU 8
+1887	2563	PARIS	Parisrlo
+1887	3468	PARIS	B'rtriw
+1887	3762	PARIS	APARIS
+1891	2061	Rio-de-Janeiro	Rfo-Janeiro
+1891	3214	Rio-de-Janeiro	Rio-Janeiro
+1896	2538	Paris	PAÏU 8
+1896	2563	Paris	Parisrlo
+1896	3468	Paris	B'rtriw
+1896	3762	Paris	APARIS
+1899	2571	LONDRES	Londires
+1899	3180	LONDRES	ville de Londres
+1899	3503	LONDRES	Iiondres
+1900	1949	Etats-Unis	EU
+1900	2645	Etats-Unis	USA
+1900	2778	Etats-Unis	Amérique
+1900	2857	Etats-Unis	Etals-Unis
+1900	3485	Etats-Unis	Etats-Uuis
+1900	3673	Etats-Unis	Etais-Unis
+1900	3747	Etats-Unis	Lesta-Unis
+1900	3833	Etats-Unis	Améru _/ ue
+1902	2550	outre-Rhin	Rhin
+1904	1957	Suisse mande	Suisse romande
+1904	2145	Suisse mande	Suisse française
+1904	2869	Suisse mande	Suisses romands
+1905	2182	Fribourg-en-Brisgau	Èribourg
+1905	2292	Fribourg-en-Brisgau	Fribourg
+1905	3759	Fribourg-en-Brisgau	FRIBOURG
+1907	1909	PALESTINE	Palestine
+1908	1912	Jérusalem	JERUSALEM
+1911	1914	Tel-Aviv	TEL-AVIV
+1913	1979	Turquie	TURQUIE
+1915	2053	Angleterre	ANGLETERRE
+1915	3655	Angleterre	England
+1915	3694	Angleterre	Angle * terre
+1916	1978	Méditerranée	Méditcrrannée
+1917	1923	Moyen-Oriertl	Moyen-Orient
+1917	2642	Moyen-Oriertl	Proche-Orient
+1917	2955	Moyen-Oriertl	MOYEN-ORIENT
+1921	2861	quai d'Orsay	Quai d'Orsay
+1923	2642	Moyen-Orient	Proche-Orient
+1923	2955	Moyen-Orient	MOYEN-ORIENT
+1928	2108	second Empire	France
+1929	1988	Saint-Pétersbourg	PBTERSBOURG
+1929	1995	Saint-Pétersbourg	Pétersbourg
+1929	2349	Saint-Pétersbourg	ST-PéTEESBODEG
+1929	2755	Saint-Pétersbourg	PETROGRAD
+1929	2757	Saint-Pétersbourg	Pétrograd
+1929	2758	Saint-Pétersbourg	PÉTROGRAD
+1929	3298	Saint-Pétersbourg	St-Pélersbourg
+1929	3300	Saint-Pétersbourg	StrPélersbourg
+1929	3458	Saint-Pétersbourg	St-Pétersbourg
+1930	2798	Vienne	VIENNE
+1934	1941	Italie	It
+1934	1975	Italie	ITALIE
+1934	2987	Italie	Ita
+1935	3455	Grande-Bretagne	Gratide-Bretagrie
+1937	1939	île de Majorque	Majorque
+1941	1975	It	ITALIE
+1941	2987	It	Ita
+1942	2068	Be	Belgique
+1942	2982	Be	Bel
+1943	2125	S	YHelvélie
+1943	2402	S	RÉPUBLIQUE HELVÉTIQUE
+1943	2434	S	Helvétie
+1943	2443	S	CONFÉDÉRATION SUISSE
+1943	2445	S	Confédération Suisse
+1943	2772	S	_Suiraa
+1943	2810	S	Confédération suisse
+1943	3043	S	Helvetie
+1943	3132	S	OnydiftingtiedesnomsquifontchersàlaSuiffe
+1943	3139	S	enSiriffe
+1943	3404	S	CONFÉDMATÏM SUISSE
+1943	3420	S	CONFEDERATION SUISSE
+1943	3432	S	Sdisse
+1943	3831	S	Mm
+1945	1953	Fr	République française
+1945	2433	Fr	FRANCE
+1945	2505	Fr	FRANGE
+1945	2986	Fr	Fra
+1945	3084	Fr	Fiance
+1945	3137	Fr	1 rance
+1945	3413	Fr	ELANCE
+1946	2069	Esp	ESPAGNE
+1946	2222	Esp	Espagne
+1946	2232	Esp	Esoagne
+1946	2233	Esp	F.
+1946	2234	Esp	espngne
+1946	3073	Esp	EFpagne
+1947	1972	Ail	ALLEMAGNE
+1947	2351	Ail	Germanie
+1947	2780	Ail	Deutschland
+1949	2645	EU	USA
+1949	2778	EU	Amérique
+1949	2857	EU	Etals-Unis
+1949	3485	EU	Etats-Uuis
+1949	3673	EU	Etais-Unis
+1949	3747	EU	Lesta-Unis
+1949	3833	EU	Améru _/ ue
+1950	2242	Dan	Danemark
+1950	3296	Dan	Danemarck
+1951	2209	Ho	Hollande
+1951	2366	Ho	lande
+1951	2984	Ho	Hol
+1951	3217	Ho	Pays-Bas
+1952	2913	Col	Colombie
+1953	2433	République française	FRANCE
+1953	2505	République française	FRANGE
+1953	2986	République française	Fra
+1953	3084	République française	Fiance
+1953	3137	République française	1 rance
+1953	3413	République française	ELANCE
+1954	2769	Suisse alémanique	Su.
+1954	2868	Suisse alémanique	Suisses allemands
+1954	3722	Suisse alémanique	Suisse allemande
+1955	2221	Tessin	TESSIN
+1955	3360	Tessin	canton du Tessin
+1956	2818	Zurich	ZURICH
+1956	2867	Zurich	rich
+1957	2145	Suisse romande	Suisse française
+1957	2869	Suisse romande	Suisses romands
+1961	2452	Valais	Palais
+1962	1965	New York	Big Apple
+1962	1966	New York	NEW YORK
+1962	2359	New York	New. York
+1962	2611	New York	New-York
+1962	2781	New York	» féw-York
+1962	2853	New York	NEW-YORK
+1962	3465	New York	ÎVcw-York
+1962	3757	New York	New » York
+1965	1966	Big Apple	NEW YORK
+1965	2359	Big Apple	New. York
+1965	2611	Big Apple	New-York
+1965	2781	Big Apple	» féw-York
+1965	2853	Big Apple	NEW-YORK
+1965	3465	Big Apple	ÎVcw-York
+1965	3757	Big Apple	New » York
+1966	2359	NEW YORK	New. York
+1966	2611	NEW YORK	New-York
+1966	2781	NEW YORK	» féw-York
+1966	2853	NEW YORK	NEW-YORK
+1966	3465	NEW YORK	ÎVcw-York
+1966	3757	NEW YORK	New » York
+1967	2727	Bâle	BALE
+1967	2816	Bâle	BALE-VILLE
+1967	2835	Bâle	BÛIe
+1967	2847	Bâle	Bâle-Ville
+1967	2848	Bâle	Bâle-Campagne
+1967	3124	Bâle	BASLE
+1967	3471	Bâle	Haie
+1968	2227	outre-Atlantique	Amérique
+1968	3392	outre-Atlantique	AMERIQUE
+1972	2351	ALLEMAGNE	Germanie
+1972	2780	ALLEMAGNE	Deutschland
+1975	2987	ITALIE	Ita
+1980	2343	Conflantinople	Constantinople
+1980	3457	Conflantinople	Constanlinople
+1982	3448	Dardanelles	passage des Dardanelles
+1983	2654	Ruffic	RUSSIE
+1983	3397	Ruffic	Bussie
+1986	2643	Caire	Le Caire
+1987	1989	RUSSIE	Ruffie
+1987	1991	RUSSIE	Empire
+1987	2344	RUSSIE	Russie
+1987	3116	RUSSIE	Ruflio
+1988	1995	PBTERSBOURG	Pétersbourg
+1988	2349	PBTERSBOURG	ST-PéTEESBODEG
+1988	2755	PBTERSBOURG	PETROGRAD
+1988	2757	PBTERSBOURG	Pétrograd
+1988	2758	PBTERSBOURG	PÉTROGRAD
+1988	3298	PBTERSBOURG	St-Pélersbourg
+1988	3300	PBTERSBOURG	StrPélersbourg
+1988	3458	PBTERSBOURG	St-Pétersbourg
+1989	1991	Ruffie	Empire
+1989	2344	Ruffie	Russie
+1989	3116	Ruffie	Ruflio
+1990	3197	Suède	S. éde
+1991	2344	Empire	Russie
+1991	3116	Empire	Ruflio
+1992	2959	Afie	Asie
+1995	2349	Pétersbourg	ST-PéTEESBODEG
+1995	2755	Pétersbourg	PETROGRAD
+1995	2757	Pétersbourg	Pétrograd
+1995	2758	Pétersbourg	PÉTROGRAD
+1995	3298	Pétersbourg	St-Pélersbourg
+1995	3300	Pétersbourg	StrPélersbourg
+1995	3458	Pétersbourg	St-Pétersbourg
+2009	3299	Varsovie	VARSOVIE
+2011	3301	Pologne	royaume de Pologne
+2011	3653	Pologne	Pologne prussienne
+2018	2330	Amérique méridionale	Amérique du Sud
+2020	2022	Augustura	Augustara
+2026	2034	Bivièrëj	Bavière
+2027	2337	Rbmè	ROME
+2027	2339	Rbmè	ROKE
+2027	2340	Rbmè	Rome
+2027	2598	Rbmè	Borne
+2028	2250	Saltzbourg	Salzbourg
+2031	3376	Munster	vallée de Munster
+2036	2806	Francfort	FRANCFORT
+2038	2876	Prague	PRAGUE
+2039	3329	Lintz	Linz
+2040	2123	Lausanne	LAUSANNE
+2040	2480	Lausanne	LAESANMÎ
+2040	3170	Lausanne	Laufanne
+2040	3596	Lausanne	lausanne
+2040	3598	Lausanne	Laasanne
+2040	3729	Lausanne	sanne
+2040	3800	Lausanne	Ville de Lausanne
+2041	3587	Moudon	MOBDON'
+2042	3038	Payerne	Pays-dc-Vaul
+2042	3039	Payerne	Paverne
+2042	3588	Payerne	PATBRNE
+2043	2151	Yverdoil	Yverdon
+2043	2282	Yverdoil	Yveidon
+2043	3798	Yverdoil	dTverdon
+2043	3819	Yverdoil	ïverdon
+2044	2051	ÔRÎENT	Orient
+2045	2046	ODESSA	Odessa
+2047	2050	aVàfna	Varna
+2049	2065	BERUN	Berlin
+2049	2369	BERUN	BERLIN
+2049	3661	BERUN	àBerlin
+2053	3655	ANGLETERRE	England
+2053	3694	ANGLETERRE	Angle * terre
+2054	2057	Plymouth	Plymputh
+2055	3274	Portugal	PORTUGAL
+2061	3214	Rfo-Janeiro	Rio-Janeiro
+2062	3742	BRUXELLES	Bru xelles
+2065	2369	Berlin	BERLIN
+2065	3661	Berlin	àBerlin
+2067	3054	Dusseldorf	DuSSBLDOEF
+2068	2982	Belgique	Bel
+2069	2222	ESPAGNE	Espagne
+2069	2232	ESPAGNE	Esoagne
+2069	2233	ESPAGNE	F.
+2069	2234	ESPAGNE	espngne
+2069	3073	ESPAGNE	EFpagne
+2070	2225	MADRID	Madrid
+2070	3600	MADRID	ffltadrid
+2072	3286	province de la 'lanche	Manche
+2073	2075	SARIUGOSSE	Sarragosse
+2073	3278	SARIUGOSSE	Saragosse
+2073	3282	SARIUGOSSE	SARRAGOSSE
+2073	3283	SARIUGOSSE	Sarrogosse
+2075	3278	Sarragosse	Saragosse
+2075	3282	Sarragosse	SARRAGOSSE
+2075	3283	Sarragosse	Sarrogosse
+2076	3293	Canlavieja	Canta Vieja
+2078	3276	Aragon	Arragon
+2080	2246	Logrono	Logorno
+2095	2098	Mantoue	MANTOUE
+2101	2381	Copenhague	COPENHAGUE
+2103	2928	lac de Genève	Léman
+2104	2428	Espagne	ESPAGNE
+2106	2109	Italie	Ralie
+2107	2117	Prusse	Prnsse
+2115	3835	Bourses	Bourges
+2115	3836	Bourses	BOURGES
+2120	2170	Autriche	Autriche-Hongrie
+2121	2122	Bohême	Bohême révolutionnée
+2123	2480	LAUSANNE	LAESANMÎ
+2123	3170	LAUSANNE	Laufanne
+2123	3596	LAUSANNE	lausanne
+2123	3598	LAUSANNE	Laasanne
+2123	3729	LAUSANNE	sanne
+2123	3800	LAUSANNE	Ville de Lausanne
+2124	2624	la Tour de Peilz	La Tour de Peilz
+2124	3155	la Tour de Peilz	La-Tour
+2124	3157	la Tour de Peilz	La-Tcur
+2125	2402	YHelvélie	RÉPUBLIQUE HELVÉTIQUE
+2125	2434	YHelvélie	Helvétie
+2125	2443	YHelvélie	CONFÉDÉRATION SUISSE
+2125	2445	YHelvélie	Confédération Suisse
+2125	2772	YHelvélie	_Suiraa
+2125	2810	YHelvélie	Confédération suisse
+2125	3043	YHelvélie	Helvetie
+2125	3132	YHelvélie	OnydiftingtiedesnomsquifontchersàlaSuiffe
+2125	3139	YHelvélie	enSiriffe
+2125	3404	YHelvélie	CONFÉDMATÏM SUISSE
+2125	3420	YHelvélie	CONFEDERATION SUISSE
+2125	3432	YHelvélie	Sdisse
+2125	3831	YHelvélie	Mm
+2128	3801	Strasbourg	bourg
+2143	2350	Schwytz	canton de Schwytz
+2143	2449	Schwytz	Scliwylz
+2143	2464	Schwytz	Schwylz
+2143	2491	Schwytz	Schwyiz
+2143	3219	Schwytz	Schwitz
+2144	2409	Argovie	lWrgovic
+2144	2548	Argovie	ARGOVIE
+2144	3126	Argovie	cantons d'Argovie
+2145	2869	Suisse française	Suisses romands
+2147	3144	Morges	M orges
+2147	3145	Morges	Morgcs
+2147	3167	Morges	Alofges
+2151	2282	Yverdon	Yveidon
+2151	3798	Yverdon	dTverdon
+2151	3819	Yverdon	ïverdon
+2163	3048	Semlin	SEMLÏN
+2168	3050	Serbie	Servie
+2182	2292	Èribourg	Fribourg
+2182	3759	Èribourg	FRIBOURG
+2185	2187	Sainte-Croix	Saimte-tCroix
+2185	3236	Sainte-Croix	Ste.
+2185	3713	Sainte-Croix	Ste-Croix
+2186	3224	Vuitobœuf	Vuittebœuf
+2187	3236	Saimte-tCroix	Ste.
+2187	3713	Saimte-tCroix	Ste-Croix
+2189	2457	Grisons	Gri sons
+2189	2468	Grisons	GRISONS
+2189	3261	Grisons	Grisbris
+2189	3358	Grisons	canton des Grisons
+2201	3188	Austerlilz	Austerlirz
+2207	2208	San Mufjzzan	Saint-Moritz
+2207	3696	San Mufjzzan	S. t-MojiU
+2207	3697	San Mufjzzan	St-Moriti
+2207	3699	San Mufjzzan	St-Moritz
+2208	3696	Saint-Moritz	S. t-MojiU
+2208	3697	Saint-Moritz	St-Moriti
+2208	3699	Saint-Moritz	St-Moritz
+2209	2366	Hollande	lande
+2209	2984	Hollande	Hol
+2209	3217	Hollande	Pays-Bas
+2217	2454	SCHAFFHOUSE	Schaff Iwtme
+2217	3045	SCHAFFHOUSE	Schaffonfcn
+2217	3130	SCHAFFHOUSE	Schaffhoufe
+2217	3373	SCHAFFHOUSE	Schaffliqus ^
+2217	3434	SCHAFFHOUSE	canton de Scbaflhouse
+2219	3826	Hallau	Unterhallau
+2220	3005	Schaffhouse	Schallhouse
+2220	3009	Schaffhouse	Schaffliouse
+2221	3360	TESSIN	canton du Tessin
+2222	2232	Espagne	Esoagne
+2222	2233	Espagne	F.
+2222	2234	Espagne	espngne
+2222	3073	Espagne	EFpagne
+2225	3600	Madrid	ffltadrid
+2226	2439	Afrique	AFRIQUE
+2227	3392	Amérique	AMERIQUE
+2228	3674	Vieux Monde	vieux monde
+2231	2317	Grande-Brelanm	Grande-Bretagne
+2231	3748	Grande-Brelanm	lita de-Bretagne
+2232	2233	Esoagne	F.
+2232	2234	Esoagne	espngne
+2232	3073	Esoagne	EFpagne
+2233	2234	F.	espngne
+2233	3073	F.	EFpagne
+2234	3073	espngne	EFpagne
+2235	3782	Europe occidentale	Europe
+2237	3751	Eurone	Vieux-Continent
+2238	2390	Lucerne	LUCERNE
+2238	3470	Lucerne	Iiiicerric
+2240	3658	pays Scandinaves	Scandinave
+2241	3612	Amérique	AMERIQUE
+2242	3296	Danemark	Danemarck
+2255	3134	Baden	diftàBadcn
+2262	3832	WALL STREET	Vall Street
+2265	3695	Davos	Da vos
+2267	2268	Val-de-Travers	Val de-Travers
+2267	2918	Val-de-Travers	de-Travers
+2267	2921	Val-de-Travers	Travers
+2268	2918	Val de-Travers	de-Travers
+2268	2921	Val de-Travers	Travers
+2269	2331	Neuchatel	NEUCHATEL
+2269	2444	Neuchatel	Neuchâld
+2269	2766	Neuchatel	Neu » châtel
+2269	2851	Neuchatel	NeuchâteL
+2269	2901	Neuchatel	ville de Neuchâtel
+2269	2902	Neuchatel	vill a de Neuchâtel
+2269	2989	Neuchatel	Ville de Neuchâtel
+2269	3012	Neuchatel	NEUCHÂTEL
+2269	3820	Neuchatel	Neucbâtel
+2272	2273	Chaux-de-Fonds	Chaùx-de-Fonds
+2272	2274	Chaux-de-Fonds	Chaux-de Fonds
+2272	2313	Chaux-de-Fonds	la Chaux-de-Fonds
+2272	2314	Chaux-de-Fonds	de-Fonds
+2272	3708	Chaux-de-Fonds	Cbaux-de-Fonds
+2273	2274	Chaùx-de-Fonds	Chaux-de Fonds
+2273	2313	Chaùx-de-Fonds	la Chaux-de-Fonds
+2273	2314	Chaùx-de-Fonds	de-Fonds
+2273	3708	Chaùx-de-Fonds	Cbaux-de-Fonds
+2274	2313	Chaux-de Fonds	la Chaux-de-Fonds
+2274	2314	Chaux-de Fonds	de-Fonds
+2274	3708	Chaux-de Fonds	Cbaux-de-Fonds
+2276	2963	Cote-aux-Fées	La Côte
+2280	2281	la Sagne	la _Sagoe
+2280	2828	la Sagne	Cœudres
+2280	2829	la Sagne	Sagne
+2281	2828	la _Sagoe	Cœudres
+2281	2829	la _Sagoe	Sagne
+2282	3798	Yveidon	dTverdon
+2282	3819	Yveidon	ïverdon
+2285	2290	Colombier	deJusticeduditColombier
+2291	2966	Neuveville	La Neuveville
+2291	3425	Neuveville	Neoveville
+2292	3759	Fribourg	FRIBOURG
+2298	2299	St.	Voëns
+2298	3550	St.	Sl-Blaiso
+2298	3551	St.	St-Blaise
+2299	3550	Voëns	Sl-Blaiso
+2299	3551	Voëns	St-Blaise
+2302	2704	grosdeNaples	ples
+2304	3390	Inde	INDE
+2307	2494	Palerme	Païenne
+2308	3229	Dijon	Dij on
+2312	2768	Locle	Le Locle
+2313	2314	la Chaux-de-Fonds	de-Fonds
+2313	3708	la Chaux-de-Fonds	Cbaux-de-Fonds
+2314	3708	de-Fonds	Cbaux-de-Fonds
+2317	3748	Grande-Bretagne	lita de-Bretagne
+2319	2320	àSalford	Salford
+2324	3532	vallée du Rhône	plaine du Rhône
+2326	2472	Berne	BERNE
+2326	2732	Berne	canton de Berne
+2326	3366	Berne	Reme
+2328	2379	Buénos-Ayrcs	Buenos-Ayres
+2328	2380	Buénos-Ayrcs	BUENOS-AYRES
+2328	2860	Buénos-Ayrcs	Buenos-Aires
+2328	2862	Buénos-Ayrcs	BUENOS-AIRES
+2328	3780	Buénos-Ayrcs	Buenos Aires
+2331	2444	NEUCHATEL	Neuchâld
+2331	2766	NEUCHATEL	Neu » châtel
+2331	2851	NEUCHATEL	NeuchâteL
+2331	2901	NEUCHATEL	ville de Neuchâtel
+2331	2902	NEUCHATEL	vill a de Neuchâtel
+2331	2989	NEUCHATEL	Ville de Neuchâtel
+2331	3012	NEUCHATEL	NEUCHÂTEL
+2331	3820	NEUCHATEL	Neucbâtel
+2333	2334	Fontainemelon	Fontainemclon
+2335	2725	Areuse	Reuse
+2335	2919	Areuse	FAreuse
+2337	2339	ROME	ROKE
+2337	2340	ROME	Rome
+2337	2598	ROME	Borne
+2339	2340	ROKE	Rome
+2339	2598	ROKE	Borne
+2340	2598	Rome	Borne
+2343	3457	Constantinople	Constanlinople
+2344	3116	Russie	Ruflio
+2349	2755	ST-PéTEESBODEG	PETROGRAD
+2349	2757	ST-PéTEESBODEG	Pétrograd
+2349	2758	ST-PéTEESBODEG	PÉTROGRAD
+2349	3298	ST-PéTEESBODEG	St-Pélersbourg
+2349	3300	ST-PéTEESBODEG	StrPélersbourg
+2349	3458	ST-PéTEESBODEG	St-Pétersbourg
+2350	2449	canton de Schwytz	Scliwylz
+2350	2464	canton de Schwytz	Schwylz
+2350	2491	canton de Schwytz	Schwyiz
+2350	3219	canton de Schwytz	Schwitz
+2351	2780	Germanie	Deutschland
+2354	3314	Hongrie	HONGRIE
+2355	2814	Jura bernois	berne
+2355	3597	Jura bernois	Beras
+2357	2815	Soleure	SOLEURE
+2359	2611	New. York	New-York
+2359	2781	New. York	» féw-York
+2359	2853	New. York	NEW-YORK
+2359	3465	New. York	ÎVcw-York
+2359	3757	New. York	New » York
+2362	2363	BELGRADE	Belgrade
+2365	3051	Sofia	Sophie
+2366	2984	lande	Hol
+2366	3217	lande	Pays-Bas
+2369	3661	BERLIN	àBerlin
+2374	2756	STOCKHOLM	Stockholm
+2374	3196	STOCKHOLM	Stocholm
+2376	2377	Toujquet	_Tbu * quet
+2379	2380	Buenos-Ayres	BUENOS-AYRES
+2379	2860	Buenos-Ayres	Buenos-Aires
+2379	2862	Buenos-Ayres	BUENOS-AIRES
+2379	3780	Buenos-Ayres	Buenos Aires
+2380	2860	BUENOS-AYRES	Buenos-Aires
+2380	2862	BUENOS-AYRES	BUENOS-AIRES
+2380	3780	BUENOS-AYRES	Buenos Aires
+2383	2385	THALWIL	Thalwil
+2386	3623	WAENGI	Wœogipour
+2386	3624	WAENGI	Wa ?
+2386	3629	WAENGI	Wœogi
+2387	2701	Thurgovie	THURGOVIE
+2387	2702	Thurgovie	canton de Thurgovie
+2387	3131	Thurgovie	Ture ; nvie
+2387	3362	Thurgovie	cajilon de Thurgovie
+2390	3470	LUCERNE	Iiiicerric
+2392	3558	BREMGARTEN	Bremgarten
+2394	2395	Sièrre	SIERRE
+2394	2396	Sièrre	Sierre
+2395	2396	SIERRE	Sierre
+2402	2434	RÉPUBLIQUE HELVÉTIQUE	Helvétie
+2402	2443	RÉPUBLIQUE HELVÉTIQUE	CONFÉDÉRATION SUISSE
+2402	2445	RÉPUBLIQUE HELVÉTIQUE	Confédération Suisse
+2402	2772	RÉPUBLIQUE HELVÉTIQUE	_Suiraa
+2402	2810	RÉPUBLIQUE HELVÉTIQUE	Confédération suisse
+2402	3043	RÉPUBLIQUE HELVÉTIQUE	Helvetie
+2402	3132	RÉPUBLIQUE HELVÉTIQUE	OnydiftingtiedesnomsquifontchersàlaSuiffe
+2402	3139	RÉPUBLIQUE HELVÉTIQUE	enSiriffe
+2402	3404	RÉPUBLIQUE HELVÉTIQUE	CONFÉDMATÏM SUISSE
+2402	3420	RÉPUBLIQUE HELVÉTIQUE	CONFEDERATION SUISSE
+2402	3432	RÉPUBLIQUE HELVÉTIQUE	Sdisse
+2402	3831	RÉPUBLIQUE HELVÉTIQUE	Mm
+2403	3047	Canton du Léman	Léman
+2405	2435	Marseille	MARSEILLE
+2407	2412	canton de Bâle	Bâ'e
+2407	3128	canton de Bâle	Basle
+2407	3262	canton de Bâle	Bâle
+2408	2447	Lucerne	Luceme
+2408	3138	Lucerne	LUCKRNE
+2408	3260	Lucerne	canton de Lucerne
+2408	3370	Lucerne	Lueerne
+2408	3371	Lucerne	canton de Lucerue
+2408	3372	Lucerne	canton de Lueerne
+2409	2548	lWrgovic	ARGOVIE
+2409	3126	lWrgovic	cantons d'Argovie
+2410	2455	St. Gall	St-Gall
+2410	2489	St. Gall	Sl-Gall
+2410	3135	St. Gall	ST.
+2410	3263	St. Gall	St.
+2411	2456	Genève	Gerièue
+2411	2476	Genève	GENÈVE
+2411	3356	Genève	canton de Genève
+2412	3128	Bâ'e	Basle
+2412	3262	Bâ'e	Bâle
+2413	2599	Ge : ièva	Genova
+2413	2648	Ge : ièva	J 3 ENÈVE
+2413	2706	Ge : ièva	GENèVE
+2413	2707	Ge : ièva	ville de Genève
+2413	2858	Ge : ièva	GENEVE
+2413	3814	Ge : ièva	villes de Genève
+2414	2653	Hambourg	Hambour'g
+2414	3057	Hambourg	HAMBOURG
+2425	2427	aie de Corse	Corse
+2433	2505	FRANCE	FRANGE
+2433	2986	FRANCE	Fra
+2433	3084	FRANCE	Fiance
+2433	3137	FRANCE	1 rance
+2433	3413	FRANCE	ELANCE
+2434	2443	Helvétie	CONFÉDÉRATION SUISSE
+2434	2445	Helvétie	Confédération Suisse
+2434	2772	Helvétie	_Suiraa
+2434	2810	Helvétie	Confédération suisse
+2434	3043	Helvétie	Helvetie
+2434	3132	Helvétie	OnydiftingtiedesnomsquifontchersàlaSuiffe
+2434	3139	Helvétie	enSiriffe
+2434	3404	Helvétie	CONFÉDMATÏM SUISSE
+2434	3420	Helvétie	CONFEDERATION SUISSE
+2434	3432	Helvétie	Sdisse
+2434	3831	Helvétie	Mm
+2440	2441	deBelidah	Bélidah
+2443	2445	CONFÉDÉRATION SUISSE	Confédération Suisse
+2443	2772	CONFÉDÉRATION SUISSE	_Suiraa
+2443	2810	CONFÉDÉRATION SUISSE	Confédération suisse
+2443	3043	CONFÉDÉRATION SUISSE	Helvetie
+2443	3132	CONFÉDÉRATION SUISSE	OnydiftingtiedesnomsquifontchersàlaSuiffe
+2443	3139	CONFÉDÉRATION SUISSE	enSiriffe
+2443	3404	CONFÉDÉRATION SUISSE	CONFÉDMATÏM SUISSE
+2443	3420	CONFÉDÉRATION SUISSE	CONFEDERATION SUISSE
+2443	3432	CONFÉDÉRATION SUISSE	Sdisse
+2443	3831	CONFÉDÉRATION SUISSE	Mm
+2444	2766	Neuchâld	Neu » châtel
+2444	2851	Neuchâld	NeuchâteL
+2444	2901	Neuchâld	ville de Neuchâtel
+2444	2902	Neuchâld	vill a de Neuchâtel
+2444	2989	Neuchâld	Ville de Neuchâtel
+2444	3012	Neuchâld	NEUCHÂTEL
+2444	3820	Neuchâld	Neucbâtel
+2445	2772	Confédération Suisse	_Suiraa
+2445	2810	Confédération Suisse	Confédération suisse
+2445	3043	Confédération Suisse	Helvetie
+2445	3132	Confédération Suisse	OnydiftingtiedesnomsquifontchersàlaSuiffe
+2445	3139	Confédération Suisse	enSiriffe
+2445	3404	Confédération Suisse	CONFÉDMATÏM SUISSE
+2445	3420	Confédération Suisse	CONFEDERATION SUISSE
+2445	3432	Confédération Suisse	Sdisse
+2445	3831	Confédération Suisse	Mm
+2446	3044	Zurich	çahton de'Zurich
+2446	3388	Zurich	ZURICH
+2446	3403	Zurich	cantons de Zurich
+2447	3138	Luceme	LUCKRNE
+2447	3260	Luceme	canton de Lucerne
+2447	3370	Luceme	Lueerne
+2447	3371	Luceme	canton de Lucerue
+2447	3372	Luceme	canton de Lueerne
+2448	2463	fiàle-ville	Bàle-ville
+2448	3365	fiàle-ville	Râle
+2448	3369	fiàle-ville	Râle-Campagne
+2448	3433	fiàle-ville	canton de Bâle-Ville
+2448	3556	fiàle-ville	Bàle-Ville
+2449	2464	Scliwylz	Schwylz
+2449	2491	Scliwylz	Schwyiz
+2449	3219	Scliwylz	Schwitz
+2450	3407	Glatis	Glai ^
+2451	2481	fond	canton de VpûdV'
+2451	3364	fond	Fatal
+2451	3572	fond	CANTON DE VAÏÏD
+2453	3046	Solaire	Soleure
+2453	3435	Solaire	canton de Soleure
+2454	3045	Schaff Iwtme	Schaffonfcn
+2454	3130	Schaff Iwtme	Schaffhoufe
+2454	3373	Schaff Iwtme	Schaffliqus ^
+2454	3434	Schaff Iwtme	canton de Scbaflhouse
+2455	2489	St-Gall	Sl-Gall
+2455	3135	St-Gall	ST.
+2455	3263	St-Gall	St.
+2456	2476	Gerièue	GENÈVE
+2456	3356	Gerièue	canton de Genève
+2457	2468	Gri sons	GRISONS
+2457	3261	Gri sons	Grisbris
+2457	3358	Gri sons	canton des Grisons
+2459	2473	Fribourg	FIUBOUKG
+2459	2703	Fribourg	FRIBOURG
+2460	3129	Glaris	Glarus
+2460	3406	Glaris	Claris
+2462	2761	Neuchâlel	canton de Neuchâtel
+2462	3367	Neuchâlel	Neucliâtel
+2462	3368	Neuchâlel	IS'euchûtel
+2462	3442	Neuchâlel	Neuchàtel
+2462	3557	Neuchâlel	Neuchâtel
+2463	3365	Bàle-ville	Râle
+2463	3369	Bàle-ville	Râle-Campagne
+2463	3433	Bàle-ville	canton de Bâle-Ville
+2463	3556	Bàle-ville	Bàle-Ville
+2464	2491	Schwylz	Schwyiz
+2464	3219	Schwylz	Schwitz
+2467	2850	Appenzell-intérieur	Appenzell Intérieur
+2467	3127	Appenzell-intérieur	Appenzell
+2467	3357	Appenzell-intérieur	Appenzell-inlérieur
+2468	3261	GRISONS	Grisbris
+2468	3358	GRISONS	canton des Grisons
+2469	3374	Cornu	COIRE
+2469	3379	Cornu	ville de Coire
+2471	2502	Luinbardie	Lombardie
+2472	2732	BERNE	canton de Berne
+2472	3366	BERNE	Reme
+2473	2703	FIUBOUKG	FRIBOURG
+2476	3356	GENÈVE	canton de Genève
+2480	3170	LAESANMÎ	Laufanne
+2480	3596	LAESANMÎ	lausanne
+2480	3598	LAESANMÎ	Laasanne
+2480	3729	LAESANMÎ	sanne
+2480	3800	LAESANMÎ	Ville de Lausanne
+2481	3364	canton de VpûdV'	Fatal
+2481	3572	canton de VpûdV'	CANTON DE VAÏÏD
+2489	3135	Sl-Gall	ST.
+2489	3263	Sl-Gall	St.
+2491	3219	Schwyiz	Schwitz
+2493	2500	Messine	ville de Messine
+2501	2813	grand duché de Bade	duché de Bade
+2501	3061	grand duché de Bade	Bade
+2501	3089	grand duché de Bade	grand-duché de Bade
+2501	3361	grand duché de Bade	grand duché de Baden
+2504	2890	Jura	outre-Jura
+2504	2942	Jura	JURA
+2505	2986	FRANGE	Fra
+2505	3084	FRANGE	Fiance
+2505	3137	FRANGE	1 rance
+2505	3413	FRANGE	ELANCE
+2506	2507	Cher bourg	Cherbourg
+2517	3087	Bavière	royaume de Bavière
+2524	3502	Havane	La Havane
+2525	2957	île de Cuba	Cuba
+2533	3573	Saint-Maurice	St-Maurice
+2538	2563	PAÏU 8	Parisrlo
+2538	3468	PAÏU 8	B'rtriw
+2538	3762	PAÏU 8	APARIS
+2544	3352	Seine	département delà Seine
+2548	3126	ARGOVIE	cantons d'Argovie
+2557	3259	Winterthour	YVintertliour
+2557	3405	Winterthour	deWinterthour
+2563	3468	Parisrlo	B'rtriw
+2563	3762	Parisrlo	APARIS
+2571	3180	Londires	ville de Londres
+2571	3503	Londires	Iiondres
+2579	2607	Kemnraï	Kemmel
+2580	2584	Mont Kemmel	Kemmel
+2599	2648	Genova	J 3 ENÈVE
+2599	2706	Genova	GENèVE
+2599	2707	Genova	ville de Genève
+2599	2858	Genova	GENEVE
+2599	3814	Genova	villes de Genève
+2609	2958	Union soviétique	URSS
+2611	2781	New-York	» féw-York
+2611	2853	New-York	NEW-YORK
+2611	3465	New-York	ÎVcw-York
+2611	3757	New-York	New » York
+2616	2617	AIGLE	Aigle
+2616	3164	AIGLE	Aij ; le
+2617	3164	Aigle	Aij ; le
+2624	3155	La Tour de Peilz	La-Tour
+2624	3157	La Tour de Peilz	La-Tcur
+2626	2630	RENENS	Renens
+2628	3140	Ecublens	àEcublens
+2628	3146	Ecublens	Meublent
+2628	3150	Ecublens	Ecubler.
+2632	3580	Mon- '' treux	MONTREUX
+2633	3785	Aile-, magne occidentale	RFA
+2633	3808	Aile-, magne occidentale	Allemagne
+2642	2955	Proche-Orient	MOYEN-ORIENT
+2645	2778	USA	Amérique
+2645	2857	USA	Etals-Unis
+2645	3485	USA	Etats-Uuis
+2645	3673	USA	Etais-Unis
+2645	3747	USA	Lesta-Unis
+2645	3833	USA	Améru _/ ue
+2648	2706	J 3 ENÈVE	GENèVE
+2648	2707	J 3 ENÈVE	ville de Genève
+2648	2858	J 3 ENÈVE	GENEVE
+2648	3814	J 3 ENÈVE	villes de Genève
+2652	2662	Br eslasi	Breslau
+2653	3057	Hambour'g	HAMBOURG
+2654	3397	RUSSIE	Bussie
+2658	2882	Tchécoslovaquie	slovaquie
+2658	3749	Tchécoslovaquie	m coslovaquie
+2660	3720	Reich	Allemagne
+2661	3459	Budapest	Pesth
+2678	3178	Floride	Florides
+2688	2710	département de la Savoie	Savoie
+2692	2693	village de Boncourt	Boncourt
+2697	2699	_Zooo	Zoug
+2701	2702	THURGOVIE	canton de Thurgovie
+2701	3131	THURGOVIE	Ture ; nvie
+2701	3362	THURGOVIE	cajilon de Thurgovie
+2702	3131	canton de Thurgovie	Ture ; nvie
+2702	3362	canton de Thurgovie	cajilon de Thurgovie
+2706	2707	GENèVE	ville de Genève
+2706	2858	GENèVE	GENEVE
+2706	3814	GENèVE	villes de Genève
+2707	2858	ville de Genève	GENEVE
+2707	3814	ville de Genève	villes de Genève
+2715	2716	Moutier-Soleure	Moutier-Soleuro
+2722	3772	Oberland	Oberland bernois
+2725	2919	Reuse	FAreuse
+2727	2816	BALE	BALE-VILLE
+2727	2835	BALE	BÛIe
+2727	2847	BALE	Bâle-Ville
+2727	2848	BALE	Bâle-Campagne
+2727	3124	BALE	BASLE
+2727	3471	BALE	Haie
+2732	3366	canton de Berne	Reme
+2736	3767	Grahdson	Grandson
+2740	3513	IaKander	Kander
+2745	2746	Donaueschingen	ville de Donaueschingen
+2750	3275	Lisbonne	LisBOKNE
+2755	2757	PETROGRAD	Pétrograd
+2755	2758	PETROGRAD	PÉTROGRAD
+2755	3298	PETROGRAD	St-Pélersbourg
+2755	3300	PETROGRAD	StrPélersbourg
+2755	3458	PETROGRAD	St-Pétersbourg
+2756	3196	Stockholm	Stocholm
+2757	2758	Pétrograd	PÉTROGRAD
+2757	3298	Pétrograd	St-Pélersbourg
+2757	3300	Pétrograd	StrPélersbourg
+2757	3458	Pétrograd	St-Pétersbourg
+2758	3298	PÉTROGRAD	St-Pélersbourg
+2758	3300	PÉTROGRAD	StrPélersbourg
+2758	3458	PÉTROGRAD	St-Pétersbourg
+2761	3367	canton de Neuchâtel	Neucliâtel
+2761	3368	canton de Neuchâtel	IS'euchûtel
+2761	3442	canton de Neuchâtel	Neuchàtel
+2761	3557	canton de Neuchâtel	Neuchâtel
+2762	2838	Plancemont	Couvet
+2764	3227	Besançon	Bezanqon
+2765	2823	La Brévine	la Brévine
+2765	2824	La Brévine	Châtagne
+2766	2851	Neu » châtel	NeuchâteL
+2766	2901	Neu » châtel	ville de Neuchâtel
+2766	2902	Neu » châtel	vill a de Neuchâtel
+2766	2989	Neu » châtel	Ville de Neuchâtel
+2766	3012	Neu » châtel	NEUCHÂTEL
+2766	3820	Neu » châtel	Neucbâtel
+2769	2868	Su.	Suisses allemands
+2769	3722	Su.	Suisse allemande
+2772	2810	_Suiraa	Confédération suisse
+2772	3043	_Suiraa	Helvetie
+2772	3132	_Suiraa	OnydiftingtiedesnomsquifontchersàlaSuiffe
+2772	3139	_Suiraa	enSiriffe
+2772	3404	_Suiraa	CONFÉDMATÏM SUISSE
+2772	3420	_Suiraa	CONFEDERATION SUISSE
+2772	3432	_Suiraa	Sdisse
+2772	3831	_Suiraa	Mm
+2778	2857	Amérique	Etals-Unis
+2778	3485	Amérique	Etats-Uuis
+2778	3673	Amérique	Etais-Unis
+2778	3747	Amérique	Lesta-Unis
+2778	3833	Amérique	Améru _/ ue
+2781	2853	» féw-York	NEW-YORK
+2781	3465	» féw-York	ÎVcw-York
+2781	3757	» féw-York	New » York
+2808	2809	_BELSTNGFORS	Helsingfors
+2808	3779	_BELSTNGFORS	Helsinki
+2808	3829	_BELSTNGFORS	_Helsingfors
+2809	3779	Helsingfors	Helsinki
+2809	3829	Helsingfors	_Helsingfors
+2810	3043	Confédération suisse	Helvetie
+2810	3132	Confédération suisse	OnydiftingtiedesnomsquifontchersàlaSuiffe
+2810	3139	Confédération suisse	enSiriffe
+2810	3404	Confédération suisse	CONFÉDMATÏM SUISSE
+2810	3420	Confédération suisse	CONFEDERATION SUISSE
+2810	3432	Confédération suisse	Sdisse
+2810	3831	Confédération suisse	Mm
+2813	3061	duché de Bade	Bade
+2813	3089	duché de Bade	grand-duché de Bade
+2813	3361	duché de Bade	grand duché de Baden
+2814	3597	berne	Beras
+2816	2835	BALE-VILLE	BÛIe
+2816	2847	BALE-VILLE	Bâle-Ville
+2816	2848	BALE-VILLE	Bâle-Campagne
+2816	3124	BALE-VILLE	BASLE
+2816	3471	BALE-VILLE	Haie
+2818	2867	ZURICH	rich
+2823	2824	la Brévine	Châtagne
+2828	2829	Cœudres	Sagne
+2830	2843	Geneveys	Prises
+2835	2847	BÛIe	Bâle-Ville
+2835	2848	BÛIe	Bâle-Campagne
+2835	3124	BÛIe	BASLE
+2835	3471	BÛIe	Haie
+2840	2962	Peseux	PESEUX
+2846	3489	Saint-Gall	St-Gall
+2847	2848	Bâle-Ville	Bâle-Campagne
+2847	3124	Bâle-Ville	BASLE
+2847	3471	Bâle-Ville	Haie
+2848	3124	Bâle-Campagne	BASLE
+2848	3471	Bâle-Campagne	Haie
+2850	3127	Appenzell Intérieur	Appenzell
+2850	3357	Appenzell Intérieur	Appenzell-inlérieur
+2851	2901	NeuchâteL	ville de Neuchâtel
+2851	2902	NeuchâteL	vill a de Neuchâtel
+2851	2989	NeuchâteL	Ville de Neuchâtel
+2851	3012	NeuchâteL	NEUCHÂTEL
+2851	3820	NeuchâteL	Neucbâtel
+2853	3465	NEW-YORK	ÎVcw-York
+2853	3757	NEW-YORK	New » York
+2855	2859	Paraguay	république du Paraguay
+2856	2863	blique argentine	Képublique Argentine
+2856	2865	blique argentine	Argentine
+2857	3485	Etals-Unis	Etats-Uuis
+2857	3673	Etals-Unis	Etais-Unis
+2857	3747	Etals-Unis	Lesta-Unis
+2857	3833	Etals-Unis	Améru _/ ue
+2858	3814	GENEVE	villes de Genève
+2860	2862	Buenos-Aires	BUENOS-AIRES
+2860	3780	Buenos-Aires	Buenos Aires
+2862	3780	BUENOS-AIRES	Buenos Aires
+2863	2865	Képublique Argentine	Argentine
+2868	3722	Suisses allemands	Suisse allemande
+2870	2871	_Sudèted	Sudètes
+2872	2878	Karlsbad	Carlsbad
+2875	2881	Nuremberg	NUREMBERG
+2879	2880	Maehrisch-Ostrau	Maerhrisch-Ostrau
+2882	3749	slovaquie	m coslovaquie
+2887	3327	Brno	Brùnu
+2887	3332	Brno	Brùnn
+2890	2942	outre-Jura	JURA
+2896	3475	Bienne romande	Bienne
+2899	3547	Olten	Oiten
+2901	2902	ville de Neuchâtel	vill a de Neuchâtel
+2901	2989	ville de Neuchâtel	Ville de Neuchâtel
+2901	3012	ville de Neuchâtel	NEUCHÂTEL
+2901	3820	ville de Neuchâtel	Neucbâtel
+2902	2989	vill a de Neuchâtel	Ville de Neuchâtel
+2902	3012	vill a de Neuchâtel	NEUCHÂTEL
+2902	3820	vill a de Neuchâtel	Neucbâtel
+2903	2905	CARACAS	Caracas
+2904	2915	BOGOTA	Bogota
+2906	2908	Cradad Trujlllo	Ciudad Trujlllo
+2910	2911	Washington	WASHINGTON
+2914	2916	province de Tachira	Tachira
+2918	2921	de-Travers	Travers
+2934	2935	Bmgg	Brugg
+2950	2954	Extrême-Srient	Extrême-Orient
+2950	3752	Extrême-Srient	Extréme-Asie
+2951	3750	Maison-Blanche	Maison Blanche
+2954	3752	Extrême-Orient	Extréme-Asie
+2956	3847	Viêt-nam	Vietnam
+2960	2961	Marin	Marin-Epagnier
+2966	3425	La Neuveville	Neoveville
+2971	2972	tingham	Nottinhgam
+2974	2975	Eire	Irlande
+2974	2985	Eire	Irl
+2975	2985	Irlande	Irl
+2984	3217	Hol	Pays-Bas
+2986	3084	Fra	Fiance
+2986	3137	Fra	1 rance
+2986	3413	Fra	ELANCE
+2988	3492	Can	Canada
+2989	3012	Ville de Neuchâtel	NEUCHÂTEL
+2989	3820	Ville de Neuchâtel	Neucbâtel
+2992	3546	Brigue	Briguo
+2993	2994	Lignières	village de Lignières
+2997	2999	Brive	Brive-la-Gaillarde
+3005	3009	Schallhouse	Schaffliouse
+3012	3820	NEUCHÂTEL	Neucbâtel
+3038	3039	Pays-dc-Vaul	Paverne
+3038	3588	Pays-dc-Vaul	PATBRNE
+3039	3588	Paverne	PATBRNE
+3043	3132	Helvetie	OnydiftingtiedesnomsquifontchersàlaSuiffe
+3043	3139	Helvetie	enSiriffe
+3043	3404	Helvetie	CONFÉDMATÏM SUISSE
+3043	3420	Helvetie	CONFEDERATION SUISSE
+3043	3432	Helvetie	Sdisse
+3043	3831	Helvetie	Mm
+3044	3388	çahton de'Zurich	ZURICH
+3044	3403	çahton de'Zurich	cantons de Zurich
+3045	3130	Schaffonfcn	Schaffhoufe
+3045	3373	Schaffonfcn	Schaffliqus ^
+3045	3434	Schaffonfcn	canton de Scbaflhouse
+3046	3435	Soleure	canton de Soleure
+3052	3311	Rutfchuck	RusUchuk
+3055	3058	confédération du Rhin	ALLEMAGNE
+3059	3063	PRESBOURG	Presbourg
+3059	3066	PRESBOURG	Presbonrg
+3061	3089	Bade	grand-duché de Bade
+3061	3361	Bade	grand duché de Baden
+3063	3066	Presbourg	Presbonrg
+3068	3173	Kcenigsberg	àKœnigsberg
+3068	3399	Kcenigsberg	Kônigsberg
+3069	3070	Charlottenbourg	CharlotteRboutg
+3072	3076	la Romana	la Roman,
+3074	3078	Ponte-C * rvo	Ponte-Corvo
+3074	3186	Ponte-C * rvo	Porote-Corvo
+3074	3189	Ponte-C * rvo	'Ponte-Corvo
+3075	3077	ule de F, on	Fionie
+3075	3081	ule de F, on	isle de Fionie
+3077	3081	Fionie	isle de Fionie
+3078	3186	Ponte-Corvo	Porote-Corvo
+3078	3189	Ponte-Corvo	'Ponte-Corvo
+3082	3083	isle de f.	isle de Langeland
+3084	3137	Fiance	1 rance
+3084	3413	Fiance	ELANCE
+3089	3361	grand-duché de Bade	grand duché de Baden
+3091	3174	Heffe	Hesse
+3107	3110	Oltnutz	Olmutz
+3113	3115	Weiœar	Weimar
+3124	3471	BASLE	Haie
+3125	3133	LENZBOUKG	Lenzbourg
+3127	3357	Appenzell	Appenzell-inlérieur
+3128	3262	Basle	Bâle
+3129	3406	Glarus	Claris
+3130	3373	Schaffhoufe	Schaffliqus ^
+3130	3434	Schaffhoufe	canton de Scbaflhouse
+3131	3362	Ture ; nvie	cajilon de Thurgovie
+3132	3139	OnydiftingtiedesnomsquifontchersàlaSuiffe	enSiriffe
+3132	3404	OnydiftingtiedesnomsquifontchersàlaSuiffe	CONFÉDMATÏM SUISSE
+3132	3420	OnydiftingtiedesnomsquifontchersàlaSuiffe	CONFEDERATION SUISSE
+3132	3432	OnydiftingtiedesnomsquifontchersàlaSuiffe	Sdisse
+3132	3831	OnydiftingtiedesnomsquifontchersàlaSuiffe	Mm
+3135	3263	ST.	St.
+3136	3636	FRAUEKFiit	Fraueafeld
+3137	3413	1 rance	ELANCE
+3138	3260	LUCKRNE	canton de Lucerne
+3138	3370	LUCKRNE	Lueerne
+3138	3371	LUCKRNE	canton de Lucerue
+3138	3372	LUCKRNE	canton de Lueerne
+3139	3404	enSiriffe	CONFÉDMATÏM SUISSE
+3139	3420	enSiriffe	CONFEDERATION SUISSE
+3139	3432	enSiriffe	Sdisse
+3139	3831	enSiriffe	Mm
+3140	3146	àEcublens	Meublent
+3140	3150	àEcublens	Ecubler.
+3142	3147	Villars-fous-Yens	Villars-fous-Ye-ns
+3144	3145	M orges	Morgcs
+3144	3167	M orges	Alofges
+3145	3167	Morgcs	Alofges
+3146	3150	Meublent	Ecubler.
+3151	3154	Vevey	Vcvcv
+3151	3160	Vevey	Vtvej
+3151	3760	Vevey	Vêvey
+3152	3159	St.	St. Saphorin
+3154	3160	Vcvcv	Vtvej
+3154	3760	Vcvcv	Vêvey
+3155	3157	La-Tour	La-Tcur
+3160	3760	Vtvej	Vêvey
+3161	3165	àOÎlon	Ollcn
+3161	3166	àOÎlon	Ollon
+3165	3166	Ollcn	Ollon
+3169	3246	Oron	Orou
+3170	3596	Laufanne	lausanne
+3170	3598	Laufanne	Laasanne
+3170	3729	Laufanne	sanne
+3170	3800	Laufanne	Ville de Lausanne
+3171	3200	LEIPSIG	Leipzig
+3173	3399	àKœnigsberg	Kônigsberg
+3180	3503	ville de Londres	Iiondres
+3186	3189	Porote-Corvo	'Ponte-Corvo
+3191	3201	Lubeck	Lubetk
+3191	3202	Lubeck	héLubeck
+3201	3202	Lubetk	héLubeck
+3203	3245	Mezières	Mézières
+3206	3207	Viorrens	Viortens
+3211	3212	Brasuis	Brassus
+3226	3581	Châtean-d'Œx	CHATEAU-D'ŒX
+3226	3583	Châtean-d'Œx	Châtean-d'OEx
+3236	3713	Ste.	Ste-Croix
+3259	3405	YVintertliour	deWinterthour
+3260	3370	canton de Lucerne	Lueerne
+3260	3371	canton de Lucerne	canton de Lucerue
+3260	3372	canton de Lucerne	canton de Lueerne
+3261	3358	Grisbris	canton des Grisons
+3278	3282	Saragosse	SARRAGOSSE
+3278	3283	Saragosse	Sarrogosse
+3282	3283	SARRAGOSSE	Sarrogosse
+3284	3289	la Muella	Maella
+3298	3300	St-Pélersbourg	StrPélersbourg
+3298	3458	St-Pélersbourg	St-Pétersbourg
+3300	3458	StrPélersbourg	St-Pétersbourg
+3301	3653	royaume de Pologne	Pologne prussienne
+3302	3303	CRACOVIE	ville même de Cracovie
+3302	3304	CRACOVIE	Cracovie
+3302	3306	CRACOVIE	ville de Cracovie
+3303	3304	ville même de Cracovie	Cracovie
+3303	3306	ville même de Cracovie	ville de Cracovie
+3304	3306	Cracovie	ville de Cracovie
+3315	3333	ville de Pesth	Peslh
+3315	3340	ville de Pesth	PESTH
+3317	3334	grand-duché de Posen	DUCHÉ DE POSEN
+3317	3335	grand-duché de Posen	le duché de Posen
+3318	3320	POSEN	Posen
+3318	3321	POSEN	ville de Posen
+3320	3321	Posen	ville de Posen
+3322	3324	ville de Schwersenz	Schwarseiw
+3327	3332	Brùnu	Brùnn
+3333	3340	Peslh	PESTH
+3334	3335	DUCHÉ DE POSEN	le duché de Posen
+3338	3339	LEMBERG	Lemberg
+3364	3572	Fatal	CANTON DE VAÏÏD
+3365	3369	Râle	Râle-Campagne
+3365	3433	Râle	canton de Bâle-Ville
+3365	3556	Râle	Bàle-Ville
+3367	3368	Neucliâtel	IS'euchûtel
+3367	3442	Neucliâtel	Neuchàtel
+3367	3557	Neucliâtel	Neuchâtel
+3368	3442	IS'euchûtel	Neuchàtel
+3368	3557	IS'euchûtel	Neuchâtel
+3369	3433	Râle-Campagne	canton de Bâle-Ville
+3369	3556	Râle-Campagne	Bàle-Ville
+3370	3371	Lueerne	canton de Lucerue
+3370	3372	Lueerne	canton de Lueerne
+3371	3372	canton de Lucerue	canton de Lueerne
+3373	3434	Schaffliqus ^	canton de Scbaflhouse
+3374	3379	COIRE	ville de Coire
+3375	3378	Slelyio	mont Stelvio
+3388	3403	ZURICH	cantons de Zurich
+3404	3420	CONFÉDMATÏM SUISSE	CONFEDERATION SUISSE
+3404	3432	CONFÉDMATÏM SUISSE	Sdisse
+3404	3831	CONFÉDMATÏM SUISSE	Mm
+3420	3432	CONFEDERATION SUISSE	Sdisse
+3420	3831	CONFEDERATION SUISSE	Mm
+3428	3431	Annemasse	Annernasse
+3432	3831	Sdisse	Mm
+3433	3556	canton de Bâle-Ville	Bàle-Ville
+3439	3440	rive droite de l'Inn	rive gauche de l'Inn
+3442	3557	Neuchàtel	Neuchâtel
+3444	3676	\ ersailles	Versailles
+3460	3461	île d'Ada-Kaleh	Ada-Kaleh
+3460	3462	île d'Ada-Kaleh	Ada-Kalé
+3460	3463	île d'Ada-Kaleh	da-Kaleh
+3461	3462	Ada-Kaleh	Ada-Kalé
+3461	3463	Ada-Kaleh	da-Kaleh
+3462	3463	Ada-Kalé	da-Kaleh
+3465	3757	ÎVcw-York	New » York
+3468	3762	B'rtriw	APARIS
+3485	3673	Etats-Uuis	Etais-Unis
+3485	3747	Etats-Uuis	Lesta-Unis
+3485	3833	Etats-Uuis	Améru _/ ue
+3508	3509	Lôtscliberg	Lœtschberg
+3508	3518	Lôtscliberg	Lcstschberg
+3509	3518	Lœtschberg	Lcstschberg
+3512	3514	Frutigen	village de Frutigen
+3512	3771	Frutigen	Friitigen
+3514	3771	village de Frutigen	Friitigen
+3515	3516	station de Frutigencommence	gares de Frutigen
+3520	3523	Gaslern	Gastern
+3520	3525	Gaslern	Kandersteg
+3522	3542	vallée de Lœtschen	Lœtschen
+3523	3525	Gastern	Kandersteg
+3530	3548	Mont-Cenis	Moni-Cenis
+3550	3551	Sl-Blaiso	St-Blaise
+3552	3709	St-Imier	Saint-Imier
+3552	3711	St-Imier	St-Imiei-
+3552	3712	St-Imier	St-Imirè
+3560	3691	Grindelwald	Grindehvald
+3581	3583	CHATEAU-D'ŒX	Châtean-d'OEx
+3584	3585	DOMPIERRE	Dompierre
+3596	3598	lausanne	Laasanne
+3596	3729	lausanne	sanne
+3596	3800	lausanne	Ville de Lausanne
+3598	3729	Laasanne	sanne
+3598	3800	Laasanne	Ville de Lausanne
+3599	3601	A ££ uroo	Maroc
+3616	3617	ÂADORF	Aadorf
+3618	3638	Lutzelmurg	Lù ! zel-Murg
+3618	3643	Lutzelmurg	Lulzel-Murg
+3621	3626	Tuttwil	Tùtywlj
+3623	3624	Wœogipour	Wa ?
+3623	3629	Wœogipour	Wœogi
+3624	3629	Wa ?	Wœogi
+3627	3639	Hagenbuch	Schneitberg
+3627	3641	Hagenbuch	Hagenstall
+3638	3643	Lù ! zel-Murg	Lulzel-Murg
+3639	3641	Schneitberg	Hagenstall
+3655	3694	England	Angle * terre
+3662	3663	Grantham	Qra.
+3665	3667	Saint-Jean de Terre-Neuve	St-Jean de Terre-Neuve
+3673	3747	Etais-Unis	Lesta-Unis
+3673	3833	Etais-Unis	Améru _/ ue
+3678	3680	Saimt-Jean-de-Luz	Saint-Jean-de-Luz
+3683	3693	col de Bretaye	Bretaye
+3696	3697	S. t-MojiU	St-Moriti
+3696	3699	S. t-MojiU	St-Moritz
+3697	3699	St-Moriti	St-Moritz
+3709	3711	Saint-Imier	St-Imiei-
+3709	3712	Saint-Imier	St-Imirè
+3711	3712	St-Imiei-	St-Imirè
+3717	3719	Pôint-Barrow	Point-Barrow
+3724	3725	RIPONNE	place de la Riponne
+3729	3800	sanne	Ville de Lausanne
+3736	3738	OUCHT	Ouchy
+3747	3833	Lesta-Unis	Améru _/ ue
+3769	3770	ADELBODEN	Adelboden
+3779	3829	Helsinki	_Helsingfors
+3781	3784	ALLEMAGNE DE L'EST	RDA
+3785	3808	RFA	Allemagne
+3787	3817	Bangkok	Bagkok
+3792	3793	Sri Lanka	ceylan
+3795	3796	Saint-Jacques	Saint-Iacques
+3798	3819	dTverdon	ïverdon
+3811	3812	Charmilles	Stade des Charmilles
+3835	3836	Bourges	BOURGES
+3838	3841	SIDNEY	Sidney
