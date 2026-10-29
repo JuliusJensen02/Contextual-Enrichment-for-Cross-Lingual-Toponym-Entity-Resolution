@@ -13,9 +13,9 @@ Keep? column: ✅ keep (carry forward in the project) · ⚠️ borderline · �
 | `title_source` | Constant: `DAMAST`. | ❌ drop — constant |
 | `start` | Constant `1000`. | ✅ keep — time (compare against datasets dated outside this range) |
 | `matches` | Wikidata/GeoNames refs (`wd:…;gn:…`). Only ~2%. | ✅ keep — enrichment where present (hide from matcher) |
-| `types` | Constant `settlement`. | ❌ drop — constant |
+| `types` | Constant `settlement`. | ✅ keep — constant, but useful across datasets |
 | `variants` | Many variants in Arabic, Syriac, Greek and Latin script. | ✅ keep — Arabic; strip other scripts |
-| `lat` / `lon` | Coordinates (~96%). | ❌ drop — modern georeferencing, not a source text |
+| `lat` / `lon` | Coordinates (~96%). | ⚠️ keep — not from source text; for comparison, hide from matcher |
 | `description` | English note on the place/coordinates (e.g. "The modern city of Mosul"). | ❌ drop — not original text |
 | `geowkt` / `geo_source` / `geo_id` | Empty. | ❌ drop — empty |
 
@@ -26,8 +26,8 @@ Keep? column: ✅ keep (carry forward in the project) · ⚠️ borderline · �
 | `id` | Mixed: `K…` Kima, `Q…` Wikidata, `GN…` GeoNames, `PL…` Pleiades, `U…`/`BJ…` local. | ✅ keep — join/link (hide from matcher) |
 | `title` | Place name in Hebrew. | ✅ keep — name |
 | `description` | Hebrew passage from the travelogue where the place is mentioned (~87%). | ✅ keep — text context (from source) |
-| `title_source` | Edition: Asher (most) or Adler. | ❌ drop — edition metadata |
-| `lat` / `lon` | Coordinates (~57%). | ❌ drop — modern georeferencing, not a source text |
+| `title_source` | Edition: Asher (most) or Adler. | ✅ keep — source/edition provenance |
+| `lat` / `lon` | Coordinates (~57%). | ⚠️ keep — not from source text; for comparison, hide from matcher |
 | `start` | Constant `1168`. | ✅ keep — time (compare against datasets dated outside this range) |
 | `geowkt` | Geometry as WKT `MULTIPOINT` (~38%). | ❌ drop — modern geometry |
 | `geo_source` / `geo_id` | Empty. | ❌ drop — empty |
@@ -42,4 +42,4 @@ Keep? column: ✅ keep (carry forward in the project) · ⚠️ borderline · �
 | `id_2` / `title_2` | Record id and name in `Tudela_257.tsv`. | ✅ eval only — never a feature |
 | `judgement` | Always `true` (only positive pairs are listed). | ✅ eval only |
 
-**Leakage note:** keys and resolved attributes must not be shown to a matcher — Tudela `id` (contains Kima/Wikidata/GeoNames/Pleiades ids) and `matches`, DAMAST `matches` (kept for joining and enrichment only), and coordinates (`lat`/`lon`, `geowkt`), since they are modern georeferencing, not part of the source texts. For `variants`, keep own-script spellings but strip cross-script ones. Note the asymmetry: only Tudela carries real own-language text (`description`); DAMAST's `description` is a modern English note, so text context exists on the Hebrew side only.
+**Leakage note:** keys and resolved attributes must not be shown to a matcher — Tudela `id` (contains Kima/Wikidata/GeoNames/Pleiades ids) and `matches`, DAMAST `matches` (kept for joining and enrichment only). Coordinates (`lat`/`lon`) are modern georeferencing, not part of the source texts — kept for comparison/analysis but must not be a matcher feature (`geowkt` dropped as redundant). For `variants`, keep own-script spellings but strip cross-script ones. Note the asymmetry: only Tudela carries real own-language text (`description`); DAMAST's `description` is a modern English note, so text context exists on the Hebrew side only.
