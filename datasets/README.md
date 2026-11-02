@@ -8,6 +8,7 @@ Datasets for cross-lingual toponym entity resolution. Each folder has its own RE
 | [`Syriaca/`](Syriaca/README.md) | Syriac ↔ Arabic | Late antique – medieval (c. 400–1500) | 3,485 places | 547 places with names in both languages | `place_id` | Medium (source quotes, attestations) |
 | [`Pleiades/`](Pleiades/README.md) | Latin/Greek ↔ Hebrew/Arabic | Ancient (c. 750 BCE – 650 CE) | 42,399 places | 4,497 links to Wikidata labels | `pleiades_id` | Low (short description) |
 | [`Wikidata-he-ar/`](Wikidata-he-ar/README.md) | Hebrew ↔ Arabic | Modern (present day) | 34,079 places | One pair per item (one-to-one) | `qid` | Low (none in the file; Wikipedia via URLs) |
+| [`Trismegistos/`](Trismegistos/README.md) | Latin/Greek/Egyptian/Coptic | Ancient (c. 800 BCE – 800 CE) | 65,170 places; 81,980 texts | Links to Pleiades, Syriaca, Wikipedia (`rel_*`) | `geo_id` | Medium–high (papyri full texts for 775 places, Wikipedia for 8,911) |
 | [`HIPE-2022/`](HIPE-2022/README.md) | German, English, French, Finnish, Swedish | 18th–20th century (c. 1780–2000) | 35,107 place-name mentions in newspapers and commentaries (5,378 unique places) | 23,355 mentions linked to Wikidata | `NEL-LIT` (QID) | High (full documents) |
 
 Periods are approximate, based on the dates in each source:
@@ -28,6 +29,7 @@ Periods are approximate, based on the dates in each source:
 
 | Link | How |
 |---|---|
+| Trismegistos ↔ Pleiades / Syriaca | `pleiades_id`, `rel_Syriaca` in `Trismegistos/trismegistos_places.tsv` |
 | Syriaca ↔ Pleiades | `pleiades_id` in `Syriaca/syriaca_places.tsv` (580 places) |
 | Pleiades ↔ Wikidata-he-ar | `qid` in `Pleiades/pleiades_wikidata_links.tsv` |
 | MEHDIE (Kima) ↔ Wikidata | Wikidata URLs in Kima's `matches` column |

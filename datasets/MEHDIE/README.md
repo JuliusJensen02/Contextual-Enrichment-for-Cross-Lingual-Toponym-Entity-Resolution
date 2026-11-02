@@ -46,6 +46,16 @@ The numbers in the file names (`_257`, `_283`, `_295`, `_303`, `_306`, `_315`) d
 - Only positive pairs are listed. Every other combination of records is an unlabelled non-match. The authors state that some true matches were probably missed, because not all combinations could be reviewed manually.
 - The total is 137 pairs, not the 129 reported in Table 2 of the paper. In testsets 7 and 10, several Yāqūt records point to the same Kima record (e.g. two `المرية` records both match Kima `8741`). Unique `id_2` values: 30 in testset 7 and 32 in testset 10.
 
+## Derived: `YaqutTudela/em.tsv`
+
+Not part of the paper. No testset pairs Yāqūt with Tudela directly, so `scripts/build_yaqut_tudela_em.py` derives the pairs by transitive closure over the five `em.tsv` files, Tudela's Kima IDs (`K…` ids and Kima URLs in `matches`), and Wikidata IDs shared by Kima and Tudela records. Tudela records are endpoints only, never bridges, because some share a wrong Wikidata ID (גיבל and גיבל האחרת both carry Q173532).
+
+- 14 pairs: 14 Yāqūt records (`YaqutSham.tsv`, `Yaqut_306.tsv`), 12 Tudela records (`Tudela_257.tsv`).
+- Same columns as `em.tsv`, plus `hops` and `path` (the chain behind each pair).
+- The al-Thurayya route adds no pairs. DAMAST cannot reach Yāqūt.
+- Two pairs are probably wrong: سمسم and لد → רמלה. They come from the testset 7 ground truth, which maps both to Kima 456 רמלה.
+- Most links rely on Tudela's Kima and Wikidata IDs, the identity leakage described under Known issues.
+
 ## Source datasets
 
 ### Kima (Hebrew gazetteer): `KimaSham.tsv`, `Kima_303.tsv`
