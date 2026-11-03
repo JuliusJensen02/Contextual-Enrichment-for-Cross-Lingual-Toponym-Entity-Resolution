@@ -3,9 +3,9 @@
 A matching set between the two big gazetteers of the ancient world: Pleiades (42,417 places) and Trismegistos Places (64,507 places). Both sides are cut down to the attributes a matching method may see; all IDs and links to other databases are removed and kept only in `em.tsv`.
 
 - Pleiades: JSON dump of 2 November 2026, https://atlantides.org/downloads/pleiades/json/ (CC BY 3.0)
-- Trismegistos: `../Trismegistos/trismegistos_places.tsv` (TM Data Services, CC BY-SA 4.0)
-- PAThs: `../PAThs/paths_places.tsv` (CC BY-NC-SA 4.0), used as a third source of links
-- Built with `scripts/build_pleiades_trismegistos.py`, November 2026
+- Trismegistos: `../../datasets/Trismegistos/trismegistos_places.tsv` (TM Data Services, CC BY-SA 4.0)
+- PAThs: `../../datasets/PAThs/paths_places.tsv` (CC BY-NC-SA 4.0), used as a third source of links
+- Built with `../../scripts/build_pleiades_trismegistos.py`, November 2026
 
 ## Files
 
@@ -89,7 +89,7 @@ TM has **no description field** in any of its data services (table dump, SQL exp
 
 ## `trismegistos_texts.tsv`
 
-One row per (TM place, text), from `../Trismegistos/trismegistos_place_texts.tsv` (place-level links only) and `../Trismegistos/trismegistos_texts.tsv` (papyri.info: HGV, DDbDP, DCLP).
+One row per (TM place, text), from `../../datasets/Trismegistos/trismegistos_place_texts.tsv` (place-level links only) and `../Trismegistos/trismegistos_texts.tsv` (papyri.info: HGV, DDbDP, DCLP).
 
 | Column | Content |
 |---|---|
