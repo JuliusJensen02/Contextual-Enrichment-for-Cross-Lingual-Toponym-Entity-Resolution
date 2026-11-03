@@ -1,122 +1,146 @@
-# Pleiades ↔ Trismegistos
+# Pleiades–Trismegistos
 
-A matching set between the two big gazetteers of the ancient world: Pleiades (42,417 places) and Trismegistos Places (64,507 places). Both sides are cut down to the attributes a matching method may see; all IDs and links to other databases are removed and kept only in `em.tsv`.
+Gazetteer data for ancient places from [Pleiades](https://pleiades.stoa.org/) and [Trismegistos Places](https://www.trismegistos.org/geo/), plus a gold set of entity matches (`em.tsv`) linking the two. All files are tab-separated, UTF-8, with a header row. A few fields contain tab characters and are wrapped in double quotes, so read them with a CSV parser that handles quoting (e.g. `pandas.read_csv(path, sep="\t")`, not a plain `split("\t")`).
 
-- Pleiades: JSON dump of 2 November 2026, https://atlantides.org/downloads/pleiades/json/ (CC BY 3.0)
-- Trismegistos: `../../datasets/Trismegistos/trismegistos_places.tsv` (TM Data Services, CC BY-SA 4.0)
-- PAThs: `../../datasets/PAThs/paths_places.tsv` (CC BY-NC-SA 4.0), used as a third source of links
-- Built with `../../scripts/build_pleiades_trismegistos.py`, November 2026
+Built by `scripts/build_pleiades_trismegistos.py`, `scripts/build_trismegistos.py`, `scripts/build_pleiades_connections.py` and `scripts/build_pleiades_references.py`.
 
-## Files
+## Overview
 
-| File | Content |
-|---|---|
-| `pleiades.tsv` | One row per Pleiades place (42,417) |
-| `trismegistos.tsv` | One row per TM place, ghost names removed (64,507) |
-| `em.tsv` | **Ground truth:** 13,890 Pleiades ↔ TM pairs |
-| `trismegistos_texts.tsv` | Papyri and ostraca written or found at a TM place, with full edition text (58,595 place–text links, 731 places) |
+| File | Rows | Columns | One row per |
+|---|---:|---:|---|
+| `pleiades.tsv` | 42,417 | 18 | Pleiades place |
+| `trismegistos.tsv` | 64,507 | 21 | Trismegistos place |
+| `trismegistos_texts.tsv` | 58,595 | 13 | (Trismegistos place, text) pair |
+| `em.tsv` | 13,890 | 6 | Matched (Pleiades place, Trismegistos place) pair |
 
-Multiple values in a cell are separated by ` | `.
+**How coverage is counted:** a cell counts as non-empty if it is not blank after stripping whitespace. Numeric count columns such as `n_names` or `n_texts` are always filled, even when the value is `0`; see the notes under each table.
 
-## `em.tsv`
+**Multi-valued fields** use ` | ` (space, pipe, space) as separator. **Years** are integers, with negative numbers for BCE (e.g. `-30` = 30 BCE).
 
-| Column | Content |
-|---|---|
-| `pleiades_id`, `trismegistos_id` | The pair |
-| `pleiades_title`, `trismegistos_name` | Titles, for reading only |
-| `sources` | Who asserts the link: `pleiades` (reference of type `citesAsRelated` to a TM place), `trismegistos` (TM's `close_matches` to Pleiades), `paths` (PAThs `skos:exactMatch` to both) |
-| `n_sources` | 1–3 |
+**No cross-references:** `pleiades.tsv` and `trismegistos.tsv` contain matching features only. IDs pointing to the other database (and to Wikidata, GeoNames, etc.) were removed so they don't leak the answer. The links live only in `em.tsv`.
 
-| Sources | Pairs |
-|---|---|
-| pleiades + trismegistos + paths | 124 |
-| pleiades + trismegistos | 5,303 |
-| trismegistos + paths | 38 |
-| pleiades + paths | 2 |
-| trismegistos only | 7,944 |
-| pleiades only | 446 |
-| paths only | 33 |
+---
 
-The pairs cover 13,666 Pleiades places and 13,396 TM places. They are **not one-to-one**: 208 Pleiades places match more than one TM place, and 428 TM places match more than one Pleiades place (e.g. TM Memphis → Pleiades Memphis and Abu Sir).
+## `em.tsv`: entity matches
 
-None of the sources says "same place" in a checked way: Pleiades uses "cites as related", TM puts every partner link in `close_matches`, and PAThs uses `exactMatch` for everything. Pairs with `n_sources >= 2` (5,467) are the most reliable. Single-source pairs include neighbouring or nested places.
+Gold alignment between Pleiades and Trismegistos places. Each (`pleiades_id`, `trismegistos_id`) pair appears once (13,890 distinct pairs).
 
-23 pairs were left out because one ID does not exist on the other side: 13 Pleiades IDs not in the dump, and 10 TM IDs that are missing or ghost names.
+- Covers **13,666** distinct Pleiades places (32.2% of `pleiades.tsv`) and **13,396** distinct Trismegistos places (20.8% of `trismegistos.tsv`).
+- Some places are matched to more than one place in the other gazetteer, so the mapping is not strictly 1:1.
 
-## Columns in `pleiades.tsv`
+| Column | Description | Non-empty | Coverage | Distinct values |
+|---|---|---:|---:|---:|
+| `pleiades_id` | Pleiades place ID; joins to `pleiades.tsv` | 13,890 | 100.0% | 13,666 |
+| `trismegistos_id` | Trismegistos Geo ID; joins to `trismegistos.tsv` | 13,890 | 100.0% | 13,396 |
+| `pleiades_title` | Pleiades title of the place, for readability | 13,890 | 100.0% | 13,146 |
+| `trismegistos_name` | Trismegistos standard name of the place, for readability | 13,890 | 100.0% | 12,264 |
+| `sources` | Which resources assert the link: `pleiades` (a Pleiades reference points to the TM place), `trismegistos` (TM's own Pleiades link), `paths` (PAThs `skos:exactMatch` to both) | 13,890 | 100.0% | 7 |
+| `n_sources` | Number of resources in `sources` (1–3); a rough confidence signal | 13,890 | 100.0% | 3 |
 
-| Column | Content | Filled |
-|---|---|---|
-| `pleiades_id` | Pleiades ID (join key only) | 100 % |
-| `title` | Pleiades title | 100 % |
-| `description` | One-sentence description | 100 % |
-| `details` | Longer editorial notes, HTML, URLs and the literal "None" removed. Mostly "The Barrington Atlas Directory notes: <modern name>" | 76 % |
-| `place_types` | settlement, fort, river, … | 100 % |
-| `names_romanized` | All romanized forms | 64 % |
-| `names_greek`, `names_latin` | Attested Greek / Latin spellings in their own script | 7 %, 9 % |
-| `names_by_language` | Every name that has a language, as `name@lang` (attested form, else first romanized form), e.g. `Mefi@cop`, `Mīt Ruhaina@arb` | 30 % |
-| `n_names` | Number of name records | – |
-| `lat`, `lon` | Representative point | 82 % |
-| `year_from`, `year_to` | Min/max over names and locations (2100 = until today) | 93 % |
-| `time_periods` | Attested periods (archaic … late-antique, modern, …) | 93 % |
-| `connections_out` | Related places, as `type: title` (e.g. `part of (administrative): Ptolemaic Kingdom`) | 27 % |
-| `connections_in` | Places that connect to this one, as `title (type)` | 9 % |
-| `ancient_sources` | Ancient texts cited as evidence (e.g. `Hdt. (Godley: Perseus) 2.99`) | 11 % |
+**Match provenance (`sources`).** Which resource(s) asserted the link:
 
-**Dropped from Pleiades:** `uri` (= ID); editorial metadata (`creators`, `contributors`, `history`, `created`, `review_state`, `rights`); `provenance` (Barrington Atlas map grid reference); `subject` (DARE/UNESCO tags); `bbox`, `features` and the full `locations` geometry (reduced to `lat`/`lon`); `placeTypeURIs` (duplicate); per-name details (accuracy, certainty, dates; folded into `year_*` and `time_periods`); `connectsWith` URIs (replaced by titles); all references except ancient sources: `citesAsRelated` (links to TM, Wikidata, GeoNames, …, i.e. the ground truth), `seeAlso`/`seeFurther` (Wikipedia, modern literature).
+| `sources` | Rows | Share |
+|---|---:|---:|
+| trismegistos | 7,944 | 57.2% |
+| pleiades \| trismegistos | 5,303 | 38.2% |
+| pleiades | 446 | 3.2% |
+| pleiades \| trismegistos \| paths | 124 | 0.9% |
+| trismegistos \| paths | 38 | 0.3% |
+| paths | 33 | 0.2% |
+| pleiades \| paths | 2 | <0.1% |
 
-## Columns in `trismegistos.tsv`
+| `n_sources` | Rows | Share |
+|---:|---:|---:|
+| 1 | 8,423 | 60.6% |
+| 2 | 5,343 | 38.5% |
+| 3 | 124 | 0.9% |
 
-| Column | Content | Filled |
-|---|---|---|
-| `trismegistos_id` | TM Geo ID (join key only) | 100 % |
-| `name_standard` | TM standard name | 100 % |
-| `names_latin`, `names_greek`, `names_egyptian`, `names_coptic` | Name variants per language | 21 %, 23 %, 3 %, 1 % |
-| `modern_name` | Modern name, taken from the brackets at the end of TM's `full_name` (e.g. `Abaton (Biga Island)` → `Biga Island`) | 11 % (49 % of matched TM places) |
-| `ethnicon` | Ethnic adjectives | 8 % |
-| `status` | Type of place with Greek/Latin term | 39 % |
-| `location` | Free-text location; TM IDs in parentheses removed | 54 % |
-| `country`, `region`, `nomos_code`, `provincia` | Modern country, ancient region, Egyptian nome, Roman province | 100 %, 100 %, 97 %, 100 % |
-| `lat`, `lon` | Point | 38 % |
-| `begin_date`, `end_date` | First/last attestation in TM texts | 41 % |
-| `n_texts` | Papyri/ostraca written or found at this place (place-level links only, not nome/region) | 731 places (552 matched) |
-| `n_texts_mentioning_name` | How many of those texts contain the place's name | 374 places (332 matched) |
-| `text_snippets` | Up to 5 passages around the place name, as `title (date): …text…`; texts with an English translation first, then oldest first. Serves as TM's "description" | 374 places |
+---
 
-**Dropped from TM:** `uri` (= ID); `responder_names` (same names as the language columns); `full_name` (= country + nome code + standard name; the bracketed modern name is kept as `modern_name`); `coordinates` (= `lat`/`lon`); `begin_date_formatted`, `end_date_formatted` (duplicates); `pleiades_id`, `geonames`, `exact_matches`, `close_matches`, `broad_matches`, all 15 `rel_*` columns and `wikipedia_urls` (links to other databases, i.e. the ground truth); `n_texts_papyri_incl_nome_region`, `in_dump`, `in_sql` (build bookkeeping). **Rows dropped:** 663 ghost names (readings later shown not to be places).
+## `pleiades.tsv`: Pleiades places
 
-TM has **no description field** in any of its data services (table dump, SQL export, GeoResponder, GeoRelations). Text context comes from the papyri instead (`text_snippets` and `trismegistos_texts.tsv`), plus `location`, `status` and `modern_name`. Wikipedia articles can be joined from `../Trismegistos/trismegistos_wikipedia.tsv` on `trismegistos_id` = `geo_id`; they give the modern name, so use them with care.
+| Column | Description | Non-empty | Coverage | Distinct values |
+|---|---|---:|---:|---:|
+| `pleiades_id` | Pleiades place ID (primary key) | 42,417 | 100.0% | 42,417 |
+| `title` | Display title, often with a qualifier in parentheses, e.g. `Aegyptus (Roman imperial province)` | 42,417 | 100.0% | 36,501 |
+| `description` | One-sentence English summary of the place | 42,402 | 99.96% | 38,369 |
+| `details` | Longer free-text notes, often from the Barrington Atlas Directory (modern location, identification); URLs removed | 32,413 | 76.4% | 27,390 |
+| `place_types` | Pleiades place-type vocabulary terms, e.g. `settlement`, `river`, `province-2` | 42,416 | 99.99% | 1,658 |
+| `names_romanized` | All romanized (Latin-script) forms of the place's attested names | 27,355 | 64.5% | 25,933 |
+| `names_greek` | Attested names in Ancient Greek script | 2,909 | 6.9% | 2,822 |
+| `names_latin` | Attested names in Latin | 3,915 | 9.2% | 3,838 |
+| `names_by_language` | Every name that has a language tag, as `name@lang` (e.g. `Ὀάρακτα@grc`, `Palk Bay@en`) | 12,667 | 29.9% | 12,539 |
+| `n_names` | Number of name records Pleiades holds for the place | 42,417 | 100.0% | 33 |
+| `lat` | Latitude of the representative point (WGS84) | 34,840 | 82.1% | 30,978 |
+| `lon` | Longitude of the representative point (WGS84) | 34,840 | 82.1% | 31,096 |
+| `year_from` | Earliest year attested for any name or location of the place | 39,508 | 93.1% | 101 |
+| `year_to` | Latest year attested (often `2100` = still in use / modern) | 39,508 | 93.1% | 95 |
+| `time_periods` | Pleiades period terms the place is attested in, chronologically ordered, e.g. `classical \| roman \| modern` | 39,508 | 93.1% | 2,047 |
+| `connections_out` | Relations from this place to others, as `type: other place title`, e.g. `part of (administrative): Aegyptus` | 11,256 | 26.5% | 5,617 |
+| `connections_in` | Relations from other places to this one, as `other place title (type)` | 3,974 | 9.4% | 3,799 |
+| `ancient_sources` | Ancient textual or epigraphic evidence cited for the place, e.g. `Plin., NH 4.103.6`, `Str. 4.6.8` | 4,864 | 11.5% | 4,222 |
 
-## `trismegistos_texts.tsv`
+Notes:
+- `n_names` is `0` for 15,062 places (35.5%). These places have only a `title` and no attested name variants.
 
-One row per (TM place, text), from `../../datasets/Trismegistos/trismegistos_place_texts.tsv` (place-level links only) and `../Trismegistos/trismegistos_texts.tsv` (papyri.info: HGV, DDbDP, DCLP).
+---
 
-| Column | Content |
-|---|---|
-| `trismegistos_id`, `tm_text_id` | Place and text |
-| `relation` | `located`, `found`, `composed`, `stored`, `sent`, … |
-| `title`, `material`, `text_lang`, `keywords` | Text metadata (HGV titles and keywords are often German) |
-| `year_from`, `year_to` | Date of the text (negative = BCE) |
-| `mentions_name` | 1 if the edition text contains the place's name (11,414 texts) |
-| `snippet` | ±80 characters around the first mention |
-| `edition_text`, `translation_en` | Full reading text; English translation where papyri.info has one |
+## `trismegistos.tsv`: Trismegistos places
 
-Name matching: diacritics and case are ignored and the last two letters of the first word of each Greek/Latin name are dropped, so inflected forms match (`Μέμφει`, `Μεμφίτου` for Memphis). Places that share a first word (the several `Ptolemais`, `Ibion`, `Dios`) can pick up mentions of each other.
+"Ghost names" (TM entries flagged as non-existent places) were removed.
 
-Coverage is almost only Egypt, and only 552 of the 13,396 matched TM places have texts. Texts are linked to where they were written or found, which does not mean they mention the place: only 19 % do.
+| Column | Description | Non-empty | Coverage | Distinct values |
+|---|---|---:|---:|---:|
+| `trismegistos_id` | Trismegistos Geo ID (primary key) | 64,507 | 100.0% | 64,507 |
+| `name_standard` | TM's standard (Latinized) name; may contain lacunae such as `A.[ ]` | 64,507 | 100.0% | 60,450 |
+| `names_latin` | Latin name variants | 13,509 | 20.9% | 12,637 |
+| `names_greek` | Greek name variants (Greek script) | 14,721 | 22.8% | 13,308 |
+| `names_egyptian` | Egyptian names in Egyptological transliteration, e.g. `Smn (Sw-mn)` | 1,969 | 3.1% | 1,604 |
+| `names_coptic` | Coptic names (Coptic script) | 659 | 1.0% | 648 |
+| `modern_name` | Modern name of the site, e.g. `Tukh el-Qaramus` | 7,176 | 11.1% | 7,061 |
+| `ethnicon` | Demonyms derived from the place name, e.g. `Mytilenaios \| Mytilenaeus` | 5,006 | 7.8% | 4,858 |
+| `status` | Settlement type in TM's vocabulary, e.g. `village`, `kleros`, `topos`, `region`; `?` marks uncertainty | 25,476 | 39.5% | 2,103 |
+| `location` | Free-text position relative to another place, e.g. `near 00c Theogonis` | 34,759 | 53.9% | 13,613 |
+| `country` | Modern country the place lies in | 64,507 | 100.0% | 142 |
+| `region` | TM region; for Egypt a code (`00` Fayum, `U` Upper Egypt, …), elsewhere a region name | 64,507 | 100.0% | 191 |
+| `nomos_code` | TM sub-region code, for Egypt the nome (e.g. `00c`, `U10a`) | 62,326 | 96.6% | 284 |
+| `provincia` | Roman province, e.g. `Aegyptus`, `Achaia` | 64,506 | 99.99% | 180 |
+| `lat` | Latitude (WGS84) | 24,617 | 38.2% | 24,309 |
+| `lon` | Longitude (WGS84) | 24,617 | 38.2% | 24,246 |
+| `begin_date` | Earliest year the place is attested in TM | 26,520 | 41.1% | 1,081 |
+| `end_date` | Latest year the place is attested in TM | 26,520 | 41.1% | 1,074 |
+| `n_texts` | Number of papyri linked to the place (rows in `trismegistos_texts.tsv`) | 64,507 | 100.0% | 127 |
+| `n_texts_mentioning_name` | Number of those texts whose edition text contains the place name | 64,507 | 100.0% | 59 |
+| `text_snippets` | Up to 5 context snippets from those texts, as `text title (date): …snippet…`; texts with an English translation first | 374 | 0.6% | 365 |
 
-## Avoiding leakage
+Notes:
+- `n_texts > 0` for **731** places (1.1%). Only these places have rows in `trismegistos_texts.tsv`.
+- `n_texts_mentioning_name > 0` for **374** places (0.6%), which is the same set that has `text_snippets`.
+- Top countries: Egypt (13,585), Italy (7,624), Turkey (6,782), France (5,106), Spain (4,030), Greece (3,491).
 
-- **Coordinates.** 7,980 matched pairs have coordinates on both sides, and 4,632 of them are identical to 4 decimals (TM copied them from Pleiades). Use coordinates on one side only, or round/perturb them.
-- **Modern names on both sides.** TM `modern_name` and Pleiades `details` ("Barrington Atlas Directory notes: …") often give the same modern name, which makes a match trivial. Use them on one side only for a cross-lingual test.
-- **Shared names.** TM and Pleiades both build on the Barrington Atlas, so Latin `title`/`name_standard` are often identical. The cross-lingual signal is in Greek, Egyptian and Coptic names.
-- **Text mentions.** 5 Pleiades `details` mention Trismegistos in prose (no IDs).
-- **IDs.** Never show `pleiades_id` or `trismegistos_id` to the matching method.
+---
 
-## Rebuilding
+## `trismegistos_texts.tsv`: texts linked to Trismegistos places
 
-```bash
-python scripts/build_pleiades_references.py     # downloads the Pleiades JSON dump into datasets/Pleiades/.cache
-python scripts/build_pleiades_connections.py    # optional: GIS zip, gives readable connection types
-python scripts/build_pleiades_trismegistos.py   # ~30 s; needs ../Trismegistos/ for the texts
-```
+Papyri (from papyri.info: HGV, DCLP, DDbDP) that were written at, found at, or sent to a Trismegistos place. One row per (place, text) link. Covers **731** distinct places and **48,751** distinct texts.
+
+| Column | Description | Non-empty | Coverage | Distinct values |
+|---|---|---:|---:|---:|
+| `trismegistos_id` | Trismegistos Geo ID of the place; joins to `trismegistos.tsv` | 58,595 | 100.0% | 731 |
+| `tm_text_id` | Trismegistos Text ID | 58,595 | 100.0% | 48,751 |
+| `relation` | How the text relates to the place: `located`, `found`, `composed`, `stored`, `sent`, … (combined with ` \| ` when several apply) | 58,595 | 100.0% | 13 |
+| `title` | Title of the text, often in German (from HGV), e.g. `Arbeitsvertrag, Alexandrien` | 41,023 | 70.0% | 21,972 |
+| `material` | Writing material, e.g. `Papyrus`, `Ostrakon`, `Holz` | 58,387 | 99.6% | 105 |
+| `text_lang` | Language code(s) of the text, e.g. `grc`, `cop`, `la` | 54,924 | 93.7% | 16 |
+| `year_from` | Earliest possible date of the text | 58,221 | 99.4% | 1,091 |
+| `year_to` | Latest possible date of the text | 58,221 | 99.4% | 1,111 |
+| `keywords` | HGV subject keywords (German), e.g. `Vertrag \| Arbeit \| Landwirtschaft` | 58,483 | 99.8% | 25,764 |
+| `mentions_name` | `1` if the edition text contains the place name, otherwise `0` | 58,595 | 100.0% | 2 |
+| `snippet` | About 80 characters of edition text on each side of the place-name mention | 11,414 | 19.5% | 11,123 |
+| `edition_text` | Full transcription of the text in the original language; ` / ` marks line breaks, `[...]` marks gaps | 47,604 | 81.2% | 37,680 |
+| `translation_en` | English translation, when one exists | 4,426 | 7.6% | 3,870 |
+
+Notes:
+- `mentions_name = 1` for 11,414 rows (19.5%), which are exactly the rows that have a `snippet`.
+- `relation`: `located` 49,595 (84.6%), `found` 5,591, `composed | found` 1,638, `composed` 1,443, and 9 rarer combinations.
+- `text_lang`: Greek `grc` 50,483 (86.2%), Coptic `cop` 2,774 (4.7%), Latin `la` 1,130 (1.9%), Syriac `syc` 328, Demotic `egy-Egyd` 115, plus a few others.

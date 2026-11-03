@@ -16,6 +16,40 @@ Place records exported from the MEHDIE database (World Historical Gazetteer sche
 
 **Columns that are empty in all three place files:** `review_wd`, `review_tgn`, `review_whg`, `review_md`, `name_parts`, `whens`, `depictions`. **Constant columns:** `indexed` and `flag` are always `false`, and `minmax`/`timespans` hold one fixed period per source (Kima: 2000 or 1800; Yaqut: 632–1250; al-Thurayya: 800–1000).
 
+**Answer leakage:** the `links` column of the place files holds `same_as`, `different` and `closeMatch` (Wikidata/GeoNames) links, the same kind of information as the two link files. Drop it before using the records as matcher input.
+
+---
+
+## Place file columns
+
+The three place files share the same 23 columns, which come from the World Historical Gazetteer schema. Coverage per source is in the tables further down.
+
+| Column | Description |
+|---|---|
+| `id` | MEHDIE database ID of the record (primary key); this is the ID used in `source_place_id` / `target_place_id` of the link files |
+| `title` | Preferred name of the place. Kima: Hebrew; Yaqut: Arabic; al-Thurayya: transliteration or Arabic |
+| `src_id` | ID of the place in its original source. Kima: numeric Kima ID; Yaqut: entry ID like `dig00001`; al-Thurayya: key like `ABADHA_526E311N_S` (name + coordinates) |
+| `ccodes` | ISO 3166-1 alpha-2 country code(s) as a Postgres array, e.g. `{IL}` |
+| `minmax` | Year range `{start,end}` of the record. This is a dataset-wide default, not place-specific |
+| `timespans` | Same range as `minmax`, as a list of `[start, end]` spans |
+| `fclasses` | GeoNames feature class(es): `A` administrative, `P` populated place, `L` area, `S` spot/building |
+| `indexed` | Whether the record is indexed in WHG search (always `false`) |
+| `flag` | Review flag (always `false`) |
+| `review_wd` | Reconciliation review status against Wikidata (empty) |
+| `review_tgn` | Reconciliation review status against Getty TGN (empty) |
+| `review_whg` | Reconciliation review status against the WHG index (empty) |
+| `dataset` | Name of the MEHDIE sub-dataset the record was uploaded in, e.g. `KIMA-IL`, `YaqutFull` |
+| `review_md` | Manual review status (empty) |
+| `name_parts` | Name components (empty) |
+| `links` | JSON list of links: `type` (`closeMatch`, `same_as`, `different`, `located_in`, …) and `identifier` (`wd:Q…`, `gn:…`, a URL, or another MEHDIE `id`) |
+| `descriptions` | JSON list of description texts. Kima: short Hebrew/English notes; Yaqut: the Arabic dictionary entry text; al-Thurayya: settlement category such as `towns/cite` |
+| `names` | JSON list of name variants (`toponym`) with source citations. Al-Thurayya packs several variants into one `toponym`, separated by `:` |
+| `geoms` | JSON list of geometries (all `Point`), with WKT `geowkt` and `coordinates` as `[lon, lat]` |
+| `related` | JSON list of parent places (`relationType` `gvp:broaderPartitive`, `label` = parent name, e.g. a country or region) |
+| `types` | JSON list of place types (`label` / `sourceLabel`), e.g. Kima `province`, Yaqut `قرية` (village), `موضع` (site), `جبل` (mountain) |
+| `whens` | Temporal attestations per record (empty) |
+| `depictions` | Images of the place (empty) |
+
 ---
 
 ## `mehdie_db_kima_extract.csv`
@@ -49,6 +83,7 @@ Place records exported from the MEHDIE database (World Historical Gazetteer sche
 | `depictions` | 0 | 0.0% | 0 |
 
 Notes:
+- `types` is non-empty for 97.2% of rows, but almost all entries have an empty label. Only 527 entries carry an actual type (province 177, extinct city 113, district 88, …).
 - `dataset`: Kima-IL-PS 2,588 · KIMA-IL 2,497 · KimaShamPlusMapped 1,899 · KimaShamPlusUnmapped 1,567 · KimaShamMapped_ILonl 1,314 · KimaFarsPlusMapped 650 · KimaMagrebAndalusMap 559 · kimaShamNoILmapped 389 · Turkima 327 · KimaArabiaIRAQ 321 · KimaFarsPlusUnmapped 320 · Kima2024-1toMatchMag 315 · Kima-EG 247 · AustriaKimaDE 224 · AustriaKimaHE 223 · KimaMisrPlusMatched 182 · KimaMisrUnmatched 179 · KIMALESSHLOC 178 · Kima-IRAN 155 · KIMA-SY 116 · KimaPalest 91.
 - `ccodes` top values: IL 8,806 · TR 997 · EG 648 · ES 560 · IN 466 · PS 331 · IR 309.
 - `fclasses` (when present): A 273 · L 6 · S 2 · P 1.
@@ -85,7 +120,9 @@ Notes:
 | `whens` | 0 | 0.0% | 0 |
 | `depictions` | 0 | 0.0% | 0 |
 
-Note: Yaqut has no country codes and coordinates for only 16.8% of records.
+Notes:
+- Yaqut has no country codes and coordinates for only 16.8% of records.
+- `types` mostly carries a real Arabic type label: قرية (village) 2,577 · موضع (site) 2,525 · جبل (mountain) 1,058 · مدينة (city) 865 · ماء (water source) 614.
 
 ---
 
@@ -119,21 +156,23 @@ Note: Yaqut has no country codes and coordinates for only 16.8% of records.
 | `whens` | 0 | 0.0% | 0 |
 | `depictions` | 0 | 0.0% | 0 |
 
-Note: `ccodes` top values are IR 1,082 · EG 388 · SA 370 · IQ 296 · UZ 254 · SY 244 · AF 234 · YE 206.
+Notes:
+- `ccodes` top values are IR 1,082 · EG 388 · SA 370 · IQ 296 · UZ 254 · SY 244 · AF 234 · YE 206.
+- Al-Thurayya has no `types`; its settlement category is stored in `descriptions` instead (e.g. `towns/cite`, `waystations/etape`).
 
 ---
 
 ## `internal_links_kima_yaqut_thurayya.csv`
 
-Links between places in different MEHDIE datasets.
+Links between places in different MEHDIE datasets. Every ID resolves to a record in one of the three place files.
 
-| Column | Non-empty | Coverage | Distinct values |
-|---|---:|---:|---:|
-| `link_type` | 920 | 100.0% | 5 |
-| `source_place_id` | 920 | 100.0% | 789 |
-| `source_dataset` | 920 | 100.0% | 8 |
-| `target_place_id` | 920 | 100.0% | 732 |
-| `target_dataset` | 920 | 100.0% | 9 |
+| Column | Description | Non-empty | Coverage | Distinct values |
+|---|---|---:|---:|---:|
+| `link_type` | Relation from source to target: `same_as` (same place), `different` (confirmed not the same place), `located_in` / `reverse_located_in`, `reverse_part_of` | 920 | 100.0% | 5 |
+| `source_place_id` | MEHDIE `id` of the source place | 920 | 100.0% | 789 |
+| `source_dataset` | Sub-dataset of the source place | 920 | 100.0% | 8 |
+| `target_place_id` | MEHDIE `id` of the target place | 920 | 100.0% | 732 |
+| `target_dataset` | Sub-dataset of the target place | 920 | 100.0% | 9 |
 
 | `link_type` | Rows | Share |
 |---|---:|---:|
@@ -145,6 +184,7 @@ Links between places in different MEHDIE datasets.
 
 Notes:
 - Most links are **negative** (`different`). Only 116 are positive `same_as` matches.
+- Source places by gazetteer: Yaqut 473 · Kima 430 · al-Thurayya 17. Target places: Kima 473 · al-Thurayya 258 · Yaqut 189.
 - `source_dataset`: YaqutFull 473 · Kima-IL-PS 264 · KimaShamMapped_ILonl 147 · AlThurayyaTry 17 · KimaMisrPlusMatched 8 · KIMA-SY 7 · KimaPalest 3 · KimaMagrebAndalusMap 1.
 - `target_dataset`: Al-Thurayya 255 · KimaShamPlusMapped 196 · YaqutFull 189 · Kima-IL-PS 104 · KimaMagrebAndalusMap 89 · KimaShamPlusUnmapped 53 · KimaMisrPlusMatched 23 · Kima-EG 8 · AlThurayyaTry 3.
 
@@ -154,12 +194,12 @@ Notes:
 
 `closeMatch` links from MEHDIE places to external authorities. All sources are Kima sub-datasets: Yaqut and al-Thurayya have no rows here.
 
-| Column | Non-empty | Coverage | Distinct values |
-|---|---:|---:|---:|
-| `link_type` | 5,251 | 100.0% | 1 |
-| `source_place_id` | 5,251 | 100.0% | 3,424 |
-| `source_dataset` | 5,251 | 100.0% | 14 |
-| `external_id` | 5,251 | 100.0% | 5,173 |
+| Column | Description | Non-empty | Coverage | Distinct values |
+|---|---|---:|---:|---:|
+| `link_type` | Link relation; always `closeMatch` | 5,251 | 100.0% | 1 |
+| `source_place_id` | MEHDIE `id` of the Kima place | 5,251 | 100.0% | 3,424 |
+| `source_dataset` | Kima sub-dataset of the place | 5,251 | 100.0% | 14 |
+| `external_id` | External identifier, prefixed by authority: `wd:Q…` Wikidata, `gn:…` GeoNames, a full URL, or `zadikim:…` | 5,251 | 100.0% | 5,173 |
 
 | External authority (`external_id` prefix) | Rows | Share |
 |---|---:|---:|
