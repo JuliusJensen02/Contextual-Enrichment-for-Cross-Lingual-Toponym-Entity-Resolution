@@ -55,6 +55,35 @@ Gold alignment between Pleiades and Trismegistos places. Each (`pleiades_id`, `t
 | 2 | 5,343 | 38.5% |
 | 3 | 124 | 0.9% |
 
+### Attribute overlap in matched pairs
+
+For each of the 13,890 matched pairs, how often a comparable attribute is populated on **both** sides — i.e. the signal a matcher can actually compare. Computed by `scripts/attribute_overlap.py`, joining `em.tsv` to `pleiades.tsv` and `trismegistos.tsv`. Comparable attributes are aligned across the two schemas as follows:
+
+| Comparable attribute | Pleiades column(s) | Trismegistos column(s) |
+|---|---|---|
+| Any name / title | `title` | `name_standard` |
+| Greek-script name | `names_greek` | `names_greek` |
+| Latin name | `names_latin` | `names_latin` |
+| Coordinates (lat/lon) | `lat` + `lon` | `lat` + `lon` |
+| Time span | `year_from` + `year_to` | `begin_date` + `end_date` |
+| Place type / status | `place_types` | `status` |
+| Free-text context | `description` + `details` | `location` + `text_snippets` |
+
+| Comparable attribute | Both sides | Pleiades only | TM only | Neither |
+|---|---:|---:|---:|---:|
+| Any name / title | 13,890 (100.0%) | 0 (0.0%) | 0 (0.0%) | 0 (0.0%) |
+| Greek-script name | 1,477 (10.6%) | 538 (3.9%) | 3,284 (23.6%) | 8,591 (61.9%) |
+| Latin name | 3,152 (22.7%) | 156 (1.1%) | 6,164 (44.4%) | 4,418 (31.8%) |
+| Coordinates (lat/lon) | 7,980 (57.5%) | 3,415 (24.6%) | 111 (0.8%) | 2,384 (17.2%) |
+| Time span | 10,372 (74.7%) | 3,080 (22.2%) | 342 (2.5%) | 96 (0.7%) |
+| Place type / status | 8,933 (64.3%) | 4,957 (35.7%) | 0 (0.0%) | 0 (0.0%) |
+| Free-text context | 7,415 (53.4%) | 6,475 (46.6%) | 0 (0.0%) | 0 (0.0%) |
+
+Notes:
+- Only **name/title** is guaranteed on both sides. The strongest comparable signals are the **time span** (both in 74.7%) and **coordinates** (both in 57.5%); where one side lacks coordinates it is almost always TM (24.6% Pleiades-only vs 0.8% TM-only).
+- Script-specific names are a **thin bridge**: Greek names coincide in only 10.6% of pairs and Latin names in 22.7%. TM carries far more of both on its own (23.6% and 44.4% TM-only), so these are better treated as one-directional evidence than as a symmetric feature.
+- `place_types` is present for almost every Pleiades place, so "both" effectively tracks TM `status` coverage within the matched set (64.3%).
+
 ---
 
 ## `pleiades.tsv`: Pleiades places

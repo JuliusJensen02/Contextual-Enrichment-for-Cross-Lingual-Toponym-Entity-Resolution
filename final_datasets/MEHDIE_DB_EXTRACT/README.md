@@ -188,6 +188,25 @@ Notes:
 - `source_dataset`: YaqutFull 473 · Kima-IL-PS 264 · KimaShamMapped_ILonl 147 · AlThurayyaTry 17 · KimaMisrPlusMatched 8 · KIMA-SY 7 · KimaPalest 3 · KimaMagrebAndalusMap 1.
 - `target_dataset`: Al-Thurayya 255 · KimaShamPlusMapped 196 · YaqutFull 189 · Kima-IL-PS 104 · KimaMagrebAndalusMap 89 · KimaShamPlusUnmapped 53 · KimaMisrPlusMatched 23 · Kima-EG 8 · AlThurayyaTry 3.
 
+### Attribute overlap in matched pairs
+
+For each of the **116 positive (`same_as`) links**, how often a comparable attribute is populated on **both** sides — the signal a matcher can actually compare across the Hebrew (Kima), Arabic (Yaqut) and transliterated (al-Thurayya) gazetteers. Computed by `scripts/attribute_overlap.py`, resolving `source_place_id` / `target_place_id` to the three place files. The `different` links are excluded; attribute co-presence is only meaningful for pairs that are the same place. All three place files share the same 23 columns, so each attribute maps to the same column on both sides.
+
+| Comparable attribute | Both sides | Source only | Target only | Neither |
+|---|---:|---:|---:|---:|
+| Title | 116 (100.0%) | 0 (0.0%) | 0 (0.0%) | 0 (0.0%) |
+| Name variants (`names`) | 116 (100.0%) | 0 (0.0%) | 0 (0.0%) | 0 (0.0%) |
+| Coordinates (`geoms`) | 95 (81.9%) | 11 (9.5%) | 9 (7.8%) | 1 (0.9%) |
+| Country codes (`ccodes`) | 10 (8.6%) | 27 (23.3%) | 79 (68.1%) | 0 (0.0%) |
+| Descriptions | 25 (21.6%) | 57 (49.1%) | 19 (16.4%) | 15 (12.9%) |
+| Place types (`types`) | 97 (83.6%) | 10 (8.6%) | 9 (7.8%) | 0 (0.0%) |
+| Parent / related | 82 (70.7%) | 11 (9.5%) | 22 (19.0%) | 1 (0.9%) |
+
+Notes:
+- **Title** and **name variants** are guaranteed on both sides; **coordinates** (81.9%), **place types** (83.6%) and **parent/related** (70.7%) are the strong comparable signals.
+- **Country codes** almost never coincide (8.6% both): Yaqut carries no `ccodes` at all, so pairs involving a Yaqut place are target-only (68.1%). Do not rely on `ccodes` as a symmetric feature.
+- **Descriptions** overlap on only 21.6% of pairs, and their content differs by source (Arabic dictionary entry vs short note vs settlement category), so they are weak as a direct comparison.
+
 ---
 
 ## `external_links_kima_yaqut_thurayya.csv`
