@@ -12,6 +12,18 @@ Pleiades is a gazetteer of ancient places in the Mediterranean, the Near East an
 |---|---|
 | `pleiades_places.tsv` | The Pleiades side: one row per Pleiades place, with ancient names and attributes (42,399 places) |
 | `pleiades_wikidata_links.tsv` | **Ground truth** and the Hebrew/Arabic side: Pleiades place ↔ Wikidata item with Hebrew and/or Arabic label (4,514 links) |
+| `pleiades_connections.tsv` | The "Connections" (related places) shown on each Pleiades place page: directed place → place links with type (`part_of_admin`, `near`, `at`, `on`, `flows_into`, `succeeds`, …), certainty and dates (15,084 connections from 11,256 places). From `connections.csv` in the GIS export of **2 November 2026** (newer than the other two files), built with `scripts/build_pleiades_connections.py` |
+| `pleiades_references.tsv` | Every reference on every place, from the JSON dump of **2 November 2026** (173,736 rows): `ref_type` (`citesAsRelated` = same place in another database, `citesAsEvidence` = ancient source, `seeAlso`/`seeFurther` = literature), `short_title`, `citation`, `url`, and `target`/`target_id` when the URL is a known database (`trismegistos`, `wikidata`, `geonames`, `paths`, `syriaca`, `edh`, `topostext`, `nomisma`, …). Built with `scripts/build_pleiades_references.py`. **Contains ground-truth IDs: never show it to the matching method** |
+
+### Links to Trismegistos
+
+`pleiades_references.tsv` has 5,897 references to a TM place (`target = trismegistos`, `target_id` = TM Geo ID) on 5,871 Pleiades places. A few give the ID only in `citation` because the URL is TM's homepage; the script recovers those. Links to TM texts are labelled `trismegistos_text`.
+
+```python
+tm = [r for r in read("pleiades_references.tsv") if r["target"] == "trismegistos"]
+```
+
+Compared with TM's own Pleiades links (`pleiades_id`, `rel_Pleiades` in `../Trismegistos/trismegistos_places.tsv`): 5,889 distinct (Pleiades, TM) pairs from Pleiades and 13,423 from TM, with 5,431 in both. TM links far more places than Pleiades links back. The 200 PAThs pairs are confirmed by Pleiades in 128 cases, by TM in 162, and by neither in 36.
 
 ## Size and ground truth
 

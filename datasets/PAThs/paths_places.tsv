@@ -1,0 +1,460 @@
+paths_id	uri	label	primary_form	names_egyptian	names_greek	names_latin	names_coptic	names_arabic	names_english	names_other	n_names	lat	lon	earliest_year	latest_year	dc_temporal	pleiades_id	tm_geo_id	other_matches
+1	http://paths.uniroma1.it/atlas/places/1	Memphis	Memphis	Ineb-Ḥedjet | Men-nefer | Ỉnb-ḥḏ | Ỉnb-ḥt | Ḥw.t-kȝ-Ptḥ | Mḫȝ.t-tȝ.wy | Ms-ṱḥny	Μέμφις | Μέμφη		ⲙⲛⲫⲉ | ⲉⲕⲉⲡϯⲁ | ⲙⲉⲃⲉ | ⲙⲉⲙⲃⲉ | ⲙⲉⲛⲃⲉ | ⲙⲉⲛϥ | ⲙⲉⲛϥⲓ | ⲙⲉϥⲉ | ⲙⲉϥⲓ | ⲙⲏⲃⲉ	منف	Manf | Memphis		22	29.849491	31.255061				736963	1344	
+2	http://paths.uniroma1.it/atlas/places/2	Letopolis	Letopolis	Sḫm | Pr-Ḥr-nb-Sḫm | Sšm | Šm | Ḫm | Ḥs | ȝy	Λητοῦς Πόλις | Λέτους | Λητοῦ | Λιτούς		ⲃⲟⲩϣⲏⲙ | ⲉⲩⲥⲓⲙ	أوسيم	Letopolis		15			325	750	750/750	727149	1245	
+3	http://paths.uniroma1.it/atlas/places/3	Sais	Sais	Sȝw | Sȝy | Sy | Ḥw.t-byt	Σαΐϛ | Σάης		ⲥⲁⲓ | ⲥⲁⲓ̈ | ⲥⲟⲓ̈	صا الحجر	Sais		11			326	1100	1100/1100	727217	2072	
+4	http://paths.uniroma1.it/atlas/places/4	Xois	Xois	Ḫȝswwt | Ḫȝsw	Ζωῆς | Ξέος | Ξέως | Ξόις		ⲥⲉⲕⲟⲟⲩ | ⲥⲉϧⲱⲟⲩ | ⲥϧⲱⲟⲩ | ⲥⲑⲱⲟⲩ	سخا	Sakha | Xois		13						727256	2507	
+5	http://paths.uniroma1.it/atlas/places/5	Hermopolis Mikra	Hermopolis Mikra	Pȝ-dmỉ-Ḥr | Pr-dmỉ-Ḥr	Ἑρμόκατου | Ἑρομύκατου | Ἑρμούπολις μικρά		ϯⲙⲓⲛϩⲱⲣ | ⲡⲁⲓⲙⲉⲛϩⲟⲩⲣ | ⲡⲁⲓⲙⲉⲛϩⲱⲣ | ⲡⲓⲁⲓⲙⲉⲛϩⲱⲣ | ⲡⲧⲓⲙⲉⲛϩⲟⲩⲣ | ⲡⲧⲓⲙⲉⲛϩⲱⲣ	ردمنهو	Hermopolis Mikra | Damanhur		14			325	1300	1300/1300	727123	817	
+6	http://paths.uniroma1.it/atlas/places/6	Heroonpolis	Heroonpolis	Pr-Ỉtm	Πάτουμος | Πιθωμ			تل المسخوطة	Heroonpolis		5						727124	2297	
+7	http://paths.uniroma1.it/atlas/places/7	Bousiris	Bousiris	Pr-Wsỉr | Ḏd.t | Ḏdw | Ḏtw | Twtw | Pȝ-pr-Wsỉr-nb-Ttw	Βουσῖρις		ⲃⲟⲩⲥⲓⲣⲓ | ⲡⲟⲩⲥⲓⲣⲓ | ⲃⲟⲩϣⲉⲙ | ⲃⲟⲩϣⲏⲙ | ⲟⲩϣⲏⲙ	أبو صير ’	Bousiris | Busiris		15			301	1100	1100/1100	727090	469	
+8	http://paths.uniroma1.it/atlas/places/8	Athribis	Athribis	Ḥw.t-ḥry-ỉb | Ḥw.t-tȝ-ḥry-ỉb | Km	Ἀθρίβης | Ἀθρῖβις | Ἀθριβίς | Ἀθλῖβις | Ἀθρίδης		ⲁⲑⲗⲏⲃⲉ | ⲁⲑⲗⲏⲃⲏ | ⲁⲑⲣⲉⲃⲓ | ⲁⲑⲣⲏⲃⲉ | ⲁⲑⲣⲏⲃⲓ | ⲁⲑⲣⲏⲡⲉ | ⲁⲑⲣⲓⲃⲉ | ⲁⲧⲣⲩⲡⲉ | ⲑⲣⲁⲃⲁ | ⲑⲣⲉⲃⲓ | ⲑⲣⲏⲃⲉ | ⲁⲑⲣⲉⲡⲓ	اتريب	Tell el-Atrib | Benha | Athribis		24			301	1000	1000/1000	727078	369	
+9	http://paths.uniroma1.it/atlas/places/9	Leontopolis (Tell el-Moqdam)	Leontopolis (Tell el-Moqdam)	Tȝ-rmw | Tnt-rmw	Λεοντώ | Λεοντῶ | Λεοντίου | Λεόντων Πόλις		ⲗⲉⲱⲛⲧⲓⲟⲩ | ⲗⲁⲓⲱⲛⲧⲓⲱⲛ | ⲛⲁⲑⲱ(?) | ⲛⲑⲱ(?)	تل المقدم	Leontopolis | Tell el-Moqdam | Tell el-Muqdam		14			301	900	900/900	727147	1238	
+10	http://paths.uniroma1.it/atlas/places/10	Sebennytos	Sebennytos	Ṯb-nṯr | Tbn-nṯr | Sbn-nṯr | Ḏdb-n-nṯr	Σεβειννέτος | Σεβεννῦτος | Σεβονῦτος		ϫⲉⲙⲛⲟⲩϯ | ϫⲉⲙⲛⲟⲩⲧ | ϫⲉⲛⲛⲟⲩϯ	سمنود / سمانود	Sebennytos		12						727227	2104	
+11	http://paths.uniroma1.it/atlas/places/11	Heliopolis	Heliopolis	Ỉwnw | Ỉwnw-mḥty | Ỉwnw-wr | Ỉwnw-nw.t-Ỉtm | Ỉwnw-Rʿ | Pr-Rʿ | Ỉnb-ḥḏ-ỉȝbt	Ἡλιούπολις | Ἡλίους | Ἡλίου πόλις | Ὠν | Ὀνίου	Helius | Heliu | Solis oppidum	ⲱⲛ | ⲡⲉⲧⲫⲣⲉ	الحصن	Heliopolis | Tell Hisn | Arab el-Hisn | Ain Shams | Ein Shams | El-Matariya | El-Matariyyah		25			300	640	640/640	727117	761	
+12	http://paths.uniroma1.it/atlas/places/12	Tanis	Tanis	Ḏʿn.t | Tʿny	Τάνης | Τάνις		ϫⲁⲁⲛⲉ | ϫⲁⲛⲓ	صان الحجر	Tanis		8						727236	2252	
+13	http://paths.uniroma1.it/atlas/places/13	Hermopolis	Hermopolis	Bʿḥ | Pr-Ḏḥwty-wp-rḥ.wy				البقلية	Hermopolis | Hermoupolis | al-Baqliyah		6						727122	815	
+14	http://paths.uniroma1.it/atlas/places/14	Tell el-Balamun	Tell el-Balamun	Smȝ-bḥdt | Pȝ-ỉw-n-Ỉmn | Wȝs.t-Mḥt	Διόσπολις κάτω | Διόσπολις Μικρά	Diospolis | Diospolis Inferior	ⲡⲟⲩⲛⲉⲛⲟⲩ	البلامون	Tell el-Balamun		10			301	700	700/700	727111	575	
+15	http://paths.uniroma1.it/atlas/places/15	Bubastis	Bubastis	Pr-Bȝst.t | Bȝst	Βούβαστος | Βούβαστις		ⲡⲟⲩⲃⲁⲥϯ | ⲡⲟⲩⲁⲥϯ	تل بسطة	Boubastis | Bubastis		9			326	1100	1100/1100	727088	462	
+16	http://paths.uniroma1.it/atlas/places/16	Elephantine	Elephantine	Ybȝ | ȝbw | Ỉȝbw | Ỉb	Νῆσος Ἐλεφαντίνης | Ἰηβ		(ⲧⲙⲟⲩ(ⲉ)ⲓ(ⲛ)) (ⲉ)ⲓⲏⲃ	جزيرة الفنتين	Elephantine		9			300	1300	1300/1300	786021	621	
+18	http://paths.uniroma1.it/atlas/places/18	Hierakonpolis	Hierakonpolis	Nḫn | Mḫn	Ἱεράκων πόλις	Theraco		الكوم الأحمر	Hierakonpolis | el-Kum el-Akhmar | Kom el-Ahmar		8						786037	848	
+19	http://paths.uniroma1.it/atlas/places/19	Luxor complex	Luxor complex	Nw.t | Nw.t-rsy.t | Nw.t-n-Ỉmn | Pȝ-dmỉ-Ỉmn | Ỉwnw-Šmʿ	Διόσπολις μεγάλη | Θῆβαι | πόλις τριῶν κάστρων	Diospolis Magna | Thebai	ⲛⲏ | ⲛⲉ | ⲧⲡⲟⲗⲓⲥ ⲡⲁⲡⲉ | ⲡϣⲟⲙⲧ ⲛⲕⲁⲥⲧⲣⲟⲛ	الأقصر	Eastern Thebes | Luxor complex		17			576	1100	1100/1100	786017	576	
+20	http://paths.uniroma1.it/atlas/places/20	Koptos	Koptos	Gbt | Gbtyw | Qbt | Qbty | Kbt | Kbty	Κόπτος | Κώπτος | Κοπτώ | Κοντώ | Ἰουστινιανούπολις	Coptos | Copton | Coptus	ⲕⲉⲃⲧⲱ | ⲕⲃⲧ | ⲕϥⲧ(ⲉ) | ⲕⲩⲃⲏⲧ | ⲕⲏϥⲧ | ⲕⲉⲃⲧ(ⲱ) | ⲕⲉϥⲧ	قفط‎‎	Koptos | Coptos | Qift | Quft		26			300	1000	1000/1000	786010	1159	
+21	http://paths.uniroma1.it/atlas/places/21	Dendera	Dendera	Ỉwn.t-n-Ptḥ | Ỉwn.t | Ỉwn | Ỉwn.t-tȝ-nṯr.t | Ỉwn.t-n-pȝ-nṯr | Ỉwn.t-n-Nw.t | Tȝ-bẖn-n-Ḥw.t-Ḥr?	Τέντυρον | Τεντύρα | Τεντυρίς		ⲧⲉⲛⲧⲱⲣⲓ | ⲛⲓⲧⲛⲧⲱⲣⲉ | ⲛⲓⲧⲉⲛⲧⲱⲣⲓ | ⲕⲉⲛⲧⲱⲣ -ⲉ -ⲓ | ⲕⲩⲛⲧⲩⲣⲟⲛ | ⲕⲉⲣⲧⲱⲣⲓ | ⲛⲓⲕⲉⲛⲧⲱⲣⲉ(ⲓ)	دندرة	Tentyris | Dendera | Dendara		21						786127	2312	
+22	http://paths.uniroma1.it/atlas/places/22	Diospolis Mikra	Diospolis Mikra	Ḥw.t-Sḫm | Ḥw.t | Ḥw.t-sšm.w	Διόσπολις Ἄνο | Διόσπολις μικρά		ϩⲟⲩ | ϩⲱ	هو	Diospolis Mikra | Diospolis Micra		10						756566	577	
+23	http://paths.uniroma1.it/atlas/places/23	Abydos	Abydos	Ỉbd | Ỉbt | ȝbt | pȝ tš n Ỉbt | ȝbḏw	Ἀβυδος		ⲉⲃⲱⲧ | ⲁⲃⲱⲧ	العرابة المدفونة‎‎ | البَليَنا	Abydos		11						756512	34	
+24	http://paths.uniroma1.it/atlas/places/24	Panopolis	Panopolis	Ḫnty-Mỉn | Šmn | Ḫby? | Ỉpw	Χέμμις | Πάνους | Πάννος | Πάνος | Πανός		ⲁϣⲙⲓⲛ | ⲭⲏⲓⲛ | ⲭⲙⲓⲛ | ⲉϣⲙⲓⲛ | ϣⲙⲓⲛ	أخميم	Panopolis | Akhmim | Achmim		18						756613	1589	
+25	http://paths.uniroma1.it/atlas/places/25	Antaiopolis	Antaiopolis	Ṯbw | Tbtȝ | Ḏw-qȝw	Ἀνταίου | Ἀνταιούπολις | Ἀντέου		ⲧⲕⲱⲟⲩ | ⲧⲕⲟⲟⲩ | ⲧⲭⲱⲃⲓ	قاو الكبير	Antaiopolis | Antaeopolis		12						756515	188	
+26	http://paths.uniroma1.it/atlas/places/26	Hypsele	Hypsele	Šȝs-ḥtp | Š-ỉw=s-ḥtp | Šỉs-ḥtp | Šḥy?	Ὕψελις | Ὑψηλή | Ὕψηλις | Ὕψιλις		ϣⲟⲧⲡ | ϣⲱⲧⲡ	شطب	Hypsele		12						756578	864	
+27	http://paths.uniroma1.it/atlas/places/27	Lykopolis	Lykopolis	Sywt | Sȝwt	Λεγοῦ | Λεχοῦ | Λεκώ | Λικών | Λυκός | Λύκων		ⲥⲓⲟⲟⲩⲧ | ⲥⲓⲟⲟⲩⲑ | ⲥⲓⲱⲟⲩⲧ	أسيوط‎‎	Lykopolis | Asyut		14						756593	1271	
+28	http://paths.uniroma1.it/atlas/places/28	Hermoupolis Magna	Hermoupolis Magna	Ḫmnw	Ἑρμούη | Ἑρμούπολις		ϣⲙⲟⲩⲛ | ⲥⲙⲟⲩⲛ | ϣⲙⲟⲩⲛ(ⲓⲛ)	الأشمونين‎‎	Hermopolis Magna | el-Ashmunein		9						756574	816	
+29	http://paths.uniroma1.it/atlas/places/29	Kynopolis	Kynopolis	Ỉnpwt | Ḥnw | Sȝ-kȝ | Sȝkȝ	Κόις | Κυνόπολις | Κυνώ ἄνω		ⲕⲁⲓⲥ | ⲕⲉⲓⲥ | ⲕⲟⲓⲥ | ⲕⲱⲉⲓⲥ	القيس	Kynopolis | Sko | Euergetis		15						736949	1196	
+30	http://paths.uniroma1.it/atlas/places/30	Ankyropolis	Ankyropolis	Tȝy=w-ḏy | Dhnt Wrt	Ἀγκυρῶν Πόλις				El-Hiba | Ankyropolis | Ankyronpolis		6						736888	182	
+31	http://paths.uniroma1.it/atlas/places/31	Oxyrhynchos	Oxyrhynchos	Pr-Mḏd | Pr-Mḏ	Ἐξερίκου | Ἐξερίχου | Ὀξίρυγχος | Ὀξύρυγχος | Ὀξυρίγχω | Πέπτη		ⲡⲉⲙϫⲉ | ⲡⲉⲙϫⲏ	البهنسة	Oxyrhynchos | el-Behnasa | al-Bahnasa		14						736983	1524	
+32	http://paths.uniroma1.it/atlas/places/32	Herakleopolis Magna	Herakleopolis Magna	Ḥw.t-nn-nsw | Nn-nsw | Ḥw.t-nsw	Ἡρακλεούπολις | Ἡρακλέους | Ἡρακλέος		ϩⲛⲏⲥ | ϩⲛⲉⲥ | ⲉⲛⲏ(ϩ)ⲉⲥ | ⲉϩⲛⲉⲥ | (ⲉ)ϩⲛⲓⲥ | ϩ(ⲉ)ⲛⲛⲥ	إهناسيا	Herakleopolis Magna		14						736920	801	
+33	http://paths.uniroma1.it/atlas/places/33	Arsinoe	Arsinoe	Šdt | Šty | ȝrsynȝ	Κροκοδίλων Πόλις | Πτολεμαὶς Εὐεργέτις | Ἀρσινοιτῶν Πόλις | Ἀρσινόη		ⲡⲉⲓⲟⲙ ⲡⲟⲗⲓⲥ | ⲡⲉⲓⲟⲙ | ⲡⲓⲁⲙ | ⲡⲓⲱⲙ, ⲫⲓⲟⲙ | ⲡⲓⲱⲙ | ⲫⲓⲟⲙ	مدينة الفيوم	Arsinoe | Krokodilopolis | Medinet el Fayyum		17						736948	327	
+34	http://paths.uniroma1.it/atlas/places/34	Aphroditopolis	Aphroditopolis	Tp-ỉḥ.w | Tp-ỉḥ | Tp-nȝ-ỉḥ.w | Pr-nb.t-Tp-ỉḥ.w | Pȝ-w	Ἀφροδιτόπολις | Ἀφροδιτώ | Ἀφροδίτης Πόλις		ⲡⲉⲧⲡⲉϩ | ⲡⲉⲧⲡⲏϩ | ⲡⲉⲧⲫⲉϩ | ⲧⲡⲏϩ | ⲧⲡⲩϩ	أطفيح	Aphroditopolis		15						736889	236	
+35	http://paths.uniroma1.it/atlas/places/35	Thmouis	Thmouis	Tȝ-mȝy.t | Tȝ-mȝw.t	Θμούης | Θμοῦις		ⲑⲙⲟⲩⲓ	تل تمي	Thmuis | Tell Timai | Tmai el-Amdid | Tell Ibn el-Salam		10			301	900	900/900	727249	2405	
+36	http://paths.uniroma1.it/atlas/places/36	Pelusium	Pelusium	Pr-ỉr-Ỉmn | Pȝ-ỉ.ỉr-Ỉmn	Πελούσιον | Πελούσιν | Πηλούσιον | Φυλόσιον	Pelusium	ⲃⲁⲣⲁⲙⲟⲩⲛ | ⲃⲁⲣⲉⲙⲟⲩⲛ | ⲃⲁⲣⲙⲟⲩⲛ | ⲡⲉⲣⲉⲙⲟⲩⲛ	الفرما	Pelusium | Pelousion | Tell el-Farama		15						727192	1662	
+37	http://paths.uniroma1.it/atlas/places/37	Taya	Taya		Ταύα	Taua	ⲧⲁⲩⲃⲁϩ	تندة	Taya		5			325	1228	1228/1228	727243	3075	
+38	http://paths.uniroma1.it/atlas/places/38	Alexandria	Alexandria	Rʿ-qd | Rʿ-qt | Pȝ-ʿ.wy-n-ȝlgsȝntrs - Pȝ-sbt-n-Ỉrgsndrs | Pȝ-ʿ.wy-n-ȝlgsȝntrs | Pȝ-sbt-n-Ỉrgsndrs	Ἀλεξάνδρεια		ⲣⲁⲕⲟⲧⲉ | ⲣⲁⲕⲟϯ	الإسكندرية	Alexandria		10						727070	100	
+39	http://paths.uniroma1.it/atlas/places/39	Metelis	Metelis	Mtlȝ | Mtl	Μελέτης | Μετέλις | Μέτελος		ⲙⲉϫⲛⲗ | ⲙⲉⲗⲉϫ	تل النجيلي	Metelis		9						727163	2640	
+40	http://paths.uniroma1.it/atlas/places/40	Buto	Buto	P | Dp | Ḏbʿwt | Pr-Wʿt.t | Pr-Wt.t | Pr-Wȝḏy.t	Φθενοτου | Φθενετου | Κόστος | Βουτώ | Βοῦτος		ⲡⲟⲩⲧ(ⲱ)ⲟ(ⲩ) | ⲃⲟⲩⲧⲱⲟⲩ | ⲃⲟⲩⲧⲉ | ⲡⲟⲩⲧⲟ | ⲃⲟⲩⲧⲟ | ⲡⲟⲩⲧⲱ	بطوا | بطو	Tell el-Fara'in | Buto | Bouto		22			301	825	825/825	727094	3685 | 10704 | 10767	
+41	http://paths.uniroma1.it/atlas/places/41	Herakleopolis Mikra	Herakleopolis Mikra	Pr-Ḥry-šf-nb-Nn-nsw	Ἡρακλεόπολις μικρά | Σεθρόη πόλις		ⲏⲣⲁⲕⲗⲉ(ⲟ)ⲩⲥ | ⲥⲉⲑⲣⲟⲓⲧⲏⲥ | [ⲥⲉ]ⲑⲣⲟⲓⲇⲟⲥ | ⲯⲉⲑⲟⲣ	وسرمن | وسرمت	Herakleopolis Mikra | Sethroe		11			300	750	750/750	727121	800	
+42	http://paths.uniroma1.it/atlas/places/42	Kynopolis Inferior	Kynopolis Inferior		Κοινώ | Κουνό<πολις> κατώ | Κουνώ<πολις> κατώ | Κυνόπολις κατώ | Κυνῶν	Kynopolis Inferior | Nova Iustiniana	ⲡⲁⲛⲁⲩ | ⲡⲓⲛⲁⲩ	منية ابن خصيب			10						727144	5392	
+43	http://paths.uniroma1.it/atlas/places/43	Pharbaithos	Pharbaithos	Šdnw | Štȝn | Pr-Ḥr-mr.ty	Φάρβαιθος | Φαρβέθος | Φάρζιθος | Κάρβευθος		ⲫ(ⲁ)ⲣⲁⲃ(ⲁ)(ⲓ)ⲧ | ⲫⲁⲗⲃⲁⲓⲧ	قربيط | فربيط	Pharbaithos		12						727196	1751	
+44	http://paths.uniroma1.it/atlas/places/44	Phakoussa	Phakoussa		Φάκουσα | Φακούσσαι	Phaguse		فاقوس	Phakoussa | Phakoussai | Faqus		7						727194	1729	
+45	http://paths.uniroma1.it/atlas/places/45	Nikiou	Nikiou		Νικεύς | Νικιεός | Νικίου ἡ πόλις		Νικίους | ⲡϣⲁⲧ(ⲉ)ⲓ | ⲡϣⲁϯ	زاوية رزين	Kom Manous | Nikiou		9						727174	1463	
+46	http://paths.uniroma1.it/atlas/places/46	Phragonis	Phragonis		Φραγόνις | Φλαβώνιας | Φραυόνις | Φραγωνέα | Φραγώνιν | Φραυύνης	Fragonis | Flauonis	ⲫⲉⲣⲟⲩⲱⲓⲛⲓ | ⲡⲁⲣⲟⲩⲟⲓⲛⲓ | ⲡⲗⲁⲕⲱⲛⲉⲟⲥ | الفر(ا)جين		Phragonis | El-Farragin | Kom el-Khawalid | Kom al-Khawaled		16			325	1375	1375/1375	727201	7961	
+47	http://paths.uniroma1.it/atlas/places/47	Kabasa	Kabasa		Ἀκάβασος | Γαβάσεος | Γαβάσσων | Κάβασος | Κάβασα		ϫⲁⲃⲁⲥⲉⲛ | ϫⲁⲡⲁⲥⲓ | ϫⲉⲡⲁⲥⲉⲛ	شباس الشهداء	Kabasa | Shabas el-Shuhada | Shabas esh-Shuhada		12						727133	2636	
+48	http://paths.uniroma1.it/atlas/places/48	Panephysis	Panephysis		Πανέφυσις		ⲡⲁⲛⲉⲫⲉⲥⲟⲛ | ⲡⲁⲛⲉⲫⲱⲥⲓ	المنزلة	al-Manzalah | Panephysis		6						727184	6258	
+49	http://paths.uniroma1.it/atlas/places/49	Andronpolis	Andronpolis		Ἀνδρόπολις | Ἀνδρῶν πόλις | Ἀνδρῶν	Androca	ⲁⲣⲃⲁⲧ | ⲁⲣⲃⲁⲑ | ⲉⲣⲃⲁⲧ | ⲣⲁⲃⲁⲧ	خربتا | ارواط	Andropolis | Khirbeta | Kharibta | Khirbitah		14			350	1100	1100/1100	727071	3108 | 8505	
+50	http://paths.uniroma1.it/atlas/places/50	Onouphis Kato	Onouphis Kato				Ὄνουφις κάτω | ⲡⲙⲁⲛⲟⲩϥ ϧⲉⲧ	محلة منوف	Onouphis Kato		4						730134	3093	
+51	http://paths.uniroma1.it/atlas/places/51	Onouphis Ano	Onouphis Ano				(Pr-)Inbw (?) | Ὄνουφις | ⲁⲛⲟⲩϥⲉ | ⲉⲛⲟⲩϥⲓ | ⲟⲛⲟⲩϥⲉ | ⲡⲁⲛⲟϥ ⲣⲏⲥ	محلة منوف	Onouphis Ano		8						730134	3093	
+52	http://paths.uniroma1.it/atlas/places/52	Schedia	Schedia		Σχεδία | Μενελαίτης?				Schedia | Chaireon | Menelais?		5						727221	2096	
+53	http://paths.uniroma1.it/atlas/places/53	Antinoupolis	Antinoupolis		Ἀντινώ | Ἀντινῶ | Ἀντινόου | Ἀντινόου πόλις | Νέοι Ἕλληνες	Antinou | Antenou	ⲁⲛⲧⲓⲛⲟⲟⲩ | ⲁⲛϯⲓⲛⲱⲟⲩ	انصنا | الشيخ عبادة	Antinoopolis | Antinopolis | Antinoe | El-Sheikh Ibada		15			250	900	900/900	756518	2774	
+54	http://paths.uniroma1.it/atlas/places/54	Ptolemais	Ptolemais		Πτολεμαΐς	Ptolemais | Ptolomais	ⲡⲥⲟⲓ | ⲡⲥⲱⲓ | ϯⲟⲓ | ϯⲱⲓ	ابصاي | ابساي | ابشاي	Ptolemais | Tolmeita		12						373879	2018	
+55	http://paths.uniroma1.it/atlas/places/55	Apollonopolis Parva	Apollonopolis Parva	Gs | Gsȝ | Gsy	Διοκλητιανούπολις | Ἀπόλλωνος Πόλις Μικρά | Διοκλητιανοῦ Πόλις	Apollonopolis Parva | Diocletianopolis	ⲕⲟⲟⲥ ⲃⲣⲃⲉⲣ | ⲕⲟⲥ | ⲕⲱⲥ | ⲃⲁⲣⲏⲓⲣ | ⲃⲓⲣⲃⲓⲣ	قوص			14						785975	270	
+56	http://paths.uniroma1.it/atlas/places/56	Koussai	Koussai	Qys | Qsỉȝ | Qs | Ks	Ἀκούασα | Κοῦσαι | Κοῦσσαι | Κώς | Χούσαι		ⲕⲱⲥ | ⲕⲱⲥⲕⲁⲙ | ⲕⲱⲥⲕⲟⲱ | ⲕⲟⲥⲅⲁⲙ | ⲕⲟⲥⲕⲁⲙ	القوصية	Koussai		16						756588	1176	
+57	http://paths.uniroma1.it/atlas/places/57	Neiloupolis	Neiloupolis	Pr-Ḥʿpy	Νειλούπολις			تل الرصاص	Neiloupolis		4						736973	1433	
+58	http://paths.uniroma1.it/atlas/places/58	Esna	Esna	Ỉwny.t | Sn.t | Tȝ-Sn.t | Snỉ a | Sn	Λάττων | Λατώ		ⲥⲛⲏ | ⲗⲁⲧⲱⲛ | ⲥⲛⲉ | ⲥⲛⲙ	إسنا	Latopolis | Esna | Isna		15						786059	1227	
+59	http://paths.uniroma1.it/atlas/places/59	Tsine	Tsine				ⲧⲥⲓ ⲛϩⲓⲛⲏ[...] ?		Tsine		2								
+60	http://paths.uniroma1.it/atlas/places/60	Tse	Tse		Τασῆ		ⲧⲥⲏ | ⲧⲥⲩ	إطسا | تسا	Tse		6						759689	7741	
+61	http://paths.uniroma1.it/atlas/places/61	Thbew	Thbew		Θβεῦ | Τηβεῦ | Τηβευε (sic)		ⲧⲃⲏⲩⲉ | ⲧⲃⲩⲉ | ⲑⲃⲏⲟⲩ | ⲑⲃⲟⲩⲉ	إتواوى	Thbew		9								
+62	http://paths.uniroma1.it/atlas/places/62	Monchosis Thmoushons	Monchosis Thmoushons		Μουνχοῦσις | Μονχόση		ⲧⲙⲟⲩϣⲟⲛⲥ | ⲑⲙⲟⲩϣⲟⲛⲥ	اتموشيس | بحانس | منحوسيس	Monchosis Thmoushons		8							5796	
+63	http://paths.uniroma1.it/atlas/places/63	Pesterposen	Pesterposen						Pesterposen		1								
+64	http://paths.uniroma1.it/atlas/places/64	Chenoboskion	Chenoboskion	Šn.w-n-St | Šny-n-Stḫ | Nȝ-šnỉ?	Χηνοβόσκιον | Χηνοβοσκία		ϣⲉⲛⲉⲥⲏⲧ | ϣⲛⲉⲥⲏⲧ	القصر والصيد	Chenoboskion | Sheneset | Seni-n-Setech | N-sheni | Qasr el-Saiyad | el-Qasr, el-Saijad		14						756545	5089	
+65	http://paths.uniroma1.it/atlas/places/65	Bekhne	Bekhne						Bekhne		1								
+66	http://paths.uniroma1.it/atlas/places/66	Tabennisis	Tabennisis		Ταβέννησις | Ταβένησις | Ταβένησος		ⲧⲁⲃⲉⲛⲏⲥⲉ | ⲧⲁⲃⲉⲛⲛⲏⲥⲓ | ⲧⲁⲃⲉⲛⲛⲏⲥⲏ	طبانسين	Tabennisis | Tabennese | *Tabennisis | Tafnis		11						786125	7358	
+67	http://paths.uniroma1.it/atlas/places/67	Maximianoupolis	Maximianoupolis		Καινή | Μαξιμιανοῦ Πόλις | Μαξιμιανούπολις	Maximianoupolis		قنا | قنة	Qena		7						786047	952	
+68	http://paths.uniroma1.it/atlas/places/68	Pbou	Pbou		Βαῦ | Παβαύ | Παβού | Παβώ | Πβόου | Πιβοῦ | Βοπος		ⲡⲃⲁⲩ | ⲡⲃⲟⲟⲩ | ⲡⲃⲱⲟⲩ | ⲫⲃⲟⲟⲩ | ⲫⲃⲱⲟⲩ	فاو	Pbou		14						756540	3843	
+69	http://paths.uniroma1.it/atlas/places/69	Metanoia	Metanoia		Κάνωβος | Κάνωπος | Μετανοίας Μοναστήριον		ⲡⲕⲁⲛⲱⲡⲟⲥ | ⲡⲕⲱⲛⲟⲡⲟⲥ	بوقير | قانوبوس	Metanoia		8							5744	
+70	http://paths.uniroma1.it/atlas/places/70	Hermonthis	Hermonthis	Ỉwny | Ỉwn | Pr-Mnṱ | Pr-Mnṯw | Ỉwn-Mnṱ | Ỉwnw-Mnṯw | Ỉwnw-Šmʿ	Ἑρμῶνθις | Ἑρμοῦθις | Ἑρμόνθις		ⲉⲣⲙⲟⲛⲧ | ⲉⲣⲙⲉⲛⲧⲓ | (ⲉ)ⲣⲙⲁⲛⲧ | ⲁϩⲣⲏⲙⲛⲧ | ⲁⲣⲙⲟⲛ | ⲣⲙⲟⲛⲧ	ارمنت | ارمند	Armant | Hermonthis | Armand		21						786036	812	
+71	http://paths.uniroma1.it/atlas/places/71	Pispir	Pispir		Πίσπιρ | Πίρπηρ | Πίσπις		ⲡⲧⲟⲟⲩ ⲉⲧϩⲓⲃⲟⲗ	دير الميمون	Pispir		6								
+72	http://paths.uniroma1.it/atlas/places/72	Deir Anba Hadra / St. Simeon	Deir Anba Hadra / St. Simeon		Ἀβᾶ Ἁτρῆς (Gen.)			دير الأنبا هدرا	Deir Anba Hatre | Monastery of St. Simeon		4			601	1300	1300/1300	786106	2207	
+73	http://paths.uniroma1.it/atlas/places/73	Bawit	Bawit		Ἀββᾶ Ἀπόλλωτος Μοναστήριον | μοναστήρ(ιον) ἁγίου Ἀββᾶ Ἀπόλλωτ(ος)		ⲡⲁⲩⲏⲧ | ⲧⲟⲡⲟⲥ ⲛⲁⲡⲁ ⲁⲡⲟⲗⲗⲱ | ⲡⲙⲟⲛⲁⲥⲧⲏⲣⲓⲟⲛ ⲛⲫⲁⲅⲓⲟⲥ | ⲛⲡϩⲁⲅⲓⲟⲥ ⲁⲡⲁ ⲁⲡⲟⲗⲗⲱ | ⲡⲟⲩⲁⲓⲧ	باويط	Titkois | Bawit		10						756663	10454	
+74	http://paths.uniroma1.it/atlas/places/74	Naqlun	Naqlun		Ὄρος Κελλῶν | Νεκλόνιον		ⲡⲧⲟⲟⲩ ⲛϯⲟⲟⲩⲕⲟϩ | ⲡⲧⲟⲟⲩ ⲛⲧⲉⲧⲕⲟⲟϩ	دير النقلون	Neklone | Naqlun		7						736975	1418	
+75	http://paths.uniroma1.it/atlas/places/75	Monastery of Apa Jeremiah	Monastery of Apa Jeremiah		Ἁγίου Ἰερημίου Μοναστήριον		ⲁⲡⲁ ⲓⲉⲣⲏⲙⲓⲁⲥ		Monastery of Apa Jeremiah | Saqqara		4			451	950	950/950	736963	12916	
+76	http://paths.uniroma1.it/atlas/places/76	Sketis	Sketis	Sḫ.t	Σκιαθίς | Σκήτις | Σκήτη			وادي النطرون	Sketis | Skiathis		7			330	1450	1450/1450	727232	3375	
+77	http://paths.uniroma1.it/atlas/places/77	Nitria	Nitria		Τὸ ὄρος τῆς Νιτρίας | Νιτρίαι	Nitria	ⲡⲧⲟⲟⲩ ⲙⲡⲓϩⲟⲥⲙ | ⲡⲧⲱⲟⲩ ⲙⲡϩⲟⲥⲙ | ⲙⲡⲉⲣⲛⲟⲩϫ	جبل برنوج	Nitria | Tell el-Barnugi		9						727177	1473	
+78	http://paths.uniroma1.it/atlas/places/78	Kellia	Kellia		Τὰ Κελλία		ⲡⲧⲟⲱⲩ ⲛⲣⲓ	قلالي | جبل منى	Kellia		5						727141	3375	
+79	http://paths.uniroma1.it/atlas/places/79	Monastery of St. Paul	Monastery of St. Paul						Monastery of St. Paul | Qubba		2						746800	5104	
+80	http://paths.uniroma1.it/atlas/places/80	Monastery St. Antony	Monastery St. Antony		Τὸ ὄρος τὸ ἔξω | τό ὄρος τοῦ μεγάλου Ἀντωνίου		ⲡⲧⲟⲟⲩ ⲉⲧϩⲓϩⲟⲩⲛ | ⲛⲁⲡⲁ	دير انبا انطونيوس | انطونيوس جبل	Monastery St. Antony		7							3563	
+82	http://paths.uniroma1.it/atlas/places/82	Western Thebes MMA 1152	Western Thebes MMA 1152						Western Thebes MMA 1152		1			551	750	750/750	786067	1341	
+83	http://paths.uniroma1.it/atlas/places/83	Nag Hammadi	Nag Hammadi					نجع حمادي	Nag Hammadi | Gebel el-Tarif		3			301	500	500/500		2803	
+84	http://paths.uniroma1.it/atlas/places/84	Berenike (Upper Egypt)	Berenike (Upper Egypt)		Βερενίκη		ⲃⲉⲣ<ⲉ>ⲛⲓⲕⲉ | ⲃⲉⲣ(ⲉ)ⲛⲓⲕⲏ	بندر الكبير | برنيس	Bender el-Kebir | Berenike		7						785986	416	
+85	http://paths.uniroma1.it/atlas/places/85	Farshut	Farshut		Θεβυρχυθ?		ⲃⲉⲣϭⲟⲟⲩⲧ | ⲧⲃⲉⲣϭⲱⲧ	فرشوط	Farshut		5							5082	
+86	http://paths.uniroma1.it/atlas/places/86	Deir el-Qaddis Abu Bifam	Deir el-Qaddis Abu Bifam				ⲁⲡⲁ ⲫⲟⲓⲃⲁⲙⲙⲟⲛⲱⲛ	ديرالقديس ابو بفام	Dayr al-Qaddis Abu Bifam | Apa Phoibamon | Deir el-Qaddis Abu Bifam		5						756547		
+87	http://paths.uniroma1.it/atlas/places/87	Medinet Habu	Medinet Habu		Μεμνοεῖα | Μεμνονία | Κάστρον Μεμνονίωνος | Κάστρον Μεμνώνου/Μεμνονίωνος | Κάστρον Μεμνίων | Κάστρον Μεμνονίου | Κάστρον Μεμνωνίων | Κάστρον Μεμνωνίου | Μεμνονίων		ⲧϫⲏⲏⲙⲉ | ϭⲏⲙⲓ | ϫⲏⲙⲏ | ϫⲏⲙⲉ | ϫⲏⲏⲙⲉ | ϫⲉⲙⲏ | ϫⲉⲙⲉ | ϫⲉⲙⲁ | ⲧϫⲉⲙⲉ | ⲧϣⲏⲙⲉ | ⲕⲏⲙⲉ | ⲕⲉⲓⲙⲉ	جبل شامة | مدينة هابو	Medinet Habu | Jeme		25			551	900	900/900	786067	1341	
+88	http://paths.uniroma1.it/atlas/places/88	Petemout	Petemout	Mȝdw | Mȝd | Mȝt | Mȝtn | Mtn | Pr-Mnṯw-nb-Mȝtn	τὰ Κεραμεῖα	Ceramice	ⲡⲉⲧⲉⲙⲟⲩⲧ	نجع المدامود	Petemout | Kerameia | Madou | Nag’ el-Madamud		14						786088	1281	
+89	http://paths.uniroma1.it/atlas/places/89	Ostrakine	Ostrakine				Ὀστρακίνη | ⲟⲥⲧⲣⲁⲕⲓⲛⲏ | ⲧⲣⲁⲕⲓⲛⲏ | ⲟⲩⲥⲧⲣⲁⲧⲣⲁⲕⲓⲛⲏ		El-Felusiyat | Ostrakine		6						687993	1518	
+90	http://paths.uniroma1.it/atlas/places/90	Naqada	Naqada		Ὄμβοι		ⲛⲃⲱ | ⲛⲃⲱⲩ	نقادة	Naqada | Nagada		6							2994	
+91	http://paths.uniroma1.it/atlas/places/91	Monastery of St. Thomas at Wadi Sarga	Monastery of St. Thomas at Wadi Sarga					وادي سرجة	Monastery St. Thomas at Wadi Sarga		2			551	715	715/715	759543	12542	
+92	http://paths.uniroma1.it/atlas/places/92	Deir el-Bala’izah	Deir el-Bala’izah		Ἀββᾶ Ἀπολλῶ Μοναστήριον | Ἀββᾶ Πουλει Πἐτρα | μοναστήριον Ἀββ(ᾶ) Ἀπόλλω(νος) | πέτρα Ἀββᾶ Πούλε(ι)		ⲡⲙⲟⲛⲁⲥⲧⲏ(ⲣⲓⲟⲛ) ⲛⲁⲡⲁ ⲁⲡⲟⲗⲗⲱ | ⲡϩⲁⲅⲓⲟⲥ ⲁⲡⲁ ⲁⲡⲟⲗⲗⲱ | ⲧⲡⲉⲧⲣⲁ ⲁⲡⲁ ⲁⲡⲟⲗⲗⲱ | ⲁⲡⲁ <ⲁ>ⲡⲟⲗⲉ/ⲁⲡⲟⲩⲗⲱ		Deir el-Bala’izah		9			651	750	750/750	756520	3025	
+93	http://paths.uniroma1.it/atlas/places/93	Deir el-Moharraq	Deir el-Moharraq					ديرالمحرق	Qusqam | Deir el-Moharraq		3							3122	
+94	http://paths.uniroma1.it/atlas/places/94	Gebel Assiut el-Gharbi	Gebel Assiut el-Gharbi					جبل اسيوط الغربي	Gebel Assiut el-Gharbi | Gebel Asyut el-Gharbi		3						756593	1271	
+95	http://paths.uniroma1.it/atlas/places/95	Hagr Edfu	Hagr Edfu				ⲡⲧⲟⲟυ ⲛ ⲧⲃⲱ	حجر إدفو	Hagr Edfu		3			401	1100	1100/1100		4982	
+96	http://paths.uniroma1.it/atlas/places/96	Philae	Philae	Pȝ-lq | Pr-rq | Ỉw-ȝḫ-mnw | Pȝ-ỉȝ.t-rq | Pȝ-ỉw-rk | Pr-ỉw-rq | Pr-ỉy-rq | Pr-ỉy-lq | Pȝ-ỉy-lq	Φίλη | Φύλων | Φίλαι	Philae | Filae	ⲡⲓⲗⲁⲕ | ⲡⲓⲗⲁⲭ | ⲡ(ⲉ)ⲓⲗⲁⲕϩ | ⲡⲉⲗⲏⲕ | ⲡⲉⲗⲁⲕ | ⲡⲉⲓⲗⲁⲕ	بولاق | بلاق | بلق	Philae		24						786089	17677	
+97	http://paths.uniroma1.it/atlas/places/97	Deir el-Kubbaniya	Deir el-Kubbaniya		Ἰσιείου ὄρος		ⲡⲧⲟⲟⲩ ⲛ ⲏⲥⲁⲓⲁⲱ	دير الشيحة	Deir el-Kubbaniya | Deir el-Shichah		5						786056	2772	
+98	http://paths.uniroma1.it/atlas/places/98	Deir Qubbat el Hawa	Deir Qubbat el Hawa					قبة الهوا	Deir Qubbat el Hawa		2						979588215	4984	
+99	http://paths.uniroma1.it/atlas/places/99	Hamuli/Monastery of the Archangel Michael at Phantoou	Hamuli/Monastery of the Archangel Michael at Phantoou				ⲡϩⲁⲛⲧⲁⲩ | ⲡϩⲁⲛⲧⲟⲟⲩ | ⲡϩⲟⲛⲧⲟⲟⲩ | ⲫⲁⲛⲇⲁⲩ | ⲫⲁⲛⲧⲁⲩ | ⲫⲁⲛⲧⲟⲟⲩ | ⲡⲙⲟⲛⲏ ⲛⲁⲗⲗⲓ | ⲧⲙⲟⲩⲛⲏ ⲛⲁⲗⲗⲓ		Hamuli/Monastery of the Archangel Michael at Phantoou		9			822	914	914/914	737001	50403	
+100	http://paths.uniroma1.it/atlas/places/100	Gebel el-Qalamun	Gebel el-Qalamun		Τὸ ὄρος τοῦ Καλαμῶνος		ⲡⲧⲟⲟⲩ ⲛ̄ⲕⲁⲗⲁⲙⲟⲩⲛ	القلمون	Ptoou Nkalamon | Gebel el-Qalamun | El-Qalamun | Kalamon		7						737030	11585	
+101	http://paths.uniroma1.it/atlas/places/101	Touton	Touton	Tp-Tn | Tȝ-Tn | Tn | Tȝ-bnt | Tȝ-btn | Dbȝ-Tn | Tȝ-nb-Tp-Tn | Tȝ-nb.t-tȝ-Tn	Τεβτύνις | Τεπτύνις | Θεοδοσιούπολις		ⲧⲟⲩⲧⲱⲛ | ⲧⲟⲧⲟⲩⲛ	أم البريجات	Touton | Tebtynis		16			861	1020	1020/1020	737072	2287	
+102	http://paths.uniroma1.it/atlas/places/102	Dishna	Dishna					دشنا	Dishna		2			325	700	700/700			
+103	http://paths.uniroma1.it/atlas/places/103	This	This	Ṯny | Tn | Tny | Dny	Θίς		ⲧⲓⲛ	جرجا	This		8						756659	2400	
+104	http://paths.uniroma1.it/atlas/places/104	Medinet Madi	Medinet Madi	D3 | Nw.t-Rnn.t	Ναρμοῦθις		ⲛⲁⲣⲙⲟⲩⲇⲓ | ⲛⲁⲣⲙⲟⲩⲧⲉ | ⲛⲁⲣⲙⲟⲩϯ	مدينة ماضي	Medinet Madi | Narmouthis		9			351	900	900/900	736972	1421	
+105	http://paths.uniroma1.it/atlas/places/105	Bakchias	Bakchias	Gnw.t - Km-wr	Βακχιάς			أم الأتل	Bakchias		4			451	650	650/650	736896	392	
+106	http://paths.uniroma1.it/atlas/places/106	Karanis	Karanis		Καρανίς			كوم اوشيم	Karanis		3			325	650	650/650	736932	1008	
+107	http://paths.uniroma1.it/atlas/places/107	Soknopaiou Nesos	Soknopaiou Nesos	Tȝ-mȝy.t-n-Sbk-nb-Pay | Tȝ-mȝy.t	Σοκνοπαιου Νῆσος				Soknopaiou Nesos | Dimeh		5						737053	2157	
+108	http://paths.uniroma1.it/atlas/places/108	Deir Abu Lifah	Deir Abu Lifah		χ(ώριον) Πανουγ | Πανο(υ)κ’ | Παννουκι			دير ابو ليفة	Deir Abu Lifah | Deir Abu Banukh		6			686	858	858/858	756549	3506	
+109	http://paths.uniroma1.it/atlas/places/109	Sadamant	Sadamant				ⲡⲥⲟⲇⲟⲙⲉⲛⲧ	سدمنت الجبل	Deir Mar Girgis | Sidmant el-Gebel | Sadamant | Sedment		6			1251	1325	1325/1325		2819	
+110	http://paths.uniroma1.it/atlas/places/110	Wadi Natrun	Wadi Natrun		Σκιαθίς | Σκήτις | Σκήτη | Νιτρία | Κελλία				Wadi Natrun		6						727104	3375	
+111	http://paths.uniroma1.it/atlas/places/111	Sopehes	Sopehes						Sopehes		1							50405	
+112	http://paths.uniroma1.it/atlas/places/112	Monastery of Shenoute at Atripe	Monastery of Shenoute at Atripe	Ḫwt | Rpyt	μοναστήριον/τόπος Σενούθου | Σενουθίου		ⲙⲟⲛⲁⲥⲧⲏⲣⲓⲟⲛ/ⲙⲟⲛⲏ ⲁⲡⲁ ϣⲉⲛⲟⲩⲧⲉ/ϣⲉⲛⲟⲩϯ | ⲡⲧⲟⲟⲩ ⲛⲁⲇⲧⲣⲓⲡⲉ | ⲙⲟⲛⲁⲥⲧⲏⲣⲓⲟⲛ | ⲁⲧⲣⲓⲡⲉ	دير الأبيض	Atripe | White Monastery | Monastery of Shenoute		12						756530	3121	
+113	http://paths.uniroma1.it/atlas/places/113	Red Monastery at Atripe	Red Monastery at Atripe					دير الأحمر	Red Monastery		2							2820	
+114	http://paths.uniroma1.it/atlas/places/114	Kellis	Kellis		Κέλλις			اسمنت الخراب	Kellis | Ismant el-Kharab		4						776189	2762	
+115	http://paths.uniroma1.it/atlas/places/115	Bagawat	Bagawat					البجوات | جبانة البجوات | مقابر البجوات	Bagawat		4			301	700	700/700	776156	2739	
+116	http://paths.uniroma1.it/atlas/places/116	Abu Mina	Abu Mina					ابو مینا	Abu Mina		2						727105	2711	
+117	http://paths.uniroma1.it/atlas/places/117	Marina el Alamein	Marina el Alamein		Ἀντίφραι (?)			مارينا العلمين	Marina el Alamein		3						716524	8554	
+118	http://paths.uniroma1.it/atlas/places/118	Ennaton	Ennaton				ⲡⲓϩⲉⲛⲁⲧⲟⲛ | ⲡⲓⲙⲟⲛⲁⲥⲧⲏⲣⲓⲟⲛ ⲛ̀ⲧⲉ ⲛⲓⲥⲁⲛⲁⲃⲁϫⲏⲓⲛⲓ		Ennaton | To Ennaton | Dayr al-Zujaj		5			301	1500	1500/1500	690832	56772	
+119	http://paths.uniroma1.it/atlas/places/119	Dionysias	Dionysias	Tywnss | Pȝ-dmỉ-n-mȝy | Pȝ-dmỉ-mȝy	Διονυσιάς			قصر قارون	Dionysias		6						736904	565	
+120	http://paths.uniroma1.it/atlas/places/120	Philoteris	Philoteris	Pȝ-ʿ.wy-n-Pltrȝ | Pȝ-ʿ.wy-n-Pyltr	Φιλωτερίς			ودفة	Philoteris		5						737010	1780	
+121	http://paths.uniroma1.it/atlas/places/121	Theadelphia	Theadelphia	Pȝ-ʿ.wy-n-sn.t	Θεαδέλφεια			بطن اهريت	Theadelphia		4						737081	2349	
+122	http://paths.uniroma1.it/atlas/places/122	Hawara	Hawara	Ḥw.t-wr.t | Ḥw.t-wry | Ḥw.t-wly	Αὑηρις			هوارة	Hawara		6						736918	747	
+123	http://paths.uniroma1.it/atlas/places/123	El-Lahun	El-Lahun	Rȝ-tȝ-ḥny.t-n-Mȝ-wr | Pȝ-sḥ-Ptwlmys | Pȝ-sy-ḥt?	Πτολεμαῒς Ὅρμου	Ptolemaidonar	ⲗⲉϩⲱⲛⲉ	اللاهون	Ptolemais Hormou | El-Lahun		9						737029	2024	
+124	http://paths.uniroma1.it/atlas/places/124	Phthenetou	Phthenetou	*Pȝ-tȝ-n-Wȝḏy.t	Φθένετος | Φθένοτυ	Ptenethus	ⲡ(ⲉ)ⲧⲉⲛⲉ(ⲛ)ⲧⲱ | ⲡ(ⲉ)ⲧⲉⲛ(ⲧ)ⲥ(ⲧ)ⲱ	دنطوا	Phthenetou		8							7865	
+125	http://paths.uniroma1.it/atlas/places/125	Kleopatris	Kleopatris						Kleopatris		1								
+126	http://paths.uniroma1.it/atlas/places/126	Rinokoloura	Rinokoloura		Ῥεινοκόλουρα | Ῥηνοκούρουρα | Ῥινοκόλουρα | Ῥινοκόρουρα | Ῥινοκούρουρα		ϩⲣⲓⲛⲟⲕⲟⲣⲟⲩⲣⲁ | ϩⲣⲓⲛⲟⲣⲟⲩⲣⲁ | ϩⲣⲓⲛⲟⲕⲟⲩⲣⲁ | ϩⲣⲏⲛⲟⲕⲟⲣⲟⲩⲣⲁ	العريش	Rinokoloura		11						688016	2052	
+127	http://paths.uniroma1.it/atlas/places/127	Pachnemounis	Pachnemounis		Παχνέμουνις			كوم الخنزيري	Kom el-Khanziri | Pachnemounis		4			301	1000	1000/1000	727183	2674	
+128	http://paths.uniroma1.it/atlas/places/128	Syene	Syene	Swn | Swnw	Συήνη | Σήννη | Σύνη | Σηύνη | Συίνη	Syene | Siene	ⲥⲟⲩⲁⲛ	أسوان	Syene | Aswan		13						786123	2207	
+129	http://paths.uniroma1.it/atlas/places/129	Achaia	Achaia		Ἀχαία				Achaia		2						828238	12014	
+130	http://paths.uniroma1.it/atlas/places/130	Stathmon	Stathmon		Στατμων				Statmon | Stathmon | Stathma		4						573533	12696	
+131	http://paths.uniroma1.it/atlas/places/131	Terenouthis	Terenouthis	Pr-Ḥw.t-Ḥr-nb.t-Mfkȝt | Pȝ-Ḥw.t-tȝ-Ḥr-mfky - Mfkt	Θερενοῦτις | Τερενοῦθις		ⲧⲉⲣⲉⲛⲟⲩⲧⲉ | ⲧⲉⲣⲉⲛⲟⲩⲧⲓ | ⲧⲉⲣⲉⲛⲟⲩⲑⲓ | ⲑⲉⲣⲉⲛⲟⲩϯ	ترنوط | طرنوط | الطرانة	Terenouthis | Kom Abu Billo | Kôm Abou Billou		14						727244	2318	
+132	http://paths.uniroma1.it/atlas/places/132	Paralos	Paralos		Παραλέος | Παράλιος | Παράλου | Παράλλου | Σεβεννυτικὸν Στόμα | Πάραλος	Sebennyticum	(ⲧ)ⲡⲁⲣϩⲁⲗⲁⲓⲟⲥ | ⲧⲡⲁⲣϩⲁⲗⲟⲥ | ϯⲡⲁⲣⲁⲗⲓⲁ	البرلس	Paralos		12			326	1100	1100/1100	727224	6313	
+133	http://paths.uniroma1.it/atlas/places/133	Tamiathis	Tamiathis		Ταμιάθη | Ταμιάθις		ⲇⲁⲙⲓⲁⲑⲓ | ⲧⲁⲙⲓⲁ(ⲓ) | ⲧⲁⲙⲓⲁϯ	دمياط	Damietta | Tamiathis		8						727235	3054	
+134	http://paths.uniroma1.it/atlas/places/134	Gerrae	Gerrae						Gerrae		1								
+135	http://paths.uniroma1.it/atlas/places/135	Daphnai	Daphnai	Tbn | Tȝ-ỉḥ.t-n-pȝ-nḥs | Tȝ-ʿȝm-n-pȝ-nḥs | Tȝy=w-ʿȝm-n-nḥs	Τάφναι | Τάφνας | Δάφναι | Δάφνη		ⲧⲁⲫⲛⲁⲥ	تل دفانة | دفناس | Daphnai			12						727103	3607	
+136	http://paths.uniroma1.it/atlas/places/136	Sethroites	Sethroites		Σεθρωίτης				Sethroites		2							3089	
+137	http://paths.uniroma1.it/atlas/places/137	Boukolia	Boukolia		τὰ Βουκόλια				Boukolia		2							13247	
+138	http://paths.uniroma1.it/atlas/places/138	Thennesos	Thennesos		Θέννησος | Θένησσος | Τένεσος		ⲑⲉⲛⲛⲉⲥⲓ | ⲑⲉⲛⲛⲏⲥⲓ	تينس | تنيس	Thennesos		8						727247	3210	
+139	http://paths.uniroma1.it/atlas/places/139	Aphnaioua	Aphnaioua		Ἀφνάιον	Aphnaium	ⲫⲛⲁⲓⲟⲥ | ⲟⲫⲁⲓⲟⲥ		Aphnaion | Aphthaion | Apheis | Aphnaioua		8			431	700	700/700	730089	225	
+140	http://paths.uniroma1.it/atlas/places/140	Clysma	Clysma		Κλῦσμα		ⲡⲉⲕⲗⲟⲩⲥⲙⲁ | ⲡⲓⲕⲗ(ⲁ)ⲩⲥⲙⲁ | ⲕⲗⲟⲩⲥⲙⲁ	قلزم	Clysma		6						727101	2794	
+141	http://paths.uniroma1.it/atlas/places/141	Naukratis	Naukratis	Nȝy=w-Krḏ | Nȝ-Krṯ - Na-Krḏ | Bȝ-dd	Ναύκρατις		ⲛⲁⲩⲕⲣⲁⲧⲏⲥ		Naukratis		6						727169	1424	
+142	http://paths.uniroma1.it/atlas/places/142	Helearchia	Helearchia		Ἐλεαρχία	Heliarchia			Helearchia		3						730114	4171	
+143	http://paths.uniroma1.it/atlas/places/143	Marea	Marea		Μαρεώτης | Μαρεώτος		ⲛⲉⲓⲡⲁⲉⲓⲁⲧ | ⲛⲓⲫⲁⲓⲁⲧ | ⲛⲉⲡⲁⲓⲉⲧ | ⲛⲓⲡⲁⲓⲁⲧ | ⲛⲏⲡⲁⲓⲁⲧ | ⲛⲫⲁⲓⲁⲧ	مريوط	Marea		10						727153	2718	
+144	http://paths.uniroma1.it/atlas/places/144	Babylon - Fustat	Babylon - Fustat	Pr-Ḥʿpy-n-Ỉwn	Βαβυλών | Φοσσᾶτον		ⲃⲁⲃⲩⲗⲱⲛ | ⲃⲁⲃⲓⲗⲱⲛ | ⲡⲁⲃⲓⲗⲱⲛ	الفسطاط	Babylon | el-Fustat		9			641	969	969/969	727082	389	
+145	http://paths.uniroma1.it/atlas/places/145	Hephaistos	Hephaistos	*Pȝ-šy-n-Ḥr	Ἥφαιστος	Efestus	ⲡ(ⲥ)ⲉⲛϩⲱⲣ | ⲥ(ⲩ)ⲛϩⲱⲣ(ⲓ) | τⲥⲩⲛϩⲱⲣ	سنهور	Hephaistos | Hephestou | Iphestos | Tell Sanhur | Sanhur		12			425	550	550/550	727119	348	
+146	http://paths.uniroma1.it/atlas/places/146	Skenai Mandrai	Skenai Mandrai		Σκηναὶ Μάνδραι | Σκηναὶ Μάνδρων	Scenae Mandrorum | Scenae Mandrae		تل ﺍﻟﻤﻨﻴﺎ	Skenai Mandrai | Tell el-Minya Shurafa		7						737050	2149	
+147	http://paths.uniroma1.it/atlas/places/147	Hamamieh	Hamamieh					الحمامية	Hamamieh		2								
+149	http://paths.uniroma1.it/atlas/places/149	Psinches	Psinches		Ψίγχους | Ψίνχης	Psinches			Psinches		4							12015	
+150	http://paths.uniroma1.it/atlas/places/150	Paraitonion	Paraitonion		Παραιτόνιον | Ἀμμωνία	Paraetonium | Paratonion | Paretonio		مرسى مطروح	Paraitonion | Mersa Matruh		8						716615	3668	
+151	http://paths.uniroma1.it/atlas/places/151	Alexandreon Chora	Alexandreon Chora	pȝ tš n ȝlgsntrs	ⲁⲗⲉⲝⲁⲛⲇⲣⲟⲩ ⲡⲟⲗⲓⲥ			الحفن	Alexandreon Chora		4							2630	
+152	http://paths.uniroma1.it/atlas/places/152	Zygrai	Zygrai		Ζυγρίς		ⲍⲩⲅⲣⲁⲓⲥ	مرسى باقوش	Zygrai		4						716656	4299	
+153	http://paths.uniroma1.it/atlas/places/153	Ammoniake	Ammoniake		Ἀμμωνιακή | سيوة				Ammoniake		3						716520	2575	
+154	http://paths.uniroma1.it/atlas/places/154	Oasis Magna	Oasis Magna	Wḥy-rsy | Wḥy | Knm.t | Gnm.t	Ἄνω Ὄασις | Μεγάλη Ὄασις | Ὄασις Θηβαίδος	Oasis Magna | Oasis Maior		الواح الداخلة			10						776210	619	
+155	http://paths.uniroma1.it/atlas/places/155	Prosopites	Prosopites		Προσωπίτης	Prosopites			Prosopites		3						727206	3081	
+156	http://paths.uniroma1.it/atlas/places/156	Sile	Sile	Ṯȝrw	Σέλη		ϩⲗⲗⲏ | ⲛⲗⲏ | ⲥⲉⲗⲏ	تل ابو صيفة	Sile		7						727231	2109	
+157	http://paths.uniroma1.it/atlas/places/157	Boreum	Boreum						Boreum		1						363948	40348	
+158	http://paths.uniroma1.it/atlas/places/158	Berenike (Lower Egypt)	Berenike (Lower Egypt)		Ἑσπερίς | Βερενίκη		ⲃⲉⲣ(ⲉ)ⲛⲓⲕⲏ	بنغازي	Berenike | Hesperis		6						373757	831	
+159	http://paths.uniroma1.it/atlas/places/159	Taucheira	Taucheira		Ταύχειρα | Τεύχειρα | Ἀρσινόη			توكرة	Taucheira		5						373736	3640	
+160	http://paths.uniroma1.it/atlas/places/160	Barke	Barke		Βάρκη				Barke		2						373750	402	
+161	http://paths.uniroma1.it/atlas/places/161	Eglibos?	Eglibos?						Eglibos?		1								
+162	http://paths.uniroma1.it/atlas/places/162	Antipyrgos	Antipyrgos		Ἀντίπυργος		ⲁⲛⲧⲓⲡⲩⲣⲅⲟⲥ	طبرق	Antipyrgos		4						716525	8550	
+163	http://paths.uniroma1.it/atlas/places/163	Bassachitai?	Bassachitai?		Βάσσαχις				Bassachitai?		2						716534	3777	
+164	http://paths.uniroma1.it/atlas/places/164	Hadrianopolis	Hadrianopolis		Ἁδριανή	Hadrianopolis | Adriane			Kaukalou Kome | Driana		5						373824	10968	
+165	http://paths.uniroma1.it/atlas/places/165	Erythron	Erythron		Ἐρύθραια				Erythra | Erythron		3						373785	664	
+166	http://paths.uniroma1.it/atlas/places/166	Abydos Deir Abu Masis	Abydos Deir Abu Masis	ȝbḏw | Ỉbd | Ỉbt | ȝbt | pȝ tš n Ỉbt?	Ἄβυδος		ⲉⲃⲱⲧ | ⲁⲃⲱⲧ	أم القعاب‎‎	Abydos Umm el Qab		10						756550		
+169	http://paths.uniroma1.it/atlas/places/169	Manqabad	Manqabad				ⲙⲁⲛⲕⲁⲡⲱⲧ	منقباد	Manqabad | Abba Nefer		4							2993	
+170	http://paths.uniroma1.it/atlas/places/170	Monastery of St. Macarius at Cyprus	Monastery of St. Macarius at Cyprus						Monastery of St. Macarius | Armenian Monastery | Sourp Magar | Magaravank		4								
+171	http://paths.uniroma1.it/atlas/places/171	Amarna	Amarna	ȝḫt-Ỉtn				العمارنة	Amarna		3						149576487	2767	
+172	http://paths.uniroma1.it/atlas/places/172	Beni Hassan	Beni Hassan					بني حسن	Beni Hassan		2						112509596	414	
+173	http://paths.uniroma1.it/atlas/places/173	Dakhleh	Dakhleh		Ὄασις ἡ Ἐσωτέρω | ἡ Ἐσω Ὄασις | ἡ Ἐσωτέρα Ὄασις | Ὄασις μεγάλη			الواح الداخلة	Dakhleh | Dakla		7						776172	2753	
+174	http://paths.uniroma1.it/atlas/places/174	Trimouthis	Trimouthis		Τριμοῦθις				Trimouthis		2						776235	2733	
+175	http://paths.uniroma1.it/atlas/places/175	Dakleh Ain el Gedida	Dakleh Ain el Gedida						Dakleh Ain el Gedida		1						861854258	3126	
+176	http://paths.uniroma1.it/atlas/places/176	Deir abu Matta	Deir abu Matta					دير ﺍﺑﻮ ﻣﺘﺎ	Deir abu Matta		2			401	600	600/600	667956220	56763	
+178	http://paths.uniroma1.it/atlas/places/178	El-Mudil	El-Mudil						El-Mudil		1							3695	
+179	http://paths.uniroma1.it/atlas/places/179	Tell Edfu	Tell Edfu	Ḏbȝ | Tbȝ | Dbȝ | Bḥdt | Bḥt | Msn	Ἀπόλλωνος | Ἀπολλωνίας | Ἀπόλλωνος Πόλις Μεγάλη | Βάχθις | Πόλις Φοίβου	Apollonopolis Magna	(ⲁ)ⲧⲃⲱ | ⲑⲃⲱ | ⲧⲃⲱ | ⲧⲃⲟ | ⲉⲧⲃⲟ	إدفو	Edfu | Idfu		20			501	1050	1050/1050	785974	269	
+180	http://paths.uniroma1.it/atlas/places/180	Deir el Banat	Deir el Banat					دير البنات	Deir el Banat		2			601	1050	1050/1050		14197	
+181	http://paths.uniroma1.it/atlas/places/181	Imbaba el Mansuriya	Imbaba el Mansuriya					إمبابة	Imbaba el Mansuriya		2						776197		
+182	http://paths.uniroma1.it/atlas/places/182	Karnak	Karnak	Ỉp.t-sw.t | Ns.wt-tȝ.wy | Nsw.t-tȝ.wy	Διὸς Πόλις Μεγάλη | Θῆβαι		ⲛⲏ | ⲛⲉ | ⲧⲡⲟⲗⲓⲥ ⲡⲁⲡⲉ	كرنك	Karnak | Eastern Thebes		11			301	1300	1300/1300	786017 | 786050	576 | 13524 | 13525	
+183	http://paths.uniroma1.it/atlas/places/183	Kharga	Kharga	Wḥy-rsy | Wḥy | Knm.t | Gnm.t	ἡ ἄνω/μεγάλη Ὄασις		ⲃⲁϩ | ⲟⲩⲁϩ | ⲯⲟⲓ	الواح الخارجة	Kharga		10						776210	619	
+184	http://paths.uniroma1.it/atlas/places/184	El-Deir	El-Deir	Pȝ-sy? | P-Si?				الدير	El-Deir | Al-Dayr		5						776167	14221	
+185	http://paths.uniroma1.it/atlas/places/185	Hibis	Hibis		Ἥβις | Ἵβις		ϩⲏⲃ | ϩⲓϥⲉ?		Hibis		5						776181	2786	
+186	http://paths.uniroma1.it/atlas/places/186	Kom Ombo	Kom Ombo		Ἴαμβων | Ὄμβοι | Ὤμβοι		(ϯⲃⲁⲕⲓ) ⲉⲙⲃⲱ		Kom Ombo		5						786079	1499	
+187	http://paths.uniroma1.it/atlas/places/187	Nag el Hagar	Nag el Hagar					نجع الحجر	Nag el Hagar		2								
+188	http://paths.uniroma1.it/atlas/places/188	Pharan	Pharan		Φαραν	Faran | Phara		فاران	Pharan | Faran | Feiran		7						746792	7832	
+189	http://paths.uniroma1.it/atlas/places/189	Qasr Ibrim	Qasr Ibrim		Πριμις | Πρημνις | Πρῖμα	Primi | Pidema | Pindis	ⲫⲣⲓⲙ	قصر ابريم	Qasr Ibrim | Primis		10						798094	1916	
+191	http://paths.uniroma1.it/atlas/places/191	Western Thebes	Western Thebes						Western Thebes		1						786067	1341	
+192	http://paths.uniroma1.it/atlas/places/192	Deir el Bakhit	Deir el Bakhit		Καῦκοι		ⲡⲕⲉⲗⲱⲗ | ⲡⲕⲟⲩⲗⲱⲗ	دير البخيت	Deir el Bakhit | Deir el Bachit		6			576	925	925/925	786014	13098	
+193	http://paths.uniroma1.it/atlas/places/193	Monastery of St. Phoibammon	Monastery of St. Phoibammon	djeser-djeseru	ἁγίος τόπος τοῦ ἀθλοφόρου μάρτυρος Ἀββᾶ Φοιβάμμωνος		ⲡⲙⲟⲛⲁⲥⲧⲏⲣⲓⲟⲛ | ⲡⲧⲟⲡⲟⲥ ⲉⲧⲟⲩⲁⲁⲃ (ⲛ) ⲁⲡⲁ ⲫⲟⲓⲃⲁⲙⲙⲱⲛ | ⲡⲧⲟⲡⲟⲥ ⲛⲁⲡⲁ ⲫⲟⲓⲃⲁⲙⲙⲱⲛ | ⲧⲗⲁⲩⲣⲁ ⲙⲫⲟⲓⲃⲁⲙⲙⲱⲛ	دير البحري	Deir el Bahari | Monastery of St. Phoibammon		9			576	800	800/800		11645	
+194	http://paths.uniroma1.it/atlas/places/194	Monastery of Saint Isidorus Martyr at Deir el Medina	Monastery of Saint Isidorus Martyr at Deir el Medina	pƷ dmj				دير المدينة	Deir el Medina | Monastery of Saint Isidorus Martyr		4			501	800	800/800	864388873	1341	
+195	http://paths.uniroma1.it/atlas/places/195	Deir el Rumi	Deir el Rumi					دير الرومي	Deir el Rumi		2			401	700	700/700	786067	1341	
+196	http://paths.uniroma1.it/atlas/places/196	Western Thebes TT C3	Western Thebes TT C3						Western Thebes TT C3		1			701	800	800/800	786067	1341	
+198	http://paths.uniroma1.it/atlas/places/198	Monastery of Epiphanius	Monastery of Epiphanius				ⲡⲙⲁ ⲛⲁⲡⲁ ⲉⲡⲉⲫⲁⲛⲓⲟⲥ | ⲉⲡⲓⲫⲁⲛⲓⲟⲥ	شيخ عبدالقرنة	Monastery of Epiphanius		4			576	750	750/750	786067	1341	
+199	http://paths.uniroma1.it/atlas/places/199	Western Thebes TT 29	Western Thebes TT 29				ⲧⲉϩⲣⲏⲃⲉ ? | ⲧⲉϩⲣⲉⲃⲉ ?		Western Thebes TT 29		3			601	750	750/750	786067	1341	
+200	http://paths.uniroma1.it/atlas/places/200	Monastery of Cyriacus	Monastery of Cyriacus				ⲡⲙⲁ ⲛⲁⲡⲁ ⲕⲩⲣⲓ<ⲁ>ⲕⲟⲥ | ⲡⲙⲁ ⲛⲁⲡⲁ ⲕⲩⲣⲓⲁⲕⲟⲥ		Monastery of Cyriacus | Sheik Abd el-Qurna		4			501	900	900/900	786067	1341	
+201	http://paths.uniroma1.it/atlas/places/201	Monastery of St. Marcus	Monastery of St. Marcus				ⲡⲧⲟⲡⲟⲥ ... ⲙⲁⲣⲕⲟⲥ ⲡⲉⲩⲁⲅⲅⲉⲗⲓⲥⲧⲏⲥ		Monastery of St. Marcus		2			501	750	750/750	786067	11200	
+202	http://paths.uniroma1.it/atlas/places/202	Valley of the Kings	Valley of the Kings		Syringes			وادي الملوك | وادي ابواب المملوك	Valley of the Kings | Wadi el-Muluk | Biban el-Muluk		6						384697574	1341	
+204	http://paths.uniroma1.it/atlas/places/204	Wadi Natrun Monastery of John the Little	Wadi Natrun Monastery of John the Little						Wadi Natrun Monastery of John the Little		1						727232	3375	
+205	http://paths.uniroma1.it/atlas/places/205	Wadi Natrun Monastery of Baramus	Wadi Natrun Monastery of Baramus						Wadi Natrun Monastery of Baramus		1						727232	3375	
+206	http://paths.uniroma1.it/atlas/places/206	Wadi Natrun Monastery of the Syrians	Wadi Natrun Monastery of the Syrians					دير السريان	Wadi Natrun Monastery of the Syrians		2						727232	3375	
+207	http://paths.uniroma1.it/atlas/places/207	Wadi Natrun Monastery of Moses	Wadi Natrun Monastery of Moses						Wadi Natrun Monastery of Moses		1						727232	3375	
+208	http://paths.uniroma1.it/atlas/places/208	Wadi Natrun Monastery of St. Macarius	Wadi Natrun Monastery of St. Macarius					دير الأنبا مقار	Wadi Natrun Monastery of St. Macarius | Deir el-Anba Maqar		3			330	1374	1374/1374	727232	3375	
+209	http://paths.uniroma1.it/atlas/places/209	Aphrodite	Aphrodite		κώμη Ἀφροδίτης | Ἀφροδιτώ		ⲧϫⲕⲱⲟⲩ | ⲧϣⲕⲟⲟⲩ | ϫⲉⲕⲱⲟⲩ | ϫⲕⲱⲟⲩ	كوم اشقاو	Aphrodite		8						756532	237	
+210	http://paths.uniroma1.it/atlas/places/210	Topos of Apa Phoibammon in the Rock	Topos of Apa Phoibammon in the Rock				ⲡⲧⲟⲡⲟⲥ ⲛⲁⲡⲁ ⲫⲟⲓⲃⲁⲙⲙⲱⲛ | ⲧⲗⲁⲩⲣⲁ ⲙⲫⲟⲓⲃⲁⲙⲙⲱⲛ		Laura of Phoibammon | Topos of Apa Phoibammon in the Rock		4			501	800	800/800	786067	1341	
+211	http://paths.uniroma1.it/atlas/places/211	Philagris	Philagris	Pr-grg-n-Ḏḥwty | *Pȝ-grg-n-Ḏḥwty	Φιλαγρίς | Περκεθαῦτ | Περκεθαοῦτ		ⲡⲉⲣⲕⲉⲑⲁⲩⲧ | ⲡⲉⲣⲕⲉⲧⲁⲩⲧ		Hamuli | Philagris | Perkethayt		10			822	914	914/914	737001	1766	
+212	http://paths.uniroma1.it/atlas/places/212	Speos Artemidos	Speos Artemidos		Σπέος Ἀρτέμιδος			إسطبل عنتر	Speos Artemidos		3						756647	3203	
+213	http://paths.uniroma1.it/atlas/places/213	Mallawi	Mallawi				ⲙⲁⲛⲗⲁⲩ		Manlau | Mallawi		3						756599	1298	
+214	http://paths.uniroma1.it/atlas/places/214	Deir el-Bersha	Deir el-Bersha						Deir el-Bersha		1							2834	
+215	http://paths.uniroma1.it/atlas/places/215	Deir Abu Hennes	Deir Abu Hennes		εὔνη τοῦ ἁγίου Μακαρίου		ⲧⲟⲡⲟⲥ ⲙⲡϩⲁⲅⲓⲟⲥ | ⲁⲡⲁ ⲙⲁⲕⲁⲣⲉ	دير ابو حنس	Deir Abu Hennes | Deir Abu Hinnis | Dayr Abū Ḥinnis | Deir Abu Hennes Wadi Gamus | Apa Makarios		9			301	800	800/800	756549	3506	
+216	http://paths.uniroma1.it/atlas/places/216	Deir Sumbat	Deir Sumbat						Deir Sumbat		1								
+217	http://paths.uniroma1.it/atlas/places/217	Deir al-Dik	Deir al-Dik						Deir el-Dik | Dayr al-Dik		2			501	700	700/700	756557	3641	
+218	http://paths.uniroma1.it/atlas/places/218	Ptepouhar	Ptepouhar				Ⲡⲧⲉⲡⲟⲩϩⲁⲣ		Ptepouhar		2			892	893	893/893			
+219	http://paths.uniroma1.it/atlas/places/219	Western Thebes TT 157	Western Thebes TT 157						Western Thebes TT 157		1			401	790	790/790	786067	1341	
+220	http://paths.uniroma1.it/atlas/places/220	Western Thebes TT 95	Western Thebes TT 95						Western Thebes TT 95		1			501	800	800/800	786067	1341	
+221	http://paths.uniroma1.it/atlas/places/221	Western Thebes TT 99	Western Thebes TT 99						Western Thebes TT 99		1			501	800	800/800	786067	1341	
+222	http://paths.uniroma1.it/atlas/places/222	Western Thebes Winlock - Crum site 26	Western Thebes Winlock - Crum site 26						Western Thebes Winlock - Crum site 26		1			451	900	900/900	786014	13098	
+223	http://paths.uniroma1.it/atlas/places/223	Western Thebes Winlock - Crum site 27	Western Thebes Winlock - Crum site 27						Western Thebes Winlock - Crum site 27		1			451	900	900/900	786014	13098	
+224	http://paths.uniroma1.it/atlas/places/224	Western Thebes TT 97	Western Thebes TT 97						Western Thebes TT 97		1			601	700	700/700	786067	1341	
+225	http://paths.uniroma1.it/atlas/places/225	Lykopolites nomòs	Lykopolites nomòs		Λυκοπολίτης				Lykopolites nomòs		2						756594	3027	
+226	http://paths.uniroma1.it/atlas/places/226	Western Thebes TT 56	Western Thebes TT 56						Western Thebes TT 56		1			401	800	800/800	786067	1341	
+227	http://paths.uniroma1.it/atlas/places/227	Western Thebes Winlock - Crum sites 30-32 (site 33)	Western Thebes Winlock - Crum sites 30-32 (site 33)						Western Thebes Winlock - Crum sites 30-32 (site 33)		1			401	800	800/800	786014	13098	
+228	http://paths.uniroma1.it/atlas/places/228	Western Thebes K 131 [K93.11] - K 130 [K93.12]	Western Thebes K 131 [K93.11] - K 130 [K93.12]						Western Thebes K131 [K93.11] | Western Thebes K130 [K93.12]		2			476	925	925/925	786014	13098	
+229	http://paths.uniroma1.it/atlas/places/229	Western Thebes TT 72	Western Thebes TT 72						Western Thebes TT 72		1			401	800	800/800	786067	1341	
+230	http://paths.uniroma1.it/atlas/places/230	Western Thebes Winlock - Crum site 29	Western Thebes Winlock - Crum site 29						Western Thebes Winlock - Crum site 29		1			401	800	800/800	786067	1341	
+232	http://paths.uniroma1.it/atlas/places/232	Western Thebes [K91.1]	Western Thebes [K91.1]						Western Thebes [K91.1]		1			401	800	800/800	786067	1341	
+233	http://paths.uniroma1.it/atlas/places/233	Western Thebes TT 75	Western Thebes TT 75						Western Thebes TT 75		1			401	800	800/800	786067	1341	
+234	http://paths.uniroma1.it/atlas/places/234	Western Thebes TT 230	Western Thebes TT 230						Western Thebes TT 230		1						786067	1341	
+235	http://paths.uniroma1.it/atlas/places/235	Western Thebes TT 225	Western Thebes TT 225						Western Thebes TT 225		1			401	800	800/800	786067	1341	
+236	http://paths.uniroma1.it/atlas/places/236	Western Thebes TT 82	Western Thebes TT 82						Western Thebes TT 82		1			401	800	800/800	786067	1341	
+237	http://paths.uniroma1.it/atlas/places/237	Western Thebes TT 35	Western Thebes TT 35						Western Thebes TT 35		1			401	800	800/800	786067	1341	
+239	http://paths.uniroma1.it/atlas/places/239	Western Thebes TT 96	Western Thebes TT 96						Western Thebes TT 96		1			401	800	800/800	786067	1341	
+240	http://paths.uniroma1.it/atlas/places/240	Western Thebes TT 160	Western Thebes TT 160						Western Thebes TT 160		1			401	800	800/800	786067	1341	
+241	http://paths.uniroma1.it/atlas/places/241	Western Thebes TT 158	Western Thebes TT 158						Western Thebes TT 158		1			401	800	800/800	786067	1341	
+242	http://paths.uniroma1.it/atlas/places/242	Western Thebes TT 282	Western Thebes TT 282						Western Thebes TT 282		1			401	800	800/800	786067	1341	
+243	http://paths.uniroma1.it/atlas/places/243	Oxyrhynchites nomòs	Oxyrhynchites nomòs		Ὀξυρυγχίτης				Oxyrhynchites nomòs		2						736982	2722	
+244	http://paths.uniroma1.it/atlas/places/244	Western Thebes TT 288 - 289	Western Thebes TT 288 - 289						Western Thebes TT 288 | Western Thebes TT 289		2			401	800	800/800	786067	1341	
+245	http://paths.uniroma1.it/atlas/places/245	Western Thebes TT 20	Western Thebes TT 20						Western Thebes TT 20		1			401	800	800/800	786067	1341	
+246	http://paths.uniroma1.it/atlas/places/246	Western Thebes TT 109	Western Thebes TT 109						Western Thebes TT 109		1			401	800	800/800	786067	1341	
+247	http://paths.uniroma1.it/atlas/places/247	Western Thebes K 298	Western Thebes K 298						Western Thebes K298		1			401	800	800/800	786067	1341	
+248	http://paths.uniroma1.it/atlas/places/248	Western Thebes TT 86	Western Thebes TT 86						Western Thebes TT 86		1			501	800	800/800	786067	1341	
+249	http://paths.uniroma1.it/atlas/places/249	Western Thebes TT 87	Western Thebes TT 87						Western Thebes TT 87		1						786067	1341	
+250	http://paths.uniroma1.it/atlas/places/250	Western Thebes TT 85, TT 87	Western Thebes TT 85, TT 87						Western Thebes TT 85 | Western Thebes TT 87		2			501	725	725/725	786067	1341	
+251	http://paths.uniroma1.it/atlas/places/251	Western Thebes TT 84	Western Thebes TT 84						Western Thebes TT 84		1			501	700	700/700	786067	1341	
+252	http://paths.uniroma1.it/atlas/places/252	Western Thebes TT 94	Western Thebes TT 94						Western Thebes TT 94		1			501	800	800/800	786067	1341	
+253	http://paths.uniroma1.it/atlas/places/253	Western Thebes TT 92	Western Thebes TT 92						Western Thebes TT 92		1			501	800	800/800	786067	1341	
+254	http://paths.uniroma1.it/atlas/places/254	Western Thebes TT 367	Western Thebes TT 367						Western Thebes TT 367		1			1101	1200	1200/1200	786067	1341	
+255	http://paths.uniroma1.it/atlas/places/255	Western Thebes TT 39	Western Thebes TT 39						Western Thebes TT 39		1			401	800	800/800	786067	1341	
+256	http://paths.uniroma1.it/atlas/places/256	Western Thebes TT 373	Western Thebes TT 373						Western Thebes TT 373		1			401	800	800/800	786067	1341	
+257	http://paths.uniroma1.it/atlas/places/257	Western Thebes K 85	Western Thebes K 85						Western Thebes K85		1			501	800	800/800	786067	1341	
+258	http://paths.uniroma1.it/atlas/places/258	Western Thebes TT 49	Western Thebes TT 49						Western Thebes TT 49		1			401	800	800/800	786067	1341	
+259	http://paths.uniroma1.it/atlas/places/259	Western Thebes KV 1	Western Thebes KV 1						Western Thebes KV1		1			401	625	625/625	384697574	1341	
+260	http://paths.uniroma1.it/atlas/places/260	Western Thebes TT 32	Western Thebes TT 32						Western Thebes TT32		1			401	800	800/800	786067	1341	
+261	http://paths.uniroma1.it/atlas/places/261	Western Thebes TT 183	Western Thebes TT 183						Western Thebes TT 183		1			401	800	800/800	786067	1341	
+262	http://paths.uniroma1.it/atlas/places/262	Western Thebes KV 3	Western Thebes KV 3						Western Thebes KV3		1			401	800	800/800	384697574	1341	
+263	http://paths.uniroma1.it/atlas/places/263	Western Thebes KV 4	Western Thebes KV 4						Western Thebes KV4		1			401	625	625/625	384697574	1341	
+264	http://paths.uniroma1.it/atlas/places/264	Ghoran	Ghoran						Ghoran		1						736942	715	
+265	http://paths.uniroma1.it/atlas/places/265	Western Thebes TT 240 (=MMA 517)	Western Thebes TT 240 (=MMA 517)						Western Thebes TT 240 | Western Thebes MMA 517		2			401	800	800/800	786067	1341	
+266	http://paths.uniroma1.it/atlas/places/266	Western Thebes TT 312 (=MMA 509)	Western Thebes TT 312 (=MMA 509)						Western Thebes TT 312 | Western Thebes MMA 509		2			401	800	800/800	786067	1341	
+267	http://paths.uniroma1.it/atlas/places/267	Western Thebes TT 223	Western Thebes TT 223						Western Thebes TT 223		1			401	800	800/800	786067	1341	
+268	http://paths.uniroma1.it/atlas/places/268	Western Thebes KV 9	Western Thebes KV 9						Western Thebes KV9		1			401	625	625/625	384697574	1341	
+269	http://paths.uniroma1.it/atlas/places/269	Western Thebes KV 2	Western Thebes KV 2						Western Thebes KV2		1			401	625	625/625	384697574	1341	
+270	http://paths.uniroma1.it/atlas/places/270	Western Thebes KV 5	Western Thebes KV 5						Western Thebes KV5		1			401	625	625/625	384697574	1341	
+271	http://paths.uniroma1.it/atlas/places/271	Western Thebes KV 6	Western Thebes KV 6						Western Thebes KV6		1			401	625	625/625	384697574	1341	
+272	http://paths.uniroma1.it/atlas/places/272	Western Thebes KV 8	Western Thebes KV 8						Western Thebes KV8		1			401	625	625/625	384697574	1341	
+273	http://paths.uniroma1.it/atlas/places/273	Western Thebes KV 24	Western Thebes KV 24						Western Thebes KV24		1			601	625	625/625	384697574	1341	
+274	http://paths.uniroma1.it/atlas/places/274	Giza	Giza		Πυραμίδες	Pyramides | Horrea Ioseph		الجيزة	Giza | Gizeh | el-Giza		7			1050	1350	1350/1350	442962448	716	
+275	http://paths.uniroma1.it/atlas/places/275	Western Thebes TT 310 (=MMA505)	Western Thebes TT 310 (=MMA505)						Western Thebes TT 310 | Western Thebes MMA505		2			401	800	800/800	786067	1341	
+277	http://paths.uniroma1.it/atlas/places/277	Western Thebes Mortuary complex of Ramses II	Western Thebes Mortuary complex of Ramses II	H̱nm-Wsr | H̱nm.t-Wȝs.t					Western Thebes Mortuary complex of Ramses II | Western Thebes Ramesseum		4			401	800	800/800	963047542	11334	
+278	http://paths.uniroma1.it/atlas/places/278	Western Thebes Mortuary Temple of Seti I	Western Thebes Mortuary Temple of Seti I	ḫft-ḥr nb.s					Western Thebes Mortuary Temple of Seti I		2			401	800	800/800	786067	1341	
+279	http://paths.uniroma1.it/atlas/places/279	Lepidotonpolis	Lepidotonpolis		Λεπιδότων πόλις				Nag‘ el-Mashaikh | Lepidotonpolis		3						756591	3095	
+280	http://paths.uniroma1.it/atlas/places/280	Northern Qurnet Murrai	Northern Qurnet Murrai						Northern Qurnet Murrai		1			401	900	900/900	786067	1341	
+281	http://paths.uniroma1.it/atlas/places/281	Deir el-Shelwit	Deir el-Shelwit					Dayr Katreh			1						786067	1341	
+282	http://paths.uniroma1.it/atlas/places/282	Perpnoute	Perpnoute	Pȝ-ỉ.ỉr-pȝ-nṯr	Θεογονίς | Θεαγενίς		ⲡⲉⲣⲡⲛⲟⲩⲧⲉ | ⲑⲉⲱⲕⲉⲛⲓⲥ		Perpnoute | Theogonis		7						741626	2376	
+283	http://paths.uniroma1.it/atlas/places/283	Western Thebes Winlock - Crum site 6	Western Thebes Winlock - Crum site 6						Western Thebes Winlock- Crum site 6		1			501	700	700/700	786067	1341	
+284	http://paths.uniroma1.it/atlas/places/284	Western Thebes DeM 1437	Western Thebes DeM 1437						Western Thebes DeM 1437		1			501	800	800/800	864388873	1341	
+285	http://paths.uniroma1.it/atlas/places/285	Western Thebes DeM 1438	Western Thebes DeM 1438						Western Thebes DeM 1438		1			501	800	800/800	864388873	1341	
+286	http://paths.uniroma1.it/atlas/places/286	Western Thebes Ramesside votive chapel	Western Thebes Ramesside votive chapel						Western Thebes Ramesside votive chapel		1			501	800	800/800	864388873	1341	
+287	http://paths.uniroma1.it/atlas/places/287	el-Qalamun (Dakhla)	el-Qalamun (Dakhla)						Kalamon | el-Qalamun		2						776188	37062	
+288	http://paths.uniroma1.it/atlas/places/288	Western Thebes DeM 1450	Western Thebes DeM 1450						Western Thebes DeM 1450		1			501	800	800/800	864388873	1341	
+289	http://paths.uniroma1.it/atlas/places/289	Western Thebes DeM 1449	Western Thebes DeM 1449						Western Thebes DeM 1449		1			501	800	800/800	864388873	1341	
+290	http://paths.uniroma1.it/atlas/places/290	Western Thebes DeM 1447	Western Thebes DeM 1447						Western Thebes DeM 1447		1			501	800	800/800	864388873	1341	
+291	http://paths.uniroma1.it/atlas/places/291	Western Thebes QV 1	Western Thebes QV 1						Western Thebes QV 1		1			401	700	700/700	786067	1341	
+292	http://paths.uniroma1.it/atlas/places/292	Western Thebes DeM 1446	Western Thebes DeM 1446						Western Thebes DeM 1446		1			501	800	800/800	864388873	1341	
+293	http://paths.uniroma1.it/atlas/places/293	Western Thebes QV 2	Western Thebes QV 2						Western Thebes QV 2		1						786067	1341	
+294	http://paths.uniroma1.it/atlas/places/294	Western Thebes QV 12	Western Thebes QV 12						Western Thebes QV 12		1						786067	1341	
+295	http://paths.uniroma1.it/atlas/places/295	Western Thebes QV 22	Western Thebes QV 22						Western Thebes QV 22		1						786067	1341	
+296	http://paths.uniroma1.it/atlas/places/296	Western Thebes QV 21	Western Thebes QV 21						Western Thebes QV 21		1			401	700	700/700	786067	1341	
+297	http://paths.uniroma1.it/atlas/places/297	Western Thebes DeM 1451	Western Thebes DeM 1451						Western Thebes DeM 1451		1			501	800	800/800	864388873	1341	
+298	http://paths.uniroma1.it/atlas/places/298	Western Thebes QV 58	Western Thebes QV 58						Western Thebes QV 58		1								
+299	http://paths.uniroma1.it/atlas/places/299	Western Thebes QV 60	Western Thebes QV 60						Western Thebes QV 60		1			401	800	800/800	786067	1341	
+300	http://paths.uniroma1.it/atlas/places/300	Western Thebes QV 73	Western Thebes QV 73						Western Thebes QV 73		1			401	700	700/700	786067	1341	
+301	http://paths.uniroma1.it/atlas/places/301	Western Thebes QV 79	Western Thebes QV 79						Western Thebes QV 79		1						786067	1341	
+302	http://paths.uniroma1.it/atlas/places/302	Western Thebes DeM 1346	Western Thebes DeM 1346						Western Thebes DeM 1346		1			501	800	800/800	864388873	1341	
+303	http://paths.uniroma1.it/atlas/places/303	Western Thebes DeM 1006	Western Thebes DeM 1006						Western Thebes DeM 1006		1			501	800	800/800	864388873	1341	
+304	http://paths.uniroma1.it/atlas/places/304	Western Thebes TT 336	Western Thebes TT 336						Western Thebes TT 336		1			501	800	800/800	864388873	1341	
+305	http://paths.uniroma1.it/atlas/places/305	Western Thebes QV 44	Western Thebes QV 44						Western Thebes QV 44		1			401	700	700/700	786067	1341	
+307	http://paths.uniroma1.it/atlas/places/307	Western Thebes TT 46	Western Thebes TT 46						Western Thebes TT46		1			401	800	800/800	786067	1341	
+308	http://paths.uniroma1.it/atlas/places/308	Western Thebes TT 52	Western Thebes TT 52						Western Thebes TT 52		1			401	800	800/800	786067	1341	
+309	http://paths.uniroma1.it/atlas/places/309	Western Thebes DeM 1147	Western Thebes DeM 1147						Western Thebes DeM 1147		1			501	800	800/800	864388873	1341	
+310	http://paths.uniroma1.it/atlas/places/310	Western Thebes DeM 1148	Western Thebes DeM 1148						Western Thebes DeM 1148		1			501	800	800/800	864388873	1341	
+311	http://paths.uniroma1.it/atlas/places/311	Western Thebes DeM 1150	Western Thebes DeM 1150						Western Thebes DeM 1150		1			501	800	800/800	864388873	1341	
+312	http://paths.uniroma1.it/atlas/places/312	Western Thebes DeM 1197	Western Thebes DeM 1197						Western Thebes DeM 1197		1			501	800	800/800	864388873	1341	
+313	http://paths.uniroma1.it/atlas/places/313	Western Thebes DeM 2002 - DeM 2003 - DeM 2004	Western Thebes DeM 2002 - DeM 2003 - DeM 2004						Western Thebes DeM 2002 | Western Thebes DeM 2003 | Western Thebes DeM 2004		3			501	800	800/800	864388873	1341	
+314	http://paths.uniroma1.it/atlas/places/314	Western Thebes TT 251	Western Thebes TT 251						Western Thebes TT 251		1			401	800	800/800	786067	1341	
+315	http://paths.uniroma1.it/atlas/places/315	Western Thebes C 6	Western Thebes C 6						Western Thebes C 6		1			501	650	650/650	786067	1341	
+316	http://paths.uniroma1.it/atlas/places/316	Qasr el-Agouz	Qasr el-Agouz						Qasr el-Agouz | Kasr el-Agouz		2			551	900	900/900	786067	1341	
+317	http://paths.uniroma1.it/atlas/places/317	Western Thebes DeM 1401	Western Thebes DeM 1401						Western Thebes DeM 1401		1			501	800	800/800	864788873	1341	
+318	http://paths.uniroma1.it/atlas/places/318	Western Thebes C 7	Western Thebes C 7						Western Thebes C 7		1			501	650	650/650	786067	1341	
+319	http://paths.uniroma1.it/atlas/places/319	Western Thebes DeM 1400	Western Thebes DeM 1400						Western Thebes DeM 1346		1			501	800	800/800	864388873	1341	
+320	http://paths.uniroma1.it/atlas/places/320	Western Thebes C' 7	Western Thebes C' 7						Western Thebes C'7		1			501	650	650/650	786067	1341	
+321	http://paths.uniroma1.it/atlas/places/321	Western Thebes QV hamlet	Western Thebes QV hamlet	whyt					Western Thebes QV hamlet		2			401	800	800/800	786067	1341	
+322	http://paths.uniroma1.it/atlas/places/322	Pshanti	Pshanti		Ἀκανθῶνος		ⲡϣⲁⲛⲧⲓ | ⲡϣⲱⲛⲧⲉ		Pshanti | Pšanti		5								
+323	http://paths.uniroma1.it/atlas/places/323	Fayyum	Fayyum	Tȝ-š | Š-Sbk | Wȝḏ-wr | Pȝ-ym | Š-rsy š-mḥty	Λιμνίτης | Λίμνη | Ἀρσινοίτης | Ἀρσενοίτης		ⲡⲟⲗⲓⲥ, ⲡⲉⲓⲟⲙ, ⲡⲓⲁⲙ, ⲡⲓⲱⲙ, ⲫⲓⲟⲙ | ⲫⲓⲟⲙ | ⲡⲓⲱⲙ | ⲡⲓⲁⲙ | ⲡⲉⲓⲟⲙ | ⲡⲟⲗⲓⲥ	الفيوم	Fayyum		17						736893	332 | 1255	
+324	http://paths.uniroma1.it/atlas/places/324	Deir el-Saqiyya	Deir el-Saqiyya						Dayr al-Saqiyya | Deir el-Saqiyya		2			376	450	450/450			
+325	http://paths.uniroma1.it/atlas/places/325	Koprithis	Koprithis		Κοπρῖθις | Κοπρίϑειος κώμη		Ⲕⲟⲡⲣⲉⲧ	قبريط	Koprithis | Tell Qabrit | Kom Qabrit		7			301	700	700/700		5320	
+326	http://paths.uniroma1.it/atlas/places/326	Kom Sidi Uqba	Kom Sidi Uqba				Ⲧⲕⲉⲗⲗⲟ (?)	دكلوبا	Kom Sidi Uqba | Kom Sidi Aqaba		4			501	1000	1000/1000			
+327	http://paths.uniroma1.it/atlas/places/327	Magdola	Magdola	Nȝ-mktlȝ | mkt3l | Mgtl?	Μαγδωλα | Μάγδολα		ⲙⲓⲕⲧⲁⲁⲗ | ⲙⲓⲧⲁⲁⲗ		Miktaal | Magdola | Medinet Nehas		10			856	900	900/900	736956	1284	
+328	http://paths.uniroma1.it/atlas/places/328	Leontopolis (Tell el-Yahudiya)	Leontopolis (Tell el-Yahudiya)	Nȝ-n-tȝ-ḥw.t	Λεοντώ | Λεοντῶ | Λεοντίου | Λεόντων Πόλις		ⲗⲉⲱⲛⲧⲓⲟⲩ | ⲗⲁⲓⲱⲛⲧⲓⲱⲛ | ⲛⲁⲑⲱ(?) | ⲛⲑⲱ(?)	ثل اليهوديه	Leontopolis | Tell el-Yahudiya | Tell el-Jahudijah		13						727146	1239	
+329	http://paths.uniroma1.it/atlas/places/329	Mendes	Mendes	Pr-Bȝ-nb-Ḏd.t | Ḏd.t | Pr-B.tt | Pr-Bn-twtw | ʿnp.t	Μένδης		ⲡ(ϭⲓ)ⲙⲉⲛⲧⲏϯ	تل الربع مندادة منديد	Mendes | Tell el-Rub’a		10			301	700	700/700	727156	1351	
+330	http://paths.uniroma1.it/atlas/places/330	Western Thebes MMA 803	Western Thebes MMA 803						Western Thebes MMA 803		1						786067	1341	
+331	http://paths.uniroma1.it/atlas/places/331	Western Thebes MMA 804	Western Thebes MMA 804						Western Thebes MMA 804		1			501	800	800/800	786067	1341	
+332	http://paths.uniroma1.it/atlas/places/332	Western Thebes MMA 1106	Western Thebes MMA 1106						Western Thebes MMA 1106		1			501	800	800/800	786067	1341	
+333	http://paths.uniroma1.it/atlas/places/333	Western Thebes MMA 1107 (=TT 22)	Western Thebes MMA 1107 (=TT 22)						Western Thebes MMA 1107 | Western Thebes TT 22		2			501	800	800/800	786067	1341	
+334	http://paths.uniroma1.it/atlas/places/334	Western Thebes MMA 1109	Western Thebes MMA 1109						Western Thebes MMA 1109		1			501	800	800/800	786067	1341	
+335	http://paths.uniroma1.it/atlas/places/335	Western Thebes MMA 1112	Western Thebes MMA 1112						Western Thebes MMA 1112		1			501	800	800/800	786067	1341	
+336	http://paths.uniroma1.it/atlas/places/336	Deir el-Hammam	Deir el-Hammam					دير الحمام	Dayr el-Hammam | Deir el-Hammam | Deir Abu Ishaq		4			501	900	900/900		2756	
+337	http://paths.uniroma1.it/atlas/places/337	Monastery of Apa Selbane in honour of the Virgin	Monastery of Apa Selbane in honour of the Virgin				ⲧⲡⲁⲣⲑⲉⲛⲟⲥ ⲛ̄ⲁⲡⲁ ⲥⲉⲗ[ⲃ]ⲁⲛⲉ ⲛ̄[****] ϩⲙ̄ⲡⲧⲁϣ ⲡⲓⲁⲙ		Monastery of Apa Selbane in honour of the Virgin		2			913	914	914/914			
+338	http://paths.uniroma1.it/atlas/places/338	Taposiris Magna	Taposiris Magna		Ταποσιρις Μαγνὰ			أبو صير‎	Abusir | Taposiris Magna		4						7272741	2260	
+339	http://paths.uniroma1.it/atlas/places/339	Female Monastery at Atripe	Female Monastery at Atripe	Ḥw.t-Rpy.t | Tȝ-Rpy.t | Rpy.t	Τριφεῖον | Τριπε | Ἀθριβη		ⲁⲧⲣⲓⲡⲉ | ⲁⲑⲣⲏⲃⲓ		Atripe / Female Monastery		9			381	650	650/650	756538	5162	
+340	http://paths.uniroma1.it/atlas/places/340	Pseudo Deir Abu Lifah	Pseudo Deir Abu Lifah						Pseudo Deir Abu Lifah		1			601	900	900/900			
+341	http://paths.uniroma1.it/atlas/places/341	El-Kanais	El-Kanais						El-Kanais | Iluet el-Kanais el-Kabirah | ‘Iluet al-Kana’is al-Kabirah		3			651	900	900/900			
+342	http://paths.uniroma1.it/atlas/places/342	Upper Egypt	Upper Egypt	Šmʿ | Šmȝ | Tȝ-šmʿ.w | ʿ-rsy | *Mȝʿ-rs	Ἄνω Αἴγυπτος | Ἄνω Χώρα | Ἑρμῆς			صعيد مصر	Upper Egypt		10							2766	
+343	http://paths.uniroma1.it/atlas/places/343	Lower Egypt	Lower Egypt	Mḥw | Mḥy | Tȝ-Mḥy | Mḥȝ | ʿ-mḥty | ʿ-mḥṱ)	Κάτω Αἴγυπτος			مصر السفلى	Lower Egypt		9							2712	
+344	http://paths.uniroma1.it/atlas/places/344	Monastery of Apa St. Sansnos	Monastery of Apa St. Sansnos				ⲧⲟⲡⲟⲥ ⲙⲡ Ϩⲁⲅⲓⲟⲥ ⲁⲡⲁ ⲥⲁⲛⲥ[ⲛ]ⲟⲥ ⲛ ⲧⲉⲣⲥⲱ ⲉⲧϣⲏϥ		Monastery of Apa St. Sansnos		2			801	900	900/900			
+345	http://paths.uniroma1.it/atlas/places/345	Talit	Talit	Tȝ-ʿlṱ | Tȝ-ȝlyt	Ταλιθις | Ταλει		ⲧⲁⲗⲓ̇ⲧ		Talit | Kom Talit		7						737065	2236	
+346	http://paths.uniroma1.it/atlas/places/346	Monastery (?) of St. Theodoros	Monastery (?) of St. Theodoros				ⲫⲁⲅⲓⲟⲥ ⲑⲉⲱⲇⲱⲣⲟⲥ		Monastery of St. Theodoros		2								
+347	http://paths.uniroma1.it/atlas/places/347	Tahanhor	Tahanhor				ⲧⲁϩⲁⲛϩⲱⲣ		Tahanhor | Tahanhur		3								
+348	http://paths.uniroma1.it/atlas/places/348	Ousia of Apa Hafs	Ousia of Apa Hafs				ⲟⲩⲥⲓⲁ ⲉⲛⲁⲡⲁ ϩⲁϥⲥ		Ousia of Apa Hafs		2								
+349	http://paths.uniroma1.it/atlas/places/349	Samalut	Samalut		Σομολω | Τσυμουλοτ | Τισυμουλοτ		ⲧⲥⲉⲙⲟⲩⲗⲟⲩ | ⲧⲥⲩⲙⲃⲟⲩⲗⲟⲧ | ⲧⲥⲩⲙⲟⲩⲗⲱⲧ	سمالوط	Samalut | Samallut | Somolo | Semolo		11						737054	4834 | 3222	
+350	http://paths.uniroma1.it/atlas/places/350	Tell el-Burashiya	Tell el-Burashiya						Tell el-Burashiya | Kom el-Hartein		2			401	700	700/700		5128	
+351	http://paths.uniroma1.it/atlas/places/351	Kom Yetwal wa Yuksur	Kom Yetwal wa Yuksur						Kom Yetwal wa Yuksur | Tell Kurdud		2							56776	
+352	http://paths.uniroma1.it/atlas/places/352	Monastery of Apa Epima at Pshonte	Monastery of Apa Epima at Pshonte		Ἀκανθῶνος χωρίον		ⲁⲅⲓⲟⲩ ⲙⲟⲛⲁⲥⲧⲏⲣⲓⲟⲩ ⲁⲃⲃⲁ̣ ⲁⲡⲁ ⲉⲡⲓⲙⲁ ⲙⲡϣⲱⲛⲧⲉ | ⲡϣⲁⲛⲧⲓ		Monastery of Apa Epima at Pshonte | Pshonte | Akanthonos Chorion | Ankathonos | Agathonos		8						741414	89	
+353	http://paths.uniroma1.it/atlas/places/353	Tmekra	Tmekra				ⲧⲙⲉⲕⲣⲁ		Tmekra		2							42927	
+354	http://paths.uniroma1.it/atlas/places/354	Monastery of St. Theodoros	Monastery of St. Theodoros				ⲫⲁⲅⲓⲟⲥ ⲑⲉⲱⲇⲱⲣⲟⲥ		Monastery of St. Theodoros		2								
+355	http://paths.uniroma1.it/atlas/places/355	Pishai	Pishai	Pȝy-Šȝy | Pȝy-Šy	Πισαις		ⲡⲓϣⲁⲉⲓ | ⲡⲓϣⲁⲓ		Ibshaway | Pisais | Pisaei | Pishai | Pisaitos Epoikion | Pisaei Chorion | Abshay(a) | Abshaih | Abshway | Ibshwai | Ibshawai | Abschajet er-Rumman		17						737015	1836	
+356	http://paths.uniroma1.it/atlas/places/356	Phantoou Nerebe	Phantoou Nerebe		Νερηβις		ⲡϩⲁⲛⲧⲟⲟⲩ ⲛⲉⲣⲏⲃⲉ		Phantoou Nerebe | Nerebis | Nerebeos		5							5932	
+357	http://paths.uniroma1.it/atlas/places/357	Tmouou	Tmouou	*Mȝy.t | *Tȝ-mȝy.t	Μουει | Τμουει χωρίον		ⲙⲟⲩⲉⲓ | ⲧⲙⲟⲩⲟⲩ		Mouei | Mouei Chorion | Epoikion | Tmouei Chorion | Thmouei		11			801	900	900/900		2444 | 1397	
+358	http://paths.uniroma1.it/atlas/places/358	Faras	Faras	Pḫrse - Pe-ỉrs?	Παχωρα	Tapros - Phitorga?	ⲡⲁⲭⲱⲣⲁⲥ		Faras		5						795838	3170	
+359	http://paths.uniroma1.it/atlas/places/359	Dongola	Dongola		ⲧⲓⲙⲓⲕⲗⲉⲱⲥ | ⲧⲓⲙⲓⲕⲗⲉⲟⲥ | ⲧⲓⲙⲏⲕ(ⲗⲉⲟⲥ)		ⲇⲁⲛⲅ( ) | ⲇⲉⲩⲅ( ) | ⲧⲏⲙⲩⲕⲗⲉⲱⲥ	Dunqula			7						865674318	5080	
+360	http://paths.uniroma1.it/atlas/places/360	Qasr el-Wizz	Qasr el-Wizz								0							3481	
+361	http://paths.uniroma1.it/atlas/places/361	Tidjephrone	Tidjephrone				ϯϫⲉⲫⲣⲟⲛⲉ		Tidjephrone | Tičephrone		3			901	1000	1000/1000			
+362	http://paths.uniroma1.it/atlas/places/362	Abdallah-n Irqi	Abdallah-n Irqi						Abdallah-n Irqi | Abdallah Nirqi		2							14237	
+363	http://paths.uniroma1.it/atlas/places/363	Wadi Halfa	Wadi Halfa								0							2499	
+364	http://paths.uniroma1.it/atlas/places/364	Arminna	Arminna	ʿȝ-ḏ-w-mn		Andumana			Arminna West | Nasarduma | Andumanas | Sanduma | Samduna | Adomn | Ermenne		9						795780	3448	
+365	http://paths.uniroma1.it/atlas/places/365	Thraso	Thraso	Trswȝ | *Tȝ-rsy	Θρασω | Σαθρω		ⲧⲉⲣⲥⲱ		Thraso | Sathro		7			801	900	900/900	741593	2417	
+366	http://paths.uniroma1.it/atlas/places/366	Naga el-Sheima	Naga el-Sheima						Sheima Amalika		1							3164 | 3493	
+367	http://paths.uniroma1.it/atlas/places/367	Deir Mar Tumas	Deir Mar Tumas						Deir Mar Tumas | Deir Anba Tumas | Monastery of St. Thomas the hermit		3			1201	1300	1300/1300	795886	3486	
+368	http://paths.uniroma1.it/atlas/places/368	Upper Ansina	Upper Ansina					انصنا	Ansina | Upper Ansina		3			401	800	800/800	756518	2774	
+369	http://paths.uniroma1.it/atlas/places/369	Wadi Sarga	Wadi Sarga								0						756676	2843	
+370	http://paths.uniroma1.it/atlas/places/370	Helwan	Helwan					حلوان	Helwan | Hilwan		3			675	1300	1300/1300		4918	
+371	http://paths.uniroma1.it/atlas/places/371	Deir el-Nasara	Deir el-Nasara						Deir el-Nasara | Dayr al-Nasâra		2			501	725	725/725			
+372	http://paths.uniroma1.it/atlas/places/372	Deir el-Misaykra	Deir el-Misaykra						Deir el-Misaykra | Dayr al-Misaykrah | Deir el-Miseikre | Deir el-Namus		4			501	1200	1200/1200			
+373	http://paths.uniroma1.it/atlas/places/373	Deir el-Namus	Deir el-Namus						Deir el-Namus | Deir el-Namous | Dayr al-Nāmūs | Qarā'ib an-Namūs | Deir el-Misaykra		5			501	1200	1200/1200			
+374	http://paths.uniroma1.it/atlas/places/374	Deir el-Matmar	Deir el-Matmar						Deir el-Matmar | Dayr al-Maṭmar		2			501	700	700/700			
+375	http://paths.uniroma1.it/atlas/places/375	Karbone	Karbone						Deir Apa Pshoi		1								
+376	http://paths.uniroma1.it/atlas/places/376	Topos of Apa Tyrannos	Topos of Apa Tyrannos						Topos of Apa Tyrannos | Monastery of Apa Tyrannos | Monastery of Posidonios		3			501	700	700/700		812	
+377	http://paths.uniroma1.it/atlas/places/377	Kola el-Hamra	Kola el-Hamra						Kola el-Hamra		1			501	600	600/600			
+378	http://paths.uniroma1.it/atlas/places/378	Deir el-Sanad	Deir el-Sanad						Deir el-Sanad | Dayr al-Sanad | Dayr al-Gizaz | Monastery of Anba Samuel		4			501	1399	1399/1399			
+379	http://paths.uniroma1.it/atlas/places/379	Monastery of John Khame	Monastery of John Khame				ⲡⲁⲡⲁ ⲓⲱϩⲁⲛⲛⲏⲥ ⲭⲁⲙⲉ		Monastery of John Khame		2			840	1400	1400/1400			
+380	http://paths.uniroma1.it/atlas/places/380	Deir Mar Buqtur	Deir Mar Buqtur						Deir Mar Buqtur | Dayr Mar Buqtur		2			800	1399	1399/1399			
+381	http://paths.uniroma1.it/atlas/places/381	Deir el-Salib	Deir el-Salib					دير الصليب المقدس	Deir el-Salib | Dayr al-Ṣalīb | Monastery of the Holy Cross		4			700	1225	1225/1225			
+382	http://paths.uniroma1.it/atlas/places/382	Deir Ishaq	Deir Ishaq						Deir Ishaq | Dair Ishâq		2			701	825	825/825			
+383	http://paths.uniroma1.it/atlas/places/383	Deir el-Malek Mikhail (Qibli Qamula)	Deir el-Malek Mikhail (Qibli Qamula)					‏دير الملاك ميخائيل القبلي | دير العين	Deir el-Malek Mikhail (Qibli Qamula)		3			601	1400	1400/1400		1341	
+384	http://paths.uniroma1.it/atlas/places/384	Deir Mar Girgis el-Magmaʿ	Deir Mar Girgis el-Magmaʿ					‏دير مارجرجس المجمع			1			500	1199	1199/1199			
+385	http://paths.uniroma1.it/atlas/places/385	Deir Abu Darag	Deir Abu Darag						Deir Abu Darag | Dayr Abū Daraj		2			526	650	650/650		3539	
+386	http://paths.uniroma1.it/atlas/places/386	'Ain el-Sabil	'Ain el-Sabil						'Ain el-Sabil		1			340	360	360/360	551781152		
+387	http://paths.uniroma1.it/atlas/places/387	Deir el-Azab	Deir el-Azab					دير العزب‎ | ‏دير الأنبا أبرآم	Deir el-Azab | Tell Azab | Monastery of Anba Abraam		5							327	
+388	http://paths.uniroma1.it/atlas/places/388	'Ain Saafa	'Ain Saafa					‏عين سعف	'Ain Saaf | Ain Zaaf | Ain Zaf		4								
+389	http://paths.uniroma1.it/atlas/places/389	Sur SR022.A	Sur SR022.A						Sur SR022.A		1			901	1500	1500/1500			
+390	http://paths.uniroma1.it/atlas/places/390	Tell el-Abiad	Tell el-Abiad						Tell el-Abiad		1			401	700	700/700			
+391	http://paths.uniroma1.it/atlas/places/391	Kom Abu Ali	Kom Abu Ali						Kom Abu Ali		1			401	700	700/700			
+392	http://paths.uniroma1.it/atlas/places/392	Tell Abu el-Gudur	Tell Abu el-Gudur						Tell Abu el-Gudur | Abu Gudud		2			401	700	700/700			
+393	http://paths.uniroma1.it/atlas/places/393	Kom el-Adda	Kom el-Adda						Kom el-Adda | Kom Abu el-Ida		2			401	700	700/700			
+394	http://paths.uniroma1.it/atlas/places/394	Tell Abu el Sobh	Tell Abu el Sobh						Tell Abu el Sobh | Tell el-Safra		2			401	700	700/700			
+395	http://paths.uniroma1.it/atlas/places/395	Tell Abu Husa	Tell Abu Husa						Tell Abu Husa		1			401	700	700/700			
+396	http://paths.uniroma1.it/atlas/places/396	Kom el Sheikh Ismail	Kom el Sheikh Ismail						Kom el Sheikh Ismail | Kom Abu Ismail | Kom Ismail		3			201	1000	1000/1000			
+397	http://paths.uniroma1.it/atlas/places/397	Tell Abu Kharufa	Tell Abu Kharufa						Tell Abu Kharufa		1			401	700	700/700			
+398	http://paths.uniroma1.it/atlas/places/398	Tell Abu Qirdan	Tell Abu Qirdan						Tell Abu Qirdan		1			401	700	700/700			
+399	http://paths.uniroma1.it/atlas/places/399	Tell Abu Shafei	Tell Abu Shafei						Tell Abu Shafei		1			401	700	700/700			
+400	http://paths.uniroma1.it/atlas/places/400	Tell Abu Umran	Tell Abu Umran						Tell Abu Umran | Gazert Abu Omran		2			401	700	700/700			
+401	http://paths.uniroma1.it/atlas/places/401	Tell el-Adowel	Tell el-Adowel						Tell el-Adowel		1			401	700	700/700			
+402	http://paths.uniroma1.it/atlas/places/402	Kom el-Ahmar	Kom el-Ahmar						Kom el-Ahmar | Ezbet Ahmar		2			401	700	700/700			
+403	http://paths.uniroma1.it/atlas/places/403	Kom el-Ahdar	Kom el-Ahdar						Kom el-Ahdar | Gezira Kom el-Akhdar		2			401	700	700/700			
+404	http://paths.uniroma1.it/atlas/places/404	Kom el-Ahmar 1	Kom el-Ahmar 1						Kom el-Ahmar		1			401	700	700/700			
+405	http://paths.uniroma1.it/atlas/places/405	Kom el-Ahmar 2	Kom el-Ahmar 2						Kom el-Ahmar		1			401	700	700/700			
+406	http://paths.uniroma1.it/atlas/places/406	Kom Alawi	Kom Alawi						Kom Alawi		1			301	900	900/900			
+407	http://paths.uniroma1.it/atlas/places/407	Tell Amd	Tell Amd						Tell Amd | Tell Soweid | Tell Iswid		3			401	700	700/700			
+408	http://paths.uniroma1.it/atlas/places/408	Tell Amya	Tell Amya						Tell Amya		1								
+409	http://paths.uniroma1.it/atlas/places/409	Ezbet Aniz Ghubriyal	Ezbet Aniz Ghubriyal						Ezbet Aniz Ghubriyal		1			401	700	700/700			
+410	http://paths.uniroma1.it/atlas/places/410	Kom el-Arab	Kom el-Arab						Kom el-Arab | Tell Kafri		2			401	900	900/900			
+411	http://paths.uniroma1.it/atlas/places/411	Tell el-Arab	Tell el-Arab						Tell el-Arab		1			401	700	700/700			
+412	http://paths.uniroma1.it/atlas/places/412	Kafr el-Ashiri	Kafr el-Ashiri						Kafr el-Ashiri | Kom Barhim		2			401	700	700/700			
+413	http://paths.uniroma1.it/atlas/places/413	Deir Mustafa Kashef	Deir Mustafa Kashef					‏عين مصطفى كاشف	Deir Mustafa Kashef		2			451	600	600/600	776168		
+414	http://paths.uniroma1.it/atlas/places/414	El-Sheikh Sa'id	El-Sheikh Sa'id						El-Sheikh Sa'id | El-Sheikh Said | Deir Abu Fam | Deir el-Qaddis Abu Bifam		4			301	1200	1200/1200	756547	3566	
+415	http://paths.uniroma1.it/atlas/places/415	Deir Abu Fana	Deir Abu Fana				Ⲁⲃⲃⲁ Ⲃⲉⲛⲓ ⲡⲓⲙⲁⲛⲇⲣⲓⲧⲏⲥ	‏دير أبو فانا | دير الصليب	Deir Abu Fana | Dayr Abu Fanah | Monastery of Apa Bane		6			401	1300	1300/1300	756523		
+416	http://paths.uniroma1.it/atlas/places/416	Deir al-Fakhuri	Deir al-Fakhuri						Deir el-Fakhuri | Dayr al-Fakhuri | Monastery of St. Matthew the Poor		3			701	1200	1200/1200	786059	1227	
+417	http://paths.uniroma1.it/atlas/places/417	Abu Sha'ar	Abu Sha'ar								0						766332	2727	
+418	http://paths.uniroma1.it/atlas/places/418	Deir el-Quseir	Deir el-Quseir						Deir el-Quseir | Dayr al-Qusayr | Dayr Arsaniyus | Dayr al-Baghl | Dayr al-Yunan | Dayr al-Haraqal		6			801	1350	1350/1350	727252	2480	
+419	http://paths.uniroma1.it/atlas/places/419	Ain el-Hayz	Ain el-Hayz								0						716510		
+420	http://paths.uniroma1.it/atlas/places/420	Gezira el-Faraun	Gezira el-Faraun								0								
+421	http://paths.uniroma1.it/atlas/places/421	Hawwariya	Hawwariya								0						727153		
+422	http://paths.uniroma1.it/atlas/places/422	Kalabsha	Kalabsha								0						795868		
+423	http://paths.uniroma1.it/atlas/places/423	Kom Namrud	Kom Namrud						Kom Namrud		1						736944		
+424	http://paths.uniroma1.it/atlas/places/424	El-Tor	El-Tor								0						746803		
+425	http://paths.uniroma1.it/atlas/places/425	El-Tod	El-Tod								0						786132	2458	
+426	http://paths.uniroma1.it/atlas/places/426	Bashmur	Bashmur	pꜣ-šʿ-mr			ⲡⲥⲁⲙⲏⲣ | ⲡⲓϣⲁⲙⲏⲣ	البشمور	Bashmur		5								
+427	http://paths.uniroma1.it/atlas/places/427	Deir el-Shuhada	Deir el-Shuhada						Deir el-Shuhada | Dayr al-Shuhada | Dayr Manawus | Monastery of the Martyrs		4						756561	1227	
+428	http://paths.uniroma1.it/atlas/places/428	Ganub Qasr el-Agouz	Ganub Qasr el-Agouz						Ganub Qasr el-Agouz		1			301	600	600/600	716504		
+429	http://paths.uniroma1.it/atlas/places/429	Hagar Esna	Hagar Esna						Hagar Esna		1			550	630	630/630	786059	1227	
+430	http://paths.uniroma1.it/atlas/places/430	Deir Anba Bishoi	Deir Anba Bishoi								0								
+431	http://paths.uniroma1.it/atlas/places/431	Gebel Qarara	Gebel Qarara						Gebel Qarara | Jebel Karara		2			301	900	900/900	736924	2634	
+432	http://paths.uniroma1.it/atlas/places/432	Kom el-Ahmar/Sharuna	Kom el-Ahmar/Sharuna	hwt-nsw | pȝ tš n hwt-nsw					Kom el-Ahmar/Sharuna | Kom el-Ahmar Sawaris		4			376	800	800/800		2793	
+433	http://paths.uniroma1.it/atlas/places/433	Tell el-Barriya	Tell el-Barriya						Tell el-Barriya		1								
+434	http://paths.uniroma1.it/atlas/places/434	Kom el-Barud	Kom el-Barud						Kom el-Barud		1								
+435	http://paths.uniroma1.it/atlas/places/435	Tell el-Bendariya	Tell el-Bendariya					تلّ البندرية	el-Bendariya | El-Bindarîa | el-Bindariya | el-Bendaria | el-Bindaria. | Tell al Bindar		7			401	700	700/700			
+436	http://paths.uniroma1.it/atlas/places/436	Monastery of St. Anthony at Famagusta	Monastery of St. Anthony at Famagusta								0			1325	1350	1350/1350	707485	688	
+437	http://paths.uniroma1.it/atlas/places/437	Bilgai	Bilgai						Bilgai		1								
+438	http://paths.uniroma1.it/atlas/places/438	Kom el-Bilshasha	Kom el-Bilshasha						Kom el-Bilshasha | Kawm Bilshashah | Kom el-Hawaga		3			500	799	799/799			
+439	http://paths.uniroma1.it/atlas/places/439	Balhib	Balhib				ⲡⲉⲗϩⲓⲡ	ديبي	Balhib | Tell Dibi | Tell Deibi		5			401	800	800/800			
+440	http://paths.uniroma1.it/atlas/places/440	Tell ed-Deir	Tell ed-Deir						Tell ed-Deir		1			401	700	700/700			
+441	http://paths.uniroma1.it/atlas/places/441	Dibqu	Dibqu						Dibqu		1			640	1199	1199/1199			
+442	http://paths.uniroma1.it/atlas/places/442	Kom ed-Dosha	Kom ed-Dosha						Kom ed-Dosha		1			400	799	799/799		2599	
+443	http://paths.uniroma1.it/atlas/places/443	Duweichat	Duweichat						Duweichat | Salachat | Kom Abu Heitan		3			500	799	799/799			
+444	http://paths.uniroma1.it/atlas/places/444	Tell el-Ghuzz	Tell el-Ghuzz						Tell el-Ghuzz		1								
+445	http://paths.uniroma1.it/atlas/places/445	Tell el-Gindiya	Tell el-Gindiya						Tell el-Gindiya | Tell Shalalu | Shillu		3								
+446	http://paths.uniroma1.it/atlas/places/446	Tell el-Ginn	Tell el-Ginn						Tell el-Ginn		1			300	499	499/499		5132	
+447	http://paths.uniroma1.it/atlas/places/447	Tell el-Hilayla	Tell el-Hilayla						Tell el-Hilayla		1			301	700	700/700			
+448	http://paths.uniroma1.it/atlas/places/448	Tell el-Kashif	Tell el-Kashif						Tell el-Kashif | Tell el-Kashef		2			400	799	799/799			
+449	http://paths.uniroma1.it/atlas/places/449	Kom el-Kebir	Kom el-Kebir						Kom el-Kebir		1			400	799	799/799			
+450	http://paths.uniroma1.it/atlas/places/450	El-Kifriya	El-Kifriya						El-Kifriya		1			301	700	700/700			
+451	http://paths.uniroma1.it/atlas/places/451	Kom el-Matyur	Kom el-Matyur						Kom el-Matyur | Tell Matyur | Kom Shabas		3			201	1000	1000/1000			
+452	http://paths.uniroma1.it/atlas/places/452	Tell Mirdas	Tell Mirdas						Tell Mirdas		1			301	700	700/700			
+453	http://paths.uniroma1.it/atlas/places/453	Tell el-Riyad	Tell el-Riyad						Tell el-Riyad | Tell Shalalu		2			301	700	700/700			
+454	http://paths.uniroma1.it/atlas/places/454	Kom el-Roka	Kom el-Roka						Kom el-Roka		1			501	725	725/725			
+455	http://paths.uniroma1.it/atlas/places/455	Natho	Natho	Nȝ-n-tȝ-ḥw.t | Na-tȝ-ḥw.t | pȝ tš n Nȝy=w-ḥw.t.w	Ναθω | Ναθοω		ⲥⲁϩⲣⲁϣⲧ	صهرجت الكبرى			7			301	1100	1100/1100	727168	1422	
+456	http://paths.uniroma1.it/atlas/places/456	Kom Salih	Kom Salih						Kom Salih | Kom Saleh | Kom Galila		3			601	700	700/700			
+457	http://paths.uniroma1.it/atlas/places/457	Sandala	Sandala						Sandala		1			601	725	725/725			
+458	http://paths.uniroma1.it/atlas/places/458	Tell el-Shuhada	Tell el-Shuhada						Tell el-Shuhada		1			301	700	700/700			
+459	http://paths.uniroma1.it/atlas/places/459	Kom el-Shuhada	Kom el-Shuhada						Kom el-Shuhada | Komel-Chohada		2			401	700	700/700			
+460	http://paths.uniroma1.it/atlas/places/460	Tell el-Shuwan	Tell el-Shuwan						Tell el-Shuwan | Athar es-Shun		2			301	700	700/700			
+461	http://paths.uniroma1.it/atlas/places/461	Kom Sidi Salem	Kom Sidi Salem						Kom Sidi Salem | Kom Sidi Selim		2			700	1100	1100/1100			
+462	http://paths.uniroma1.it/atlas/places/462	Tell Tanbul	Tell Tanbul		Θαμβωλ				Tell Tanbul | Tell Tambul | Thambol | Tell el-Assuad		5			50	640	640/640	727245	9098	
+463	http://paths.uniroma1.it/atlas/places/463	Pempton	Pempton		τὸ πέμπτον				Pempton		2			350	725	725/725			
+464	http://paths.uniroma1.it/atlas/places/464	Ezbet Yasin Omar	Ezbet Yasin Omar						Ezbet Yasin Omar		1			301	700	700/700			
+465	http://paths.uniroma1.it/atlas/places/465	Kom Abu Tahun	Kom Abu Tahun								0			601	700	700/700			
+466	http://paths.uniroma1.it/atlas/places/466	El-Alaqma	El-Alaqma						El-Alaqma		1			301	700	700/700			
+467	http://paths.uniroma1.it/atlas/places/467	Kom Noweish	Kom Noweish								0			301	700	700/700			
+468	http://paths.uniroma1.it/atlas/places/468	Deir el-Adhra	Deir el-Adhra						Deir el-Adhra		1			601	700	700/700			
+469	http://paths.uniroma1.it/atlas/places/469	Serra East	Serra East						Serra East		1						795857	2806	
+470	http://paths.uniroma1.it/atlas/places/470	Karanog	Karanog					Karanōg			1						795832	2789	
+471	http://paths.uniroma1.it/atlas/places/471	Buhen	Buhen	Bhn | Bwhn	Βοων	Buma			Buhen		5						795791	2747	
+472	http://paths.uniroma1.it/atlas/places/472	Deir Anba Bidaba	Deir Anba Bidaba								0						756553		
