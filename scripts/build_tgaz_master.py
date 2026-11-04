@@ -49,8 +49,6 @@ def main():
     input_dir = args.input_dir
     places = read_csv(input_dir / "placename.csv")
     feature_types = index_by(read_csv(input_dir / "ftype.csv"), "id")
-    data_sources = index_by(read_csv(input_dir / "data_src.csv"), "id")
-    date_rules = index_by(read_csv(input_dir / "drule.csv"), "id")
     scripts = index_by(read_csv(input_dir / "script.csv"), "id")
     transcription_systems = index_by(read_csv(input_dir / "trsys.csv"), "id")
     notes = index_by(read_csv(input_dir / "snote.csv"), "id")
@@ -61,7 +59,6 @@ def main():
     parent_links = grouped_by(part_of, "child_id")
     child_links = grouped_by(part_of, "parent_id")
     predecessors = grouped_by(read_csv(input_dir / "prec_by.csv"), "placename_id")
-    seats = grouped_by(read_csv(input_dir / "admin_seat.csv"), "placename_id")
 
     preferred_names = {}
     all_names = {}
@@ -89,23 +86,33 @@ def main():
             item["end_year"] = link.get("end_year", "")
         return item
 
-    output_fields = list(places[0].keys()) if places else []
+    removed_fields = {
+        "administrative_seats",
+        "added_on",
+        "alt_of_id",
+        "begin_rule_name",
+        "data_source_name",
+        "end_rule_name",
+        "obj_type",
+        "parent_status",
+        "xy_type",
+    }
+    output_fields = (
+        [field for field in places[0].keys() if field not in removed_fields]
+        if places
+        else []
+    )
     output_fields.extend(
         [
             "place_name",
             "all_names",
             "feature_type_name",
-            "data_source_name",
-            "begin_rule_name",
-            "end_rule_name",
-            "alternate_of_name",
             "source_note_text",
             "spellings",
             "present_locations",
             "parents",
             "children",
             "predecessors",
-            "administrative_seats",
         ]
     )
 
@@ -116,9 +123,6 @@ def main():
         for place in places:
             place_id = place.get("id", "")
             feature_type = feature_types.get(place.get("ftype_id", ""), {})
-            source = data_sources.get(place.get("data_src", ""), {})
-            begin_rule = date_rules.get(place.get("beg_rule_id", ""), {})
-            end_rule = date_rules.get(place.get("end_rule_id", ""), {})
             note = notes.get(place.get("snote_id", ""), {})
 
             spelling_values = []
@@ -152,27 +156,12 @@ def main():
                 }
                 for link in predecessors.get(place_id, [])
             ]
-            seat_values = [
-                {
-                    "seat_id": link.get("seat_id", ""),
-                    "seat_name": place_name(link.get("seat_id", "")),
-                    "begin_date": link.get("begin_date", ""),
-                    "end_date": link.get("end_date", ""),
-                    "note": link.get("note", ""),
-                }
-                for link in seats.get(place_id, [])
-            ]
-
             result = dict(place)
             result.update(
                 {
                     "place_name": place_name(place_id),
                     "all_names": json_cell(all_names.get(place_id, [])),
                     "feature_type_name": feature_type.get("name_en", ""),
-                    "data_source_name": source.get("name", ""),
-                    "begin_rule_name": begin_rule.get("name", ""),
-                    "end_rule_name": end_rule.get("name", ""),
-                    "alternate_of_name": place_name(place.get("alt_of_id", "")),
                     "source_note_text": note.get("full_text", ""),
                     "spellings": json_cell(spelling_values),
                     "present_locations": json_cell(
@@ -191,7 +180,6 @@ def main():
                     "parents": json_cell(parent_values),
                     "children": json_cell(child_values),
                     "predecessors": json_cell(predecessor_values),
-                    "administrative_seats": json_cell(seat_values),
                 }
             )
             writer.writerow(result)
