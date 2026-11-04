@@ -1,0 +1,16 @@
+pleiades_language,trismegistos_language,linguistic_compatibility,number_of_matching_pairs,number_of_unique_matches,unmatched_pleiades_records,unmatched_trismegistos_records
+greek,greek,True,1477,1477,1439,13273
+greek,latin,False,1397,1397,1524,12142
+greek,romanized,False,2015,2015,919,62526
+greek,egyptian,False,90,90,2821,1889
+greek,coptic,False,49,49,2862,612
+latin,greek,False,968,968,2953,13762
+latin,latin,True,3152,3152,801,10372
+latin,romanized,False,3308,3308,673,61215
+latin,egyptian,False,46,46,3873,1925
+latin,coptic,False,32,32,3884,629
+romanized,greek,False,4717,4717,22689,10318
+romanized,latin,False,9241,9241,18204,4633
+romanized,romanized,True,13145,13145,14429,51806
+romanized,egyptian,False,469,469,26902,1567
+romanized,coptic,False,271,271,27090,431

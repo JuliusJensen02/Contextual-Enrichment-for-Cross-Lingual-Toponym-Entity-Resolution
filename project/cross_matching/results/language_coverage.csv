@@ -1,0 +1,9 @@
+dataset,language,relevant_columns,total_records,records_with_complete_coverage,coverage_percentage
+Pleiades,greek,title | names_greek,42417,2909,6.86
+Pleiades,latin,title | names_latin,42417,3915,9.23
+Pleiades,romanized,title | names_romanized,42417,27355,64.49
+Trismegistos,greek,name_standard | names_greek,64507,14721,22.82
+Trismegistos,latin,name_standard | names_latin,64507,13509,20.94
+Trismegistos,romanized,name_standard,64507,64507,100.0
+Trismegistos,egyptian,name_standard | names_egyptian,64507,1969,3.05
+Trismegistos,coptic,name_standard | names_coptic,64507,659,1.02
