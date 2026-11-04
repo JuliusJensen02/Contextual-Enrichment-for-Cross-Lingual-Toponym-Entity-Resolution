@@ -73,7 +73,7 @@ This directory contains CSV exports and import/support tables for the TGaz place
 From the project directory, run:
 
 ```powershell
-python build_master.py
+python scripts\build_master.py
 ```
 
-This writes `tgaz_csv/placename_master.csv`, preserving one row per `placename.csv` record. The original place columns are retained; lookup names and source-note text are added, and repeated values (spellings, present locations, parent/child links, predecessors, and administrative seats) are encoded as JSON arrays in individual cells. Pass `--input-dir` or `--output` to use different paths. The script uses only the Python standard library.
+This writes `datasets/tgaz_csv/placename_master.csv`, preserving one row per `placename.csv` record. The original place columns are retained; lookup names and source-note text are added, and repeated values (spellings, present locations, parent/child links, predecessors, and administrative seats) are encoded as JSON arrays in individual cells. Pass `--input-dir` or `--output` to use different paths. The script uses only the Python standard library.
