@@ -1,0 +1,10 @@
+﻿id,name,org,uri,note
+CBDB,China Biographical Database,,http://isites.harvard.edu/icb/icb.do?keyword=k16229,
+CHGIS,China Historical GIS,"Fudan University, Center for Historical Geography",,
+CITAS,China in Time and Space,"Center for Studies in Demography and Ecology, University of Washington",http://citas.csde.washington.edu/data/data.html,
+DDBC,Dharma Drum Buddhist College,,http://authority.ddbc.edu.tw/place/,
+GNS,GNS Country Files,National Geospatial-Intelligence Agency (United States),http://earth-info.nga.mil/gns/html/index.html,formerly: National Imagery and Mapping Agency
+HGR,Historical Gazetteer of Russia,"Fung Library, Davis Center for Russian and Eurasian Studies, Harvard",https://github.com/jaguillette/fungHGR/,"A gazetteer of Russian toponyms created by optical character recognition and natural language parsing methods.   The source text was ""Slovar uchrezhdennykh v Rossiarmarok i torgov"" by Fedor Afanasevich POLUNIN, published in Moscow during the reign of Katerina II in the late 18th Century.   The approximate dates used for this gazetteer are 1785 to 1796, based on an estimate of when the placenames in the text existed.   Project manager: Hugh Truslow.  Technical developer: Jeremy Guillette."
+RAS,Russian Academy of Sciences,,,See: http://www.fas.harvard.edu/~chgis/data/rus_geo/)
+TBRC,Tibetan Buddhist Resource Center,,http://www.tbrc.org,
+WKP,Wikipedia,,http://www.wikipedia.org,
