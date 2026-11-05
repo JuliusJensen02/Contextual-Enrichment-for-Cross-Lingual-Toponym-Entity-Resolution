@@ -8,6 +8,7 @@ Datasets for cross-lingual toponym entity resolution. Each folder has its own RE
 | [`Syriaca/`](Syriaca/README.md) | Syriac ↔ Arabic | Late antique – medieval (c. 400–1500) | 3,485 places | 547 places with names in both languages | `place_id` | Medium (source quotes, attestations) |
 | [`Pleiades/`](Pleiades/README.md) | Latin/Greek ↔ Hebrew/Arabic | Ancient (c. 750 BCE – 650 CE) | 42,399 places | 4,497 links to Wikidata labels | `pleiades_id` | Low (short description) |
 | [`Wikidata-he-ar/`](Wikidata-he-ar/README.md) | Hebrew ↔ Arabic | Modern (present day) | 34,079 places | One pair per item (one-to-one) | `qid` | Low (none in the file; Wikipedia via URLs) |
+| [`Wikidata-zh-mn/`](Wikidata-zh-mn/README.md) | Chinese ↔ Mongolian ↔ Russian | Mostly historical on the Chinese and Russian sides; 303, 2,003 and 257 of the matches are historical | 14,562 Chinese + 3,122 Mongolian + 6,425 Russian places | `em.tsv`: 2,860 pairs; `em_zh_ru.tsv`: 3,263; `em_mn_ru.tsv`: 1,683 | `id_1` ↔ `id_2` in each file | Low–medium (descriptions; TGaz dates and parents for 28 % of Chinese records) |
 | [`Trismegistos/`](Trismegistos/README.md) | Latin/Greek/Egyptian/Coptic | Ancient (c. 800 BCE – 800 CE) | 65,170 places; 81,980 texts | Links to Pleiades, Syriaca, Wikipedia (`rel_*`) | `geo_id` | Medium–high (papyri full texts for 775 places, Wikipedia for 8,911) |
 | [`PAThs/`](PAThs/README.md) | Egyptian/Greek/Coptic/Arabic (+ Latin, English) | Late antique – medieval Egypt and Nubia (c. 300–1100) | 459 places | 319 links to Pleiades, 348 to Trismegistos (manual `skos:exactMatch`) | `paths_id` | Low (names only) |
 | [`../final_datasets/Pleades_Trismegistos`](../final_datasets/Pleades_Trismegistos/README.md) | Latin/Greek ↔ Latin/Greek/Egyptian/Coptic | Ancient (c. 800 BCE – 800 CE) | 42,417 Pleiades + 64,507 TM places | `em.tsv`: 13,890 pairs (5,467 asserted by ≥ 2 sources) | `pleiades_id` ↔ `trismegistos_id` | Low–medium (descriptions, ancient sources, related places) |
@@ -39,6 +40,7 @@ Periods are approximate, based on the dates in each source:
 | Pleiades ↔ Wikidata-he-ar | `qid` in `Pleiades/pleiades_wikidata_links.tsv` |
 | MEHDIE (Kima) ↔ Wikidata | Wikidata URLs in Kima's `matches` column |
 | HIPE-2022 ↔ Wikidata-he-ar | QID in `NEL-LIT` |
+| Wikidata-zh-mn ↔ TGaz | The `tgaz_*` columns in `Wikidata-zh-mn/wikidata_zh.tsv` |
 
 These links can serve as extra ground truth across datasets. They also mean the same place can appear in several sets, which matters when you report results per dataset.
 

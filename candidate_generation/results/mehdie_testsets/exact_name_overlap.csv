@@ -1,0 +1,6 @@
+dataset,task,ground_truth_pairs,pairs_sharing_an_exact_name,pairs_sharing_an_ipa_form
+mehdie_testsets,ts7_yaqut_kima_sham,33,0,23
+mehdie_testsets,ts8_kima_thurayya_sham,21,11,16
+mehdie_testsets,ts9_tudela_thurayya,18,14,16
+mehdie_testsets,ts10_yaqut_kima_maghreb,33,0,22
+mehdie_testsets,ts11_damast_tudela,32,26,29

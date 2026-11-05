@@ -11,7 +11,7 @@ from pathlib import Path
 csv.field_size_limit(min(sys.maxsize, 2**31 - 1))
 ROOT = Path(__file__).resolve().parent.parent
 PT = ROOT / "final_datasets" / "Pleades_Trismegistos"
-MD = ROOT / "final_datasets" / "MEHDIE_DB_EXTRACT"
+MD = ROOT / "final_datasets" / "MEHDIE"
 
 EMPTY_CONTAINERS = {"", "{}", "[]", "[[]]", '""', "null", "none"}
 

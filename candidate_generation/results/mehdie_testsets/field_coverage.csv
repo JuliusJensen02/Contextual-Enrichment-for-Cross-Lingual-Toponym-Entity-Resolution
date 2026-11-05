@@ -1,0 +1,11 @@
+dataset,source,records,name,name_variants,mean_names_per_record,transliteration_in_dataset,transliteration_derived,ipa_in_dataset,ipa_derived_any,ipa_primary_epitran,ipa_primary_rules,ipa_primary_anyascii,coordinates,feature_type,scripts
+mehdie_testsets,ts7_yaqut_kima_sham:yaqut,687,1.0,0.0364,1.04,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.4265,0.9534,"{""Arab"": 687}"
+mehdie_testsets,ts7_yaqut_kima_sham:kima,1899,1.0,1.0,4.47,0.9995,0.0005,0.0,1.0,0.0,1.0,0.0,0.8926,0.0147,"{""Hebr"": 1899}"
+mehdie_testsets,ts8_kima_thurayya_sham:kima,1899,1.0,1.0,4.47,0.9995,0.0005,0.0,1.0,0.0,1.0,0.0,0.8926,0.0147,"{""Hebr"": 1899}"
+mehdie_testsets,ts8_kima_thurayya_sham:thurayya,291,1.0,1.0,3.57,1.0,0.0,0.0,1.0,1.0,0.0,0.0,1.0,1.0,"{""Arab"": 291}"
+mehdie_testsets,ts9_tudela_thurayya:tudela,306,1.0,0.9575,4.71,0.9641,0.0359,0.0,1.0,0.0,1.0,0.0,0.5719,0.0,"{""Hebr"": 280, ""Latn"": 26}"
+mehdie_testsets,ts9_tudela_thurayya:thurayya,2241,1.0,1.0,3.57,1.0,0.0,0.0,1.0,1.0,0.0,0.0,1.0,1.0,"{""Arab"": 2241}"
+mehdie_testsets,ts10_yaqut_kima_maghreb:yaqut,484,1.0,0.0103,1.01,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.4731,0.936,"{""Arab"": 484}"
+mehdie_testsets,ts10_yaqut_kima_maghreb:kima,559,1.0,1.0,3.96,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.1073,"{""Hebr"": 559}"
+mehdie_testsets,ts11_damast_tudela:damast,447,1.0,0.9978,9.31,1.0,0.0,0.0,1.0,0.8814,0.1186,0.0,0.9642,1.0,"{""Arab"": 394, ""Latn"": 53}"
+mehdie_testsets,ts11_damast_tudela:tudela,306,1.0,0.9575,4.71,0.9641,0.0359,0.0,1.0,0.0,1.0,0.0,0.5719,0.0,"{""Hebr"": 280, ""Latn"": 26}"

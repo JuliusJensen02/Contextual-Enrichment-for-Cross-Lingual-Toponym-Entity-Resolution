@@ -1,0 +1,43 @@
+dataset,task,direction,split,k,query_id,query_name,query_variants,query_ipa,target_id,target_name,target_variants,target_ipa,rank
+mehdie,yaqut_kima,forward,test,3,dig00414,البلقاء,,alblqaʔ,15822,בלקא,Muḥāfaẓat al Balqāʾ | Balqāʾ | Muḥāfaẓat al-Balqāʾ,blqa,6
+mehdie,yaqut_kima,forward,test,3,dig01343,الرملة,,alrmla,456,רמלה,Ramla | Al Ramla | Er Ramle | Ramle,rmla,670
+mehdie,yaqut_kima,forward,dev,3,dig01421,الزرقاء,,alzrqaʔ,15823,זרקא,Liwāʾ al Zarqāʾ | Liwāʾ az Zarqāʾ | Zarqāʾ | Muḥāfaẓat az Zarqāʾ | Muḥāfaẓat al Zarqāʾ | Muḥāfaẓat al-Zarqāʾ | Liwāʾ al-Zarqāʾ | Az Zarqāʾ,zrqa,11
+mehdie,yaqut_kima,forward,test,3,dig01468,السافرية,,alsafria,23424,צפריה,Tsafriyya,sfria,71
+mehdie,yaqut_kima,forward,dev,3,dig03579,أذنة,,aðna,12385,אדנה,Adana | Adhanah,ʔadna,4088
+mehdie,yaqut_kima,forward,test,3,dig05051,بشيت,,bʃit,21285,בשית,Bashit | Beshshit | Bashshit,bʃit,4
+mehdie,yaqut_kima,forward,dev,3,dig05221,بلنسية,,blnsia,6427,ולנסיה,Valencia,wlnsia,5
+mehdie,yaqut_kima,forward,test,3,dig05843,تلمسان,,tlmsan,278,תלמסן,תלמסאן | Tlemsen | Tlemcen | Tremecén | Tilimsān,tlmsn,12
+mehdie,yaqut_kima,forward,test,3,dig06542,جبلة,,dʒbla,18052,ג'בלה,Jablah | Jabala | Jableh | Gabala,dʒbla,10
+mehdie,yaqut_kima,forward,test,3,dig08420,دندرة,,dndra,15451,דנדרה,Dandara | Dendara | Dendʹerah | Dendera,dndra,14
+mehdie,yaqut_kima,forward,dev,3,dig09033,رقادة,,rqada,22972,רקאדה,Raqqada,rqada,68
+mehdie,yaqut_kima,forward,test,3,dig09766,سرقسطة,,srqsta,6347,סרגוסה,סארקאסטה | סרקסטה | Colonia Caesarea Augusta | Sarakosza | Caesar Augusta | Caesaraugusta | Cesaraugusta | Saragocia | Caesarea Augusta | Zaragoza | Salduba,srgusa,155
+mehdie,yaqut_kima,forward,dev,3,dig09924,سلمية,,slmia,22997,סלמיה,Salamiyah,slmia,37
+mehdie,yaqut_kima,forward,test,3,dig09961,سمسم,رملة,smsm,456,רמלה,Ramla | Al Ramla | Er Ramle | Ramle,rmla,875
+mehdie,yaqut_kima,forward,test,3,dig10969,صور,,sur,14095,צור,Sur | Tyrus | Soûr | Es Sur | Tyre | Zōr,sur,33
+mehdie,yaqut_kima,forward,test,3,dig11678,عكة,,ʕka,71,אלמנשיה - עכא,עכה | עכו | Acre | Acri | Ake Ptolemais | San Giovanni d'Acri | Acco | al Manshiyya Acre | Saint Jean d'Acre | Acca | Akka | Accon | Ace | Accho | Akkon | Ake-Ptolemais | ʻAko | Ptolemais | al-Manshiyya - Acre,ʔalmnʃia ʕka,30
+mehdie,yaqut_kima,forward,test,3,dig13566,لد,رملة,ld,456,רמלה,Ramla | Al Ramla | Er Ramle | Ramle,rmla,1519
+mehdie,yaqut_kima,forward,dev,3,dig13664,لورقة,,lurqa,12851,לורקה,Lorca,lurqa,1130
+mehdie,yaqut_kima,forward,test,3,dig13811,مجريط,,mdʒrit,646,מדריד,Mayrit | Mageritah | Madrid | Matricen | Ma te li | Ma-te-li,mdrid,1613
+mehdie,yaqut_kima,forward,test,3,dig14219,معلولا,,mʕlula,16158,מעלולה,Maʻlūlā | Maʻlūlah,mʕlula,27
+mehdie,yaqut_kima,forward,test,3,dig14232,مغار,,mɣar,21974,מע'ר,כפר מרר | מע'אר | מור'אר | מג'אר | Mughar | al-Maghar | Mghar | al Maghar | Maghar,mɣr,452
+mehdie,yaqut_kima,forward,test,3,dig15133,نيبطون,,nibtun,26565,איבטין,Ibtin,ʔaibtin,126
+mehdie,yaqut_kima,forward,test,3,dig15247,همدان,,hmdan,27082,קבוץ חנתון,חנתון | קיבוץ חנתון | Hannaton | Kibbutz Hannaton | Hanaton,qbus ħntun,252
+mehdie,thurayya_kima,forward,test,3,LAJJUN_352E326N_S,اللجون,al-Laǧǧūn | al-Lajjun,alldʒun,21926,לג'ון,Lajjun | Lajjunn,ldʒun,8
+mehdie,thurayya_kima,forward,test,3,TABARIYYA_355E327N_S,طبرية,Ṭabariyyaŧ | Tabariyya,tbria,807,טבריא,טבריה | Tiberias | Tĕvaryā | Tiberiade | Tabarie | Tabariyya | Teverya | Ṭeveryah | Tabariya | Tabariyeh | Tubaria,tbria,52
+mehdie,yaqut_kima,backward,test,47,12385,אדנה,Adana | Adhanah,ʔadna,dig03579,أذنة,,aðna,4163
+mehdie,yaqut_kima,backward,dev,47,12851,לורקה,Lorca,lurqa,dig13664,لورقة,,lurqa,107
+mehdie,yaqut_kima,backward,dev,47,14095,צור,Sur | Tyrus | Soûr | Es Sur | Tyre | Zōr,sur,dig10969,صور,,sur,12932
+mehdie,yaqut_kima,backward,test,47,15451,דנדרה,Dandara | Dendara | Dendʹerah | Dendera,dndra,dig08420,دندرة,,dndra,57
+mehdie,yaqut_kima,backward,test,47,16158,מעלולה,Maʻlūlā | Maʻlūlah,mʕlula,dig14219,معلولا,,mʕlula,86
+mehdie,yaqut_kima,backward,dev,47,21974,מע'ר,כפר מרר | מע'אר | מור'אר | מג'אר | Mughar | al-Maghar | Mghar | al Maghar | Maghar,mɣr,dig14232,مغار,,mɣar,7013
+mehdie,yaqut_kima,backward,test,47,22997,סלמיה,Salamiyah,slmia,dig09924,سلمية,,slmia,660
+mehdie,yaqut_kima,backward,dev,47,23424,צפריה,Tsafriyya,sfria,dig01468,السافرية,,alsafria,1067
+mehdie,yaqut_kima,backward,test,47,26565,איבטין,Ibtin,ʔaibtin,dig15133,نيبطون,,nibtun,574
+mehdie,yaqut_kima,backward,test,47,27082,קבוץ חנתון,חנתון | קיבוץ חנתון | Hannaton | Kibbutz Hannaton | Hanaton,qbus ħntun,dig15247,همدان,,hmdan,4826
+mehdie,yaqut_kima,backward,test,47,456,רמלה,Ramla | Al Ramla | Er Ramle | Ramle,rmla,dig01343,الرملة,,alrmla,405
+mehdie,yaqut_kima,backward,test,47,456,רמלה,Ramla | Al Ramla | Er Ramle | Ramle,rmla,dig09961,سمسم,رملة,smsm,785
+mehdie,yaqut_kima,backward,test,47,456,רמלה,Ramla | Al Ramla | Er Ramle | Ramle,rmla,dig13566,لد,رملة,ld,1249
+mehdie,yaqut_kima,backward,test,47,6347,סרגוסה,סארקאסטה | סרקסטה | Colonia Caesarea Augusta | Sarakosza | Caesar Augusta | Caesaraugusta | Cesaraugusta | Saragocia | Caesarea Augusta | Zaragoza | Salduba,srgusa,dig09766,سرقسطة,,srqsta,514
+mehdie,yaqut_kima,backward,test,47,646,מדריד,Mayrit | Mageritah | Madrid | Matricen | Ma te li | Ma-te-li,mdrid,dig13811,مجريط,,mdʒrit,1347
+mehdie,yaqut_kima,backward,test,47,71,אלמנשיה - עכא,עכה | עכו | Acre | Acri | Ake Ptolemais | San Giovanni d'Acri | Acco | al Manshiyya Acre | Saint Jean d'Acre | Acca | Akka | Accon | Ace | Accho | Akkon | Ake-Ptolemais | ʻAko | Ptolemais | al-Manshiyya - Acre,ʔalmnʃia ʕka,dig11678,عكة,,ʕka,161
+mehdie,thurayya_kima,backward,test,47,807,טבריא,טבריה | Tiberias | Tĕvaryā | Tiberiade | Tabarie | Tabariyya | Teverya | Ṭeveryah | Tabariya | Tabariyeh | Tubaria,tbria,TABARIYYA_355E327N_S,طبرية,Ṭabariyyaŧ | Tabariyya,tbria,194

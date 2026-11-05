@@ -1,0 +1,83 @@
+dataset,task,direction,split,k,query_id,query_name,query_variants,query_ipa,target_id,target_name,target_variants,target_ipa,rank
+mehdie,yaqut_kima,forward,test,3,dig00666,الجليل,,aldʒlil,1475,גליל,Galilee | Jalīl | Northern Israel | Galil | Northern Eretz Israel,glil,6
+mehdie,yaqut_kima,forward,test,3,dig01420,الزرقاء,,alzrqaʔ,19760,זרקא,Az Zarqa | Al Zarqa | Zerka | Zarqa | Kalaat el Zerka | Qalat az Zarqa | Qalat ez Zerqa,zrqa,1943
+mehdie,yaqut_kima,forward,dev,3,dig01421,الزرقاء,,alzrqaʔ,19760,זרקא,Az Zarqa | Al Zarqa | Zerka | Zarqa | Kalaat el Zerka | Qalat az Zarqa | Qalat ez Zerqa,zrqa,1943
+mehdie,yaqut_kima,forward,test,3,dig01468,السافرية,,alsafria,23424,צפריה,Tsafriyya,sfria,33
+mehdie,yaqut_kima,forward,test,3,dig02914,المهدية,,almhdia,12606,מהדיה,מהדייה | Mahedia | Mehedia | Mahdiya | Mahdīyah | Mahdia,mhdia,1936
+mehdie,yaqut_kima,forward,dev,3,dig03579,أذنة,,aðna,12385,אדנה,Adana | Adhanah,ʔadna,4
+mehdie,yaqut_kima,forward,dev,3,dig09937,سليقية,,sliqia,19946,סליחיה,Ṣāliḥīyah,sliħia,2626
+mehdie,yaqut_kima,forward,test,3,dig09961,سمسم,رملة,smsm,21335,סמסם,Simsim,smsm,2899
+mehdie,yaqut_kima,forward,test,3,dig09961,سمسم,رملة,smsm,456,רמלה,Ramla | Al Ramla | Er Ramle | Ramle,rmla,2898
+mehdie,yaqut_kima,forward,test,3,dig10628,شنتبرية,,ʃntbria,12402,קנטבריה,Cantabria,qntbria,1344
+mehdie,yaqut_kima,forward,test,3,dig11589,عسقلان,,ʕsqlan,16888,תל אשקלון,כפר ג'ורה | אשקלון | Ashkelon | Ashquelon | al Majdal Ascalun | Askelon | al-Jura | Ashqelon | Majdal wa ʻAsqalān | al-Majdal Ascalun | Majdal wa-ʻAsqalān | Ascalon | al Jura,tl ʔaʃqlun,44
+mehdie,yaqut_kima,forward,test,3,dig13566,لد,رملة,ld,456,רמלה,Ramla | Al Ramla | Er Ramle | Ramle,rmla,2695
+mehdie,yaqut_kima,forward,test,3,dig13811,مجريط,,mdʒrit,646,מדריד,Mayrit | Mageritah | Madrid | Matricen | Ma te li | Ma-te-li,mdrid,2042
+mehdie,yaqut_kima,forward,test,3,dig15133,نيبطون,,nibtun,26565,איבטין,Ibtin,ʔaibtin,6
+mehdie,yaqut_kima,forward,test,3,dig15247,همدان,,hmdan,27082,קבוץ חנתון,חנתון | קיבוץ חנתון | Hannaton | Kibbutz Hannaton | Hanaton,qbus ħntun,89
+mehdie,thurayya_kima,forward,test,3,ASQALAN_345E316N_S,عسقلان,ʿAsqalān | Asqalan,ʕsqlan,16888,תל אשקלון,כפר ג'ורה | אשקלון | Ashkelon | Ashquelon | al Majdal Ascalun | Askelon | al-Jura | Ashqelon | Majdal wa ʻAsqalān | al-Majdal Ascalun | Majdal wa-ʻAsqalān | Ascalon | al Jura,tl ʔaʃqlun,4
+mehdie,thurayya_kima,forward,dev,3,AZDUD_346E317N_S,أزدود,يزدود | Azdūd | Yazdud | Yazdūd | Azdud,azdud,531,אשדוד,Ashdod | ʻIriyat Ashdod,ʔaʃdud,695
+mehdie,thurayya_yaqut,forward,dev,3,RABADHA_413E246N_S,ربذة,Rabaḏaŧ | Rabadha,rbða,dig01246,الربذة,,alrbða,4
+mehdie,yaqut_kima,backward,test,47,10664,ליידה,לארדה | Ilerda | Lerida | Lleyda | Lleida,ljda,dig13500,لاردة,,larda,251
+mehdie,yaqut_kima,backward,dev,47,10819,בעלבק,בעלבכ | בעל בק | בעלת | בעלת הוד | Balbek | Heliopolis | Baʻlabakk | Baalbek | Baʻlbak | Baalbeck | Baʻalabakk | Bablabak,bʕlbq,dig05108,بعلبك,,bʕlbk,724
+mehdie,yaqut_kima,backward,dev,47,10948,קורדובה,קורטובה | קרטבה | Qurṭubah | Corduba | Córdoba | Cordova | Kordova | Cordoue,qurduba,dig12596,قرطبة,,qrtba,248
+mehdie,yaqut_kima,backward,dev,47,12030,אסואן,Aswān | Syene | Suan | Syena | Assouan | Es-Suan | Es Suan | Assuan | Syeve | Essuan,ʔasuan,dig03796,أسوان,,asuan,3498
+mehdie,yaqut_kima,backward,test,47,12385,אדנה,Adana | Adhanah,ʔadna,dig03579,أذنة,,aðna,1205
+mehdie,yaqut_kima,backward,test,47,12402,קנטבריה,Cantabria,qntbria,dig10628,شنتبرية,,ʃntbria,241
+mehdie,yaqut_kima,backward,test,47,12606,מהדיה,מהדייה | Mahedia | Mehedia | Mahdiya | Mahdīyah | Mahdia,mhdia,dig02914,المهدية,,almhdia,68
+mehdie,yaqut_kima,backward,test,47,12725,פיום,Fayyūm | Fayyoum | Madīnat al-Fayyūm | Faiyum | Madīnet el Faiyūm | Médinate el-Fayoum | Fayum | Medinat Fayum | Madīnat al Fayyūm | Fayoum | Fayoom | Médinate el Fayoum,fium,dig02308,الفيوم,,alfium,772
+mehdie,yaqut_kima,backward,test,47,12982,עזה,Gaza | Ghazzah,ʕza,dig12021,غزة,,ɣza,560
+mehdie,yaqut_kima,backward,test,47,13923,מונסטיר,מנסתיר | Menstir | Mistir | Munastīr | Al Munastīr | El Menstir | Hadrumetum | Monastir,munstir,dig14386,منستير,,mnstir,297
+mehdie,yaqut_kima,backward,test,47,14010,ג'וניה,Joûnie | Djouni | Jūniye | Jounieh | Junie | Jūniyah | Djounie,dʒunia,dig06936,جونية,,dʒunia,1269
+mehdie,yaqut_kima,backward,dev,47,14095,צור,Sur | Tyrus | Soûr | Es Sur | Tyre | Zōr,sur,dig10969,صور,,sur,1795
+mehdie,yaqut_kima,backward,test,47,14390,פיום,Fayyūm | Muḥāfaẓat al Fāyyum | Muḥāfaẓat al-Fāyyum,fium,dig02308,الفيوم,,alfium,2231
+mehdie,yaqut_kima,backward,test,47,14481,מלטיה,Malatya | Malatiyah | Melitine | Melitene | Malatia | Melatiye | Meledi,mltia,dig14314,ملطية,,mltia,811
+mehdie,yaqut_kima,backward,dev,47,14553,אדפו,Idfū | Edfou | Edfu,ʔadfu,dig03547,أدفو,,adfu,880
+mehdie,yaqut_kima,backward,test,47,1475,גליל,Galilee | Jalīl | Northern Israel | Galil | Northern Eretz Israel,glil,dig00666,الجليل,,aldʒlil,7793
+mehdie,yaqut_kima,backward,dev,47,15045,דהשור,Dahshûr | Dahschur,dhʃur,dig08436,دهشور,,dhʃur,145
+mehdie,yaqut_kima,backward,test,47,15118,דמשק,Damascus | Muḥāfaẓat Dimashq | Dimashq,dmʃq,dig08396,دمشق,,dmʃq,468
+mehdie,yaqut_kima,backward,test,47,15451,דנדרה,Dandara | Dendara | Dendʹerah | Dendera,dndra,dig08420,دندرة,,dndra,811
+mehdie,yaqut_kima,backward,dev,47,15822,בלקא,Muḥāfaẓat al Balqāʾ | Balqāʾ | Muḥāfaẓat al-Balqāʾ,blqa,dig00414,البلقاء,,alblqaʔ,819
+mehdie,yaqut_kima,backward,test,47,15823,זרקא,Liwāʾ al Zarqāʾ | Liwāʾ az Zarqāʾ | Zarqāʾ | Muḥāfaẓat az Zarqāʾ | Muḥāfaẓat al Zarqāʾ | Muḥāfaẓat al-Zarqāʾ | Liwāʾ al-Zarqāʾ | Az Zarqāʾ,zrqa,dig01421,الزرقاء,,alzrqaʔ,2017
+mehdie,yaqut_kima,backward,test,47,15834,חיפה,Haifa | Ḥefah | H̲efa | Meḥoz Ḥefah | Meẖoz H̲efa,ħifa,dig07639,حيفا,,ħifa,5147
+mehdie,yaqut_kima,backward,test,47,15881,בג'איה,Wilaya de Bejaïa | Bejaïa,bdʒaia,dig04479,بجاية,,bdʒaia,4903
+mehdie,yaqut_kima,backward,dev,47,16888,תל אשקלון,כפר ג'ורה | אשקלון | Ashkelon | Ashquelon | al Majdal Ascalun | Askelon | al-Jura | Ashqelon | Majdal wa ʻAsqalān | al-Majdal Ascalun | Majdal wa-ʻAsqalān | Ascalon | al Jura,tl ʔaʃqlun,dig11589,عسقلان,,ʕsqlan,677
+mehdie,yaqut_kima,backward,test,47,17266,מנורקה,Menorca | Isla de Menorca | Balearis Minor | Minorca,mnurqa,dig14411,منورقة,,mnurqa,3993
+mehdie,yaqut_kima,backward,test,47,17645,איסנא,Isnā | Esna | Asnā,ʔaisna,dig03278,إسنا,,asna,1269
+mehdie,yaqut_kima,backward,test,47,18052,ג'בלה,Jablah | Jabala | Jableh | Gabala,dʒbla,dig06542,جبلة,,dʒbla,1695
+mehdie,yaqut_kima,backward,dev,47,18835,מיליאנה,מליאנה | מלייאנא | Milianah | Miliana | Milyānah,miliana,dig14330,مليانة,,mliana,2407
+mehdie,yaqut_kima,backward,test,47,19607,מיורקה,מיורקא | Mallorca | Majorque | Majorica | Balearis Major | Majorca | Isla de Mallorca,miurqa,dig14555,ميورقة,,miurqa,4242
+mehdie,yaqut_kima,backward,test,47,19760,זרקא,Az Zarqa | Al Zarqa | Zerka | Zarqa | Kalaat el Zerka | Qalat az Zarqa | Qalat ez Zerqa,zrqa,dig01420,الزرقاء,,alzrqaʔ,498
+mehdie,yaqut_kima,backward,test,47,19760,זרקא,Az Zarqa | Al Zarqa | Zerka | Zarqa | Kalaat el Zerka | Qalat az Zarqa | Qalat ez Zerqa,zrqa,dig01421,الزرقاء,,alzrqaʔ,497
+mehdie,yaqut_kima,backward,test,47,19946,סליחיה,Ṣāliḥīyah,sliħia,dig09937,سليقية,,sliqia,1905
+mehdie,yaqut_kima,backward,test,47,20496,כפר כנא,Kafr Kanna | Kafr Kanā | Kafar Kanā | Kafr Qanah | Kafar Qanah | Kafar Kannā | Kafar Kanna,kfr kna,dig13293,كفركنا,,kfrkna,236
+mehdie,yaqut_kima,backward,dev,47,21974,מע'ר,כפר מרר | מע'אר | מור'אר | מג'אר | Mughar | al-Maghar | Mghar | al Maghar | Maghar,mɣr,dig14232,مغار,,mɣar,2166
+mehdie,yaqut_kima,backward,test,47,22997,סלמיה,Salamiyah,slmia,dig09924,سلمية,,slmia,908
+mehdie,yaqut_kima,backward,test,47,23148,ארסוף,Arsuf,ʔarsuf,dig03635,أرسوف,,arsuf,753
+mehdie,yaqut_kima,backward,test,47,26565,איבטין,Ibtin,ʔaibtin,dig15133,نيبطون,,nibtun,396
+mehdie,yaqut_kima,backward,test,47,27082,קבוץ חנתון,חנתון | קיבוץ חנתון | Hannaton | Kibbutz Hannaton | Hanaton,qbus ħntun,dig15247,همدان,,hmdan,2686
+mehdie,yaqut_kima,backward,test,47,278,תלמסן,תלמסאן | Tlemsen | Tlemcen | Tremecén | Tilimsān,tlmsn,dig05843,تلمسان,,tlmsan,260
+mehdie,yaqut_kima,backward,test,47,4509,ארסוף,Arsuf | Arsur | Apollonia | Tel Arsuf | Reshef | Arshof | Appolonia | Tel Arshaf | Arsum | Sozusa | Rishpon | Arshaf | Resheph | Apolonyah,ʔarsuf,dig03635,أرسوف,,arsuf,4343
+mehdie,yaqut_kima,backward,dev,47,556,בית לחם,Bethlehem | Bethleem | Ėfraḟa | Gorod Davidov | Bayt Laḥm | Selenīe Viḟleemskoe | Viḟleem | Betʻghehēm | Viḟleem Īudeĭskīĭ | Beit Lehem,bit lħm,dig05442,بيت لحم,,bit lħm,386
+mehdie,yaqut_kima,backward,test,47,624,גבס,קאבס | גאבס | Kābis | Tacapae | Gābis | Tacape | Cabes | Abes | Qabes | Kabes | Gabès | Qābis,gbs,dig12429,قابس,,qabs,255
+mehdie,yaqut_kima,backward,test,47,6347,סרגוסה,סארקאסטה | סרקסטה | Colonia Caesarea Augusta | Sarakosza | Caesar Augusta | Caesaraugusta | Cesaraugusta | Saragocia | Caesarea Augusta | Zaragoza | Salduba,srgusa,dig09766,سرقسطة,,srqsta,921
+mehdie,yaqut_kima,backward,test,47,6427,ולנסיה,Valencia,wlnsia,dig05221,بلنسية,,blnsia,310
+mehdie,yaqut_kima,backward,test,47,6428,ולנסיה,בלנסיה | אלינשה | Valence | Balansiyah | Valencia | Valentia,wlnsia,dig05221,بلنسية,,blnsia,2015
+mehdie,yaqut_kima,backward,test,47,646,מדריד,Mayrit | Mageritah | Madrid | Matricen | Ma te li | Ma-te-li,mdrid,dig13811,مجريط,,mdʒrit,1839
+mehdie,yaqut_kima,backward,test,47,691,יערושאלאים,"ירושלים | ציון | ירושלים השלמה | ארץ המוריה | ירושלם | עיר הקדש | ירושתים! | אורשלם | ירשלים | י-ם | ירושת""ו | Jerusalem | قدس | Erusaghēm | Al-Kuds | Yerushalayim | Ierousalēm | <<ال>>قدس | Jeruzsálem | Jerusalem Arab Municipality | Baladīyat al-Quds | Kouds | Baladīyat al-Quds al-ʻArabīyah | Bayt al-Maqdis | Baladīyat al Quds al ʻArabīyah | Jeruzalem | Bayt al Maqdis | Al Quds | Baladīyat al Quds | Gerusalemme | يروشلاييم | Ūrushalīm | Al Kuds | Ierusalim | Qods | القدس | Al-Quds | Quds | Kuds | ʻIriyat Yerushalayim",jʕruʃalaim,dig02339,القدس,بيت المقدس,alqds,56
+mehdie,yaqut_kima,backward,test,47,71,אלמנשיה - עכא,עכה | עכו | Acre | Acri | Ake Ptolemais | San Giovanni d'Acri | Acco | al Manshiyya Acre | Saint Jean d'Acre | Acca | Akka | Accon | Ace | Accho | Akkon | Ake-Ptolemais | ʻAko | Ptolemais | al-Manshiyya - Acre,ʔalmnʃia ʕka,dig11678,عكة,,ʕka,12466
+mehdie,yaqut_kima,backward,test,47,7450,מלאגה,מאלקה | מאלאגה | Málaga | Mālaqah,mlaga,dig13743,مالقة,,malqa,527
+mehdie,yaqut_kima,backward,test,47,791,חיפה,Haifa | ʻIriyat Ḥefah | Gaiffa | Khaĭfa | Heifa | Ḥefah | Ḥefa | Caiffa | Ḥayfā,ħifa,dig07639,حيفا,,ħifa,6229
+mehdie,yaqut_kima,backward,test,47,807,טבריא,טבריה | Tiberias | Tĕvaryā | Tiberiade | Tabarie | Tabariyya | Teverya | Ṭeveryah | Tabariya | Tabariyeh | Tubaria,tbria,dig11126,طبرية,,tbria,2100
+mehdie,yaqut_kima,backward,test,47,8135,סוסה,Susa | Sousse | Sousa | Sūs | Sūsah,susa,dig10128,سوسة,,susa,2603
+mehdie,yaqut_kima,backward,test,47,8143,טברקה,Ṭabarqah,tbrqa,dig11123,طبرقة,,tbrqa,198
+mehdie,yaqut_kima,backward,test,47,9140,קרמונה,Carmo | Qarmūnah | Carmona,qrmuna,dig12622,قرمونة,,qrmuna,527
+mehdie,yaqut_kima,backward,test,47,939,דמשק,א-שאם | Damascus | Damas | ash-Sham | Dimashq | Damesek | ash Sham | Sam,dmʃq,dig08396,دمشق,,dmʃq,111
+mehdie,yaqut_kima,backward,dev,47,966,קרית ארבע,חברון | Hebron | Ḥabrūn | Khalil-el-Rahman | Khalīl | Khulīl | Khalil el Rahman,qrit ʔarbʕ,dig07023,حبرون,الخليل,ħbrun,89
+mehdie,thurayya_kima,backward,test,47,12982,עזה,Gaza | Ghazzah,ʕza,GHAZZA_344E314N_S,غزة,Ġazzaŧ | Ghazza,ɣza,108
+mehdie,thurayya_kima,backward,test,47,16888,תל אשקלון,כפר ג'ורה | אשקלון | Ashkelon | Ashquelon | al Majdal Ascalun | Askelon | al-Jura | Ashqelon | Majdal wa ʻAsqalān | al-Majdal Ascalun | Majdal wa-ʻAsqalān | Ascalon | al Jura,tl ʔaʃqlun,ASQALAN_345E316N_S,عسقلان,ʿAsqalān | Asqalan,ʕsqlan,151
+mehdie,thurayya_kima,backward,dev,47,23148,ארסוף,Arsuf,ʔarsuf,ARSUF_348E321N_S,أرسوف,Arsūf | Arsuf,arsuf,128
+mehdie,thurayya_kima,backward,test,47,4509,ארסוף,Arsuf | Arsur | Apollonia | Tel Arsuf | Reshef | Arshof | Appolonia | Tel Arshaf | Arsum | Sozusa | Rishpon | Arshaf | Resheph | Apolonyah,ʔarsuf,ARSUF_348E321N_S,أرسوف,Arsūf | Arsuf,arsuf,708
+mehdie,thurayya_kima,backward,test,47,531,אשדוד,Ashdod | ʻIriyat Ashdod,ʔaʃdud,AZDUD_346E317N_S,أزدود,يزدود | Azdūd | Yazdud | Yazdūd | Azdud,azdud,691
+mehdie,thurayya_kima,backward,test,47,6936,קיסריה,Caesarea | Kesari | Cæsarea Maritima | Ḥorbat Qesari | Qeisari | Qisarya | Hatsor | Qesaryya | Kesariyya | Kessaria | Kesaria | Césarée | Kesaryah | Cæsarea Palestinae,qisria,QAYSARIYYA_348E324N_S,قيسرية,Qaysariyyaŧ | Qaysariyya,qisria,994
+mehdie,thurayya_kima,backward,test,47,807,טבריא,טבריה | Tiberias | Tĕvaryā | Tiberiade | Tabarie | Tabariyya | Teverya | Ṭeveryah | Tabariya | Tabariyeh | Tubaria,tbria,TABARIYYA_355E327N_S,طبرية,Ṭabariyyaŧ | Tabariyya,tbria,339
+mehdie,thurayya_kima,backward,test,47,9637,יבנה,Yavne | Jamnia | Kefar Yavneh | Jabneh | Yavneh,jbna,YUBNA_347E318N_S,يبنا,Yubnā | Yubna,jbna,813

@@ -1,7 +1,7 @@
 """Flatten the JSON columns of the MEHDIE place extracts into TSV files.
 
-Reads final_datasets/MEHDIE_DB_EXTRACT/mehdie_db_{kima,yaqut,thurayya}_extract.csv
-(unchanged) and writes final_datasets/MEHDIE_DB_EXTRACT/flattened/mehdie_db_{name}_flat.tsv
+Reads final_datasets/MEHDIE/mehdie_db_{kima,yaqut,thurayya}_extract.csv
+(unchanged) and writes final_datasets/MEHDIE/flattened/mehdie_db_{name}_flat.tsv
 with one row per place and the columns in OUT_COLS. Multi-valued fields are joined with "; ".
 """
 
@@ -10,7 +10,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC_DIR = ROOT / "final_datasets" / "MEHDIE_DB_EXTRACT"
+SRC_DIR = ROOT / "final_datasets" / "MEHDIE"
 OUT_DIR = SRC_DIR / "flattened"
 SOURCES = ["kima", "yaqut", "thurayya"]
 

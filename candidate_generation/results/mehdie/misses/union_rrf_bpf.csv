@@ -1,0 +1,13 @@
+dataset,task,direction,split,k,query_id,query_name,query_variants,query_ipa,target_id,target_name,target_variants,target_ipa,rank
+mehdie,yaqut_kima,forward,test,3,dig02914,المهدية,,almhdia,12606,מהדיה,מהדייה | Mahedia | Mehedia | Mahdiya | Mahdīyah | Mahdia,mhdia,6
+mehdie,yaqut_kima,forward,dev,3,dig05221,بلنسية,,blnsia,6427,ולנסיה,Valencia,wlnsia,5
+mehdie,yaqut_kima,forward,dev,3,dig09937,سليقية,,sliqia,19946,סליחיה,Ṣāliḥīyah,sliħia,6
+mehdie,yaqut_kima,forward,test,3,dig09961,سمسم,رملة,smsm,21335,סמסם,Simsim,smsm,6
+mehdie,yaqut_kima,forward,test,3,dig09961,سمسم,رملة,smsm,456,רמלה,Ramla | Al Ramla | Er Ramle | Ramle,rmla,5
+mehdie,yaqut_kima,forward,test,3,dig10628,شنتبرية,,ʃntbria,12402,קנטבריה,Cantabria,qntbria,4
+mehdie,yaqut_kima,forward,test,3,dig13566,لد,رملة,ld,456,רמלה,Ramla | Al Ramla | Er Ramle | Ramle,rmla,4
+mehdie,yaqut_kima,forward,test,3,dig13811,مجريط,,mdʒrit,646,מדריד,Mayrit | Mageritah | Madrid | Matricen | Ma te li | Ma-te-li,mdrid,8
+mehdie,yaqut_kima,forward,test,3,dig15133,نيبطون,,nibtun,26565,איבטין,Ibtin,ʔaibtin,4
+mehdie,yaqut_kima,forward,test,3,dig15247,همدان,,hmdan,27082,קבוץ חנתון,חנתון | קיבוץ חנתון | Hannaton | Kibbutz Hannaton | Hanaton,qbus ħntun,43
+mehdie,thurayya_kima,forward,dev,3,AZDUD_346E317N_S,أزدود,يزدود | Azdūd | Yazdud | Yazdūd | Azdud,azdud,531,אשדוד,Ashdod | ʻIriyat Ashdod,ʔaʃdud,12
+mehdie,yaqut_kima,backward,test,47,27082,קבוץ חנתון,חנתון | קיבוץ חנתון | Hannaton | Kibbutz Hannaton | Hanaton,qbus ħntun,dig15247,همدان,,hmdan,438

@@ -1,0 +1,2 @@
+dataset,task,ground_truth_pairs,pairs_sharing_an_exact_name,pairs_sharing_an_ipa_form
+pleiades_trismegistos,pleiades_trismegistos,13890,11931,12243

@@ -1,0 +1,4 @@
+dataset,task,ground_truth_pairs,pairs_sharing_an_exact_name,pairs_sharing_an_ipa_form
+mehdie,yaqut_kima,78,1,54
+mehdie,thurayya_kima,10,3,6
+mehdie,thurayya_yaqut,9,8,8

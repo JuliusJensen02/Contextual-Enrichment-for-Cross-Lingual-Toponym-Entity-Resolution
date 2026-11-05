@@ -1,0 +1,363 @@
+{
+  "benchmark_version": "1.0.0",
+  "output_version": 1,
+  "dataset": "mehdie",
+  "timestamp": "2026-11-04T09:56:35.246916+00:00",
+  "seed": 20261104,
+  "config": {
+    "version": 1,
+    "seed": 20261104,
+    "output_dir": "candidate_generation/output",
+    "results_dir": "candidate_generation/results",
+    "cache_dir": "candidate_generation/.cache",
+    "evaluation": {
+      "ks": [
+        1,
+        2,
+        5,
+        10,
+        20,
+        50,
+        100
+      ],
+      "plot_ks": [
+        1,
+        2,
+        5,
+        10,
+        20,
+        50,
+        100,
+        200,
+        500,
+        1000
+      ],
+      "dev_fraction": 0.2,
+      "target_recall": 0.95,
+      "max_k": 1000
+    },
+    "runtime": {
+      "chunk_size": 64,
+      "workers": 12,
+      "frozen_batch": 2000
+    },
+    "generators": {
+      "representation": "ipa",
+      "tfidf_char": {
+        "ngram_range": [
+          2,
+          4
+        ]
+      },
+      "dense": {
+        "candidates": [
+          {
+            "backend": "symphonym",
+            "repo": "docuracy/symphonym-v8",
+            "revision": "dca7d287265e049b8410738c813ce03499926dd5",
+            "lang": "und",
+            "batch_size": 512
+          },
+          {
+            "backend": "sentence_transformers",
+            "repo": "intfloat/multilingual-e5-base",
+            "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+            "prefix": "query: ",
+            "batch_size": 64
+          }
+        ],
+        "second_model": {
+          "enabled": true,
+          "name": "dense_labse",
+          "backend": "sentence_transformers",
+          "repo": "setu4993/LaBSE",
+          "revision": "5afa72968dfe068421082cbc30411073b15a6693",
+          "batch_size": 64
+        }
+      },
+      "union_rrf": {
+        "constant": 60,
+        "inputs": [
+          "tfidf_char",
+          "dense"
+        ],
+        "with_blocking_inputs": [
+          "tfidf_char",
+          "dense",
+          "mehdie_bpf"
+        ]
+      }
+    },
+    "datasets": {
+      "mehdie": {
+        "adapter": "mehdie",
+        "path": "final_datasets/MEHDIE_DB_EXTRACT",
+        "directions": [
+          "forward",
+          "backward"
+        ],
+        "conflict_policy": "exclude",
+        "tasks": [
+          {
+            "name": "yaqut_kima",
+            "source": "yaqut",
+            "target": "kima"
+          },
+          {
+            "name": "thurayya_kima",
+            "source": "thurayya",
+            "target": "kima"
+          },
+          {
+            "name": "thurayya_yaqut",
+            "source": "thurayya",
+            "target": "yaqut"
+          }
+        ]
+      },
+      "mehdie_testsets": {
+        "adapter": "mehdie_testsets",
+        "path": "datasets/MEHDIE",
+        "directions": [
+          "forward",
+          "backward"
+        ],
+        "tasks": [
+          {
+            "name": "ts7_yaqut_kima_sham",
+            "folder": "YaqutSham_KimaSham",
+            "source": "yaqut",
+            "target": "kima",
+            "source_file": "YaqutSham.tsv",
+            "target_file": "KimaSham.tsv"
+          },
+          {
+            "name": "ts8_kima_thurayya_sham",
+            "folder": "KimaShamThurayyaSham",
+            "source": "kima",
+            "target": "thurayya",
+            "source_file": "KimaSham.tsv",
+            "target_file": "ThurayaSham_295.tsv",
+            "target_separators": ":"
+          },
+          {
+            "name": "ts9_tudela_thurayya",
+            "folder": "TudelaThurayya",
+            "source": "tudela",
+            "target": "thurayya",
+            "source_file": "Tudela_257.tsv",
+            "target_file": "althurayya_283.tsv",
+            "target_separators": ":"
+          },
+          {
+            "name": "ts10_yaqut_kima_maghreb",
+            "folder": "YaqutAndalusMagrebKima-KimaMagrebAndalusMapped",
+            "source": "yaqut",
+            "target": "kima",
+            "source_file": "Yaqut_306.tsv",
+            "target_file": "Kima_303.tsv"
+          },
+          {
+            "name": "ts11_damast_tudela",
+            "folder": "DamastTudela",
+            "source": "damast",
+            "target": "tudela",
+            "source_file": "damast_315.tsv",
+            "target_file": "Tudela_257.tsv"
+          }
+        ]
+      },
+      "pleiades_trismegistos": {
+        "adapter": "pleiades_trismegistos",
+        "path": "final_datasets/Pleades_Trismegistos",
+        "directions": [
+          "forward",
+          "backward"
+        ],
+        "tasks": [
+          {
+            "name": "pleiades_trismegistos",
+            "source": "pleiades",
+            "target": "trismegistos"
+          }
+        ]
+      }
+    }
+  },
+  "models": {
+    "dense": {
+      "repo": "docuracy/symphonym-v8",
+      "revision": "dca7d287265e049b8410738c813ce03499926dd5",
+      "failed": []
+    },
+    "dense_labse": {
+      "repo": "setu4993/LaBSE",
+      "revision": "5afa72968dfe068421082cbc30411073b15a6693"
+    }
+  },
+  "chosen_k": {
+    "forward": {
+      "k": 3,
+      "target_reached_on_dev": true,
+      "dev_recall": 0.95,
+      "n_dev_ground_truth_pairs": 20,
+      "target": 0.95
+    },
+    "backward": {
+      "k": 47,
+      "target_reached_on_dev": true,
+      "dev_recall": 1.0,
+      "n_dev_ground_truth_pairs": 19,
+      "target": 0.95
+    }
+  },
+  "dataset_notes": {
+    "rows_per_source": {
+      "kima": 14341,
+      "yaqut": 15904,
+      "thurayya": 4482
+    },
+    "places_per_source": {
+      "kima": 6211,
+      "yaqut": 15904,
+      "thurayya": 2241
+    },
+    "link_types": {
+      "different": 789,
+      "located_in": 1,
+      "reverse_located_in": 11,
+      "reverse_part_of": 3,
+      "same_as": 116
+    },
+    "same_as_place_pairs": 105,
+    "conflicting_pairs_excluded": [
+      [
+        "('kima', '14012')",
+        "('yaqut', 'dig05011')"
+      ],
+      [
+        "('kima', '14871')",
+        "('yaqut', 'dig13665')"
+      ],
+      [
+        "('kima', '15722')",
+        "('yaqut', 'dig05054')"
+      ],
+      [
+        "('kima', '21331')",
+        "('yaqut', 'dig13446')"
+      ],
+      [
+        "('kima', '21537')",
+        "('yaqut', 'dig05107')"
+      ],
+      [
+        "('kima', '26414')",
+        "('yaqut', 'dig09407')"
+      ],
+      [
+        "('kima', '26569')",
+        "('yaqut', 'dig14276')"
+      ],
+      [
+        "('kima', '27055')",
+        "('yaqut', 'dig06383')"
+      ]
+    ]
+  },
+  "frozen_outputs": {
+    "yaqut_kima.forward": {
+      "files": {
+        "yaqut_kima.forward.real.v1.parquet": "e74071041b024a8feff0927b7916c5003641d01f09905bb825a7c14414e4014a",
+        "yaqut_kima.forward.oracle.v1.parquet": "d6ea75e2f20bedab005484cb5ee35fcdf761a65559c99bd1fb8232d68c8ee0c0",
+        "yaqut_kima.forward.splits.v1.parquet": "545da32f833b5f7f95b6614d42e626c188bb45b99f73e0fa797cf17d132007ba"
+      },
+      "rows": {
+        "real": 47712,
+        "oracle": 47716
+      },
+      "oracle_injected_pairs": 4
+    },
+    "thurayya_kima.forward": {
+      "files": {
+        "thurayya_kima.forward.real.v1.parquet": "785bbad0c8214f4264921ba56af23af0b20ffefd452941ca047eadea970fac6e",
+        "thurayya_kima.forward.oracle.v1.parquet": "785bbad0c8214f4264921ba56af23af0b20ffefd452941ca047eadea970fac6e",
+        "thurayya_kima.forward.splits.v1.parquet": "a0837e0aa8497a119bcfb80315ec8e650cc7bd874e31cef6cf81579a51087dd2"
+      },
+      "rows": {
+        "real": 6723,
+        "oracle": 6723
+      },
+      "oracle_injected_pairs": 0
+    },
+    "thurayya_yaqut.forward": {
+      "files": {
+        "thurayya_yaqut.forward.real.v1.parquet": "416578192618e2f841df6f8086673708fd14bbdfc48b7f7ee3029924c87e1bde",
+        "thurayya_yaqut.forward.oracle.v1.parquet": "416578192618e2f841df6f8086673708fd14bbdfc48b7f7ee3029924c87e1bde",
+        "thurayya_yaqut.forward.splits.v1.parquet": "a91b1367fa7b3d87dd84eb59d372921a34be3ec7d8f9ba2abf703aa067e6f854"
+      },
+      "rows": {
+        "real": 6723,
+        "oracle": 6723
+      },
+      "oracle_injected_pairs": 0
+    },
+    "yaqut_kima.backward": {
+      "files": {
+        "yaqut_kima.backward.real.v1.parquet": "7a92124ed7f4281968208e3776218c1358559bc44889ecc50b01001b16498b0b",
+        "yaqut_kima.backward.oracle.v1.parquet": "daab9d0645fd5d2b35d442bc8e4560872ee6d1bf15547f19caebb71053a105b2",
+        "yaqut_kima.backward.splits.v1.parquet": "cf8101666fa48bb5a7884988abe56308431e6e039457d43bad1e26231d86d66f"
+      },
+      "rows": {
+        "real": 291917,
+        "oracle": 291918
+      },
+      "oracle_injected_pairs": 1
+    },
+    "thurayya_kima.backward": {
+      "files": {
+        "thurayya_kima.backward.real.v1.parquet": "acd734ab35df02828c41591e9238ef99828d3644f6177f8d30e77f1b232422f0",
+        "thurayya_kima.backward.oracle.v1.parquet": "acd734ab35df02828c41591e9238ef99828d3644f6177f8d30e77f1b232422f0",
+        "thurayya_kima.backward.splits.v1.parquet": "daa6bac18cc504f754c92c674397fe8054bc7220a4ee41de545b315d99a53f03"
+      },
+      "rows": {
+        "real": 291917,
+        "oracle": 291917
+      },
+      "oracle_injected_pairs": 0
+    },
+    "thurayya_yaqut.backward": {
+      "files": {
+        "thurayya_yaqut.backward.real.v1.parquet": "6a3a90cc8a0cd73c9588f0bbe152ec54ce00a12edeb7f4507d779c3f1510554d",
+        "thurayya_yaqut.backward.oracle.v1.parquet": "6a3a90cc8a0cd73c9588f0bbe152ec54ce00a12edeb7f4507d779c3f1510554d",
+        "thurayya_yaqut.backward.splits.v1.parquet": "cb101b907a6a550ff45fd82cbc761fb2e05b80810e5b108033a8e95ce4543408"
+      },
+      "rows": {
+        "real": 747488,
+        "oracle": 747488
+      },
+      "oracle_injected_pairs": 0
+    }
+  },
+  "input_files_sha256": {
+    "final_datasets/MEHDIE_DB_EXTRACT/README.md": "4d57ea7a1af88ad98821ead86914154d5cb3c95b4f89eb5e3824b0cf9d209940",
+    "final_datasets/MEHDIE_DB_EXTRACT/external_links_kima_yaqut_thurayya.csv": "dd95a812285cbded3002c4cc23f52c336c82c7b6ebbc6d7c82a04d70ca7c40f5",
+    "final_datasets/MEHDIE_DB_EXTRACT/internal_links_kima_yaqut_thurayya.csv": "b10f24ae3d99d7045d0c02f15bba705589ec71554006bc34077c76b0017186d7",
+    "final_datasets/MEHDIE_DB_EXTRACT/mehdie_db_kima_extract.csv": "9d291a6bd746c769b74402ee8815105741758b29315bdcfe493366f4e75b6bb5",
+    "final_datasets/MEHDIE_DB_EXTRACT/mehdie_db_thurayya_extract.csv": "aa8ecd8fc9bba57e25e63ad10cc6aa7a8aa95155662d0a5fc83a12a2ec93a022",
+    "final_datasets/MEHDIE_DB_EXTRACT/mehdie_db_yaqut_extract.csv": "3e28737d4beec246d6e5f5d072e719b9ad69394605d6921db6421654c62e0345"
+  },
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "rapidfuzz": "3.14.6",
+    "epitran": "1.35.3",
+    "anyascii": "0.3.3",
+    "torch": "2.15.0+cpu",
+    "sentence-transformers": "6.2.0",
+    "transformers": "5.22.1",
+    "pyarrow": "26.0.1"
+  },
+  "python": "3.14.8"
+}

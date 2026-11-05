@@ -1,0 +1,82 @@
+# Candidate-generation benchmark configuration. Paths are relative to the repo root.
+version: 1
+seed: 20261104
+output_dir: candidate_generation/output
+results_dir: candidate_generation/results
+cache_dir: candidate_generation/.cache
+
+evaluation:
+  ks: [1, 2, 5, 10, 20, 50, 100]
+  plot_ks: [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000]
+  dev_fraction: 0.2
+  target_recall: 0.95
+  max_k: 1000          # upper bound of the k search, and the depth kept per query
+
+runtime:
+  chunk_size: 64       # query records scored at a time
+  workers: 12          # chunks scored in parallel
+  frozen_batch: 2000   # queries per parquet row group
+
+generators:
+  representation: ipa  # ipa | transliteration, used by tfidf_char and mehdie_bpf
+  tfidf_char:
+    ngram_range: [2, 4]
+  dense:
+    # Tried in order; the first that loads becomes `dense`.
+    candidates:
+      - backend: symphonym
+        repo: docuracy/symphonym-v8
+        revision: dca7d287265e049b8410738c813ce03499926dd5
+        lang: und      # no per-name language is available
+        batch_size: 512
+      - backend: sentence_transformers
+        repo: intfloat/multilingual-e5-base
+        revision: d128750597153bb5987e10b1c3493a34e5a4502a
+        prefix: "query: "   # the model card's prefix for symmetric tasks
+        batch_size: 64
+    second_model:
+      enabled: true
+      name: dense_labse
+      backend: sentence_transformers
+      repo: setu4993/LaBSE
+      revision: 5afa72968dfe068421082cbc30411073b15a6693
+      batch_size: 64
+  union_rrf:
+    constant: 60
+    inputs: [tfidf_char, dense]
+    # The optional third input, reported as its own row.
+    with_blocking_inputs: [tfidf_char, dense, mehdie_bpf]
+
+datasets:
+  mehdie:
+    adapter: mehdie
+    path: final_datasets/MEHDIE
+    directions: [forward, backward]   # forward = source -> target, backward = target -> source
+    conflict_policy: exclude          # exclude | keep same_as pairs also labelled different
+    tasks:
+      - {name: yaqut_kima, source: yaqut, target: kima}
+      - {name: thurayya_kima, source: thurayya, target: kima}
+      - {name: thurayya_yaqut, source: thurayya, target: yaqut}
+
+  mehdie_testsets:
+    adapter: mehdie_testsets
+    path: datasets/MEHDIE
+    directions: [forward, backward]
+    tasks:
+      - {name: ts7_yaqut_kima_sham, folder: YaqutSham_KimaSham, source: yaqut, target: kima,
+         source_file: YaqutSham.tsv, target_file: KimaSham.tsv}
+      - {name: ts8_kima_thurayya_sham, folder: KimaShamThurayyaSham, source: kima, target: thurayya,
+         source_file: KimaSham.tsv, target_file: ThurayaSham_295.tsv, target_separators: ":"}
+      - {name: ts9_tudela_thurayya, folder: TudelaThurayya, source: tudela, target: thurayya,
+         source_file: Tudela_257.tsv, target_file: althurayya_283.tsv, target_separators: ":"}
+      - {name: ts10_yaqut_kima_maghreb, folder: YaqutAndalusMagrebKima-KimaMagrebAndalusMapped,
+         source: yaqut, target: kima, source_file: Yaqut_306.tsv, target_file: Kima_303.tsv}
+      - {name: ts11_damast_tudela, folder: DamastTudela, source: damast, target: tudela,
+         source_file: damast_315.tsv, target_file: Tudela_257.tsv}
+
+  pleiades_trismegistos:
+    adapter: pleiades_trismegistos
+    path: final_datasets/Pleades_Trismegistos
+    directions: [forward, backward]
+    tasks:
+      - {name: pleiades_trismegistos, source: pleiades, target: trismegistos}

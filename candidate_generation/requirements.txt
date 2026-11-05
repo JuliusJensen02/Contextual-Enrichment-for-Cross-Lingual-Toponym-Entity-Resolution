@@ -1,0 +1,27 @@
+# Install from the repo root:
+#   pip install --no-deps panphon==0.22.2 epitran==1.35.3
+#   pip install -r candidate_generation/requirements.txt
+#   pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu
+# panphon and epitran are installed with --no-deps because their optional dependency
+# `editdistance` has no build for Python 3.14. Nothing here uses it.
+anyascii
+jamo
+marisa-trie
+matplotlib==3.*
+munkres
+numpy==2.5.4
+pandas==3.1.0
+pyarrow==26.0.1
+pytest==9.2.0
+pyyaml
+rapidfuzz==3.14.6
+regex
+requests
+ruff==0.17.3
+safetensors
+scikit-learn==1.9.1
+scipy==1.18.1
+sentence-transformers==6.2.0
+threadpoolctl
+transformers==5.22.1
+unicodecsv

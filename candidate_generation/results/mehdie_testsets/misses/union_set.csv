@@ -1,0 +1,5 @@
+dataset,task,direction,split,k,query_id,query_name,query_variants,query_ipa,target_id,target_name,target_variants,target_ipa,rank
+mehdie_testsets,ts10_yaqut_kima_maghreb,forward,dev,2,dig11221,طلمنكة,,tlmnka,7632,סלמנקה,Salamanca,slmnqa,9
+mehdie_testsets,ts7_yaqut_kima_sham,backward,test,2,12982,עזה,Gaza | Ghazzah,ʕza,dig12021,غزة,,ɣza,3
+mehdie_testsets,ts10_yaqut_kima_maghreb,backward,test,2,15722,אסילה,ארזילה | Zilis | Arcilas | Aṣīlā | Arsila | Arcila | Asilah | אזילה | Arzila | Arzīlah | Vile d'Arcila,ʔasila,dig05054,بشيلة,,bʃila,10
+mehdie_testsets,ts10_yaqut_kima_maghreb,backward,test,2,7632,סלמנקה,Salamanca,slmnqa,dig11221,طلمنكة,,tlmnka,3
