@@ -5,7 +5,7 @@ Runs wikidata_zh.rq, wikidata_mn.rq and wikidata_ru.rq on QLever, keeps the item
 the region, fetches attributes one query at a time and writes one TSV per language.
 The sets are separate pools. em.tsv (zh-mn), em_zh_ru.tsv and em_mn_ru.tsv hold the id
 pairs for items in both pools.
-See datasets/Wikidata-zh-mn/README.md for the rules.
+See datasets/Wikidata-zh-ru/README.md for the rules.
 
 Usage: python build_wikidata_zh_mn.py [out_dir]
 """
@@ -14,7 +14,7 @@ import urllib.error, urllib.parse, urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / 'datasets/Wikidata-zh-mn'
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / 'datasets/Wikidata-zh-ru'
 TGAZ = ROOT / 'datasets/tgaz_csv'
 CACHE = OUT / '.cache'
 ENDPOINT = 'https://qlever.dev/api/wikidata'
