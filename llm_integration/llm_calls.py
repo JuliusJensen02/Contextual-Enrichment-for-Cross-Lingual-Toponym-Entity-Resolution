@@ -1,18 +1,6 @@
-"""
-Simple LLM API integration for local LLM server.
-
-Example usage:
-    client = LLMClient()
-    response = client.call("What is this place?")
-    print(response)
-"""
-
 import os
 import requests
 from dotenv import load_dotenv
-import urllib3
-
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 load_dotenv()
 
@@ -20,23 +8,31 @@ load_dotenv()
 class LLMClient:
     """Simple client for calling local LLM server."""
 
-    def __init__(self, env_model_ref: str, env_url_ref : str, env_api_ref: str):
+    def __init__(self, env_model_ref: str, env_url_ref : str, env_api_ref: str, endpoint_path: str):
         self.api_url = os.getenv(env_url_ref)
         self.api_token = os.getenv(env_api_ref)
         self.model = os.getenv(env_model_ref)
         self.timeout = 30
+        self.endpoint = endpoint_path
 
 
-    def call(self, prompt: str, system_prompt: str = None) -> str:
-        messages = []
-        if system_prompt:
-            messages.append({"role": "system", "content": system_prompt})
-        messages.append({"role": "user", "content": prompt})
+    def call(self, prompt: str, instructions: str = None) -> str:
 
         payload = {
-            "model": self.model,
-            "messages": messages,
+            "model": self.model
         }
+
+        if self.endpoint.__contains__("responses"):
+            payload["input"] = prompt
+            if instructions:
+                payload["instructions"] = instructions
+        else:
+            messages = []
+            if instructions:
+                messages.append({"role": "system", "content": instructions})
+            messages.append({"role": "user", "content": prompt})
+            payload["messages"] = messages
+
 
         headers = {
             "Authorization": f"Bearer {self.api_token}",
@@ -51,15 +47,16 @@ class LLMClient:
                 timeout=self.timeout,
                 verify=False
             )
+
             response.raise_for_status()
-            return response.json()["choices"][0]["message"]["content"]
+            return response.json()
+        
         except requests.exceptions.RequestException as e:
-            try:
-                print(f"Response: {response.status_code}")
-                print(f"Body: {response.text}")
-            except:
-                pass
-            raise RuntimeError(f"API call failed: {e}")
+            if e.response is not None:
+                print(f"Response: {e.response.status_code}")
+                print(f"Body: {e.response.text}")
+
+            raise RuntimeError(f"API call failed: {e}") from e
 
     def call_batch(self, prompts: list[str]) -> list[str]:
         """Call the LLM multiple times."""
@@ -68,8 +65,10 @@ class LLMClient:
 
 
 if __name__ == "__main__":
-    client = LLMClient("LLAMA_LLM_model", "LLAMA_LLM_API_URL", "LLAMA_LLM_API_TOKEN")
-    print(client.call("Hello!"))
-
-
-
+    llama_client = LLMClient("LLAMA_MODEL", "LLAMA_API_URL", "LLAMA_API_TOKEN", "chat/completions")
+    openai_client = LLMClient("OPENAI_MODEL", "OPENAI_API_URL", "OPENAI_API_TOKEN", "responses")
+    print("LLAMA")
+    print(llama_client.call("Hello!"))
+    print("\n")
+    print("OPEN AI")
+    print(openai_client.call("Hello!"))
