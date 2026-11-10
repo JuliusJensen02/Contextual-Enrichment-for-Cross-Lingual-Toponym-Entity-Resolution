@@ -60,7 +60,7 @@ DATASETS: dict[str, DatasetSpec] = {
         / "Pleades_Trismegistos"
         / "pleiades_greek_trismegistos_latin"
         / "pleiades.tsv",
-        ("names_greek",),
+        ("title",),
     ),
     "trismegistos": DatasetSpec(
         Path("final_datasets")
