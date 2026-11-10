@@ -1,6 +1,0 @@
-dataset,task,direction,split,k,query_id,query_name,query_variants,query_ipa,target_id,target_name,target_variants,target_ipa,rank
-mehdie,yaqut_kima,forward,test,3,dig01468,السافرية,,alsafria,23424,צפריה,Tsafriyya,sfria,9
-mehdie,yaqut_kima,forward,dev,3,dig05221,بلنسية,,blnsia,6427,ולנסיה,Valencia,wlnsia,6
-mehdie,yaqut_kima,forward,test,3,dig15133,نيبطون,,nibtun,26565,איבטין,Ibtin,ʔaibtin,6
-mehdie,yaqut_kima,forward,test,3,dig15247,همدان,,hmdan,27082,קבוץ חנתון,חנתון | קיבוץ חנתון | Hannaton | Kibbutz Hannaton | Hanaton,qbus ħntun,87
-mehdie,yaqut_kima,backward,test,47,27082,קבוץ חנתון,חנתון | קיבוץ חנתון | Hannaton | Kibbutz Hannaton | Hanaton,qbus ħntun,dig15247,همدان,,hmdan,289
