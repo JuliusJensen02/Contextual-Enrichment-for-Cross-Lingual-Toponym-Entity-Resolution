@@ -13,11 +13,14 @@ from __future__ import annotations
 
 import argparse
 import csv
+import tempfile
 from pathlib import Path
+
+from load_trismegistos_partitions import load_partitions
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "final_datasets" / "Pleades_Trismegistos"
-OUTPUT_DIR = ROOT / "final_datasets" / "Pleades_Trismegistos" / "pleiades_greek_trismegistos_latin"
+OUTPUT_DIR = DATA_DIR / "pleiades_greek_trismegistos_latin"
 
 PLEIADES_ID = "pleiades_id"
 TRISMEGISTOS_ID = "trismegistos_id"
@@ -171,7 +174,8 @@ def main() -> None:
     parser.add_argument(
         "--trismegistos",
         type=Path,
-        default=DATA_DIR / "trismegistos_texts_combined.tsv",
+        default=DATA_DIR / "trismegistos_texts_combined_parts",
+        help="Partition directory from combine_trismegistos.py, or a combined TSV file",
     )
     parser.add_argument("--em", type=Path, default=DATA_DIR / "em.tsv")
     parser.add_argument("--output-dir", type=Path, default=OUTPUT_DIR)
@@ -186,17 +190,25 @@ def main() -> None:
         raise ValueError("Output files must not overwrite any input file")
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    pleiades_ids = build_pleiades(args.pleiades, args.output_dir / "pleiades.tsv")
-    trismegistos_ids = build_trismegistos(
-        args.trismegistos,
-        args.output_dir / "trismegistos.tsv",
-    )
-    em_count = build_em(
-        args.em,
-        args.output_dir / "em.tsv",
-        pleiades_ids,
-        trismegistos_ids,
-    )
+    with tempfile.TemporaryDirectory(prefix="trismegistos-partitions-") as temp_dir:
+        if args.trismegistos.is_dir():
+            combined_path = Path(temp_dir) / "trismegistos_texts_combined.tsv"
+            row_count, partition_count = load_partitions(args.trismegistos, combined_path)
+            print(f"Loaded {row_count:,} rows from {partition_count:,} Trismegistos partitions")
+        else:
+            combined_path = args.trismegistos
+
+        pleiades_ids = build_pleiades(args.pleiades, args.output_dir / "pleiades.tsv")
+        trismegistos_ids = build_trismegistos(
+            combined_path,
+            args.output_dir / "trismegistos.tsv",
+        )
+        em_count = build_em(
+            args.em,
+            args.output_dir / "em.tsv",
+            pleiades_ids,
+            trismegistos_ids,
+        )
 
     print(f"Pleiades Greek: {len(pleiades_ids):,} places")
     print(f"Trismegistos Latin: {len(trismegistos_ids):,} places")

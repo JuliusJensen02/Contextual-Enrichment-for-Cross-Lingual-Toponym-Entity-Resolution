@@ -10,20 +10,29 @@ The Greek-to-Latin subset is a **cross-lingual diagnostic**: Pleiades records
 are selected for Greek-script names, while Trismegistos records are selected
 for Latin-script names. It is not a same-language comparison.
 
-Build the subset from the repository root:
+First create the partitioned combined Trismegistos table, then build the subset
+from the repository root:
 
 ```powershell
+python scripts\combine_trismegistos.py
 python scripts\build_greek_latin_crosslingual.py
 ```
 
 By default, the script reads:
 
 - `final_datasets/Pleades_Trismegistos/pleiades.tsv`
-- `final_datasets/Pleades_Trismegistos/trismegistos_texts_combined.tsv`
+- partitions in `final_datasets/Pleades_Trismegistos/trismegistos_texts_combined_parts/`
 - `final_datasets/Pleades_Trismegistos/em.tsv`
 
-It writes the following files to
-`project/cross_matching/subsets/pleiades_greek_trismegistos_latin/`:
+`combine_trismegistos.py` writes 10,000 rows per TSV partition by default,
+along with a `manifest.json` listing the partition files, row counts, and
+columns. Change the partition size with `--rows-per-partition`; change the
+partition directory with `--output-dir`.
+
+The Greek–Latin builder calls `load_trismegistos_partitions.py` to validate and
+reassemble the manifest-listed partitions into a temporary TSV. It then writes
+the following files to
+`final_datasets/Pleades_Trismegistos/pleiades_greek_trismegistos_latin/`:
 
 | File | Contents |
 |---|---|
@@ -51,18 +60,28 @@ the existing gold links. Since Trismegistos places without linked text are not
 present in the combined input, they cannot appear in this subset.
 
 On the current source data, the generated files contain 2,909 Pleiades places,
-252 Trismegistos places, and 100 gold links. Re-running the script refreshes
-these outputs from the input TSVs.
+252 Trismegistos places, and 100 gold links. Re-running the scripts refreshes
+these outputs from the input TSVs. The partition loader can also be run
+directly:
+
+```powershell
+python scripts\load_trismegistos_partitions.py `
+  final_datasets\Pleades_Trismegistos\trismegistos_texts_combined_parts `
+  path\to\trismegistos_texts_combined.tsv
+```
 
 Optional arguments let you override the input files or output directory:
 
 ```powershell
 python scripts\build_greek_latin_crosslingual.py `
   --pleiades path\to\pleiades.tsv `
-  --trismegistos path\to\trismegistos_texts_combined.tsv `
+  --trismegistos path\to\partition-directory `
   --em path\to\em.tsv `
   --output-dir path\to\output
 ```
+
+`--trismegistos` may also point directly to an already combined TSV instead of
+a partition directory.
 
 ## Language-pair interpretation
 
