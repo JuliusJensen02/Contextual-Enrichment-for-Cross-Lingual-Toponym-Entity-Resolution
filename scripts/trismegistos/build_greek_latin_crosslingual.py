@@ -56,9 +56,19 @@ def build_pleiades(source: Path, output: Path) -> set[str]:
     ids = set()
     with source.open(encoding="utf-8", newline="") as source_file:
         reader = csv.DictReader(source_file, delimiter="\t")
-        fields = require_columns(source, reader.fieldnames, (PLEIADES_ID, "names_greek"))
+        fields = require_columns(
+            source,
+            reader.fieldnames,
+            (PLEIADES_ID, "names_greek", "names_latin"),
+        )
+        output_fields = [field for field in fields if field != "names_latin"]
         with output.open("w", encoding="utf-8", newline="") as output_file:
-            writer = csv.DictWriter(output_file, fieldnames=fields, delimiter="\t", lineterminator="\n")
+            writer = csv.DictWriter(
+                output_file,
+                fieldnames=output_fields,
+                delimiter="\t",
+                lineterminator="\n",
+            )
             writer.writeheader()
             for row in reader:
                 place_id = row[PLEIADES_ID]
@@ -69,19 +79,20 @@ def build_pleiades(source: Path, output: Path) -> set[str]:
                 if place_id in ids:
                     raise ValueError(f"{source} contains duplicate {PLEIADES_ID} {place_id!r}")
                 ids.add(place_id)
-                writer.writerow(row)
+                writer.writerow({field: row[field] for field in output_fields})
     return ids
 
 
 def write_trismegistos_group(
     writer: csv.DictWriter,
     place: dict[str, str] | None,
+    output_fields: list[str],
     values: dict[str, list[str]],
     mentions_name: bool,
 ) -> bool:
     if place is None or not place["names_latin"].strip():
         return False
-    row = dict(place)
+    row = {field: place[field] for field in output_fields if field not in TEXT_COLUMNS}
     for field in TEXT_COLUMNS:
         row[field] = (
             ("1" if mentions_name else "0")
@@ -100,11 +111,17 @@ def build_trismegistos(source: Path, output: Path) -> set[str]:
         fields = require_columns(
             source,
             reader.fieldnames,
-            (TRISMEGISTOS_ID, "names_latin", *TEXT_COLUMNS),
+            (TRISMEGISTOS_ID, "names_latin", "names_greek", *TEXT_COLUMNS),
         )
+        output_fields = [field for field in fields if field != "names_greek"]
         place_fields = [field for field in fields if field not in text_ids]
         with output.open("w", encoding="utf-8", newline="") as output_file:
-            writer = csv.DictWriter(output_file, fieldnames=fields, delimiter="\t", lineterminator="\n")
+            writer = csv.DictWriter(
+                output_file,
+                fieldnames=output_fields,
+                delimiter="\t",
+                lineterminator="\n",
+            )
             writer.writeheader()
 
             current_id = None
@@ -115,7 +132,16 @@ def build_trismegistos(source: Path, output: Path) -> set[str]:
             closed_ids = set()
 
             def flush_group() -> None:
-                if write_trismegistos_group(writer, place, values, mentions_name) and current_id is not None:
+                if (
+                    write_trismegistos_group(
+                        writer,
+                        place,
+                        output_fields,
+                        values,
+                        mentions_name,
+                    )
+                    and current_id is not None
+                ):
                     ids.add(current_id)
 
             for row in reader:

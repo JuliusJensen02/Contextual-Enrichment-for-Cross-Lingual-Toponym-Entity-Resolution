@@ -36,8 +36,8 @@ the following files to
 
 | File | Contents |
 |---|---|
-| `pleiades.tsv` | Pleiades places with a non-blank `names_greek` value. All original Pleiades columns are retained. |
-| `trismegistos.tsv` | Trismegistos places with a non-blank `names_latin` value, one row per place. Place attributes and aggregated text information are retained. |
+| `pleiades.tsv` | Pleiades places with a non-blank `names_greek` value. The off-target `names_latin` column is omitted. |
+| `trismegistos.tsv` | Trismegistos places with a non-blank `names_latin` value, one row per place. The off-target `names_greek` column is omitted; other place attributes and aggregated text information are retained. |
 | `em.tsv` | Gold links from the source EM table for which both place IDs occur in the filtered Pleiades and Trismegistos files. |
 
 ### Trismegistos text aggregation
