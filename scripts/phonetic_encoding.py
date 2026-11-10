@@ -36,40 +36,46 @@ from candidate_generation.data.phonetics import phonetic_forms
 
 @dataclass(frozen=True)
 class DatasetSpec:
-    """Describe a source file and the column whose value should be encoded."""
+    """Describe a source file and the columns whose values should be encoded."""
 
     path: Path
-    source_column: str
+    source_columns: tuple[str, ...]
 
 
 DATASETS: dict[str, DatasetSpec] = {
     "mehdie_db_kima_extract": DatasetSpec(
         Path("final_datasets") / "MEHDIE" / "mehdie_db_kima_extract.csv",
-        "title",
+        ("title",),
     ),
     "mehdie_db_thurayya_extract": DatasetSpec(
         Path("final_datasets") / "MEHDIE" / "mehdie_db_thurayya_extract.csv",
-        "title",
+        ("title",),
     ),
     "mehdie_db_yaqut_extract": DatasetSpec(
         Path("final_datasets") / "MEHDIE" / "mehdie_db_yaqut_extract.csv",
-        "title",
+        ("title",),
     ),
     "pleiades": DatasetSpec(
-        Path("final_datasets") / "Pleades_Trismegistos" / "pleiades.tsv",
-        "names_greek",
+        Path("final_datasets")
+        / "Pleades_Trismegistos"
+        / "pleiades_greek_trismegistos_latin"
+        / "pleiades.tsv",
+        ("names_greek",),
     ),
     "trismegistos": DatasetSpec(
-        Path("final_datasets") / "Pleades_Trismegistos" / "trismegistos.tsv",
-        "names_latin",
+        Path("final_datasets")
+        / "Pleades_Trismegistos"
+        / "pleiades_greek_trismegistos_latin"
+        / "trismegistos.tsv",
+        ("names_latin", "names_egyptian", "names_coptic", "modern_name"),
     ),
     "wikidata_ru": DatasetSpec(
         Path("final_datasets") / "Wikidata-zh-ru" / "wikidata_ru.tsv",
-        "title",
+        ("title",),
     ),
     "wikidata_zh": DatasetSpec(
         Path("final_datasets") / "Wikidata-zh-ru" / "wikidata_zh.tsv",
-        "title",
+        ("title",),
     ),
 }
 
@@ -84,26 +90,33 @@ def _encode_value(value: str | None) -> str:
 def enrich_dataset(
     input_path: Path,
     output_path: Path,
-    source_column: str,
+    source_columns: tuple[str, ...],
 ) -> int:
-    """Write ``output_path`` with an IPA column immediately after the source."""
+    """Write ``output_path`` with IPA columns immediately after each source."""
     delimiter = "\t" if input_path.suffix.lower() == ".tsv" else ","
-    ipa_column = f"{source_column}_ipa"
 
     with input_path.open("r", encoding="utf-8-sig", newline="") as source:
         reader = csv.DictReader(source, delimiter=delimiter)
         if reader.fieldnames is None:
             raise ValueError(f"{input_path} has no header row")
-        if source_column not in reader.fieldnames:
-            raise ValueError(
-                f"{input_path} does not contain the required column "
-                f"{source_column!r}"
-            )
+        missing_columns = [
+            column for column in source_columns if column not in reader.fieldnames
+        ]
+        if missing_columns:
+            raise ValueError(f"{input_path} is missing columns: {missing_columns}")
 
         fieldnames = list(reader.fieldnames)
-        if ipa_column in fieldnames:
-            fieldnames.remove(ipa_column)
-        fieldnames.insert(fieldnames.index(source_column) + 1, ipa_column)
+        ipa_columns = {
+            column: f"{column}_ipa" for column in source_columns
+        }
+        for ipa_column in ipa_columns.values():
+            if ipa_column in fieldnames:
+                fieldnames.remove(ipa_column)
+        for source_column in source_columns:
+            fieldnames.insert(
+                fieldnames.index(source_column) + 1,
+                ipa_columns[source_column],
+            )
 
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with output_path.open("w", encoding="utf-8", newline="") as target:
@@ -117,7 +130,8 @@ def enrich_dataset(
             writer.writeheader()
             row_count = 0
             for row in reader:
-                row[ipa_column] = _encode_value(row.get(source_column))
+                for source_column, ipa_column in ipa_columns.items():
+                    row[ipa_column] = _encode_value(row.get(source_column))
                 writer.writerow(row)
                 row_count += 1
 
@@ -164,7 +178,7 @@ def main() -> None:
             )
             output_path = args.output_dir.resolve() / relative_path
             row_count = enrich_dataset(
-                input_path, output_path, spec.source_column
+                input_path, output_path, spec.source_columns
             )
         else:
             with NamedTemporaryFile(
@@ -177,7 +191,7 @@ def main() -> None:
                 temporary_path = Path(temporary.name)
             try:
                 row_count = enrich_dataset(
-                    input_path, temporary_path, spec.source_column
+                    input_path, temporary_path, spec.source_columns
                 )
                 os.replace(temporary_path, input_path)
             except Exception:
