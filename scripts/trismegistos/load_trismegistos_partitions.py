@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Load manifest-listed Trismegistos TSV partitions into one TSV file.
 
-Usage: python scripts/load_trismegistos_partitions.py PARTITION_DIR OUTPUT.tsv
+Usage: python scripts/trismegistos/load_trismegistos_partitions.py PARTITION_DIR OUTPUT.tsv
 """
 
 import argparse

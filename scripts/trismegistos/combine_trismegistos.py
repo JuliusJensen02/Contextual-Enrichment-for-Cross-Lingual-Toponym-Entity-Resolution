@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Join Trismegistos text rows to place attributes and write TSV partitions.
 
-Usage: python scripts/combine_trismegistos.py [--texts PATH] [--places PATH]
-                                               [--output-dir DIR]
-                                               [--rows-per-partition N]
+Usage: python scripts/trismegistos/combine_trismegistos.py
+       [--texts PATH] [--places PATH] [--output-dir DIR]
+       [--rows-per-partition N]
 By default, partitions and a manifest are written to
 final_datasets/Pleades_Trismegistos/trismegistos_texts_combined_parts/.
 """
@@ -14,7 +14,7 @@ import json
 from pathlib import Path
 from uuid import uuid4
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 DATA_DIR = ROOT / "final_datasets" / "Pleades_Trismegistos"
 ID_COLUMN = "trismegistos_id"
 

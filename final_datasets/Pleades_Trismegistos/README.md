@@ -175,6 +175,6 @@ Notes:
 - `text_lang`: Greek `grc` 50,483 (86.2%), Coptic `cop` 2,774 (4.7%), Latin `la` 1,130 (1.9%), Syriac `syc` 328, Demotic `egy-Egyd` 115, plus a few others.
 
 To add the place attributes from `trismegistos.tsv` to each text row, run
-`python scripts/combine_trismegistos.py`. This left join uses `trismegistos_id`
+`python scripts/trismegistos/combine_trismegistos.py`. This left join uses `trismegistos_id`
 and writes `trismegistos_texts_combined.tsv` in this directory; paths can be
 overridden with `--texts`, `--places`, and `--output`.

@@ -5,7 +5,7 @@ Trismegistos text rows are aggregated to one row per place. Text fields with
 multiple distinct values are joined with `` | ``; ``mentions_name`` is 1 if
 any linked text mentions the place name.
 
-Usage: python scripts/build_greek_latin_crosslingual.py
+Usage: python scripts/trismegistos/build_greek_latin_crosslingual.py
        [--pleiades PATH] [--trismegistos PATH] [--em PATH] [--output-dir DIR]
 """
 
@@ -18,7 +18,7 @@ from pathlib import Path
 
 from load_trismegistos_partitions import load_partitions
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 DATA_DIR = ROOT / "final_datasets" / "Pleades_Trismegistos"
 OUTPUT_DIR = DATA_DIR / "pleiades_greek_trismegistos_latin"
 

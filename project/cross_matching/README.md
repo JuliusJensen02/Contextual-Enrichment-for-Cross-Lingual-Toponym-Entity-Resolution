@@ -14,8 +14,8 @@ First create the partitioned combined Trismegistos table, then build the subset
 from the repository root:
 
 ```powershell
-python scripts\combine_trismegistos.py
-python scripts\build_greek_latin_crosslingual.py
+python scripts\trismegistos\combine_trismegistos.py
+python scripts\trismegistos\build_greek_latin_crosslingual.py
 ```
 
 By default, the script reads:
@@ -65,7 +65,7 @@ these outputs from the input TSVs. The partition loader can also be run
 directly:
 
 ```powershell
-python scripts\load_trismegistos_partitions.py `
+python scripts\trismegistos\load_trismegistos_partitions.py `
   final_datasets\Pleades_Trismegistos\trismegistos_texts_combined_parts `
   path\to\trismegistos_texts_combined.tsv
 ```
@@ -73,7 +73,7 @@ python scripts\load_trismegistos_partitions.py `
 Optional arguments let you override the input files or output directory:
 
 ```powershell
-python scripts\build_greek_latin_crosslingual.py `
+python scripts\trismegistos\build_greek_latin_crosslingual.py `
   --pleiades path\to\pleiades.tsv `
   --trismegistos path\to\partition-directory `
   --em path\to\em.tsv `
