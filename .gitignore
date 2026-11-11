@@ -3,4 +3,4 @@
 .env
 placename_master.csv
 .vscode
-*\__pycache__tgaz_bak_2018.sql
+*\__pycache__
