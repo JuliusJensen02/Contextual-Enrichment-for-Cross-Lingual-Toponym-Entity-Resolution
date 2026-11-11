@@ -1,0 +1,17 @@
+id	name	lang	dialect	default_per_lang	note
+0	n/a	en		0	
+1	traditional Chinese	zh-Hant		0	
+2	simplified Chinese	zh		1	
+3	variant Chinese	zh		0	
+4	Kanji	ja		1	
+5	Hirigana	ja		0	
+6	Katakana	ja		0	
+7	Korean characters	ko		1	
+8	Hangul	ko		0	
+9	Cyrillic	ru		1	
+10	Mongolian	mn		1	
+11	Uighur	ug		1	
+12	Tibetan	bo		1	
+13	Arabic	ar		1	
+14	Vietnamese	vi		1	
+15	Manchu	mnc		1	
