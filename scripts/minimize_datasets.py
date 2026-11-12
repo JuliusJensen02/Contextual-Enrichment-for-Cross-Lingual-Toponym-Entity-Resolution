@@ -1,8 +1,11 @@
 """Generate minimized TSV files from the project's seven source datasets."""
 
 import csv
+import sys
 from pathlib import Path
 
+
+csv.field_size_limit(min(sys.maxsize, 2**31 - 1))
 
 ROOT = Path(__file__).resolve().parent.parent
 DATASETS = ROOT / "datasets"
@@ -10,9 +13,13 @@ OUTPUT_DIR = DATASETS / "minimzed datasets"
 VALUE_SEPARATOR = " | "
 
 SOURCES = {
-    "minimized_pleiades.tsv": DATASETS / "Pleades_Trismegistos" / "pleiades.tsv",
+    "minimized_pleiades.tsv": DATASETS
+    / "Pleades_Trismegistos"
+    / "pleiades_greek_trismegistos_latin"
+    / "pleiades.tsv",
     "minimized_trismegistos.tsv": DATASETS
     / "Pleades_Trismegistos"
+    / "pleiades_greek_trismegistos_latin"
     / "trismegistos.tsv",
     "minimized_mehdie_db_yaqut_flat.tsv": DATASETS
     / "MEHDIE"
@@ -170,9 +177,13 @@ def transform(filename, row):
                     "name_standard",
                     "names_greek",
                     "names_latin",
+                    "names_latin_ipa",
                     "names_egyptian",
+                    "names_egyptian_ipa",
                     "names_coptic",
+                    "names_coptic_ipa",
                     "modern_name",
+                    "modern_name_ipa",
                 ],
             ),
             country=combine(row, ["country", "region", "nomos_code", "provincia"]),
