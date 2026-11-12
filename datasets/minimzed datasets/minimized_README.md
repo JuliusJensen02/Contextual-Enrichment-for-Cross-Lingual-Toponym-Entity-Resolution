@@ -5,6 +5,10 @@ When multiple source columns are combined into one output cell, their values
 are joined with ` | `. Empty source values are omitted; other values are kept
 as-is. Output files use UTF-8.
 
+For the minimized MEHDIE files, multi-values carried over from the flattened
+sources are normalized from `; ` to ` | ` in `name_variants`, `lat`, `lon`,
+`country`, `types`, and `description`.
+
 Regenerate the files from the repository root with:
 
 ```powershell

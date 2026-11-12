@@ -135,6 +135,15 @@ OUTPUT_FIELDS = {
     ],
 }
 
+MEHDIE_MULTI_VALUE_FIELDS = (
+    "name_variants",
+    "lat",
+    "lon",
+    "country",
+    "types",
+    "description",
+)
+
 
 def combine(row, fields):
     """Join non-empty source values, omitting exact duplicates."""
@@ -198,6 +207,8 @@ def transform(filename, row):
             types=row.get("types", ""),
             description=row.get("description", ""),
         )
+        for field in MEHDIE_MULTI_VALUE_FIELDS:
+            result[field] = result[field].replace("; ", VALUE_SEPARATOR)
     else:
         result.update(
             name_variants=combine(row, ["variants", "replaces", "replaced_by"]),
