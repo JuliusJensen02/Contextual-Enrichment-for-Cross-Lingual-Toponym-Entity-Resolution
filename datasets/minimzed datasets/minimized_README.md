@@ -5,6 +5,12 @@ When multiple source columns are combined into one output cell, their values
 are joined with ` | `. Empty source values are omitted; other values are kept
 as-is. Output files use UTF-8.
 
+Regenerate the files from the repository root with:
+
+```powershell
+python scripts\minimize_datasets.py
+```
+
 | Output | Source | Field mappings |
 |---|---|---|
 | `minimized_pleiades.tsv` | `Pleades_Trismegistos/pleiades.tsv` | `name_variants` combines `names_by_language`, `names_romanized`, `names_greek`, and `names_latin`; `country` is empty because no country field is available; `begin_date` / `end_date` map to `year_from` / `year_to`; `types` maps to `place_types`. |
@@ -15,7 +21,9 @@ as-is. Output files use UTF-8.
 | `minimized_wikidata_ru.tsv` | `Wikidata-zh-ru/wikidata_ru.tsv` | `name_variants` combines `variants`, `replaces`, and `replaced_by`; `country` combines `country`, `admin_unit`, and `part_of`; wiki-specific fields map directly. |
 | `minimized_wikidata_zh.tsv` | `Wikidata-zh-ru/wikidata_zh.tsv` | `name_variants` combines `variants`, `replaces`, and `replaced_by`; `country` combines `country`, `admin_unit`, and `part_of`; wiki-specific fields map directly. |
 
-`title`, coordinates, and available descriptions map directly. Wiki-specific
+`title`, `title_ipa`, coordinates, and available descriptions map directly.
+`title_ipa` is copied from the same-named source column when present; until
+that column is added to a source, its minimized value is blank. Wiki-specific
 fields include `wiki_title`, `capital`, `neighbours`, `population`,
 `inception`, `dissolved`, `instance_of_label`, and `described_by`.
 `details` is retained for Pleiades only. Fields that do not exist in a source
