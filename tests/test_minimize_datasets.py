@@ -3,6 +3,7 @@ from scripts.minimize_datasets import transform
 
 def test_mehdie_multi_values_use_the_minimized_separator():
     row = {
+        "id": "42",
         "title": "Place",
         "title_ipa": "place",
         "name_variants": "First; Second",
@@ -16,7 +17,7 @@ def test_mehdie_multi_values_use_the_minimized_separator():
         "description": "Description one; Description two",
     }
 
-    result = transform("minimized_mehdie_db_kima_flat.tsv", row)
+    result = transform("kima.tsv", row)
 
     assert result["name_variants"] == "First | Second"
     assert result["lat"] == "10 | 11"
@@ -24,4 +25,5 @@ def test_mehdie_multi_values_use_the_minimized_separator():
     assert result["country"] == "AA | BB | Country A | Country B"
     assert result["types"] == "City | Town"
     assert result["description"] == "Description one | Description two"
+    assert result["id"] == "42"
     assert result["title"] == "Place"

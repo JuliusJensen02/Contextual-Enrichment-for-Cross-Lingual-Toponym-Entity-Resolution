@@ -89,9 +89,9 @@ print_md("Attribute co-presence in `em.tsv` matches", "Pleiades", "TM",
          total, rows)
 
 # -------------------------------------------------------------------- MEHDIE
-kima, _ = load(MD / "mehdie_db_kima_extract.csv", ",", "id")
-yaqut, _ = load(MD / "mehdie_db_yaqut_extract.csv", ",", "id")
-thur, _ = load(MD / "mehdie_db_thurayya_extract.csv", ",", "id")
+kima, _ = load(MD / "kima.csv", ",", "id")
+yaqut, _ = load(MD / "yaqut.csv", ",", "id")
+thur, _ = load(MD / "thurayya.csv", ",", "id")
 allplaces = {**kima, **yaqut, **thur}
 
 with open(MD / "internal_links_kima_yaqut_thurayya.csv", encoding="utf-8",

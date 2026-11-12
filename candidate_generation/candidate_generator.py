@@ -3,9 +3,9 @@
 Comparing every record in one gazetteer with every record in another is too expensive, so a
 blocking method first picks the pairs that are worth comparing: the "candidates".
 
-The CandidateGenerator holds the datasets and does everything that is the same for every
-method: picking the names out of the records, turning name pairs into record pairs, and the geo
-restriction. HOW names are compared is a BlockingMethod (the interface in
+The CandidateGenerator holds the datasets (data_loader.Dataset) and does everything that is
+the same for every method: taking the names of the records, turning name pairs into record
+pairs, and the geo restriction. HOW names are compared is a BlockingMethod (the interface in
 base/blocking_method.py); one of the methods in methods/ is injected into it:
 
   Q_grams        q_grams.py        key-based      names sharing most of their letter pieces
@@ -16,11 +16,17 @@ base/blocking_method.py); one of the methods in methods/ is injected into it:
 
 The two kNN methods share their neighbour search through the base class in base/knn_method.py.
 
-  CandidateGenerator(datasets, PassJoin(tau=1)).generate()
+  test_set = TestSetLoader().load(TestSetName.MEHDIE)
+  CandidateGenerator(test_set.datasets, PassJoin(tau=1)).all_pairs()             # every pair of its datasets
+
+  kima, yaqut = test_set.dataset(DatasetName.KIMA), test_set.dataset(DatasetName.YAQUT)
+  CandidateGenerator([kima, yaqut], PassJoin(tau=1)).generate()                  # or just two of them
 
 Every method looks at the toponym NAMES only. Coordinates are a second, separate criterion:
 with `max_km` set, the candidates are also restricted to places at most that far apart (geo
 blocking, see `within_distance`).
+
+Needs the repo root on sys.path (for data_loader).
 """
 import math
 import re
@@ -28,50 +34,45 @@ import unicodedata
 from itertools import combinations
 
 from base import BlockingMethod
+from data_loader import Dataset, DatasetName
 
 
 class CandidateGenerator:
-    def __init__(self, datasets: dict[str, dict], method: BlockingMethod, name_attrs=("name", "alt"),
-                 phonetic_attrs=None, max_km=50, coords_attr="coords", keep_without_coords=True):
-        """datasets:       {dataset_name: {record_id: record}}, two or more datasets. A record is a
-                           dict of strings or lists of strings, plus optional coordinates, e.g.
-                           {"name": "Antakya", "alt": ["Antioch"], "phonetic": ["ntk", "nts"],
-                            "coords": [(36.2, 36.16)]}.
-        method:         the blocking method that compares the names.
-        name_attrs:     the attributes that hold the record's place names.
-        phonetic_attrs: the attributes that hold phonetic encodings of the names. When given,
-                        the letter-based methods compare these instead of the names (methods
-                        with raw_names, i.e. LM_kNN_search, always get the names).
-        max_km:         geo restriction: only keep candidate pairs at most this many km apart
-                        (default 50: the smallest threshold that lost no ground truth links on
-                        the Pleiades-TM and MEHDIE samples; None = no restriction).
-        coords_attr:    the attribute holding a record's (lat, lon) points; a list, because a
-                        record can have several.
+    def __init__(self, datasets: list[Dataset], method: BlockingMethod, phonetic=False, max_km=50,
+                 keep_without_coords=True):
+        """datasets:  two or more datasets.
+        method:    the blocking method that compares the names.
+        phonetic:  True = the letter-based methods compare the datasets' phonetic (IPA)
+                   encodings instead of the names (methods with raw_names, i.e. LM_kNN_search,
+                   always get the names).
+        max_km:    geo restriction: only keep candidate pairs at most this many km apart
+                   (default 50: the smallest threshold that lost no ground truth links on the
+                   Pleiades-TM and MEHDIE samples; None = no restriction).
         keep_without_coords: keep pairs where a record has no coordinates (distance cannot rule
-                        them out). False drops them."""
-        self.datasets = datasets
+                   them out). False drops them."""
+        self.datasets = {dataset.name: dataset for dataset in datasets}
+        if len(self.datasets) != len(datasets):
+            raise ValueError("Every dataset can only be given once.")
         self.method = method
-        self.name_attrs = list(name_attrs)
-        self.phonetic_attrs = list(phonetic_attrs) if phonetic_attrs else None
+        self.phonetic = phonetic
         self.max_km = max_km
-        self.coords_attr = coords_attr
         self.keep_without_coords = keep_without_coords
 
-    def generate(self, source=None, target=None) -> set:
-        """Candidate pairs (source_id, target_id) between two datasets, given by name (both
-        default to the only two there are). Names are compared one at a time and name pairs are
-        turned into record pairs at the end."""
+    def generate(self, source: DatasetName = None, target: DatasetName = None) -> set:
+        """Candidate pairs (source_id, target_id) between two of the datasets (both default to
+        the only two there are). Names are compared one at a time and name pairs are turned into
+        record pairs at the end."""
         A, B = self._pick(source, target)
         name_pairs = self.method.candidates(self._names(A), self._names(B))
         pairs = {(a[0], b[0]) for a, b in name_pairs}  # ((id_a, n), (id_b, m)) -> (id_a, id_b)
         if self.max_km is None:
             return pairs
-        return within_distance(pairs, A, B, self.max_km, self.coords_attr, self.keep_without_coords)
+        return within_distance(pairs, A, B, self.max_km, self.keep_without_coords)
 
     def all_pairs(self) -> dict:
         """Runs the method on every pair of datasets, so a test set can hold any number of them:
-        {(source, target): candidate pairs}. With datasets [a, b, c] the pairs are (a, b),
-        (a, c) and (b, c), in the order the datasets were given."""
+        {(source, target): candidate pairs}, keyed by DatasetName. With datasets [a, b, c] the
+        pairs are (a, b), (a, c) and (b, c), in the order the datasets were given."""
         return {(s, t): self.generate(s, t) for s, t in combinations(self.datasets, 2)}
 
     @staticmethod
@@ -89,7 +90,7 @@ class CandidateGenerator:
         }
 
     # ================================================================ preparing the names
-    def _pick(self, source, target) -> tuple[dict, dict]:
+    def _pick(self, source, target) -> tuple[Dataset, Dataset]:
         if source is None and target is None:
             if len(self.datasets) != 2:
                 raise ValueError("Pass source= and target=, or use all_pairs(), when there are "
@@ -97,18 +98,14 @@ class CandidateGenerator:
             source, target = self.datasets
         return self.datasets[source], self.datasets[target]
 
-    def _names(self, records: dict) -> dict:
+    def _names(self, dataset: Dataset) -> dict:
         """What the method compares, one entry per name: {(record_id, n): name}. Names are
         compared one at a time, not all of a record's names glued together."""
         raw = self.method.raw_names
-        attrs = self.name_attrs if raw else self.phonetic_attrs or self.name_attrs
+        names_by_record = dataset.phonetic if self.phonetic and not raw else dataset.names
         out = {}
-        for rid, r in records.items():
-            names = []
-            for attr in attrs:
-                value = r.get(attr)
-                names += value if isinstance(value, (list, tuple)) else [value]
-            names = [str(n).strip() if raw else self._normalize(n) for n in names if n]
+        for rid, names in names_by_record.items():
+            names = [name.strip() if raw else self._normalize(name) for name in names]
             out.update({(rid, i): name for i, name in enumerate(dict.fromkeys(x for x in names if x))})
         return out
 
@@ -122,14 +119,14 @@ class CandidateGenerator:
 
 
 # ==================================================================== geo restriction
-def within_distance(pairs, source: dict, target: dict, max_km, coords_attr="coords",
-                    keep_without_coords=True) -> set:
-    """Keeps a candidate pair only if the two places are at most max_km apart. source, target:
-    the two datasets' {record_id: record}. If a record has several points, the closest two
-    count. Pairs where a record has no coordinates are kept if keep_without_coords is True."""
+def within_distance(pairs, source: Dataset, target: Dataset, max_km, keep_without_coords=True) -> set:
+    """Keeps a candidate pair (source_id, target_id) only if the two places are at most max_km
+    apart. If a record has several points, the closest two count. Pairs where a record has no
+    coordinates are kept if keep_without_coords is True."""
+    coords_a, coords_b = source.coordinates, target.coordinates
     kept = set()
     for a, b in pairs:
-        points_a, points_b = source[a].get(coords_attr), target[b].get(coords_attr)
+        points_a, points_b = coords_a[a], coords_b[b]
         if not points_a or not points_b:
             if keep_without_coords:
                 kept.add((a, b))

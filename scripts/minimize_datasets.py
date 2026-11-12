@@ -9,36 +9,31 @@ csv.field_size_limit(min(sys.maxsize, 2**31 - 1))
 
 ROOT = Path(__file__).resolve().parent.parent
 DATASETS = ROOT / "datasets"
-OUTPUT_DIR = DATASETS / "minimzed datasets"
+OUTPUT_DIR = DATASETS / "02_minimized_datasets"
 VALUE_SEPARATOR = " | "
 
+CLEANED = DATASETS / "01_cleaned_datasets"
+ORIGINAL = DATASETS / "00_original_datasets"
+
+# Output filename -> (group folder under the output directory, source file)
 SOURCES = {
-    "minimized_pleiades.tsv": DATASETS
-    / "Pleades_Trismegistos"
-    / "pleiades_greek_trismegistos_latin"
-    / "pleiades.tsv",
-    "minimized_trismegistos.tsv": DATASETS
-    / "Pleades_Trismegistos"
-    / "pleiades_greek_trismegistos_latin"
-    / "trismegistos.tsv",
-    "minimized_mehdie_db_yaqut_flat.tsv": DATASETS
-    / "MEHDIE"
-    / "flattened"
-    / "mehdie_db_yaqut_flat.tsv",
-    "minimized_mehdie_db_kima_flat.tsv": DATASETS
-    / "MEHDIE"
-    / "flattened"
-    / "mehdie_db_kima_flat.tsv",
-    "minimized_mehdie_db_thurayya_flat.tsv": DATASETS
-    / "MEHDIE"
-    / "flattened"
-    / "mehdie_db_thurayya_flat.tsv",
-    "minimized_wikidata_ru.tsv": DATASETS / "Wikidata-zh-ru" / "wikidata_ru.tsv",
-    "minimized_wikidata_zh.tsv": DATASETS / "Wikidata-zh-ru" / "wikidata_zh.tsv",
+    "pleiades.tsv": ("Pleades_Trismegistos", CLEANED / "Pleades_Trismegistos" / "pleiades.tsv"),
+    "trismegistos.tsv": ("Pleades_Trismegistos", CLEANED / "Pleades_Trismegistos" / "trismegistos.tsv"),
+    "yaqut.tsv": ("MEHDIE", CLEANED / "MEHDIE" / "yaqut.tsv"),
+    "kima.tsv": ("MEHDIE", CLEANED / "MEHDIE" / "kima.tsv"),
+    "thurayya.tsv": ("MEHDIE", CLEANED / "MEHDIE" / "thurayya.tsv"),
+    "wikidata_ru.tsv": ("Wikidata-zh-ru", ORIGINAL / "Wikidata-zh-ru" / "wikidata_ru.tsv"),
+    "wikidata_zh.tsv": ("Wikidata-zh-ru", ORIGINAL / "Wikidata-zh-ru" / "wikidata_zh.tsv"),
 }
 
+MEHDIE_FILES = ("yaqut.tsv", "kima.tsv", "thurayya.tsv")
+
+# The source column holding the record id (the ground truth files in datasets/em refer to it).
+ID_COLUMNS = {"pleiades.tsv": "pleiades_id", "trismegistos.tsv": "trismegistos_id"}
+
 OUTPUT_FIELDS = {
-    "minimized_pleiades.tsv": [
+    "pleiades.tsv": [
+        "id",
         "title",
         "title_ipa",
         "name_variants",
@@ -51,7 +46,8 @@ OUTPUT_FIELDS = {
         "details",
         "description",
     ],
-    "minimized_trismegistos.tsv": [
+    "trismegistos.tsv": [
+        "id",
         "title",
         "title_ipa",
         "name_variants",
@@ -63,7 +59,8 @@ OUTPUT_FIELDS = {
         "types",
         "text_snippets",
     ],
-    "minimized_mehdie_db_yaqut_flat.tsv": [
+    "yaqut.tsv": [
+        "id",
         "title",
         "title_ipa",
         "name_variants",
@@ -75,7 +72,8 @@ OUTPUT_FIELDS = {
         "types",
         "description",
     ],
-    "minimized_mehdie_db_kima_flat.tsv": [
+    "kima.tsv": [
+        "id",
         "title",
         "title_ipa",
         "name_variants",
@@ -87,7 +85,8 @@ OUTPUT_FIELDS = {
         "types",
         "description",
     ],
-    "minimized_mehdie_db_thurayya_flat.tsv": [
+    "thurayya.tsv": [
+        "id",
         "title",
         "title_ipa",
         "name_variants",
@@ -99,7 +98,8 @@ OUTPUT_FIELDS = {
         "types",
         "description",
     ],
-    "minimized_wikidata_ru.tsv": [
+    "wikidata_ru.tsv": [
+        "id",
         "title",
         "title_ipa",
         "name_variants",
@@ -116,7 +116,8 @@ OUTPUT_FIELDS = {
         "described_by",
         "description",
     ],
-    "minimized_wikidata_zh.tsv": [
+    "wikidata_zh.tsv": [
+        "id",
         "title",
         "title_ipa",
         "name_variants",
@@ -158,13 +159,14 @@ def combine(row, fields):
 def transform(filename, row):
     """Map one source record to the minimized output schema."""
     result = {
+        "id": row.get(ID_COLUMNS.get(filename, "id"), ""),
         "title": row.get("title", ""),
         "title_ipa": row.get("title_ipa", ""),
         "lat": row.get("lat", ""),
         "lon": row.get("lon", ""),
     }
 
-    if filename == "minimized_pleiades.tsv":
+    if filename == "pleiades.tsv":
         result.update(
             name_variants=combine(
                 row,
@@ -177,7 +179,7 @@ def transform(filename, row):
             details=row.get("details", ""),
             description=row.get("description", ""),
         )
-    elif filename == "minimized_trismegistos.tsv":
+    elif filename == "trismegistos.tsv":
         result.update(
             title=row.get("name_standard", ""),
             title_ipa=row.get("names_latin_ipa", ""),
@@ -198,7 +200,7 @@ def transform(filename, row):
             types=row.get("status", ""),
             text_snippets=row.get("text_snippets", ""),
         )
-    elif filename.startswith("minimized_mehdie_db_"):
+    elif filename in MEHDIE_FILES:
         result.update(
             name_variants=row.get("name_variants", ""),
             country=combine(row, ["ccodes", "relation"]),
@@ -228,6 +230,7 @@ def transform(filename, row):
 
 def generate_file(filename, source_path, output_dir):
     """Generate one minimized TSV and return its number of data rows."""
+    output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / filename
     fields = OUTPUT_FIELDS[filename]
 
@@ -259,11 +262,11 @@ def generate_file(filename, source_path, output_dir):
 
 def main():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    for filename, source_path in SOURCES.items():
+    for filename, (folder, source_path) in SOURCES.items():
         if not source_path.is_file():
             raise FileNotFoundError(f"Source TSV not found: {source_path}")
-        row_count = generate_file(filename, source_path, OUTPUT_DIR)
-        print(f"Wrote {OUTPUT_DIR / filename} ({row_count:,} rows)")
+        row_count = generate_file(filename, source_path, OUTPUT_DIR / folder)
+        print(f"Wrote {OUTPUT_DIR / folder / filename} ({row_count:,} rows)")
 
 
 if __name__ == "__main__":

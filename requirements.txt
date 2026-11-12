@@ -7,7 +7,7 @@ pandas
 scikit-learn            # TFIDF_kNN, LM_kNN_search
 datasketch              # MinHash_LSH
 sentence-transformers   # LM_kNN_search (pulls in torch)
-pypinyin                # make_phonetic_samples.py (Chinese names)
+pypinyin                # Chinese names -> pinyin for the phonetic (IPA) encoding
 
 # Maps (scripts/plot_chgis_tgaz_map.py)
 geopandas
