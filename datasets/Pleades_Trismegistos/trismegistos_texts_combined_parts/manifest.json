@@ -1,0 +1,65 @@
+{
+  "format_version": 1,
+  "fieldnames": [
+    "trismegistos_id",
+    "tm_text_id",
+    "relation",
+    "title",
+    "material",
+    "text_lang",
+    "year_from",
+    "year_to",
+    "keywords",
+    "mentions_name",
+    "snippet",
+    "edition_text",
+    "translation_en",
+    "name_standard",
+    "names_latin",
+    "names_greek",
+    "names_egyptian",
+    "names_coptic",
+    "modern_name",
+    "ethnicon",
+    "status",
+    "location",
+    "country",
+    "region",
+    "nomos_code",
+    "provincia",
+    "lat",
+    "lon",
+    "begin_date",
+    "end_date",
+    "n_texts",
+    "n_texts_mentioning_name",
+    "text_snippets"
+  ],
+  "row_count": 58595,
+  "partitions": [
+    {
+      "file": "part-449d75f0ddaf4c7cbeef3cb516bbf3b4-00001.tsv",
+      "rows": 10000
+    },
+    {
+      "file": "part-449d75f0ddaf4c7cbeef3cb516bbf3b4-00002.tsv",
+      "rows": 10000
+    },
+    {
+      "file": "part-449d75f0ddaf4c7cbeef3cb516bbf3b4-00003.tsv",
+      "rows": 10000
+    },
+    {
+      "file": "part-449d75f0ddaf4c7cbeef3cb516bbf3b4-00004.tsv",
+      "rows": 10000
+    },
+    {
+      "file": "part-449d75f0ddaf4c7cbeef3cb516bbf3b4-00005.tsv",
+      "rows": 10000
+    },
+    {
+      "file": "part-449d75f0ddaf4c7cbeef3cb516bbf3b4-00006.tsv",
+      "rows": 8595
+    }
+  ]
+}
