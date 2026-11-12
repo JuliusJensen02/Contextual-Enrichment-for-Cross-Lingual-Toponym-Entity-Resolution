@@ -1,167 +1,230 @@
-# MEHDIE datasets
+# MEHDIE DB extract: Kima, Yaqut, al-Thurayya
 
-Cross-lingual (Hebrew ↔ Arabic) historical toponym matching benchmark from:
+Place records exported from the MEHDIE database (World Historical Gazetteer schema) for three gazetteers: **Kima** (historical Hebrew-script place names), **Yaqut** (Yāqūt al-Ḥamawī's *Muʿjam al-Buldān*) and **al-Thurayya** (gazetteer of the early Islamic world). The extract also includes the internal and external links between them. All files are comma-separated, UTF-8, with a header row. JSON-valued columns (`names`, `geoms`, `links`, …) are stored as quoted JSON strings.
 
-> Sagi, T. et al. (2025). *Utilizing phonetic similarity for cross-source and cross-language toponym matching: a benchmark and prototype.* Language Resources and Evaluation 59, 2427–2451. https://doi.org/10.1007/s10579-025-09812-9
+## Overview
 
-The files are the paper's electronic supplementary material (`10579_2025_9812_MOESM1_ESM`), unchanged. Only the folder names have been shortened (the `testsetN-` prefix was removed).
+| File | Rows | Columns | One row per |
+|---|---:|---:|---|
+| `mehdie_db_kima_extract.csv` | 14,341 | 23 | Kima place record |
+| `mehdie_db_yaqut_extract.csv` | 15,904 | 23 | Yaqut place record |
+| `mehdie_db_thurayya_extract.csv` | 4,482 | 23 | al-Thurayya place record |
+| `internal_links_kima_yaqut_thurayya.csv` | 920 | 5 | Link between two MEHDIE places |
+| `external_links_kima_yaqut_thurayya.csv` | 5,251 | 4 | Link from a MEHDIE place to Wikidata/GeoNames/etc. |
 
-## Contents
+**How coverage is counted:** a cell counts as empty if it is blank or an empty container (`{}`, `[]`, `[[]]`, `""`).
 
-Five testsets. Each folder holds two source datasets and one ground truth file, `em.tsv`.
+**Columns that are empty in all three place files:** `review_wd`, `review_tgn`, `review_whg`, `review_md`, `name_parts`, `whens`, `depictions`. **Constant columns:** `indexed` and `flag` are always `false`, and `minmax`/`timespans` hold one fixed period per source (Kima: 2000 or 1800; Yaqut: 632–1250; al-Thurayya: 800–1000).
 
-| Folder | Original name | Source 1 (rows) | Source 2 (rows) | Ground truth pairs | Pairs with coordinates on both sides |
-|---|---|---|---|---|---|
-| `YaqutSham_KimaSham/` | testset7 | `YaqutSham.tsv` (687) | `KimaSham.tsv` (1,899) | 33 | 29 |
-| `KimaShamThurayyaSham/` | testset8 | `KimaSham.tsv` (1,899) | `ThurayaSham_295.tsv` (291) | 21 | 21 |
-| `TudelaThurayya/` | testset9 | `Tudela_257.tsv` (306) | `althurayya_283.tsv` (2,241) | 18 | 11 |
-| `YaqutAndalusMagrebKima-KimaMagrebAndalusMapped/` | testset10 | `Yaqut_306.tsv` (484) | `Kima_303.tsv` (559) | 33 | 26 |
-| `DamastTudela/` | testset11 | `damast_315.tsv` (447) | `Tudela_257.tsv` (306) | 32 | 21 |
-| **Total** | | | | **137** | **108** |
+**Answer leakage:** the `links` column of the place files holds `same_as`, `different` and `closeMatch` (Wikidata/GeoNames) links, the same kind of information as the two link files. Drop it before using the records as matcher input.
 
-Source 1 is always the dataset referenced by `id_1` in `em.tsv`, source 2 by `id_2`.
+---
 
-All files are tab-separated UTF-8 without BOM. Some use CRLF line endings, others LF. Some text fields contain line breaks, so read them with a proper TSV parser rather than counting lines. In Python:
+## Place file columns
 
-```python
-import csv
-csv.field_size_limit(10**9)
-rows = list(csv.DictReader(open(path, encoding="utf-8-sig", newline=""), delimiter="\t"))
-```
+The three place files share the same 23 columns, which come from the World Historical Gazetteer schema. Coverage per source is in the tables further down.
 
-The numbers in the file names (`_257`, `_283`, `_295`, `_303`, `_306`, `_315`) do not match the row counts. Ignore them.
-
-`KimaSham.tsv` has the same content in testsets 7 and 8 (only the line endings differ), and `Tudela_257.tsv` is byte-identical in testsets 9 and 11.
-
-## Ground truth: `em.tsv`
-
-| Column | Content |
+| Column | Description |
 |---|---|
-| `id_1` | Record ID in source 1 |
-| `title_1` | Name in source 1 |
-| `id_2` | Record ID in source 2 |
-| `title_2` | Name in source 2 |
-| `judgement` | Always `true` |
+| `id` | MEHDIE database ID of the record (primary key); this is the ID used in `source_place_id` / `target_place_id` of the link files |
+| `title` | Preferred name of the place. Kima: Hebrew; Yaqut: Arabic; al-Thurayya: transliteration or Arabic |
+| `src_id` | ID of the place in its original source. Kima: numeric Kima ID; Yaqut: entry ID like `dig00001`; al-Thurayya: key like `ABADHA_526E311N_S` (name + coordinates) |
+| `ccodes` | ISO 3166-1 alpha-2 country code(s) as a Postgres array, e.g. `{IL}` |
+| `minmax` | Year range `{start,end}` of the record. This is a dataset-wide default, not place-specific |
+| `timespans` | Same range as `minmax`, as a list of `[start, end]` spans |
+| `fclasses` | GeoNames feature class(es): `A` administrative, `P` populated place, `L` area, `S` spot/building |
+| `indexed` | Whether the record is indexed in WHG search (always `false`) |
+| `flag` | Review flag (always `false`) |
+| `review_wd` | Reconciliation review status against Wikidata (empty) |
+| `review_tgn` | Reconciliation review status against Getty TGN (empty) |
+| `review_whg` | Reconciliation review status against the WHG index (empty) |
+| `dataset` | Name of the MEHDIE sub-dataset the record was uploaded in, e.g. `KIMA-IL`, `YaqutFull` |
+| `review_md` | Manual review status (empty) |
+| `name_parts` | Name components (empty) |
+| `links` | JSON list of links: `type` (`closeMatch`, `same_as`, `different`, `located_in`, …) and `identifier` (`wd:Q…`, `gn:…`, a URL, or another MEHDIE `id`) |
+| `descriptions` | JSON list of description texts. Kima: short Hebrew/English notes; Yaqut: the Arabic dictionary entry text; al-Thurayya: settlement category such as `towns/cite` |
+| `names` | JSON list of name variants (`toponym`) with source citations. Al-Thurayya packs several variants into one `toponym`, separated by `:` |
+| `geoms` | JSON list of geometries (all `Point`), with WKT `geowkt` and `coordinates` as `[lon, lat]` |
+| `related` | JSON list of parent places (`relationType` `gvp:broaderPartitive`, `label` = parent name, e.g. a country or region) |
+| `types` | JSON list of place types (`label` / `sourceLabel`), e.g. Kima `province`, Yaqut `قرية` (village), `موضع` (site), `جبل` (mountain) |
+| `whens` | Temporal attestations per record (empty) |
+| `depictions` | Images of the place (empty) |
 
-- Only positive pairs are listed. Every other combination of records is an unlabelled non-match. The authors state that some true matches were probably missed, because not all combinations could be reviewed manually.
-- The total is 137 pairs, not the 129 reported in Table 2 of the paper. In testsets 7 and 10, several Yāqūt records point to the same Kima record (e.g. two `المرية` records both match Kima `8741`). Unique `id_2` values: 30 in testset 7 and 32 in testset 10.
+---
 
-## Derived: `YaqutTudela/em.tsv`
+## `mehdie_db_kima_extract.csv`
 
-Not part of the paper. No testset pairs Yāqūt with Tudela directly, so `scripts/build_yaqut_tudela_em.py` derives the pairs by transitive closure over the five `em.tsv` files, Tudela's Kima IDs (`K…` ids and Kima URLs in `matches`), and Wikidata IDs shared by Kima and Tudela records. Tudela records are endpoints only, never bridges, because some share a wrong Wikidata ID (גיבל and גיבל האחרת both carry Q173532).
+14,341 records from 21 Kima sub-datasets, with **6,211** distinct `src_id`s. The same Kima place can appear in several sub-datasets.
 
-- 14 pairs: 14 Yāqūt records (`YaqutSham.tsv`, `Yaqut_306.tsv`), 12 Tudela records (`Tudela_257.tsv`).
-- Same columns as `em.tsv`, plus `hops` and `path` (the chain behind each pair).
-- The al-Thurayya route adds no pairs. DAMAST cannot reach Yāqūt.
-- Two pairs are probably wrong: سمسم and لد → רמלה. They come from the testset 7 ground truth, which maps both to Kima 456 רמלה.
-- Most links rely on Tudela's Kima and Wikidata IDs, the identity leakage described under Known issues.
+| Column | Non-empty | Coverage | Distinct values |
+|---|---:|---:|---:|
+| `id` | 14,341 | 100.0% | 14,341 |
+| `title` | 14,341 | 100.0% | 9,344 |
+| `src_id` | 14,341 | 100.0% | 6,211 |
+| `ccodes` | 13,834 | 96.5% | 32 |
+| `minmax` | 14,341 | 100.0% | 2 |
+| `timespans` | 14,341 | 100.0% | 2 |
+| `fclasses` | 282 | 2.0% | 4 |
+| `indexed` | 14,341 | 100.0% | 1 |
+| `flag` | 14,341 | 100.0% | 1 |
+| `review_wd` | 0 | 0.0% | 0 |
+| `review_tgn` | 0 | 0.0% | 0 |
+| `review_whg` | 0 | 0.0% | 0 |
+| `dataset` | 14,341 | 100.0% | 21 |
+| `review_md` | 0 | 0.0% | 0 |
+| `name_parts` | 0 | 0.0% | 0 |
+| `links` | 8,707 | 60.7% | 8,707 |
+| `descriptions` | 1,724 | 12.0% | 1,724 |
+| `names` | 14,341 | 100.0% | 14,341 |
+| `geoms` | 8,648 | 60.3% | 8,648 |
+| `related` | 13,925 | 97.1% | 13,925 |
+| `types` | 13,939 | 97.2% | 13,939 |
+| `whens` | 0 | 0.0% | 0 |
+| `depictions` | 0 | 0.0% | 0 |
 
-## Source datasets
+Notes:
+- `types` is non-empty for 97.2% of rows, but almost all entries have an empty label. Only 527 entries carry an actual type (province 177, extinct city 113, district 88, …).
+- `dataset`: Kima-IL-PS 2,588 · KIMA-IL 2,497 · KimaShamPlusMapped 1,899 · KimaShamPlusUnmapped 1,567 · KimaShamMapped_ILonl 1,314 · KimaFarsPlusMapped 650 · KimaMagrebAndalusMap 559 · kimaShamNoILmapped 389 · Turkima 327 · KimaArabiaIRAQ 321 · KimaFarsPlusUnmapped 320 · Kima2024-1toMatchMag 315 · Kima-EG 247 · AustriaKimaDE 224 · AustriaKimaHE 223 · KimaMisrPlusMatched 182 · KimaMisrUnmatched 179 · KIMALESSHLOC 178 · Kima-IRAN 155 · KIMA-SY 116 · KimaPalest 91.
+- `ccodes` top values: IL 8,806 · TR 997 · EG 648 · ES 560 · IN 466 · PS 331 · IR 309.
+- `fclasses` (when present): A 273 · L 6 · S 2 · P 1.
 
-### Kima (Hebrew gazetteer): `KimaSham.tsv`, `Kima_303.tsv`
+---
 
-Modern Hebrew-script gazetteer (https://data.geo-kima.org/), regional subsets for al-Sham and Andalus/Maghreb.
+## `mehdie_db_yaqut_extract.csv`
 
-| Column | Content |
-|---|---|
-| `id` | Kima place ID |
-| `title` | Hebrew name |
-| `title_source` | Always `KimaGazetteer` |
-| `start` | Always `2000` (placeholder, not a historical date) |
-| `title_uri` | `http://data.geo-kima.org/Place/<id>` |
-| `ccodes` | Modern country code (IL, SY, LB, ES, MA, …) |
-| `matches` | Wikidata and GeoNames URLs, `;`-separated (89 % al-Sham, 100 % Andalus/Maghreb) |
-| `variants` | Name variants in Hebrew and Latin script, `;`-separated |
-| `types` | Place type, rarely filled (1–11 %) |
-| `aat_types` | Getty AAT code, rarely filled |
-| `parent_name` | Modern country or region, in English |
-| `lon`, `lat` | Coordinates (89 % al-Sham, 100 % Andalus/Maghreb) |
-| `description` | Short description, rarely filled (e.g. "city in Israel") |
+15,904 records, all from the `YaqutFull` dataset. Each `src_id` is unique.
 
-### Yāqūt (Arabic, *Muʿjam al-buldān*, 13th c.): `YaqutSham.tsv`, `Yaqut_306.tsv`
+| Column | Non-empty | Coverage | Distinct values |
+|---|---:|---:|---:|
+| `id` | 15,904 | 100.0% | 15,904 |
+| `title` | 15,904 | 100.0% | 14,494 |
+| `src_id` | 15,904 | 100.0% | 15,904 |
+| `ccodes` | 0 | 0.0% | 0 |
+| `minmax` | 15,904 | 100.0% | 1 |
+| `timespans` | 15,904 | 100.0% | 1 |
+| `fclasses` | 0 | 0.0% | 0 |
+| `indexed` | 15,904 | 100.0% | 1 |
+| `flag` | 15,904 | 100.0% | 1 |
+| `review_wd` | 0 | 0.0% | 0 |
+| `review_tgn` | 0 | 0.0% | 0 |
+| `review_whg` | 0 | 0.0% | 0 |
+| `dataset` | 15,904 | 100.0% | 1 |
+| `review_md` | 0 | 0.0% | 0 |
+| `name_parts` | 0 | 0.0% | 0 |
+| `links` | 56 | 0.4% | 56 |
+| `descriptions` | 2,661 | 16.7% | 2,661 |
+| `names` | 15,904 | 100.0% | 15,904 |
+| `geoms` | 2,675 | 16.8% | 2,675 |
+| `related` | 4,475 | 28.1% | 4,475 |
+| `types` | 15,904 | 100.0% | 15,904 |
+| `whens` | 0 | 0.0% | 0 |
+| `depictions` | 0 | 0.0% | 0 |
 
-Structured extraction of Yāqūt al-Ḥamawī's geographical dictionary, regional subsets for al-Sham and Andalus/Maghreb.
+Notes:
+- Yaqut has no country codes and coordinates for only 16.8% of records.
+- `types` mostly carries a real Arabic type label: قرية (village) 2,577 · موضع (site) 2,525 · جبل (mountain) 1,058 · مدينة (city) 865 · ماء (water source) 614.
 
-| Column | Content |
-|---|---|
-| `id` | Entry ID (`dig…`) |
-| `title` | Arabic name |
-| `title_source` | Always `ياقوت الحموي الرومي` |
-| `start`, `end` | Always `632` / `1250` (one span for the whole work) |
-| `matches` | Always empty |
-| `variants` | Rarely filled (1–4 %) |
-| `types` | Place type in Arabic (`مدينة`, `قرية`, `حصن`, `موضع`, …), ≈95 % |
-| `parent_name` | Historical region in Arabic (`الشام`, `الأندلس`, `مصر`, …) |
-| `lat`, `lon` | Coordinates, only 43–47 % |
-| `description` | Full dictionary entry text in Arabic, ≈98 % |
-| `varified` (sic) | Value 1–4, ≈50 % filled. Undocumented; tracks the presence of coordinates, so most likely a georeferencing confidence level |
+---
 
-### al-Thurayya (Arabic, Cornu's atlas, 9th–10th c.): `ThurayaSham_295.tsv`, `althurayya_283.tsv`
+## `mehdie_db_thurayya_extract.csv`
 
-Gazetteer based on Cornu, G. (1983), *Atlas du monde arabo-islamique à l'époque classique* (https://althurayya.github.io/). The al-Sham file is a subset.
+4,482 records. These are **2,241 places, each appearing twice**, once in the `AlThurayyaTry` dataset and once in `Al-Thurayya` (2,241 rows each, 2,241 distinct `src_id`s). Deduplicate on `src_id` if you need one row per place.
 
-| Column | Content |
-|---|---|
-| `id` | Transliteration + coordinate code + type letter, e.g. `GHAZZA_344E314N_S` |
-| `title` | Arabic name |
-| `title_source` | Always Cornu (1983) |
-| `title_uri` | World Historical Gazetteer link |
-| `variants` | Arabic and transliterated variants, **`:`-separated** |
-| `lon`, `lat` | Coordinates (100 %) |
-| `start`, `end` | Always `800` / `1000` |
-| `type` | English type (town, village, site, region, body of water, …) |
-| `aat_types` | Getty AAT code |
-| `description` | Cornu category label, e.g. `towns/cite`, `waystations/etape` (not free text) |
-| `ccodes` | Modern country code |
+| Column | Non-empty | Coverage | Distinct values |
+|---|---:|---:|---:|
+| `id` | 4,482 | 100.0% | 4,482 |
+| `title` | 4,482 | 100.0% | 4,281 |
+| `src_id` | 4,482 | 100.0% | 2,241 |
+| `ccodes` | 4,468 | 99.7% | 39 |
+| `minmax` | 4,482 | 100.0% | 1 |
+| `timespans` | 4,482 | 100.0% | 1 |
+| `fclasses` | 0 | 0.0% | 0 |
+| `indexed` | 4,482 | 100.0% | 1 |
+| `flag` | 4,482 | 100.0% | 1 |
+| `review_wd` | 0 | 0.0% | 0 |
+| `review_tgn` | 0 | 0.0% | 0 |
+| `review_whg` | 0 | 0.0% | 0 |
+| `dataset` | 4,482 | 100.0% | 2 |
+| `review_md` | 0 | 0.0% | 0 |
+| `name_parts` | 0 | 0.0% | 0 |
+| `links` | 17 | 0.4% | 17 |
+| `descriptions` | 4,482 | 100.0% | 4,482 |
+| `names` | 4,482 | 100.0% | 4,482 |
+| `geoms` | 4,482 | 100.0% | 4,482 |
+| `related` | 0 | 0.0% | 0 |
+| `types` | 0 | 0.0% | 0 |
+| `whens` | 0 | 0.0% | 0 |
+| `depictions` | 0 | 0.0% | 0 |
 
-### Benjamin of Tudela (Hebrew travelogue, 1170s): `Tudela_257.tsv`
+Notes:
+- `ccodes` top values are IR 1,082 · EG 388 · SA 370 · IQ 296 · UZ 254 · SY 244 · AF 234 · YE 206.
+- Al-Thurayya has no `types`; its settlement category is stored in `descriptions` instead (e.g. `towns/cite`, `waystations/etape`).
 
-Places from the *Itinerary of Benjamin of Tudela*, from the TraveLab edition.
+---
 
-| Column | Content |
-|---|---|
-| `id` | Mixed: `K…` (Kima ID), `Q…` (Wikidata), `GN…` (GeoNames), `PL…` (Pleiades), `U…`/`BJ…` (local IDs) |
-| `title` | Hebrew name |
-| `description` | Hebrew passage from the travelogue where the place is mentioned (≈87 %, median ≈360 characters) |
-| `title_source` | Asher or Adler edition |
-| `lat`, `lon` | Coordinates, 57 % |
-| `start` | Always `1168` |
-| `geowkt` | Geometry as WKT `MULTIPOINT`, 38 % |
-| `geo_source`, `geo_id` | Always empty |
-| `variants` | Hebrew, Latin and sometimes Arabic variants, `;`-separated |
-| `matches` | Links to Wikipedia, Wikidata, Kima, VIAF, GeoNames, GND, Pleiades, … (89 %) |
+## `internal_links_kima_yaqut_thurayya.csv`
 
-### DAMAST (Arabic, multi-script variants): `damast_315.tsv`
+Links between places in different MEHDIE datasets. Every ID resolves to a record in one of the three place files.
 
-Places from the DAMAST project (Dhimmis & Muslims), around the year 1000.
+| Column | Description | Non-empty | Coverage | Distinct values |
+|---|---|---:|---:|---:|
+| `link_type` | Relation from source to target: `same_as` (same place), `different` (confirmed not the same place), `located_in` / `reverse_located_in`, `reverse_part_of` | 920 | 100.0% | 5 |
+| `source_place_id` | MEHDIE `id` of the source place | 920 | 100.0% | 789 |
+| `source_dataset` | Sub-dataset of the source place | 920 | 100.0% | 8 |
+| `target_place_id` | MEHDIE `id` of the target place | 920 | 100.0% | 732 |
+| `target_dataset` | Sub-dataset of the target place | 920 | 100.0% | 9 |
 
-| Column | Content |
-|---|---|
-| `id` | Running number 1–447 |
-| `title` | Arabic name |
-| `title_source` | Always `DAMAST` |
-| `lat`, `lon` | Coordinates (96 %) |
-| `start` | Always `1000` |
-| `types` | Always `settlement` |
-| `variants` | Many variants in Arabic, Syriac, Greek and Latin script, `;`-separated |
-| `description` | English note, mostly on where the coordinates come from |
-| `matches` | Wikidata/GeoNames references, only 11 records |
-| `geowkt`, `geo_source`, `geo_id` | Always empty |
+| `link_type` | Rows | Share |
+|---|---:|---:|
+| different | 789 | 85.8% |
+| same_as | 116 | 12.6% |
+| reverse_located_in | 11 | 1.2% |
+| reverse_part_of | 3 | 0.3% |
+| located_in | 1 | 0.1% |
 
-## Coverage by data category
+Notes:
+- Most links are **negative** (`different`). Only 116 are positive `same_as` matches.
+- Source places by gazetteer: Yaqut 473 · Kima 430 · al-Thurayya 17. Target places: Kima 473 · al-Thurayya 258 · Yaqut 189.
+- `source_dataset`: YaqutFull 473 · Kima-IL-PS 264 · KimaShamMapped_ILonl 147 · AlThurayyaTry 17 · KimaMisrPlusMatched 8 · KIMA-SY 7 · KimaPalest 3 · KimaMagrebAndalusMap 1.
+- `target_dataset`: Al-Thurayya 255 · KimaShamPlusMapped 196 · YaqutFull 189 · Kima-IL-PS 104 · KimaMagrebAndalusMap 89 · KimaShamPlusUnmapped 53 · KimaMisrPlusMatched 23 · Kima-EG 8 · AlThurayyaTry 3.
 
-| Source | Name | Geography | Time and source | Text context |
-|---|---|---|---|---|
-| Kima | Name + many variants | Coordinates, country | Placeholder only | Practically none |
-| Yāqūt | Name, few variants | Region, type; coordinates ≈45 % | Constant for the work | Full entry text |
-| al-Thurayya | Name + transliteration | Coordinates, type, country | Constant for the atlas | None (category label only) |
-| Tudela | Name + variants | Coordinates ≈57 % | Edition + constant year | Travelogue passage |
-| DAMAST | Name + many variants | Coordinates | Constant | None (coordinate note only) |
+### Attribute overlap in matched pairs
 
-## Known issues
+For each of the **116 positive (`same_as`) links**, how often a comparable attribute is populated on **both** sides — the signal a matcher can actually compare across the Hebrew (Kima), Arabic (Yaqut) and transliterated (al-Thurayya) gazetteers. Computed by `scripts/attribute_overlap.py`, resolving `source_place_id` / `target_place_id` to the three place files. The `different` links are excluded; attribute co-presence is only meaningful for pairs that are the same place. All three place files share the same 23 columns, so each attribute maps to the same column on both sides.
 
-- **Time is constant per source.** `start`/`end` carry one value per dataset, so they identify the source rather than the place. Time as a real per-record category requires enrichment from other sources.
-- **Identity leakage in Tudela.** The `id` values and the `matches` column contain Kima and Wikidata identifiers. Drop both before any record is shown to a matching method.
-- **Incomplete records.** 29 of the 137 ground truth pairs lack coordinates on at least one side. Yāqūt and Tudela are the main gaps.
-- **Different separators.** `variants` uses `;` everywhere except al-Thurayya, which uses `:`.
-- **Incomplete ground truth.** Only verified positives are listed, so measured precision is a lower bound and measured recall an upper bound.
+| Comparable attribute | Both sides | Source only | Target only | Neither |
+|---|---:|---:|---:|---:|
+| Title | 116 (100.0%) | 0 (0.0%) | 0 (0.0%) | 0 (0.0%) |
+| Name variants (`names`) | 116 (100.0%) | 0 (0.0%) | 0 (0.0%) | 0 (0.0%) |
+| Coordinates (`geoms`) | 95 (81.9%) | 11 (9.5%) | 9 (7.8%) | 1 (0.9%) |
+| Country codes (`ccodes`) | 10 (8.6%) | 27 (23.3%) | 79 (68.1%) | 0 (0.0%) |
+| Descriptions | 25 (21.6%) | 57 (49.1%) | 19 (16.4%) | 15 (12.9%) |
+| Place types (`types`) | 97 (83.6%) | 10 (8.6%) | 9 (7.8%) | 0 (0.0%) |
+| Parent / related | 82 (70.7%) | 11 (9.5%) | 22 (19.0%) | 1 (0.9%) |
+
+Notes:
+- **Title** and **name variants** are guaranteed on both sides; **coordinates** (81.9%), **place types** (83.6%) and **parent/related** (70.7%) are the strong comparable signals.
+- **Country codes** almost never coincide (8.6% both): Yaqut carries no `ccodes` at all, so pairs involving a Yaqut place are target-only (68.1%). Do not rely on `ccodes` as a symmetric feature.
+- **Descriptions** overlap on only 21.6% of pairs, and their content differs by source (Arabic dictionary entry vs short note vs settlement category), so they are weak as a direct comparison.
+
+---
+
+## `external_links_kima_yaqut_thurayya.csv`
+
+`closeMatch` links from MEHDIE places to external authorities. All sources are Kima sub-datasets: Yaqut and al-Thurayya have no rows here.
+
+| Column | Description | Non-empty | Coverage | Distinct values |
+|---|---|---:|---:|---:|
+| `link_type` | Link relation; always `closeMatch` | 5,251 | 100.0% | 1 |
+| `source_place_id` | MEHDIE `id` of the Kima place | 5,251 | 100.0% | 3,424 |
+| `source_dataset` | Kima sub-dataset of the place | 5,251 | 100.0% | 14 |
+| `external_id` | External identifier, prefixed by authority: `wd:Q…` Wikidata, `gn:…` GeoNames, a full URL, or `zadikim:…` | 5,251 | 100.0% | 5,173 |
+
+| External authority (`external_id` prefix) | Rows | Share |
+|---|---:|---:|
+| `wd:` Wikidata | 2,934 | 55.9% |
+| `gn:` GeoNames | 2,149 | 40.9% |
+| `https:` URL | 124 | 2.4% |
+| `zadikim:` | 44 | 0.8% |
+
+`source_dataset`: KIMA-IL 2,201 · KimaMagrebAndalusMap 807 · KimaFarsPlusMapped 577 · Turkima 273 · KimaArabiaIRAQ 260 · AustriaKimaHE 249 · KIMALESSHLOC 210 · Kima-EG 185 · KimaShamPlusMapped 127 · Kima-IRAN 123 · KimaPalest 102 · KimaMisrPlusMatched 65 · KIMA-SY 58 · kimaShamNoILmapped 14.
