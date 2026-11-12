@@ -1,0 +1,14 @@
+# pip install -r requirements.txt
+
+# Data handling (scripts/, candidate_generation/run_candidate_generation.py)
+pandas
+
+# Candidate generation (candidate_generation/)
+scikit-learn            # TFIDF_kNN, LM_kNN_search
+datasketch              # MinHash_LSH
+sentence-transformers   # LM_kNN_search (pulls in torch)
+pypinyin                # make_phonetic_samples.py (Chinese names)
+
+# Maps (scripts/plot_chgis_tgaz_map.py)
+geopandas
+matplotlib
