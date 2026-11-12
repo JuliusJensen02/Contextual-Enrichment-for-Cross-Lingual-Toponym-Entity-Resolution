@@ -44,47 +44,52 @@ class DatasetSpec:
 
 DATASETS: dict[str, DatasetSpec] = {
     "mehdie_db_kima_flat": DatasetSpec(
-        Path("final_datasets") / "MEHDIE" / "flattened" / "mehdie_db_kima_flat.tsv",
+        Path("datasets") / "MEHDIE" / "flattened" / "mehdie_db_kima_flat.tsv",
         ("title",),
     ),
     "mehdie_db_thurayya_flat": DatasetSpec(
-        Path("final_datasets") / "MEHDIE" / "flattened" / "mehdie_db_thurayya_flat.tsv",
+        Path("datasets") / "MEHDIE" / "flattened" / "mehdie_db_thurayya_flat.tsv",
         ("title",),
     ),
     "mehdie_db_yaqut_flat": DatasetSpec(
-        Path("final_datasets") / "MEHDIE" / "flattened" / "mehdie_db_yaqut_flat.tsv",
+        Path("datasets") / "MEHDIE" / "flattened" / "mehdie_db_yaqut_flat.tsv",
         ("title",),
     ),
     "pleiades": DatasetSpec(
-        Path("final_datasets")
+        Path("datasets")
         / "Pleades_Trismegistos"
         / "pleiades_greek_trismegistos_latin"
         / "pleiades.tsv",
         ("title",),
     ),
     "trismegistos": DatasetSpec(
-        Path("final_datasets")
+        Path("datasets")
         / "Pleades_Trismegistos"
         / "pleiades_greek_trismegistos_latin"
         / "trismegistos.tsv",
         ("names_latin", "names_egyptian", "names_coptic", "modern_name"),
     ),
     "wikidata_ru": DatasetSpec(
-        Path("final_datasets") / "Wikidata-zh-ru" / "wikidata_ru.tsv",
+        Path("datasets") / "Wikidata-zh-ru" / "wikidata_ru.tsv",
         ("title",),
     ),
     "wikidata_zh": DatasetSpec(
-        Path("final_datasets") / "Wikidata-zh-ru" / "wikidata_zh.tsv",
+        Path("datasets") / "Wikidata-zh-ru" / "wikidata_zh.tsv",
         ("title",),
     ),
 }
 
 
 def _encode_value(value: str | None) -> str:
-    """Return the shared IPA form for a cell, preserving blank cells."""
+    """Encode pipe-delimited values and format separators consistently."""
     if not value or not value.strip():
         return ""
-    return phonetic_forms(value.strip())[1]
+    encoded_values = [
+        phonetic_forms(part.strip())[1]
+        for part in value.split("|")
+        if part.strip()
+    ]
+    return " | ".join(encoded_values)
 
 
 def enrich_dataset(
