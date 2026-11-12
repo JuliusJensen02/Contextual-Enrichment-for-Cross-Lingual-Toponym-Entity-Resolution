@@ -171,19 +171,16 @@ def transform(filename, row):
     elif filename == "minimized_trismegistos.tsv":
         result.update(
             title=row.get("name_standard", ""),
+            title_ipa=row.get("names_latin_ipa", ""),
             name_variants=combine(
                 row,
                 [
                     "name_standard",
                     "names_greek",
                     "names_latin",
-                    "names_latin_ipa",
                     "names_egyptian",
-                    "names_egyptian_ipa",
                     "names_coptic",
-                    "names_coptic_ipa",
                     "modern_name",
-                    "modern_name_ipa",
                 ],
             ),
             country=combine(row, ["country", "region", "nomos_code", "provincia"]),
