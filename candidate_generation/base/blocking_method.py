@@ -15,10 +15,18 @@ class BlockingMethod(ABC):
 
     name: str  # label used on the command line and in result tables
 
-    # False: the method gets normalised names, or the phonetic encodings when the generator has
-    #        them (the letter-based methods).
-    # True:  the method always gets the names as written (language models want raw text).
+    # False: the method gets the normalised phonetic (IPA) encodings of the names, or the
+    #        normalised names when the generator has phonetic switched off (the letter-based
+    #        methods).
+    # True:  the method gets the names as written (language models want raw text).
     raw_names: bool = False
+
+    # True:  `candidates` takes `blocked` and leaves out the pairs the geo filter rules out
+    #        BEFORE it picks its candidates (the nearest-neighbour methods: their k neighbours
+    #        are then the k best among the places that are close enough).
+    # False: the generator removes those pairs from the method's candidates afterwards. For a
+    #        method that decides about each pair on its own that gives the same result.
+    geo_first: bool = False
 
     @abstractmethod
     def candidates(self, source: dict, target: dict) -> set:

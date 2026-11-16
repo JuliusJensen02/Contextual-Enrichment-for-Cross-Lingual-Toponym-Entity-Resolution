@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Candidate generation pipeline</title>
+<style>
+  :root {
+    --bg: #f6f5f1; --panel: #ffffff; --ink: #1d2327; --muted: #5d6870; --line: #dcd9d0;
+    --accent: #1f5f8b; --accent-soft: #e3eef6; --on-accent: #ffffff;
+    --mono: "Cascadia Code", Consolas, "SF Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15191c; --panel: #1e2428; --ink: #e6e9eb; --muted: #9aa6ae; --line: #343c42;
+      --accent: #7db8de; --accent-soft: #23323d; --on-accent: #10161a; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 "Segoe UI", system-ui, sans-serif; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 32px 20px 72px; }
+  h1 { font-size: 1.7rem; margin: 0 0 6px; letter-spacing: -0.01em; }
+  h2 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 34px 0 10px; }
+  h3 { font-size: 1.2rem; margin: 0 0 8px; }
+  p { margin: 0 0 10px; max-width: 70ch; }
+  .lead { color: var(--muted); }
+  code { font-family: var(--mono); font-size: 0.9em; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; }
+  .seg { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin-bottom: 14px; }
+  .seg button { border: 0; border-right: 1px solid var(--line); background: var(--panel); color: var(--ink); padding: 8px 16px; font: inherit; cursor: pointer; }
+  .seg button:last-child { border-right: 0; }
+  .seg button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .tablewrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.93rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 600; }
+  tr:last-child td { border-bottom: 0; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
+  @media (max-width: 760px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+  .step { text-align: left; border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 10px; padding: 12px 14px; cursor: pointer; font: inherit; }
+  .step .n { display: block; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.07em; text-transform: uppercase; }
+  .step .t { display: block; font-weight: 600; }
+  .step .u { display: block; font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+  .step[aria-current="true"] { border-color: var(--accent); background: var(--accent-soft); box-shadow: inset 0 -3px 0 var(--accent); }
+  dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 18px; margin: 12px 0 0; }
+  dt { color: var(--muted); font-size: 0.9rem; } dd { margin: 0; max-width: 62ch; }
+  .formula { font-family: var(--mono); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; display: inline-block; }
+  .chip { display: inline-block; font-family: var(--mono); font-size: 0.85rem; border: 1px solid var(--line); border-radius: 6px; padding: 1px 8px; margin: 0 4px 4px 0; background: var(--bg); }
+  .fit { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); }
+  .fit summary { cursor: pointer; font-weight: 600; }
+  .fit summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .fit[open] summary { margin-bottom: 10px; }
+  .fit .kind { font-weight: 400; font-size: 0.8rem; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 1px 9px; margin-left: 10px; }
+  .chip.used { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Candidate generation pipeline</h1>
+  <p class="lead">Two gazetteers describe the same places in different languages. Comparing every record with every
+  record is too expensive, so the pipeline picks the few pairs that are worth comparing: the candidates.</p>
+
+  <h2>Test sets</h2>
+  <div class="seg" id="sets" role="group" aria-label="Test set"></div>
+  <div class="panel" id="set"></div>
+
+  <h2>Columns used</h2>
+  <div class="panel">
+    <div class="tablewrap"><table>
+      <tr><th>Column</th><th>What it is</th><th>Used in</th></tr>
+      <tr><td><code>title</code></td><td>The main name of the place, as written in its own script.</td><td>Step 3</td></tr>
+      <tr><td><code>title_ipa</code></td><td>The title in the International Phonetic Alphabet, so that names in different scripts can be compared letter by letter.</td><td>Step 2</td></tr>
+      <tr><td><code>lat</code>, <code>lon</code></td><td>The coordinates of the place. A record can lack them.</td><td>Step 1</td></tr>
+      <tr><td><code>id</code></td><td>Identifies the record in the candidate pairs.</td><td>Output</td></tr>
+    </table></div>
+    <p style="margin-top:12px">No other column is used: not the name variants, the place type, the country or the description.</p>
+  </div>
+
+  <h2>Steps</h2>
+  <div class="steps" id="steps"></div>
+  <div class="panel" id="step" aria-live="polite"></div>
+</div>
+
+<script>
+const SETS = [
+  { name: "MEHDIE", about: "Hebrew and Arabic gazetteers of the medieval Middle East.", links: "114", pairs: "363,637,354",
+    datasets: [["Kima", "Hebrew", "14,341"], ["Yaqut", "Arabic", "15,904"], ["al-Thurayya", "Arabic", "4,482"]] },
+  { name: "Pleiades-TM", about: "Two gazetteers of the ancient world. Both titles are in Latin script.", links: "100", pairs: "733,068",
+    datasets: [["Pleiades", "Latin script", "2,909"], ["Trismegistos", "Latin script", "252"]] },
+  { name: "zh-ru", about: "Wikidata places with a Chinese title on one side and a Russian title on the other.", links: "3,263", pairs: "93,560,850",
+    datasets: [["Wikidata_zh", "Chinese", "14,562"], ["Wikidata_ru", "Russian", "6,425"]] }
+];
+const STEPS = [
+  { title: "Geo filter", uses: "lat, lon",
+    fit: { kind: "Fitted by gradient descent",
+      how: "The distance threshold was fitted on each test set with gradient descent (Adam, 800 steps, started from 1, 10, 100 and 1000 km). A hard cut-off has no gradient, so during fitting it is a soft cut-off that is sharpened step by step. The goal it maximises: keep as many ground truth links as possible while removing as many pairs as possible (harmonic mean of the two).",
+      head: ["Test set", "Fitted threshold", "Farthest ground truth link"],
+      rows: [["MEHDIE", "46.0 km", "42.1 km"], ["Pleiades-TM", "85.0 km", "78.1 km"], ["zh-ru", "0.02 km", "0.0 km"]],
+      note: "The fit always ends just past the farthest link of the test set. Instead of three fitted values, one common threshold above all of them is used: 100 km. It loses no ground truth link in any test set." },
+    what: "Two records can only become a pair if their places are at most 100 km apart. A pair where either record has no coordinates always passes.",
+    method: "Great-circle (haversine) distance with a hard cut-off.",
+    setting: "100 km, the same for every test set.",
+    out: "All pairs of records that are close enough, or that cannot be ruled out by distance." },
+  { title: "Phonetic score", uses: "title_ipa", used: "TFIDF_kNN",
+    tested: "The methods in <code>methods/</code>. Four of them were tested on the phonetic title; LM_kNN_search reads the title as written and belongs to step 3.",
+    fit: { kind: "Chosen by comparing methods",
+      how: "Every method was run on the phonetic titles behind the 100 km filter, once for each value of each of its parameters, and the share of ground truth links found (PC) was measured. The table shows each method's parameters, the values that were tried, and the highest PC reached on each test set, with the number of candidate pairs it took.",
+      head: ["Method", "Parameters that can be tuned", "Values tried", "Best value", "Highest PC and candidate pairs (MEHDIE / Pleiades-TM / zh-ru)"],
+      rows: [
+        ["TFIDF_kNN (chosen)", "k: neighbours kept per record<br>piece lengths", "k: 1, 3, 5, 10<br>piece lengths: 1-2, 1-3, 2-3, 2-4, 3", "k = 10<br>piece lengths 2-3", "0.868 / 0.860 / 0.699<br>553,822 / 26,721 / 195,156 pairs"],
+        ["MinHash_LSH", "threshold: overlap needed to pair two names<br>n: piece length<br>num_perm: size of the signature", "threshold: 0.2, 0.3, 0.5, 0.7<br>n: 2, 3, 4<br>num_perm: 64, 128, 256", "n = 2, threshold = 0.2<br>(MEHDIE: threshold 0.3, 0.2 did not finish)<br>num_perm = 128", "0.851 / 0.890 / 0.452<br>3,079,454 / 61,266 / 355,201 pairs"],
+        ["Q_grams", "t: share of a name's pieces a key must contain<br>q: piece length<br>max_keys: cap on keys per name", "t: 0.4, 0.6, 0.8<br>q: 2, 3, 4<br>max_keys: 100, 500, 2000", "q = 2, t = 0.4<br>(Pleiades-TM: q = 3, max_keys = 2000)", "0.860 / 0.530 / 0.177<br>2,690,908 / 615 / 52,986 pairs"],
+        ["PassJoin", "tau: letter edits allowed", "tau: 0, 1, 2", "tau = 2<br>(MEHDIE: tau = 1, tau 2 did not finish)", "0.658 / 0.460 / 0.157<br>896,736 / 8,354 / 152,482 pairs"],
+        ["LM_kNN_search", "k: neighbours kept per record<br>model", "Not run in this step", "", "It reads the title as written, not the phonetic title"]],
+      note: "With every parameter varied, TFIDF_kNN still finds the most ground truth links on MEHDIE and zh-ru. Shorter pieces help the other methods a lot: MinHash_LSH with piece length 2 reaches 0.890 on Pleiades-TM, above TFIDF_kNN's 0.860, but needs 61,266 pairs against 26,721, and on MEHDIE the two methods with piece length 2 come close to TFIDF_kNN with five times as many pairs. With a similar number of pairs TFIDF_kNN is ahead everywhere. Two settings did not finish within 20 minutes on MEHDIE and have no result: MinHash_LSH with piece length 2 and threshold 0.2, and PassJoin with tau 2. The k of TFIDF_kNN is not fixed here: the number of partners kept per record is set in step 4. Other ways of scoring two phonetic titles (Jaccard overlap, edit distance, Jaro-Winkler, vowels removed) were also compared with TF-IDF cosine; none was better on all three test sets." },
+    what: "Every pair that passed the geo filter gets a score between 0 and 1 for how alike the two phonetic titles are.",
+    method: "TF-IDF cosine similarity (the method TFIDF_kNN, chosen among the five). Each phonetic title is cut into its 2- and 3-letter pieces; rare pieces weigh more than common ones; the score is the cosine between the two.",
+    setting: "Piece lengths 2 and 3.",
+    out: "The same pairs, each with a phonetic score." },
+  { title: "Title score", uses: "title", used: "LM_kNN_search",
+    tested: "All five methods in <code>methods/</code> were tested as the title score.",
+    fit: { kind: "Chosen by comparing methods",
+      how: "Nothing is fitted in this step either. Each of the five methods was tried as the title score in the full pipeline: 100 km filter, title score plus phonetic score, top k. Q_grams, MinHash_LSH and PassJoin answer yes or no, so each was given the score its answer is based on, and the four letter-based methods got the titles transliterated to Latin letters.",
+      head: ["Title score from (PC at k = 5)", "MEHDIE", "Pleiades-TM", "zh-ru"],
+      rows: [["LM_kNN_search (used)", "0.860", "0.890", "0.804"], ["PassJoin", "0.904", "0.870", "0.673"], ["TFIDF_kNN", "0.842", "0.900", "0.644"],
+             ["MinHash_LSH", "0.816", "0.900", "0.627"], ["Q_grams", "0.816", "0.880", "0.631"], ["No title score, phonetic only", "0.825", "0.820", "0.632"]],
+      note: "LM_kNN_search has the best average and is the only one that clearly helps on zh-ru." },
+    what: "Every pair also gets a score for how alike the two titles are, each as written in its own script.",
+    method: "LaBSE cosine similarity (the method LM_kNN_search, chosen among the five). A multilingual language model turns each title into an embedding; the same name in different languages lands close together; the score is the cosine between the two.",
+    setting: "Model: sentence-transformers/LaBSE.",
+    out: "The same pairs, each with a phonetic score and a title score." },
+  { title: "Combine and keep top k", uses: "both scores",
+    fit: { kind: "Fitted by search",
+      how: "The weight between the two scores was searched from 0 (phonetic score only) to 1 (title score only) in steps of 0.1, and k and a minimum score were read off the same runs. A search over all values was used instead of gradient descent because it is a single number.",
+      head: ["Weight on the title score", "0", "0.3", "0.5 (used)", "0.7", "1"],
+      rows: [["Mean PC over the test sets, k = 5", "0.759", "0.832", "0.851", "0.845", "0.766"]],
+      note: "Adding the two scores beats either one alone, and the result barely changes between 0.4 and 0.7, so equal weights are used. No minimum score is used because no common value works on all three test sets.",
+      more: {
+        how: "Every row below is one combination: a method that gives the title score and a method that gives the phonetic score, added with equal weights, k = 5. First the phonetic method is varied while the title score stays LM_kNN_search, with each method at the piece length that was best in step 2 and at the default. Then the title method is varied while the phonetic score stays TFIDF_kNN. The numbers are the share of ground truth links found (PC).",
+        head: ["Title score from", "Phonetic score from", "MEHDIE", "Pleiades-TM", "zh-ru", "Mean"],
+        rows: [
+          ["<b>LM_kNN_search (LaBSE)</b>", "<b>TFIDF_kNN, piece lengths 2-3</b> (chosen)", "0.860", "0.890", "0.804", "0.851"],
+          ["LM_kNN_search (LaBSE)", "TFIDF_kNN, piece lengths 1-3", "0.860", "0.890", "0.804", "0.851"],
+          ["LM_kNN_search (LaBSE)", "TFIDF_kNN, piece lengths 2-4", "0.851", "0.890", "0.806", "0.849"],
+          ["LM_kNN_search (LaBSE)", "MinHash_LSH, piece length 2", "0.877", "0.880", "0.794", "0.850"],
+          ["LM_kNN_search (LaBSE)", "MinHash_LSH, piece length 3", "0.877", "0.890", "0.804", "0.857"],
+          ["LM_kNN_search (LaBSE)", "Q_grams, piece length 2", "0.868", "0.880", "0.785", "0.844"],
+          ["LM_kNN_search (LaBSE)", "Q_grams, piece length 3", "0.833", "0.890", "0.797", "0.840"],
+          ["LM_kNN_search (LaBSE)", "PassJoin", "0.886", "0.880", "0.794", "0.853"],
+          ["LM_kNN_search (LaBSE)", "none", "0.640", "0.880", "0.777", "0.766"],
+          ["PassJoin", "TFIDF_kNN, piece lengths 2-3", "0.904", "0.870", "0.673", "0.816"],
+          ["TFIDF_kNN, piece lengths 2-3", "TFIDF_kNN, piece lengths 2-3", "0.842", "0.900", "0.644", "0.795"],
+          ["MinHash_LSH, piece length 3", "TFIDF_kNN, piece lengths 2-3", "0.816", "0.900", "0.627", "0.781"],
+          ["Q_grams, piece length 3", "TFIDF_kNN, piece lengths 2-3", "0.816", "0.880", "0.631", "0.776"]],
+        note: "With LM_kNN_search as the title score, the phonetic methods are nearly interchangeable: the rows differ by one to three ground truth links per test set and give the same number of candidate pairs (about 298,000 / 14,800 / 98,500). PassJoin and MinHash_LSH are marginally above TFIDF_kNN on the mean, but no method is better on all three test sets, so TFIDF_kNN is kept. The title method matters much more: only LM_kNN_search lifts zh-ru, so it is kept. The other title methods read the titles written in Latin letters and were run at piece length 3 only. Combinations where both methods differ from the chosen ones were not run. Only the piece length is varied for the phonetic methods: their other parameters (threshold, t, tau, their own k) are cut-offs that the top k of the total score replaces." } },
+    what: "The two scores are added into one total score. Every record keeps its k best-scoring partners, and a pair is a candidate if either of its two records keeps it.",
+    method: '<span class="formula">score = 0.5 · title score + 0.5 · phonetic score</span>',
+    setting: "Equal weights, k = 5, no minimum score.",
+    out: "The candidate pairs: (source id, target id)." }
+];
+const OTHER = ["Q_grams", "PassJoin", "MinHash_LSH", "TFIDF_kNN", "LM_kNN_search"];
+let set = 0, step = 0;
+const $ = id => document.getElementById(id);
+
+function render() {
+  $("sets").innerHTML = SETS.map((s, i) => '<button data-set="' + i + '" aria-pressed="' + (i === set) + '">' + s.name + "</button>").join("");
+  const S = SETS[set];
+  $("set").innerHTML = "<p>" + S.about + '</p><div class="tablewrap"><table><tr><th>Dataset</th><th>Language of the title</th><th style="text-align:right">Records</th></tr>' +
+    S.datasets.map(d => "<tr><td>" + d[0] + "</td><td>" + d[1] + '</td><td class="num">' + d[2] + "</td></tr>").join("") + "</table></div>" +
+    '<p style="margin-top:12px">' + S.links + " ground truth links, " + S.pairs + " possible pairs.</p>";
+  $("steps").innerHTML = STEPS.map((s, i) => '<button class="step" data-step="' + i + '" aria-current="' + (i === step) + '"><span class="n">Step ' + (i + 1) +
+    '</span><span class="t">' + s.title + '</span><span class="u">uses ' + s.uses + "</span></button>").join("");
+  const s = STEPS[step];
+  $("step").innerHTML = "<h3>Step " + (step + 1) + ": " + s.title + "</h3><p>" + s.what + "</p><dl><dt>Method</dt><dd>" + s.method + "</dd><dt>Setting</dt><dd>" + s.setting +
+    "</dd><dt>Result</dt><dd>" + s.out + "</dd>" +
+    (step === 1 || step === 2 ? "<dt>Methods tested</dt><dd>" + OTHER.map(m => '<span class="chip' + (m === s.used ? " used" : "") + '">' + m + (m === s.used ? " · chosen" : "") + "</span>").join("") +
+      "<br>" + s.tested + " The highlighted one gave the best results and is the one the pipeline uses.</dd>" : "") + "</dl>" +
+    '<details class="fit"><summary>How this was decided<span class="kind">' + s.fit.kind + "</span></summary><p>" + s.fit.how + '</p><div class="tablewrap"><table><tr>' +
+    s.fit.head.map(h => "<th>" + h + "</th>").join("") + "</tr>" + s.fit.rows.map(r => "<tr>" + r.map(c => "<td>" + c + "</td>").join("") + "</tr>").join("") +
+    "</table></div><p style=\"margin-top:10px\">" + s.fit.note + "</p>" +
+    (s.fit.more ? "<p>" + s.fit.more.how + '</p><div class="tablewrap"><table><tr>' +
+      s.fit.more.head.map(h => "<th>" + h + "</th>").join("") + "</tr>" + s.fit.more.rows.map(r => "<tr>" + r.map(c => "<td>" + c + "</td>").join("") + "</tr>").join("") +
+      "</table></div><p style=\"margin-top:10px\">" + s.fit.more.note + "</p>" : "") + "</details>";
+}
+document.addEventListener("click", ev => {
+  const b = ev.target.closest("button"); if (!b) return;
+  if (b.dataset.set !== undefined) set = +b.dataset.set; else if (b.dataset.step !== undefined) step = +b.dataset.step; else return;
+  render();
+});
+document.addEventListener("keydown", ev => {
+  if (ev.key === "ArrowRight" && step < STEPS.length - 1) { step++; render(); }
+  if (ev.key === "ArrowLeft" && step > 0) { step--; render(); }
+});
+render();
+</script>
+</body>
+</html>
