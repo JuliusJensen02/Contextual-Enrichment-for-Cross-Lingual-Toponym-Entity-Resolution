@@ -12,7 +12,7 @@ PATHS = {
 
 _BASE = {
     "names":            ["title_ipa", "name_variants"],
-    "geo":              ["lat", "lon"],
+    "absolute":         ["lat", "lon"],
     "relation":         ["country"],
     "temporal":         ["begin_date", "end_date"],
     "classification":   ["types"],
@@ -52,4 +52,8 @@ def load(dataset, *categories):
         df["desc"] = desc
     return df
 
-kima_cat_names_df = load("pleiades", "desc")
+CATS = ["names", "absolute", "relation", "temporal", "classification", "desc"]
+
+data = {ds: {cat: load(ds, cat) for cat in CATS} for ds in PATHS}
+
+kima_experiment1 = pd.concat([data["kima"]["names"],data["kima"]["absolute"]])
