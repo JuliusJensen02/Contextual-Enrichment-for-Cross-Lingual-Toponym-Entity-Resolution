@@ -39,6 +39,7 @@ SOURCES = {
 
 OUTPUT_FIELDS = {
     "minimized_pleiades.tsv": [
+        "id",
         "title",
         "title_ipa",
         "name_variants",
@@ -52,6 +53,7 @@ OUTPUT_FIELDS = {
         "description",
     ],
     "minimized_trismegistos.tsv": [
+        "id",
         "title",
         "title_ipa",
         "name_variants",
@@ -64,6 +66,7 @@ OUTPUT_FIELDS = {
         "text_snippets",
     ],
     "minimized_mehdie_db_yaqut_flat.tsv": [
+        "id",
         "title",
         "title_ipa",
         "name_variants",
@@ -76,6 +79,7 @@ OUTPUT_FIELDS = {
         "description",
     ],
     "minimized_mehdie_db_kima_flat.tsv": [
+        "id",
         "title",
         "title_ipa",
         "name_variants",
@@ -88,6 +92,7 @@ OUTPUT_FIELDS = {
         "description",
     ],
     "minimized_mehdie_db_thurayya_flat.tsv": [
+        "id",
         "title",
         "title_ipa",
         "name_variants",
@@ -100,6 +105,7 @@ OUTPUT_FIELDS = {
         "description",
     ],
     "minimized_wikidata_ru.tsv": [
+        "id",
         "title",
         "title_ipa",
         "name_variants",
@@ -117,6 +123,7 @@ OUTPUT_FIELDS = {
         "description",
     ],
     "minimized_wikidata_zh.tsv": [
+        "id",
         "title",
         "title_ipa",
         "name_variants",
@@ -166,6 +173,7 @@ def transform(filename, row):
 
     if filename == "minimized_pleiades.tsv":
         result.update(
+            id=row.get("pleiades_id", ""),
             name_variants=combine(
                 row,
                 ["names_by_language", "names_romanized", "names_greek", "names_latin"],
@@ -179,6 +187,7 @@ def transform(filename, row):
         )
     elif filename == "minimized_trismegistos.tsv":
         result.update(
+            id=row.get("trismegistos_id", ""),
             title=row.get("name_standard", ""),
             title_ipa=row.get("names_latin_ipa", ""),
             name_variants=combine(
@@ -200,6 +209,7 @@ def transform(filename, row):
         )
     elif filename.startswith("minimized_mehdie_db_"):
         result.update(
+            id = row.get("id"),
             name_variants=row.get("name_variants", ""),
             country=combine(row, ["ccodes", "relation"]),
             begin_date=row.get("begin_date", ""),
@@ -211,6 +221,7 @@ def transform(filename, row):
             result[field] = result[field].replace("; ", VALUE_SEPARATOR)
     else:
         result.update(
+            id=row.get("id", ""),
             name_variants=combine(row, ["variants", "replaces", "replaced_by"]),
             country=combine(row, ["country", "admin_unit", "part_of"]),
             wiki_title=row.get("wiki_title", ""),

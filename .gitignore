@@ -2,3 +2,4 @@
 .venv
 .env
 placename_master.csv
+.__pycache__
