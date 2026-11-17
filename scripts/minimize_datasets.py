@@ -182,7 +182,7 @@ def transform(filename, row):
     elif filename == "trismegistos.tsv":
         result.update(
             title=row.get("name_standard", ""),
-            title_ipa=row.get("names_latin_ipa", ""),
+            title_ipa=row.get("names_greek_ipa") or row.get("names_latin_ipa", ""),
             name_variants=combine(
                 row,
                 [
