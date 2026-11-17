@@ -3,4 +3,6 @@
 .env
 placename_master.csv
 .vscode
-*\__pycache__
+__pycache__/
+*.pyc
+.pytest_cache/
