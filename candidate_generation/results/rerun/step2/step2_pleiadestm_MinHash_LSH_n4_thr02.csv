@@ -1,0 +1,2 @@
+testset,pair,method,params,input,max_km,truth,PC,PQ,RR,candidates,seconds
+pleiades-tm,Pleiades-Trismegistos,MinHash_LSH,"n=4,thr=0.2",ipa,100,65,0.6923,0.0162,0.998671,2783,1.51

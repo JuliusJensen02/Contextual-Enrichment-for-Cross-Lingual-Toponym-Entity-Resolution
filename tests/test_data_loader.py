@@ -2,7 +2,7 @@
 import pandas as pd
 import pytest
 
-from data_loader import DatasetName, GroundTruth, TestSet, TestSetLoader, TestSetName
+from data_loader import CandidateSet, DatasetName, GroundTruth, TestSet, TestSetLoader, TestSetName
 
 KIMA, YAQUT, THURAYYA = DatasetName.KIMA, DatasetName.YAQUT, DatasetName.THURAYYA
 
@@ -226,3 +226,55 @@ def test_the_datasets_in_the_repo_load_and_are_consistent(name):
     for source, target in test_set.pairs:
         for source_id, target_id in test_set.links_between(source, target):
             assert source_id in test_set.dataset(source) and target_id in test_set.dataset(target)
+
+
+# ============================================================================ CandidateSet
+@pytest.fixture
+def candidate_set(dataset_factory):
+    source = dataset_factory(KIMA, [{"id": "k1", "title": "Akko", "lat": "32.9"}, {"id": "k2", "title": "Yafo"}])
+    target = dataset_factory(YAQUT, [{"id": "y1", "title": "عكا"}, {"id": "y2", "title": "يافا"}])
+    return CandidateSet(source, target, {"k1": ["y2", "y1"], "k2": []}, links={("k1", "y1")})
+
+
+def test_candidate_set_lists_its_pairs_in_the_stored_order(candidate_set):
+    assert candidate_set.pairs == [("k1", "y2"), ("k1", "y1")]
+    assert len(candidate_set) == 2
+    assert candidate_set.links == {("k1", "y1")}
+
+
+def test_records_hold_the_id_and_only_the_chosen_columns(candidate_set):
+    records = list(candidate_set.records(["title"]))
+
+    assert records == [
+        ({"id": "k1", "title": "Akko"}, [{"id": "y2", "title": "يافا"}, {"id": "y1", "title": "عكا"}]),
+        ({"id": "k2", "title": "Yafo"}, []),
+    ]
+
+
+def test_records_can_take_other_columns_for_the_target_and_default_to_all(candidate_set):
+    record, candidates = next(candidate_set.records(["title", "lat"], target_columns=[]))
+    assert record == {"id": "k1", "title": "Akko", "lat": "32.9"}
+    assert candidates == [{"id": "y2"}, {"id": "y1"}]
+
+    record, _ = next(candidate_set.records())
+    assert list(record) == list(candidate_set.source.frame.columns)
+
+
+def test_frame_has_one_row_per_pair_with_prefixed_columns(candidate_set):
+    frame = candidate_set.frame(["title"])
+
+    assert list(frame.columns) == ["source_id", "source_title", "target_id", "target_title"]
+    assert frame.values.tolist() == [["k1", "Akko", "y2", "يافا"], ["k1", "Akko", "y1", "عكا"]]
+
+
+def test_an_unknown_column_is_reported(candidate_set):
+    with pytest.raises(KeyError, match="no column"):
+        list(candidate_set.records(["population"]))
+
+
+@pytest.mark.parametrize("name", list(TestSetName), ids=lambda name: name.name)
+def test_the_candidates_in_the_repo_load_and_refer_to_known_records(name):
+    for candidate_set in TestSetLoader().load_candidates(name):
+        assert list(candidate_set.candidates) == candidate_set.source.ids
+        assert all(target_id in candidate_set.target for _, target_id in candidate_set.pairs)
+        assert len(set(candidate_set.pairs)) == len(candidate_set.pairs)

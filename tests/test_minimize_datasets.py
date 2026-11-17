@@ -60,9 +60,9 @@ def test_pleiades_row_uses_the_pleiades_id_and_combines_the_name_columns():
     assert result["country"] == ""
 
 
-def test_trismegistos_row_takes_title_from_name_standard_and_prefers_the_greek_ipa():
+def test_trismegistos_row_keeps_the_greek_title_and_prefers_the_greek_ipa():
     row = {
-        "trismegistos_id": "1344", "name_standard": "Memphis", "title": "ignored",
+        "trismegistos_id": "1344", "name_standard": "Memphis", "title": "Μέμφις",
         "names_greek": "Μέμφις", "names_latin": "Memphis", "names_egyptian": "", "names_coptic": "ⲙⲉⲙϥⲓ",
         "modern_name": "Mit Rahina", "names_greek_ipa": "mempʰis", "names_latin_ipa": "mempis",
         "country": "Egypt", "region": "", "nomos_code": "L01", "provincia": "Aegyptus",
@@ -73,7 +73,7 @@ def test_trismegistos_row_takes_title_from_name_standard_and_prefers_the_greek_i
 
     assert set(result) == set(OUTPUT_FIELDS["trismegistos.tsv"])
     assert result["id"] == "1344"
-    assert result["title"] == "Memphis"
+    assert result["title"] == "Μέμφις"  # not the romanized name_standard
     assert result["title_ipa"] == "mempʰis"
     assert result["name_variants"] == "Memphis | Μέμφις | ⲙⲉⲙϥⲓ | Mit Rahina"  # "Memphis" only once
     assert result["country"] == "Egypt | L01 | Aegyptus"

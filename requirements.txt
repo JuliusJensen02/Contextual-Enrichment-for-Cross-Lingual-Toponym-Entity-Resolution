@@ -10,5 +10,11 @@ sentence-transformers   # LM_kNN_search (pulls in torch)
 pypinyin                # Chinese names -> pinyin for the phonetic (IPA) encoding
 
 
+# Experiments (candidate_generation/experiments/)
+scipy                   # sparse score matrices
+torch                   # geo_threshold.py: gradient descent
+rapidfuzz               # edit distance and Jaro-Winkler scores
+anyascii                # titles in Latin letters for the letter-based title scores
+
 # Tests (tests/): python -m pytest
 pytest
