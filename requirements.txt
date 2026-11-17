@@ -9,6 +9,6 @@ datasketch              # MinHash_LSH
 sentence-transformers   # LM_kNN_search (pulls in torch)
 pypinyin                # Chinese names -> pinyin for the phonetic (IPA) encoding
 
-# Maps (scripts/plot_chgis_tgaz_map.py)
-geopandas
-matplotlib
+
+# Tests (tests/): python -m pytest
+pytest
