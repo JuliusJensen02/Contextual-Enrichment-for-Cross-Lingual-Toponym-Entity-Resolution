@@ -3,6 +3,45 @@
 Overview of every candidate generation (blocking) test run so far, with the numbers.
 All tests ran on the full minimized datasets, never on samples.
 
+## Rerun of 17 November 2026: new Pleiades-TM
+
+The Pleiades-TM test set was rebuilt after the experiments below: Pleiades 3,915 records
+(3,107 with coordinates), Trismegistos 535 (261 with coordinates), 65 ground truth links,
+2,094,525 possible pairs. Before it was 2,909 / 252 records, 100 links and 733,068 pairs.
+The Trismegistos title is the Greek name (Pleiades: Latin); `title_ipa` is its IPA.
+**Every Pleiades-TM number in the sections below is from the old test set.** MEHDIE and zh-ru
+did not change.
+
+The experiments that decide the pipeline (7, 10, 11b, 12, 13) were run again on all three test
+sets with the scripts in `experiments/` (`python experiments/run_all.py`, then
+`python experiments/report.py`). All tables of the rerun are in `rerun/report.md`; the rows are
+in `sweep_parameters.csv` (experiment 12) and `sweep_combination.csv` (experiments 10, 11b, 13),
+which replace the files of the first run. `pipeline_explained.html` shows the rerun.
+
+| | MEHDIE | Pleiades-TM (new) | zh-ru |
+|---|---|---|---|
+| Geo: fitted threshold / farthest link | 46.0 / 42.1 km | 86.7 / 78.1 km | 0.02 / 0.0 km |
+| Phonetic only (TF-IDF 2-3), k = 5 | 0.825 | 0.831 | 0.633 |
+| Title only (LaBSE), k = 5 | 0.640 | 0.585 | 0.777 |
+| Pipeline (w = 0.5, k = 5): PC | 0.868 | 0.862 | 0.804 |
+| Pipeline: candidate pairs | 297,693 | 20,283 | 98,218 |
+
+- No decision changes: 100 km, TF-IDF on `title_ipa`, LaBSE on the title, w = 0.5, k = 5.
+- On the new Pleiades-TM, at w = 0.5, k = 5, the letter-based title scores PassJoin and
+  TFIDF_kNN find 58 of 65 links against 56 for LaBSE, and the phonetic scores range from 53 to
+  57 links with LaBSE as the title score (TF-IDF 2-3: 56; MinHash_LSH n=2: 57, mean PC 0.849
+  against 0.845). One link is 0.015 PC. Mean PC over the test sets is still highest at w = 0.5.
+- The Pleiades-TM numbers of experiments 10, 11b and 13 were run a second time on 17 November,
+  after `scripts/minimize_datasets.py` was fixed: it wrote the romanized `name_standard` as the
+  Trismegistos title instead of the Greek name. Experiments 7 and 12 do not use the title and
+  gave the same numbers.
+- MEHDIE and zh-ru: experiment 12 reproduces the first run exactly. The scripts for experiments
+  7, 10, 11b and 13 were written again (the first ones were not kept); their MEHDIE and zh-ru
+  numbers differ from the first run by under 0.01 PC on average and by up to 0.06 PC (7 links)
+  in single MEHDIE rows.
+- Did not finish within 25 minutes, as in the first run: MinHash_LSH n=2, threshold 0.2 and
+  PassJoin tau=2, both on MEHDIE.
+
 ## Reading the tables
 
 | Term | Meaning |

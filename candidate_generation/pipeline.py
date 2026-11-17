@@ -13,6 +13,8 @@ It uses only the title, the phonetic title (title_ipa) and the coordinates of a 
   test_set = TestSetLoader().load(TestSetName.MEHDIE)
   CandidatePipeline(test_set.datasets).all_pairs()      # {(source, target): {(id_a, id_b), ...}}
 
+  python export_candidates.py               # writes datasets/03_candidate_generation/
+
   python pipeline.py                        # all test sets, full data: PC / PQ / RR / |C|
   python pipeline.py --testset zh-ru --k 3 10
 
@@ -53,6 +55,10 @@ class CandidatePipeline:
     def generate(self, source: DatasetName = None, target: DatasetName = None) -> set:
         """Candidate pairs (source_id, target_id) between two of the datasets (both default to
         the only two there are)."""
+        return set(self.scored(source, target))
+
+    def scored(self, source: DatasetName = None, target: DatasetName = None) -> dict:
+        """The candidate pairs with their score: {(source_id, target_id): score}."""
         if source is None and target is None:
             source, target = self.datasets
         A, B = self.datasets[source], self.datasets[target]
@@ -65,7 +71,7 @@ class CandidatePipeline:
         phon_a, phon_b = tfidf.transform(ipa_a), tfidf.transform(ipa_b).T.tocsr()
         points_a, points_b = _points(A), _points(B)
 
-        pairs = set()
+        pairs = {}
         best_score = np.full((0, len(ids_b)), -np.inf, dtype=np.float32)  # per target record: its
         best_row = np.zeros((0, len(ids_b)), dtype=np.int64)              # k best source records so far
         w = np.float32(self.title_weight)
@@ -75,7 +81,7 @@ class CandidatePipeline:
             # each source record's k best target records
             top = np.argpartition(-score, k_rows - 1, axis=1)[:, :k_rows]
             for i, js in enumerate(top):
-                pairs.update((ids_a[c + i], ids_b[j]) for j in js if score[i, j] > 0)
+                pairs.update(((ids_a[c + i], ids_b[j]), float(score[i, j])) for j in js if score[i, j] > 0)
             # each target record's k best source records: merge this chunk into the best so far
             rows = np.arange(c, c + len(score))[:, None].repeat(len(ids_b), 1)
             best_score, best_row = np.vstack([best_score, score]), np.vstack([best_row, rows])
@@ -83,7 +89,7 @@ class CandidatePipeline:
             best_score = np.take_along_axis(best_score, keep, 0)
             best_row = np.take_along_axis(best_row, keep, 0)
         for j in range(len(ids_b)):
-            pairs.update((ids_a[i], ids_b[j]) for s, i in zip(best_score[:, j], best_row[:, j]) if s > 0)
+            pairs.update(((ids_a[i], ids_b[j]), float(s)) for s, i in zip(best_score[:, j], best_row[:, j]) if s > 0)
         return pairs
 
 
