@@ -1,353 +1,686 @@
-# Candidate generation benchmark
+# Candidate generation (blocking) for toponym entity matching: a Python guide
 
-Measures candidate generators on their own and produces a frozen candidate set for the LLM experiments. The LLM only sees what generation passes to it, so generator recall caps end-to-end recall.
+This guide shows how to implement the 7 shortlisted candidate-generation methods and compare them on your own data, so you can pick one blocker to feed the entity-matching step.
 
-All recall here is exact: every query is scored against every target. No existing code or data is changed. Each run hashes its input files before and after, and aborts if any changed.
+| # | Method | Type | File | Extra install | Run here? |
+|---|---|---|---|---|---|
+| 1 | LM embeddings + kNN search | Dense retrieval, unsupervised | `blockers/dense.py` | `sentence-transformers faiss-cpu` | not run |
+| 2 | SC-Block-style fine-tuned encoder | Dense retrieval, supervised | `blockers/dense.py` | same | not run, **approximation** |
+| 3 | Neural LSH (NLSHBlock) | Learned blocking | `blockers/dense.py` | same | not run, **stand-in only** |
+| 4 | Token Blocking + Purging + Filtering + Meta-blocking | Schema-agnostic blocking | `blockers/token_meta.py` | none | tested (toy) |
+| 5 | MinHash-LSH on character n-grams | Approximate hybrid blocking | `blockers/minhash_lsh.py` | `datasketch` | not run |
+| 6 | (Extended) Q-Grams Blocking | Schema-aware blocking | `blockers/ext_qgrams.py` | none | tested (toy) |
+| 7 | PassJoin | Edit-distance filtering | `blockers/passjoin.py` | none | tested vs brute force |
 
-## Run it
+**What was and wasn't verified.** The sandbox I wrote this in had no network access, so `sentence-transformers`, `faiss` and `datasketch` could not be installed. Methods 1, 2, 3 and 5 are written against those libraries' APIs as I know them but have **not been executed**. Run the smoke test in section 8 first, and check library versions if a call fails. Methods 4, 6 and 7 and the helpers use only the standard library and were run: PassJoin was checked against brute-force edit distance on 90 random collections (tau = 1, 2, 3) and missed no pair. Methods 4 and 6 were only run on a 6-vs-7-record toy, which proves the plumbing, not their quality.
+
+---
+
+## 1. Setup
 
 ```bash
-pip install --no-deps panphon==0.22.2 epitran==1.35.3
-pip install -r candidate_generation/requirements.txt
-pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu
-
-python -m candidate_generation.run --dataset mehdie
-python -m candidate_generation.run --dataset mehdie_testsets
-python -m candidate_generation.run --dataset pleiades_trismegistos
-python -m candidate_generation.run --dataset all               # add --no-cache to recompute embeddings
-python -m candidate_generation.title_only_check                # optional sensitivity check
-python -m pytest candidate_generation/tests
+python -m venv .venv && source .venv/bin/activate
+pip install datasketch sentence-transformers faiss-cpu   # only needed for methods 1, 2, 3, 5
 ```
 
-Everything was run on Python 3.14 on CPU. A full `all` run from a cold cache took about 50 minutes with 12 workers, most of it Pleiades–Trismegistos and LaBSE embedding.
+Project layout:
 
-## Layout
+```
+blockers/
+  __init__.py        (empty file)
+  common.py          normalisation, serialisation, metrics
+  token_meta.py      method 4
+  ext_qgrams.py      method 6
+  passjoin.py        method 7
+  minhash_lsh.py     method 5
+  dense.py           methods 1, 2, 3
+demo_data.py         tiny toponym example
+run_comparison.py    runs every blocker, prints PC / PQ / RR
+```
 
-| Path | Content |
-|---|---|
-| `data/` | One adapter per dataset, the common schema, name cleaning, phonetics |
-| `generators/` | `mehdie_bpf`, `tfidf_char`, `dense`, `union_rrf` |
-| `engine.py` | Scores the full cross product chunk by chunk |
-| `metrics.py` | The metrics, as pure functions |
-| `frozen.py` | Builds and writes the `real` and `oracle` candidate sets |
-| `run.py` | CLI: splits, k selection, reports, plots, manifest |
-| `title_only_check.py` | Primary-names-only sensitivity check |
-| `config.yaml` | Datasets, directions, seeds, models, k target |
-| `results/<dataset>/` | Metrics, coverage, overlap, misses, plots |
-| `output/<dataset>/` | Frozen sets, splits, manifest |
+## 2. Conventions
 
-## Generators
+- **Records** are JSON-like dicts with a unique `"id"`. Nested dicts and lists are fine; `flatten()` turns them into leaf values.
+- **Task**: record linkage between two collections `A` and `B`. For deduplication inside one collection, pass the same dict twice, then drop `(x, x)` pairs and keep one orientation of each pair.
+- **Every blocker has the same signature**: `fn(A, B) -> set of (id_a, id_b)`, where `A` and `B` are `{id: text}` dicts. That makes them interchangeable in the harness.
+- **Three text views** are built from the same records:
+  - *full*: all attributes, normalised. Used by token blocking.
+  - *variants*: one string per name variant (`name`, `alt` names), keyed `(record_id, n)`. Used by methods 5, 6, 7. These methods compare **individual names**, so they must not see one long concatenated string per record. Map the variant pairs back with `collapse()`.
+  - *raw with attribute names*: e.g. `name: Constantinople ; country: Turkey`, not normalised. Used by the LM encoders in methods 1-3.
+- **Metrics** (from the Papadakis survey): Pair Completeness PC (recall), Pairs Quality PQ (precision), Reduction Ratio RR.
 
-Generators may read `name`, `name_variants`, `transliteration` and `ipa` only. They receive a `NameTable`, which has no attribute fields. `assert_name_only` runs when a generator class is defined and again at `prepare()`, so a generator declaring `lat`, `lon` or `feature_type` cannot even be defined. A test also confirms that changing those fields leaves every score unchanged.
-
-A record can have several names. Every generator scores a pair by the **best match over both records' names**.
-
-- **`mehdie_bpf`**: our reimplementation of MEHDIE's linguistically motivated blocking. A block is all records with a name containing a sound from one consonant class. Blocks overlap, and a bitmask deduplicates the pairs. The classes are defined over IPA, with a letter map for Hebrew, Arabic and Latin as a fallback. It is set-based; for ranked metrics, candidates are ordered by shared block count, then Jaro similarity on the shared representation. `mehdie_bpf` rows are that ranking cut at k, and `mehdie_bpf_blocks` rows are the whole set.
-
-  | Class | IPA |
-  |---|---|
-  | labial (the B/P/F class) | p b f v β ɸ |
-  | nasal | m n ŋ |
-  | dental | t d θ ð |
-  | sibilant | s z ʃ ʒ dʒ tʃ ts |
-  | velar | k g q x ɣ χ |
-  | guttural | ʔ h ħ ʕ |
-  | liquid | l r |
-  | glide | w j |
-
-- **`tfidf_char`**: TF-IDF over `char_wb` 2–4-grams of the shared IPA representation, with cosine similarity. Set `generators.representation: transliteration` to switch representation.
-- **`dense`**: Symphonym v8 (Gadd 2026), a character-level phonetic encoder, with exact cosine search. It loaded on the first try, so the `intfloat/multilingual-e5-base` fallback was not used.
-- **`dense_labse`**: the same with `setu4993/LaBSE`.
-- **`union_rrf`**: reciprocal rank fusion (constant 60) of `tfidf_char` and `dense`, fused over the full target list rather than truncated lists. `union_rrf_bpf` adds `mehdie_bpf` as the optional third input.
-- **`union_set`**: the plain set union of the `tfidf_char` and `dense` top-k lists, so it can hold up to 2k candidates per query.
-
-## Results at the chosen k
-
-All numbers are from **test** queries. k is the smallest value where `union_rrf` reaches recall ≥ 0.95 on **dev** queries, chosen per dataset and direction. Forward is the configured source → target. Pooled rows count pairs across tasks.
-
-PC = pair completeness, PQ = pair quality, RR = reduction ratio. The CI is a 95% Wilson interval on PC. Ground truth lists are incomplete, so PQ is a lower bound. PQ is also low because queries with no ground truth match still contribute candidates.
-
-**`mehdie`, forward: k = 3** (dev recall 0.950 on 20 pairs). Test: 16,309 queries, of which 16,238 have no ground truth match, and 77 ground truth pairs.
-
-| Generator | PC | PC 95% CI | PQ | RR | R@1 | R@2 | R@5 | R@10 | R@20 | R@50 | R@100 | MRR | Mean cand. | Total cand. |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| mehdie_bpf | 0.831 | 0.732–0.899 | 0.0013 | 0.9996 | 0.688 | 0.818 | 0.844 | 0.870 | 0.870 | 0.896 | 0.909 | 0.796 | 3.0 | 48,927 |
-| mehdie_bpf_blocks | 1.000 | 0.952–1.000 | 0.0000 | 0.0525 | 0.688 | 0.818 | 0.844 | 0.870 | 0.870 | 0.896 | 0.909 | 0.796 | 6,894.5 | 112,443,167 |
-| tfidf_char | 0.948 | 0.874–0.980 | 0.0015 | 0.9996 | 0.753 | 0.935 | 0.948 | 0.961 | 0.987 | 0.987 | 0.987 | 0.881 | 3.0 | 48,927 |
-| dense | 0.896 | 0.808–0.946 | 0.0014 | 0.9996 | 0.662 | 0.831 | 0.896 | 0.922 | 0.935 | 0.974 | 0.987 | 0.806 | 3.0 | 48,927 |
-| dense_labse | 0.753 | 0.646–0.836 | 0.0012 | 0.9996 | 0.558 | 0.714 | 0.766 | 0.805 | 0.831 | 0.870 | 0.896 | 0.685 | 3.0 | 48,927 |
-| **union_rrf** | 0.961 | 0.892–0.987 | 0.0015 | 0.9996 | 0.779 | 0.948 | 0.961 | 0.987 | 0.987 | 0.987 | 1.000 | 0.903 | 3.0 | 48,927 |
-| union_rrf_bpf | 0.896 | 0.808–0.946 | 0.0014 | 0.9996 | 0.727 | 0.870 | 0.948 | 0.987 | 0.987 | 1.000 | 1.000 | 0.858 | 3.0 | 48,927 |
-| union_set | 0.974 | 0.910–0.993 | 0.0008 | 0.9992 | 0.805 | 0.961 | 0.974 | 0.974 | 0.987 | 1.000 | 1.000 | – | 5.7 | 92,754 |
-
-**`mehdie`, backward: k = 47** (dev recall 1.000 on 19 pairs). Test: 22,661 queries, of which 22,586 have no ground truth match, and 78 ground truth pairs.
-
-| Generator | PC | PC 95% CI | PQ | RR | R@1 | R@2 | R@5 | R@10 | R@20 | R@50 | R@100 | MRR | Mean cand. | Total cand. |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| mehdie_bpf | 0.346 | 0.250–0.457 | 0.0000 | 0.9910 | 0.308 | 0.333 | 0.333 | 0.333 | 0.346 | 0.346 | 0.372 | 0.328 | 47.0 | 1,065,020 |
-| mehdie_bpf_blocks | 1.000 | 0.953–1.000 | 0.0000 | 0.0530 | 0.308 | 0.333 | 0.333 | 0.333 | 0.346 | 0.346 | 0.372 | 0.328 | 4,959.4 | 112,385,724 |
-| tfidf_char | 0.962 | 0.893–0.987 | 0.0001 | 0.9910 | 0.731 | 0.821 | 0.859 | 0.910 | 0.923 | 0.962 | 0.974 | 0.817 | 47.0 | 1,065,028 |
-| dense | 0.910 | 0.826–0.956 | 0.0001 | 0.9910 | 0.577 | 0.641 | 0.731 | 0.833 | 0.859 | 0.910 | 0.962 | 0.671 | 47.0 | 1,065,067 |
-| dense_labse | 0.833 | 0.735–0.900 | 0.0001 | 0.9910 | 0.462 | 0.603 | 0.692 | 0.731 | 0.756 | 0.833 | 0.859 | 0.591 | 47.0 | 1,065,067 |
-| **union_rrf** | 0.987 | 0.931–0.998 | 0.0001 | 0.9910 | 0.667 | 0.808 | 0.910 | 0.962 | 0.987 | 0.987 | 0.987 | 0.791 | 47.0 | 1,065,067 |
-| union_rrf_bpf | 0.987 | 0.931–0.998 | 0.0001 | 0.9910 | 0.615 | 0.756 | 0.872 | 0.949 | 0.974 | 0.987 | 0.987 | 0.744 | 47.0 | 1,065,067 |
-| union_set | 0.987 | 0.931–0.998 | 0.0000 | 0.9832 | 0.744 | 0.846 | 0.897 | 0.949 | 0.962 | 0.987 | 0.987 | – | 88.1 | 1,997,342 |
-
-
-**`mehdie_testsets`, forward: k = 2** (dev recall 0.964 on 28 pairs). Test: 3,057 queries, of which 2,948 have no ground truth match, and 109 ground truth pairs.
-
-| Generator | PC | PC 95% CI | PQ | RR | R@1 | R@2 | R@5 | R@10 | R@20 | R@50 | R@100 | MRR | Mean cand. | Total cand. |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| mehdie_bpf | 0.569 | 0.475–0.658 | 0.0101 | 0.9974 | 0.514 | 0.569 | 0.596 | 0.615 | 0.670 | 0.734 | 0.844 | 0.561 | 2.0 | 6,114 |
-| mehdie_bpf_blocks | 1.000 | 0.966–1.000 | 0.0000 | 0.0419 | 0.514 | 0.569 | 0.596 | 0.615 | 0.670 | 0.734 | 0.844 | 0.561 | 738.8 | 2,258,473 |
-| tfidf_char | 0.954 | 0.897–0.980 | 0.0170 | 0.9974 | 0.853 | 0.954 | 0.991 | 1.000 | 1.000 | 1.000 | 1.000 | 0.916 | 2.0 | 6,114 |
-| dense | 0.927 | 0.862–0.962 | 0.0165 | 0.9974 | 0.835 | 0.927 | 0.963 | 0.982 | 0.991 | 1.000 | 1.000 | 0.896 | 2.0 | 6,114 |
-| dense_labse | 0.853 | 0.775–0.908 | 0.0152 | 0.9974 | 0.780 | 0.853 | 0.899 | 0.908 | 0.945 | 0.963 | 0.982 | 0.831 | 2.0 | 6,114 |
-| **union_rrf** | 1.000 | 0.966–1.000 | 0.0178 | 0.9974 | 0.899 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 0.950 | 2.0 | 6,114 |
-| union_rrf_bpf | 0.780 | 0.693–0.847 | 0.0139 | 0.9974 | 0.624 | 0.780 | 0.945 | 0.991 | 1.000 | 1.000 | 1.000 | 0.753 | 2.0 | 6,114 |
-| union_set | 1.000 | 0.966–1.000 | 0.0096 | 0.9952 | 0.908 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | – | 3.7 | 11,380 |
-
-**`mehdie_testsets`, backward: k = 2** (dev recall 1.000 on 26 pairs). Test: 4,237 queries, of which 4,131 have no ground truth match, and 111 ground truth pairs.
-
-| Generator | PC | PC 95% CI | PQ | RR | R@1 | R@2 | R@5 | R@10 | R@20 | R@50 | R@100 | MRR | Mean cand. | Total cand. |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| mehdie_bpf | 0.550 | 0.457–0.639 | 0.0072 | 0.9964 | 0.486 | 0.550 | 0.595 | 0.613 | 0.649 | 0.802 | 0.874 | 0.552 | 2.0 | 8,474 |
-| mehdie_bpf_blocks | 1.000 | 0.967–1.000 | 0.0000 | 0.0417 | 0.486 | 0.550 | 0.595 | 0.613 | 0.649 | 0.802 | 0.874 | 0.552 | 534.0 | 2,262,395 |
-| tfidf_char | 0.919 | 0.853–0.957 | 0.0120 | 0.9964 | 0.847 | 0.919 | 0.964 | 0.991 | 0.991 | 1.000 | 1.000 | 0.921 | 2.0 | 8,474 |
-| dense | 0.901 | 0.831–0.944 | 0.0118 | 0.9964 | 0.829 | 0.901 | 0.946 | 0.973 | 0.973 | 0.991 | 0.991 | 0.904 | 2.0 | 8,474 |
-| dense_labse | 0.802 | 0.718–0.865 | 0.0105 | 0.9964 | 0.730 | 0.802 | 0.856 | 0.892 | 0.928 | 0.964 | 0.982 | 0.814 | 2.0 | 8,474 |
-| **union_rrf** | 0.955 | 0.899–0.981 | 0.0125 | 0.9964 | 0.865 | 0.955 | 0.982 | 0.991 | 1.000 | 1.000 | 1.000 | 0.941 | 2.0 | 8,474 |
-| union_rrf_bpf | 0.829 | 0.748–0.888 | 0.0109 | 0.9964 | 0.694 | 0.829 | 0.937 | 0.991 | 1.000 | 1.000 | 1.000 | 0.820 | 2.0 | 8,474 |
-| union_set | 0.973 | 0.924–0.991 | 0.0068 | 0.9933 | 0.910 | 0.973 | 0.991 | 1.000 | 1.000 | 1.000 | 1.000 | – | 3.7 | 15,867 |
-
-
-**`pleiades_trismegistos`, forward: k = 6** (dev recall 0.953 on 2775 pairs). Test: 33,934 queries, of which 23,001 have no ground truth match, and 11,115 ground truth pairs.
-
-| Generator | PC | PC 95% CI | PQ | RR | R@1 | R@2 | R@5 | R@10 | R@20 | R@50 | R@100 | MRR | Mean cand. | Total cand. |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| mehdie_bpf | 0.785 | 0.777–0.793 | 0.0480 | 0.9999 | 0.672 | 0.742 | 0.780 | 0.793 | 0.798 | 0.803 | 0.804 | 0.732 | 5.4 | 181,620 |
-| mehdie_bpf_blocks | 0.999 | 0.998–1.000 | 0.0000 | 0.1438 | 0.672 | 0.742 | 0.780 | 0.793 | 0.798 | 0.803 | 0.804 | 0.732 | 55,229.5 | 1,874,158,956 |
-| tfidf_char | 0.951 | 0.947–0.955 | 0.0582 | 0.9999 | 0.771 | 0.877 | 0.944 | 0.966 | 0.975 | 0.980 | 0.982 | 0.857 | 5.4 | 181,692 |
-| dense | 0.910 | 0.904–0.915 | 0.0557 | 0.9999 | 0.754 | 0.847 | 0.904 | 0.923 | 0.934 | 0.943 | 0.950 | 0.831 | 5.4 | 181,692 |
-| dense_labse | 0.916 | 0.911–0.921 | 0.0561 | 0.9999 | 0.758 | 0.852 | 0.910 | 0.929 | 0.939 | 0.946 | 0.952 | 0.835 | 5.4 | 181,692 |
-| **union_rrf** | 0.948 | 0.944–0.952 | 0.0580 | 0.9999 | 0.768 | 0.871 | 0.940 | 0.964 | 0.977 | 0.980 | 0.983 | 0.854 | 5.4 | 181,692 |
-| union_rrf_bpf | 0.940 | 0.936–0.945 | 0.0575 | 0.9999 | 0.744 | 0.849 | 0.932 | 0.957 | 0.971 | 0.980 | 0.982 | 0.835 | 5.4 | 181,692 |
-| union_set | 0.959 | 0.955–0.962 | 0.0320 | 0.9998 | 0.794 | 0.892 | 0.952 | 0.971 | 0.978 | 0.982 | 0.984 | – | 9.8 | 332,989 |
-
-**`pleiades_trismegistos`, backward: k = 7** (dev recall 0.959 on 2785 pairs). Test: 51,606 queries, of which 40,889 have no ground truth match, and 11,105 ground truth pairs.
-
-| Generator | PC | PC 95% CI | PQ | RR | R@1 | R@2 | R@5 | R@10 | R@20 | R@50 | R@100 | MRR | Mean cand. | Total cand. |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| mehdie_bpf | 0.630 | 0.621–0.639 | 0.0194 | 0.9998 | 0.541 | 0.597 | 0.625 | 0.634 | 0.638 | 0.641 | 0.642 | 0.596 | 7.0 | 360,731 |
-| mehdie_bpf_blocks | 0.999 | 0.999–1.000 | 0.0000 | 0.1424 | 0.541 | 0.597 | 0.625 | 0.634 | 0.638 | 0.641 | 0.642 | 0.596 | 36,375.7 | 1,877,203,995 |
-| tfidf_char | 0.953 | 0.949–0.957 | 0.0293 | 0.9998 | 0.751 | 0.874 | 0.941 | 0.963 | 0.973 | 0.979 | 0.981 | 0.856 | 7.0 | 360,801 |
-| dense | 0.914 | 0.909–0.919 | 0.0281 | 0.9998 | 0.737 | 0.845 | 0.902 | 0.923 | 0.935 | 0.944 | 0.950 | 0.832 | 7.0 | 360,801 |
-| dense_labse | 0.905 | 0.900–0.910 | 0.0279 | 0.9998 | 0.729 | 0.835 | 0.893 | 0.915 | 0.926 | 0.937 | 0.945 | 0.824 | 7.0 | 360,801 |
-| **union_rrf** | 0.948 | 0.944–0.952 | 0.0292 | 0.9998 | 0.749 | 0.869 | 0.934 | 0.961 | 0.974 | 0.980 | 0.981 | 0.853 | 7.0 | 360,801 |
-| union_rrf_bpf | 0.932 | 0.927–0.936 | 0.0287 | 0.9998 | 0.636 | 0.775 | 0.906 | 0.947 | 0.965 | 0.978 | 0.981 | 0.769 | 7.0 | 360,801 |
-| union_set | 0.960 | 0.956–0.964 | 0.0156 | 0.9997 | 0.775 | 0.891 | 0.949 | 0.968 | 0.976 | 0.980 | 0.983 | – | 13.2 | 682,751 |
-
-
-### `union_rrf` per task
-
-| Dataset | Task | Direction | k | Pairs | PC | MRR |
-|---|---|---|---:|---:|---:|---:|
-| mehdie | yaqut_kima | forward | 3 | 62 | 0.952 | 0.914 |
-| mehdie | thurayya_kima | forward | 3 | 8 | 1.000 | 0.857 |
-| mehdie | thurayya_yaqut | forward | 3 | 7 | 1.000 | 0.857 |
-| mehdie | yaqut_kima | backward | 47 | 63 | 0.984 | 0.748 |
-| mehdie | thurayya_kima | backward | 47 | 8 | 1.000 | 0.938 |
-| mehdie | thurayya_yaqut | backward | 47 | 7 | 1.000 | 1.000 |
-| mehdie_testsets | ts7_yaqut_kima_sham | forward | 2 | 26 | 1.000 | 0.962 |
-| mehdie_testsets | ts8_kima_thurayya_sham | forward | 2 | 17 | 1.000 | 1.000 |
-| mehdie_testsets | ts9_tudela_thurayya | forward | 2 | 14 | 1.000 | 0.964 |
-| mehdie_testsets | ts10_yaqut_kima_maghreb | forward | 2 | 26 | 1.000 | 0.865 |
-| mehdie_testsets | ts11_damast_tudela | forward | 2 | 26 | 1.000 | 0.981 |
-| mehdie_testsets | ts7_yaqut_kima_sham | backward | 2 | 27 | 0.889 | 0.858 |
-| mehdie_testsets | ts8_kima_thurayya_sham | backward | 2 | 17 | 1.000 | 0.938 |
-| mehdie_testsets | ts9_tudela_thurayya | backward | 2 | 14 | 1.000 | 1.000 |
-| mehdie_testsets | ts10_yaqut_kima_maghreb | backward | 2 | 27 | 0.926 | 0.930 |
-| mehdie_testsets | ts11_damast_tudela | backward | 2 | 26 | 1.000 | 1.000 |
-
-Other tables are in `results/<dataset>/`: `metrics.csv` (every generator, per task), `overlap_counts.csv` and `overlap_pairs.csv` (which generators retrieved each pair), and `misses/<generator>.csv` (missed pairs with names, IPA and rank).
-
-### Recall@k plots
-
-`mehdie_bpf_blocks` has no curve, because it is one unranked set. `union_rrf_bpf` is left out of the plots for legibility; its numbers are in the tables.
-
-![mehdie](results/mehdie/recall_at_k.png)
-
-![mehdie_testsets](results/mehdie_testsets/recall_at_k.png)
-
-![pleiades_trismegistos](results/pleiades_trismegistos/recall_at_k.png)
-
-## How to read these results
-
-1. **Pleiades–Trismegistos test recall is just under target.** `union_rrf` reached 0.95 on dev, but test PC is 0.948 in both directions. k was not retuned on test. To clear 0.95 on test, raise `target_recall` slightly, or use `union_set`, at about twice the candidates.
-2. **`union_rrf` is not always the best generator.** On Pleiades–Trismegistos, `tfidf_char` alone beats it at the same k (0.951 vs 0.948 forward, 0.953 vs 0.948 backward), because most pairs are near-identical Latin strings.
-3. **The `mehdie` k values rest on few pairs.** Each dev set has about 20 pairs. Backward, 95% of 19 pairs means all 19, so a single outlier set k = 47. Treat those k values as rough, and note the wide CIs.
-4. **`mehdie_bpf` does not reduce much as blocking.** Its full blocks keep nearly all pairs but remove only 4–14% of the cross product, because almost any two names share one of eight classes. Its ranking is weak, and adding it to fusion lowers recall (`union_rrf_bpf`).
-5. **Some pairs need no cross-script matching.** Gazetteers often list the other side's form among their variants, so a pair can match on an identical string:
-
-| Dataset | Task | Pairs | Share an exact name | Share an IPA form |
-|---|---|---:|---:|---:|
-| mehdie | yaqut_kima | 78 | 1 (1.3%) | 54 (69.2%) |
-| mehdie | thurayya_kima | 10 | 3 (30.0%) | 6 (60.0%) |
-| mehdie | thurayya_yaqut | 9 | 8 (88.9%) | 8 (88.9%) |
-| mehdie_testsets | ts7_yaqut_kima_sham | 33 | 0 (0.0%) | 23 (69.7%) |
-| mehdie_testsets | ts8_kima_thurayya_sham | 21 | 11 (52.4%) | 16 (76.2%) |
-| mehdie_testsets | ts9_tudela_thurayya | 18 | 14 (77.8%) | 16 (88.9%) |
-| mehdie_testsets | ts10_yaqut_kima_maghreb | 33 | 0 (0.0%) | 22 (66.7%) |
-| mehdie_testsets | ts11_damast_tudela | 32 | 26 (81.2%) | 29 (90.6%) |
-| pleiades_trismegistos | pleiades_trismegistos | 13,890 | 11,931 (85.9%) | 12,243 (88.1%) |
-
-   Pleiades–Trismegistos is mostly a same-script task by this measure, so its recall says little about cross-script ability. On the paper's testsets, using primary names only shows how much the variants contribute (unweighted mean of five testsets, forward):
-
-| Generator | Names used | R@1 | R@10 | MRR |
-|---|---|---:|---:|---:|
-| dense | all_variants | 0.880 | 0.982 | 0.922 |
-| dense | primary_only | 0.693 | 0.881 | 0.763 |
-| tfidf_char | all_variants | 0.888 | 1.000 | 0.934 |
-| tfidf_char | primary_only | 0.739 | 0.906 | 0.802 |
-
-6. **Published results are reproduced.** With all variants, `dense` gets R@1 0.880, R@10 0.982 and MRR 0.922 on the five testsets, against 0.893, 0.982 and 0.928 on the Symphonym v8 model card. The small gap could come from version or setup differences; we did not investigate it.
-7. **Some misses are not generator errors.** The `mehdie` misses include `همدان` (Hamadan) ↔ `קבוץ חנתון` (Kibbutz Hanaton), which looks like a wrong link. In Pleiades–Trismegistos, 4 ground truth pairs have a Pleiades query with no usable name, and many others link unrelated names (`Latopolis` ↔ `Deir el-Shuhada`), which name-based generation cannot find. These pairs were kept, so measured recall is conservative. They are worth a manual review.
-
-## Field coverage
-
-No dataset provides IPA, so every IPA value is derived. "Translit. in dataset" means the record has at least one Latin-script name. For the others, transliteration comes from AnyAscii.
-
-| Dataset | Source | Records | Name | Variants | Names per record | Translit. in dataset | Translit. derived | IPA in dataset | IPA derived (any name) | Coordinates | Feature type |
-|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| mehdie | kima | 6,211 | 100.0% | 92.8% | 3.94 | 96.4% | 3.6% | 0.0% | 100.0% | 59.5% | 5.3% |
-| mehdie | yaqut | 15,904 | 100.0% | 1.1% | 1.01 | 0.0% | 100.0% | 0.0% | 100.0% | 16.8% | 90.5% |
-| mehdie | thurayya | 2,241 | 100.0% | 100.0% | 3.58 | 100.0% | 0.0% | 0.0% | 100.0% | 100.0% | 100.0% |
-| mehdie_testsets | ts7_yaqut_kima_sham:yaqut | 687 | 100.0% | 3.6% | 1.04 | 0.0% | 100.0% | 0.0% | 100.0% | 42.6% | 95.3% |
-| mehdie_testsets | ts7_yaqut_kima_sham:kima | 1,899 | 100.0% | 100.0% | 4.47 | 100.0% | 0.1% | 0.0% | 100.0% | 89.3% | 1.5% |
-| mehdie_testsets | ts8_kima_thurayya_sham:kima | 1,899 | 100.0% | 100.0% | 4.47 | 100.0% | 0.1% | 0.0% | 100.0% | 89.3% | 1.5% |
-| mehdie_testsets | ts8_kima_thurayya_sham:thurayya | 291 | 100.0% | 100.0% | 3.57 | 100.0% | 0.0% | 0.0% | 100.0% | 100.0% | 100.0% |
-| mehdie_testsets | ts9_tudela_thurayya:tudela | 306 | 100.0% | 95.8% | 4.71 | 96.4% | 3.6% | 0.0% | 100.0% | 57.2% | 0.0% |
-| mehdie_testsets | ts9_tudela_thurayya:thurayya | 2,241 | 100.0% | 100.0% | 3.57 | 100.0% | 0.0% | 0.0% | 100.0% | 100.0% | 100.0% |
-| mehdie_testsets | ts10_yaqut_kima_maghreb:yaqut | 484 | 100.0% | 1.0% | 1.01 | 0.0% | 100.0% | 0.0% | 100.0% | 47.3% | 93.6% |
-| mehdie_testsets | ts10_yaqut_kima_maghreb:kima | 559 | 100.0% | 100.0% | 3.96 | 100.0% | 0.0% | 0.0% | 100.0% | 100.0% | 10.7% |
-| mehdie_testsets | ts11_damast_tudela:damast | 447 | 100.0% | 99.8% | 9.31 | 100.0% | 0.0% | 0.0% | 100.0% | 96.4% | 100.0% |
-| mehdie_testsets | ts11_damast_tudela:tudela | 306 | 100.0% | 95.8% | 4.71 | 96.4% | 3.6% | 0.0% | 100.0% | 57.2% | 0.0% |
-| pleiades_trismegistos | pleiades | 42,417 | 89.3% | 28.1% | 1.63 | 89.3% | 0.0% | 0.0% | 89.3% | 82.1% | 100.0% |
-| pleiades_trismegistos | trismegistos | 64,507 | 99.9% | 37.6% | 1.55 | 99.9% | 0.0% | 0.0% | 99.9% | 38.2% | 39.5% |
-
-IPA by script:
-
-| Script | Method |
-|---|---|
-| Arabic | Epitran `ara-Arab`, then cleanup for what it leaves raw (e.g. `ة`) |
-| Hebrew, Greek, Coptic | Our rule tables in `data/phonetics.py`. The installed Epitran has no map for them |
-| Latin | Our rule table, because these are scholarly transliterations (ḥ, ṣ, ǧ, ŧ) and Latinised Greek, not a modern language |
-| Others (Syriac, Cyrillic, ...) | AnyAscii, then the Latin table |
-
-## Queries with no ground truth match
-
-Excluded from recall, included in the reduction ratio and in the frozen sets.
-
-| Dataset | Task | Direction | Queries | No ground truth match | Excluded from recall, included in RR |
-|---|---|---|---:|---:|---:|
-| mehdie | thurayya_kima | backward | 6,211 | 6,201 | 99.8% |
-| mehdie | thurayya_kima | forward | 2,241 | 2,232 | 99.6% |
-| mehdie | thurayya_yaqut | backward | 15,904 | 15,895 | 99.9% |
-| mehdie | thurayya_yaqut | forward | 2,241 | 2,232 | 99.6% |
-| mehdie | yaqut_kima | backward | 6,211 | 6,136 | 98.8% |
-| mehdie | yaqut_kima | forward | 15,904 | 15,833 | 99.6% |
-| mehdie_testsets | ts10_yaqut_kima_maghreb | backward | 559 | 527 | 94.3% |
-| mehdie_testsets | ts10_yaqut_kima_maghreb | forward | 484 | 451 | 93.2% |
-| mehdie_testsets | ts11_damast_tudela | backward | 306 | 274 | 89.5% |
-| mehdie_testsets | ts11_damast_tudela | forward | 447 | 415 | 92.8% |
-| mehdie_testsets | ts7_yaqut_kima_sham | backward | 1,899 | 1,869 | 98.4% |
-| mehdie_testsets | ts7_yaqut_kima_sham | forward | 687 | 654 | 95.2% |
-| mehdie_testsets | ts8_kima_thurayya_sham | backward | 291 | 271 | 93.1% |
-| mehdie_testsets | ts8_kima_thurayya_sham | forward | 1,899 | 1,878 | 98.9% |
-| mehdie_testsets | ts9_tudela_thurayya | backward | 2,241 | 2,223 | 99.2% |
-| mehdie_testsets | ts9_tudela_thurayya | forward | 306 | 288 | 94.1% |
-| pleiades_trismegistos | pleiades_trismegistos | backward | 64,507 | 51,111 | 79.2% |
-| pleiades_trismegistos | pleiades_trismegistos | forward | 42,417 | 28,751 | 67.8% |
-
-## Frozen candidate sets
-
-Files are in `output/<dataset>/`, one set per task and direction, for example `yaqut_kima.forward.real.v1.parquet`.
-
-| File | Content |
-|---|---|
-| `<task>.<direction>.real.v1.parquet` | Exactly what `union_rrf` returns at the chosen k |
-| `<task>.<direction>.oracle.v1.parquet` | The same set, plus any missing true match |
-| `<task>.<direction>.splits.v1.parquet` | `query_id`, `split` (dev/test), `has_ground_truth` |
-| `manifest.v1.json` | Config, seeds, models and revisions, chosen k, SHA256 of each output and input file, timestamp |
-
-Columns: `query_id, candidate_id, generator, rank, score, k, is_ground_truth, oracle_injected, shuffle_position`.
+### `blockers/common.py`
 
 ```python
-import pandas as pd
+"""Shared helpers: text normalisation, record serialisation, block -> pairs, evaluation."""
+import re
+import unicodedata
+from itertools import product
 
-folder = "candidate_generation/output/mehdie"
-real = pd.read_parquet(f"{folder}/yaqut_kima.forward.real.v1.parquet")
-oracle = pd.read_parquet(f"{folder}/yaqut_kima.forward.oracle.v1.parquet")
-splits = pd.read_parquet(f"{folder}/yaqut_kima.forward.splits.v1.parquet")
 
-# Keep test queries. Dev queries were used to choose k.
-test_ids = splits.loc[splits.split == "test", "query_id"]
-real = real[real.query_id.isin(test_ids)]
+def normalize(s) -> str:
+    """Casefold, strip diacritics / Hebrew niqqud / Arabic harakat / tatweel, drop punctuation."""
+    s = unicodedata.normalize("NFKC", str(s)).casefold().replace("\u0640", "")
+    s = "".join(c for c in unicodedata.normalize("NFD", s) if not unicodedata.combining(c))
+    s = re.sub(r"[^\w\s]", " ", s)
+    return re.sub(r"\s+", " ", s).strip()
 
-# Candidates for one query, in the order to present them in a list-style prompt.
-query = real[real.query_id == "dig12596"].sort_values("shuffle_position")
+
+def flatten(value):
+    """Yield every leaf value of a nested dict/list as a string (semi-structured -> flat)."""
+    if value is None:
+        return
+    if isinstance(value, dict):
+        for v in value.values():
+            yield from flatten(v)
+    elif isinstance(value, (list, tuple, set)):
+        for v in value:
+            yield from flatten(v)
+    else:
+        yield str(value)
+
+
+def serialize(record: dict, attrs=None, with_names=False, norm=True) -> str:
+    """Turn one record into one string.
+    norm=True       -> normalised text (for the string-based blockers)
+    with_names=True -> 'name: Konstantinopel ; country: Turkey' (nicer input for LM encoders)
+    """
+    keys = attrs or [k for k in record if k != "id"]
+    parts = []
+    for k in keys:
+        vals = [normalize(v) if norm else v for v in flatten(record.get(k))]
+        vals = [v for v in vals if v]
+        if vals:
+            parts.append(f"{k}: {' '.join(vals)}" if with_names else " ".join(vals))
+    return " ; ".join(parts) if with_names else " ".join(parts)
+
+
+def blocks_to_pairs(blocks) -> set:
+    """blocks = {key: (ids_from_A, ids_from_B)} -> set of (id_a, id_b) candidate pairs."""
+    pairs = set()
+    for ids_a, ids_b in blocks.values():
+        pairs.update(product(ids_a, ids_b))
+    return pairs
+
+
+def evaluate(candidates, gold, n_a, n_b) -> dict:
+    """Pair Completeness (recall), Pairs Quality (precision), Reduction Ratio."""
+    cand, gold = set(candidates), set(gold)
+    tp = len(cand & gold)
+    return {
+        "PC": tp / len(gold) if gold else 0.0,
+        "PQ": tp / len(cand) if cand else 0.0,
+        "RR": 1 - len(cand) / (n_a * n_b) if n_a * n_b else 0.0,
+        "candidates": len(cand),
+    }
+
+
+def explode_names(records, attrs) -> dict:
+    """One entry per name VARIANT: {(record_id, n): normalised_variant}. Edit-distance and q-gram
+    methods should compare variants one by one, not one long concatenated string per record."""
+    out = {}
+    for r in records:
+        variants = [normalize(v) for k in attrs for v in flatten(r.get(k))]
+        for n, v in enumerate(v for v in variants if v):
+            out[(r["id"], n)] = v
+    return out
+
+
+def collapse(pairs) -> set:
+    """Map variant-level pairs ((id_a, n), (id_b, m)) back to record-level pairs (id_a, id_b)."""
+    return {(a[0], b[0]) for a, b in pairs}
 ```
 
-- Use `rank` as the canonical order and `shuffle_position` for presentation order. Both are 1-based.
-- Don't show `score`, `generator`, `is_ground_truth`, `oracle_injected` or `rank` to the LLM. They reveal the answer or the injected row.
-- In `oracle`, an injected row has `generator = "oracle"` and a null `score`. Its rank and shuffle position are both seeded random. All other candidates keep their relative order in both, so `real` and `oracle` differ only by the injection. A query with several missing matches gets all of them.
-- Candidates come from `union_rrf` on names alone, and nothing in the build knows about prompts, so the files are identical whichever attributes later go into a prompt.
+Normalisation strips diacritics, Hebrew niqqud, Arabic harakat and tatweel. It does **not** transliterate, so "Bagdad" and "بغداد" still differ. Cross-script links only come from (a) alternate names you already have in the records or (b) the dense methods.
 
-## Reproducibility
+---
 
-All randomness derives from `seed` in the config, hashed with a stable key per query, so results do not depend on processing order. Ties break by a seeded target order, unrelated to record ids. Scores are rounded before ranking, and each scoring chunk runs single-threaded.
+## 3. Method 1: LM embeddings + kNN search
 
-Verified: a second `all` run with embeddings recomputed produced byte-identical files for all 54 parquet outputs. The manifest differs only by its timestamp, which is why it is excluded from `output digest`. This was verified on one machine with one set of package versions. A different torch or BLAS build may change low-order digits.
+Encode every record with a pre-trained multilingual sentence encoder, index one side with FAISS, and take each record's top-k nearest neighbours on the other side as candidates.
 
-## Assumptions
+### `blockers/dense.py` (all three dense methods)
 
-**Data**
+```python
+"""Dense-retrieval blocking: (1) off-the-shelf LM embeddings + kNN, (2) contrastive fine-tuning,
+(3) an LSH-on-embeddings stand-in for neural LSH.
+Needs: pip install sentence-transformers faiss-cpu"""
+import numpy as np
 
-- `mehdie` is `../final_datasets/MEHDIE`. No loaders existed to reuse: `scripts/attribute_overlap.py` runs on import, and other scripts build data rather than load it.
-- Places repeat across MEHDIE rows (Kima: 14,341 rows, 6,211 src_ids; al-Thurayya: each place twice). Ground truth points at one arbitrary row, so a retrieved duplicate would count as a miss. Rows are merged per `src_id`, merging their names, and `record_id` is the `src_id`.
-- Ground truth for `mehdie` is `same_as` from the internal links file. That gives 105 place pairs. **8 are also labelled `different`** after merging and are excluded by default (`conflict_policy: exclude`), leaving 97. They are listed in the manifest.
-- The `links` columns, Wikidata and GeoNames links and Tudela's ids are never read, because they leak matches.
-- `mehdie` has three tasks: Yāqūt–Kima, al-Thurayya–Kima, al-Thurayya–Yāqūt. k is selected once per direction, pooled across them, because the two smaller tasks have only about 2 dev pairs each.
-- `mehdie_testsets` is an addition: the five testsets of Sagi et al. (2025) from `datasets/MEHDIE`. They overlap the DB extract only partly (68 shared pairs, 19 only here, 37 only in the extract) and are the only source for Tudela and DAMAST, so they are a separate dataset and not merged. `YaqutTudela/em.tsv` is derived data and not used.
-- Other folders in `datasets/` are not included: they aren't in `final_datasets/` and have no `em.tsv` cross-source ground truth in the same form. That includes `tgaz_csv` and `chgis_ras`, which arrived from `origin/main` while this was being built.
-- Trismegistos `ethnicon` is left out: demonyms are derived forms, not place names.
 
-**Names**
+def encode(model, texts, batch_size=64) -> np.ndarray:
+    return model.encode(texts, batch_size=batch_size, normalize_embeddings=True,
+                        convert_to_numpy=True, show_progress_bar=False).astype("float32")
 
-- Attributes must not reach generators through names. Parentheses after a Pleiades title (`Aethusa (island)`, `(Roman province)`) and brackets after a Trismegistos name (`[Tebtynis]`) are removed.
-- `Untitled` and `Unnamed ...` titles are dropped, because their text is a type label. 4,517 Pleiades and 75 Trismegistos records end up with no usable name. They stay in the data and are never retrieved.
-- Parentheses attached to a word are spelling variants (`Ap(p)enninus` gives both forms). Editorial marks are removed but restored letters kept (`Taproba[n]e`). Names with fewer than two letters are dropped.
-- Type words **inside** a name can't be separated from it and remain (`Temple of ...`, `Fundus ...`, Kima `... Site`). This is a known small leak of feature type into names.
-- A free-standing parenthesis is removed even when it holds an alternative name, so a few alternatives are lost.
 
-**Evaluation**
+def knn_candidates(emb_q, ids_q, emb_idx, ids_idx, k=10, hnsw=False) -> set:
+    """For every query vector return its top-k nearest index vectors (cosine, vectors are normalised)."""
+    import faiss
+    d = emb_idx.shape[1]
+    index = faiss.IndexHNSWFlat(d, 32, faiss.METRIC_INNER_PRODUCT) if hnsw else faiss.IndexFlatIP(d)
+    index.add(emb_idx)
+    _, nn = index.search(emb_q, min(k, len(ids_idx)))
+    return {(ids_q[i], ids_idx[j]) for i, row in enumerate(nn) for j in row if j >= 0}
 
-- Dev and test are split 20/80 per task and direction, stratified on having a ground truth match, with a fixed seed.
-- Recall and MRR use queries with ground truth. RR and candidate counts use all queries in the split.
-- The k search runs over all integers up to `max_k` = 1000, not only the listed k values.
-- `is_ground_truth` covers listed pairs only. Candidates that are true but unlisted count as wrong.
-- TF-IDF is fitted on both sides of a task without labels.
-- `dense` uses `und` as the language code, because no per-name language exists. Symphonym's tokeniser reports 7 out-of-range vocabulary ids mapped to unknown, which comes from the model files.
-- `union_set` is compared at the same per-generator k, so its candidate lists are longer than the others.
 
-**Models**
+def dense_knn(A: dict, B: dict, model="sentence-transformers/LaBSE", k=10, batch_size=64,
+              hnsw=False, both_directions=True, device=None) -> set:
+    """Method 1. `model` = a model name OR an already loaded SentenceTransformer (e.g. fine-tuned)."""
+    from sentence_transformers import SentenceTransformer
+    m = SentenceTransformer(model, device=device) if isinstance(model, str) else model
+    ids_a, ids_b = list(A), list(B)
+    ea = encode(m, [A[i] for i in ids_a], batch_size)
+    eb = encode(m, [B[i] for i in ids_b], batch_size)
+    cands = knn_candidates(ea, ids_a, eb, ids_b, k, hnsw)                     # A -> B
+    if both_directions:                                                        # B -> A, then union
+        cands |= {(a, b) for b, a in knn_candidates(eb, ids_b, ea, ids_a, k, hnsw)}
+    return cands
 
-- The task named Symphonym without a version. v8 is used because the v7 card marks it as superseded and v8 fixes a tokeniser bug. The revision is pinned in the config, and `inference.py` was read before use. Symphonym's model card states that MEHDIE was not in its training data; we could not verify that independently, and its training sources may include modern forms of the same places.
-- Symphonym v8 is licensed CC BY 4.0, and its licence asks for this citation: World Historical Gazetteer, *Symphonym: Universal Phonetic Embeddings for Cross-Script Name Matching — Models and Evaluation Data*. Zenodo. https://doi.org/10.5281/zenodo.18682017. It also asks that GeoNames and Getty TGN be credited.
 
-## Known limitations
+def finetune_contrastive(base_model: str, A: dict, B: dict, train_pairs, epochs=3,
+                         batch_size=32, out_dir="blocker-model"):
+    """Method 2 (APPROXIMATION of SC-Block): bi-encoder fine-tuned on known matching pairs with an
+    in-batch-negatives contrastive loss. NOT the authors' exact supervised-contrastive objective."""
+    from sentence_transformers import SentenceTransformer, InputExample, losses
+    from sentence_transformers.datasets import NoDuplicatesDataLoader
+    model = SentenceTransformer(base_model)
+    examples = [InputExample(texts=[A[a], B[b]]) for a, b in train_pairs]
+    loader = NoDuplicatesDataLoader(examples, batch_size=batch_size)   # no repeated text per batch
+    loss = losses.MultipleNegativesRankingLoss(model)
+    model.fit(train_objectives=[(loader, loss)], epochs=epochs,
+              warmup_steps=max(1, int(0.1 * len(loader) * epochs)), show_progress_bar=True)
+    model.save(out_dir)
+    return model
 
-- **The MEHDIE consonant classes are ours.** Only B/P/F comes from the task description. The paper's full text could not be retrieved, so the other seven classes were not checked against it, and this may differ from MEHDIE's actual blocking. If you have the paper, compare them against the class table above; they are defined in `generators/mehdie_bpf.py`.
-- Rule-based G2P is approximate and has not been evaluated by a phonologist. Hebrew and Arabic spellings are unvocalised, so derived IPA lacks most vowels.
-- `editdistance` does not build on Python 3.14, so `panphon` and `epitran` are installed with `--no-deps`. The code doesn't use it.
-- Runs are CPU only. No GPU was available.
+
+def dense_lsh(A: dict, B: dict, model, nbits=256, k=10, batch_size=64) -> set:
+    """Method 3 (STAND-IN for NLSHBlock): random-hyperplane LSH codes over (fine-tuned) embeddings,
+    Hamming-distance kNN. NLSHBlock itself LEARNS the hash function; this does not."""
+    import faiss
+    ids_a, ids_b = list(A), list(B)
+    ea = encode(model, [A[i] for i in ids_a], batch_size)
+    eb = encode(model, [B[i] for i in ids_b], batch_size)
+    index = faiss.IndexLSH(eb.shape[1], nbits)
+    index.add(eb)
+    _, nn = index.search(ea, min(k, len(ids_b)))
+    return {(ids_a[i], ids_b[j]) for i, row in enumerate(nn) for j in row if j >= 0}
+```
+
+Usage:
+
+```python
+from blockers.common import serialize
+from blockers.dense import dense_knn
+
+A = {r["id"]: serialize(r, with_names=True, norm=False) for r in records_a}
+B = {r["id"]: serialize(r, with_names=True, norm=False) for r in records_b}
+cands = dense_knn(A, B, model="sentence-transformers/LaBSE", k=10)
+```
+
+Things to tune and try:
+- **k** is the main knob. Sweep k = 1, 5, 10, 20, 50 and plot PC against the number of candidates.
+- **Model**: try `sentence-transformers/LaBSE` (built for cross-lingual sentence alignment) against `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`. The Zeakis et al. study compared 12 language models, so compare a few on your data rather than trusting one.
+- **Input text**: names only versus names + country/coordinates-as-text. Long, noisy text can dilute the name signal.
+- `both_directions=True` unions A→B and B→A neighbours, which usually raises PC at some cost in candidates.
+- `hnsw=True` switches FAISS from exact search to an approximate HNSW index for large collections.
+
+## 4. Method 2: SC-Block-style fine-tuned encoder (approximation)
+
+SC-Block fine-tunes a bi-encoder with a **supervised contrastive** objective so that matching records land close together, then retrieves with kNN. `finetune_contrastive()` in `dense.py` is an **approximation**: it uses sentence-transformers' in-batch-negatives loss on your known matching pairs. It is not the authors' exact objective. For a faithful version, look for the code link on the paper's arXiv page (https://arxiv.org/abs/2303.03132); I have not checked whether or where it is released.
+
+```python
+from blockers.dense import finetune_contrastive, dense_knn
+
+# train_pairs: list of (id_a, id_b) known matches, used ONLY for training
+model = finetune_contrastive("sentence-transformers/LaBSE", A, B, train_pairs, epochs=3)
+cands = dense_knn(A, B, model=model, k=10)      # pass the fine-tuned model object
+```
+
+- **Split your gold pairs** by entity into train / dev / test (e.g. 60/20/20) and report PC on test pairs only. Training and evaluating on the same pairs gives meaningless PC.
+- Compare against the same encoder **without** fine-tuning (method 1). If fine-tuning doesn't raise PC at the same |C|, drop it.
+- With only a few hundred positive pairs, overfitting is likely: keep epochs low and watch dev PC.
+- Needs known matches. If your datasets carry external links (e.g. to Wikidata), those can supply training pairs.
+- `NoDuplicatesDataLoader` avoids repeating the same text within a batch, which would otherwise turn a true match into an in-batch negative.
+
+## 5. Method 3: Neural LSH (stand-in only)
+
+NLSHBlock (https://arxiv.org/abs/2401.18064) learns a neural hash function for blocking. I have only seen its abstract-level description, and I don't know of a released implementation. `dense_lsh()` is a **stand-in**: random-hyperplane LSH codes over the (optionally fine-tuned) embeddings, searched by Hamming distance. It lets you test the "hash embeddings into compact codes" idea, but it does not learn the hash function. If you cite NLSHBlock in your comparison, implement it from the paper or the authors' code.
+
+```python
+from blockers.dense import dense_lsh
+cands = dense_lsh(A, B, model=model, nbits=256, k=10)   # model: fine-tuned object or a loaded SentenceTransformer
+```
+
+Tune `nbits` (try 64-512) and `k`.
+
+---
+
+## 6. Methods 4-7: classical blocking and filtering
+
+### Method 4: Token Blocking + Block Purging + Block Filtering + Meta-blocking
+
+One block per token shared by both collections. Purging removes huge, stop-word-like blocks. Filtering keeps each record only in its smallest blocks. Meta-blocking builds a graph of record pairs weighted by how many blocks they share and prunes weak edges. Described in https://doi.org/10.1145/3377455 (§3.3 and §4).
+
+```python
+"""Token Blocking + Block Purging + Block Filtering + Meta-blocking (clean-clean / record linkage)."""
+import math
+from collections import defaultdict
+from itertools import product
+
+
+def token_blocking(A: dict, B: dict) -> dict:
+    """A, B = {id: normalised text}. One block per token that occurs in BOTH collections."""
+    ia, ib = defaultdict(set), defaultdict(set)
+    for i, t in A.items():
+        for tok in set(t.split()):
+            ia[tok].add(i)
+    for i, t in B.items():
+        for tok in set(t.split()):
+            ib[tok].add(i)
+    return {k: (ia[k], ib[k]) for k in ia.keys() & ib.keys()}
+
+
+def block_purging(blocks: dict, max_comparisons: int) -> dict:
+    """Drop blocks with more than max_comparisons (|A_b| * |B_b|) -- stop-word-like tokens."""
+    return {k: v for k, v in blocks.items() if len(v[0]) * len(v[1]) <= max_comparisons}
+
+
+def block_filtering(blocks: dict, ratio: float = 0.8) -> dict:
+    """Keep every entity only in the `ratio` fraction of its smallest blocks."""
+    card = {k: len(a) * len(b) for k, (a, b) in blocks.items()}
+    out = defaultdict(lambda: (set(), set()))
+    for side in (0, 1):
+        ent_blocks = defaultdict(list)
+        for k, blk in blocks.items():
+            for e in blk[side]:
+                ent_blocks[e].append(k)
+        for e, ks in ent_blocks.items():
+            ks.sort(key=lambda k: card[k])
+            for k in ks[: max(1, math.ceil(ratio * len(ks)))]:
+                out[k][side].add(e)
+    return {k: v for k, v in out.items() if v[0] and v[1]}
+
+
+def meta_blocking(blocks: dict, scheme="cbs", prune="wnp", reciprocal=False) -> set:
+    """Blocking-graph weighting + pruning. scheme: 'cbs' (common blocks) | 'arcs'.
+    prune: 'wep' (global mean threshold) | 'wnp' (per-node mean threshold)."""
+    w = defaultdict(float)
+    for a_ids, b_ids in blocks.values():
+        inc = 1.0 if scheme == "cbs" else 1.0 / (len(a_ids) * len(b_ids))
+        for pair in product(a_ids, b_ids):
+            w[pair] += inc
+    if not w:
+        return set()
+    if prune == "wep":
+        thr = sum(w.values()) / len(w)
+        return {p for p, x in w.items() if x >= thr}
+    na, nb = defaultdict(list), defaultdict(list)
+    for (a, b), x in w.items():
+        na[a].append(x)
+        nb[b].append(x)
+    ta = {a: sum(v) / len(v) for a, v in na.items()}
+    tb = {b: sum(v) / len(v) for b, v in nb.items()}
+    keep = set()
+    for (a, b), x in w.items():
+        ok_a, ok_b = x >= ta[a], x >= tb[b]
+        if (ok_a and ok_b) if reciprocal else (ok_a or ok_b):
+            keep.add((a, b))
+    return keep
+
+
+def token_meta_blocking(A, B, max_comparisons=None, filter_ratio=0.8,
+                        scheme="cbs", prune="wnp", reciprocal=False) -> set:
+    blocks = token_blocking(A, B)
+    if max_comparisons is not None:
+        blocks = block_purging(blocks, max_comparisons)
+    if filter_ratio is not None:
+        blocks = block_filtering(blocks, filter_ratio)
+    return meta_blocking(blocks, scheme, prune, reciprocal)
+```
+
+Usage:
+
+```python
+from blockers.token_meta import token_meta_blocking
+A = {r["id"]: serialize(r) for r in records_a}     # normalised, all attributes
+B = {r["id"]: serialize(r) for r in records_b}
+cands = token_meta_blocking(A, B, max_comparisons=None, filter_ratio=0.8,
+                            scheme="cbs", prune="wnp", reciprocal=False)
+```
+
+- **What's implemented**: CBS and ARCS weighting, WEP and WNP pruning (plus the reciprocal variant). **Not implemented**: BLAST (chi-square weights with attribute entropy) and Supervised Meta-blocking / GSM. For those, use an existing library (section 9).
+- **Parameter hints from the survey (§4.3)**: Block Filtering alone works best at r = 80%; applied after Block Purging, r = 50% is better. Treat these as starting points, not tuned values.
+- **Toponym pitfall**: tokens like "city", "saint", "al", "of" create giant blocks. Use `max_comparisons` (for example a small fraction of |A|·|B|, tuned on PC) to purge them.
+- Tokens only match within one script. Hebrew, Arabic and Latin spellings share no tokens unless alternate names bridge them.
+
+### Method 5: MinHash-LSH on character n-grams
+
+Each name becomes a set of character 3-grams. MinHash signatures plus banded LSH put names with high Jaccard overlap into the same bucket. This is the LSH core of KLSH-style hybrid blocking (survey §6), without the K-Means step.
+
+```python
+"""MinHash-LSH on character n-grams (the LSH core of KLSH-style hybrid blocking, no K-Means step).
+Needs: pip install datasketch"""
+from datasketch import MinHash, MinHashLSH
+
+
+def char_shingles(s: str, n: int = 3) -> set:
+    s = f" {s} "                                   # pad so first/last letters get their own grams
+    return {s[i:i + n] for i in range(max(1, len(s) - n + 1))}
+
+
+def _minhash(text: str, n: int, num_perm: int) -> MinHash:
+    m = MinHash(num_perm=num_perm)
+    for g in char_shingles(text, n):
+        m.update(g.encode("utf8"))
+    return m
+
+
+def minhash_lsh(A: dict, B: dict, n: int = 3, num_perm: int = 128, threshold: float = 0.3) -> set:
+    """threshold = approximate Jaccard similarity of the shingle sets. Short place names have few
+    shingles, so start LOW (0.2-0.4) and raise it until Pair Completeness starts to drop."""
+    lsh = MinHashLSH(threshold=threshold, num_perm=num_perm)
+    for ib, t in B.items():
+        lsh.insert(ib, _minhash(t, n, num_perm))
+    out = set()
+    for ia, t in A.items():
+        for ib in lsh.query(_minhash(t, n, num_perm)):
+            out.add((ia, ib))
+    return out
+```
+
+Usage (variant level, see section 2):
+
+```python
+from blockers.common import explode_names, collapse
+from blockers.minhash_lsh import minhash_lsh
+A_var = explode_names(records_a, ["name", "alt"])
+B_var = explode_names(records_b, ["name", "alt"])
+cands = collapse(minhash_lsh(A_var, B_var, n=3, num_perm=128, threshold=0.3))
+```
+
+Short place names have few 3-grams, so start with a low `threshold` (0.2-0.4) and raise it until PC begins to drop. Try `n=2` for very short names. More `num_perm` gives more accurate similarity estimates at a higher cost.
+
+### Method 6: (Extended) Q-Grams Blocking
+
+Every name is cut into q-grams. Plain Q-Grams Blocking uses each q-gram as a key. Extended Q-Grams concatenates combinations of at least `l = max(1, floor(k·t))` of a name's `k` q-grams, which makes keys more distinctive and blocks smaller (survey §3.2.1).
+
+```python
+"""Extended Q-Grams Blocking (Baxter et al. / as described in Papadakis et al. 2020, Sec. 3.2.1)."""
+from collections import defaultdict
+from itertools import combinations
+from math import comb, floor
+
+
+def qgrams(s: str, q: int = 3) -> list:
+    s = s.replace(" ", "_")
+    return [s[i:i + q] for i in range(len(s) - q + 1)] or [s]
+
+
+def extended_keys(s: str, q: int = 3, t=0.9, max_keys: int = 64) -> set:
+    """t=None -> plain Q-Grams Blocking. Otherwise: concatenate (order-preserving) combinations of >= l q-grams, l = max(1, floor(k*t)).
+    l is raised if needed so one string never produces more than ~max_keys keys."""
+    grams = qgrams(s, q)
+    if t is None:                      # plain Q-Grams Blocking: every single q-gram is a key
+        return set(grams)
+    k = len(grams)
+    l = max(1, floor(k * t))
+    while l < k and sum(comb(k, j) for j in range(l, k + 1)) > max_keys:
+        l += 1
+    return {"".join(c) for j in range(l, k + 1) for c in combinations(grams, j)}
+
+
+def extended_qgrams_blocking(A: dict, B: dict, q=3, t=0.9, max_keys=64,
+                             max_comparisons=None) -> set:
+    ia, ib = defaultdict(set), defaultdict(set)
+    for i, s in A.items():
+        for key in extended_keys(s, q, t, max_keys):
+            ia[key].add(i)
+    for i, s in B.items():
+        for key in extended_keys(s, q, t, max_keys):
+            ib[key].add(i)
+    pairs = set()
+    for key in ia.keys() & ib.keys():
+        if max_comparisons is not None and len(ia[key]) * len(ib[key]) > max_comparisons:
+            continue
+        pairs.update((a, b) for a in ia[key] for b in ib[key])
+    return pairs
+```
+
+Usage:
+
+```python
+from blockers.ext_qgrams import extended_qgrams_blocking
+cands = collapse(extended_qgrams_blocking(A_var, B_var, q=3, t=None))        # plain q-grams
+cands = collapse(extended_qgrams_blocking(A_var, B_var, q=3, t=0.8, max_keys=500))  # extended
+```
+
+- **Run the plain version too (`t=None`).** On my 5-name toy, extended q-grams at t=0.9 reached PC 0.33 where plain q-grams reached 1.0, because long names with several spelling differences ("Constantinople" / "Konstantinopel") share too few exact q-gram combinations. A toy with three gold pairs is not evidence, but check PC on your data.
+- `max_keys` caps combinations per name (it raises `l`), because the number of combinations grows combinatorially with name length. That cap is my addition, not part of the original method.
+- The survey's worked example for "france" lists four signatures. All ordered combinations give five, and the code uses all combinations.
+
+### Method 7: PassJoin (edit-distance filtering)
+
+PassJoin splits each string into tau+1 segments. Any string within edit distance tau must share at least one segment (pigeonhole principle), so segments act as an inverted index. Described in https://doi.org/10.1145/3377455 (§5); the original is Li et al.'s PassJoin paper.
+
+```python
+"""PassJoin-style partition-based filtering for edit-distance <= tau (Li et al., PassJoin).
+Simplified: even partition + position window [p - tau, p + tau] (a valid, slightly looser
+superset of the paper's multi-match-aware substring selection). Returns CANDIDATES;
+set verify=True to keep only pairs whose edit distance is really <= tau."""
+from collections import defaultdict
+
+
+def _segments(length: int, tau: int):
+    k = tau + 1
+    base, extra = divmod(length, k)
+    segs, pos = [], 0
+    for i in range(k):
+        seg_len = base if i < k - extra else base + 1
+        segs.append((pos, seg_len))
+        pos += seg_len
+    return segs
+
+
+def edit_distance_leq(a: str, b: str, tau: int) -> bool:
+    if abs(len(a) - len(b)) > tau:
+        return False
+    prev = list(range(len(b) + 1))
+    for i, ca in enumerate(a, 1):
+        cur = [i] + [0] * len(b)
+        for j, cb in enumerate(b, 1):
+            cur[j] = min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (ca != cb))
+        if min(cur) > tau:
+            return False
+        prev = cur
+    return prev[-1] <= tau
+
+
+def passjoin(A: dict, B: dict, tau: int = 1, verify: bool = False) -> set:
+    k = tau + 1
+    index = defaultdict(set)          # (len, segment_no, segment_text) -> ids in B
+    short_b = defaultdict(set)        # strings shorter than tau+1 cannot be partitioned
+    by_len_b = defaultdict(set)
+    for ib, s in B.items():
+        L = len(s)
+        by_len_b[L].add(ib)
+        if L < k:
+            short_b[L].add(ib)
+            continue
+        for i, (p, l) in enumerate(_segments(L, tau)):
+            index[(L, i, s[p:p + l])].add(ib)
+
+    out = set()
+    for ia, r in A.items():
+        lr = len(r)
+        cands = set()
+        if lr < k:                    # tiny query: length filter only
+            for L in range(max(0, lr - tau), lr + tau + 1):
+                cands |= by_len_b.get(L, set())
+        else:
+            for L in range(max(k, lr - tau), lr + tau + 1):
+                for i, (p, l) in enumerate(_segments(L, tau)):
+                    for start in range(max(0, p - tau), min(lr - l, p + tau) + 1):
+                        cands |= index.get((L, i, r[start:start + l]), set())
+            for L in range(max(0, lr - tau), min(k - 1, lr + tau) + 1):
+                cands |= short_b.get(L, set())
+        if verify:
+            cands = {ib for ib in cands if edit_distance_leq(r, B[ib], tau)}
+        out.update((ia, ib) for ib in cands)
+    return out
+```
+
+Usage:
+
+```python
+from blockers.passjoin import passjoin
+cands = collapse(passjoin(A_var, B_var, tau=2))                  # candidates only
+exact = collapse(passjoin(A_var, B_var, tau=2, verify=True))     # pairs truly within tau edits
+```
+
+- This is a **simplified** PassJoin: even partition with a ±tau position window, which is a valid but looser superset of the paper's selection. It never misses a pair within tau edits (tested), but returns more candidates than the original.
+- `verify=False` returns raw candidates, which is what a blocking step needs. `verify=True` returns only pairs within tau edits, which already amounts to an edit-distance matcher.
+- It is pure Python, so benchmark on a sample before running on a large collection.
+- Edit distance doesn't bridge scripts or heavy transliteration differences. tau = 1-3 is a sensible range for place names.
+- For small collections, an all-pairs edit-distance computation (e.g. with `rapidfuzz`) is a good sanity check on PassJoin's recall.
+
+---
+
+## 7. Compare everything: `run_comparison.py`
+
+```python
+"""Run every blocker on the same data and print PC / PQ / RR.
+  python run_comparison.py --demo
+  python run_comparison.py --a A.json --b B.json --gold gold.json --name-attrs name alt
+A.json / B.json: list of records, each with an "id". gold.json: list of [id_a, id_b]."""
+import argparse
+import json
+import time
+
+from blockers.common import collapse, evaluate, explode_names, serialize
+
+
+def load_records(path):
+    with open(path, encoding="utf8") as f:
+        return json.load(f)
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--a"); ap.add_argument("--b"); ap.add_argument("--gold")
+    ap.add_argument("--demo", action="store_true")
+    ap.add_argument("--name-attrs", nargs="+", default=["name", "alt"],
+                    help="attributes holding the place name(s); used by the character-level methods")
+    ap.add_argument("--k", type=int, default=5, help="neighbours per record for dense methods")
+    args = ap.parse_args()
+
+    if args.demo:
+        from demo_data import A as RA, B as RB, GOLD
+    else:
+        RA, RB = load_records(args.a), load_records(args.b)
+        GOLD = [tuple(p) for p in load_records(args.gold)]
+    gold = set(map(tuple, GOLD))
+
+    full = lambda recs: {r["id"]: serialize(r) for r in recs}                      # all attrs, normalised
+    variants = lambda recs: explode_names(recs, args.name_attrs)                    # one entry per name variant
+    raw = lambda recs: {r["id"]: serialize(r, with_names=True, norm=False) for r in recs}  # for LM encoders
+
+    methods = []   # (label, view, callable)
+    from blockers.token_meta import token_meta_blocking
+    from blockers.ext_qgrams import extended_qgrams_blocking
+    from blockers.passjoin import passjoin
+    methods += [
+        ("4 token+purge+filter+meta(WNP)", full, lambda a, b: token_meta_blocking(a, b, filter_ratio=0.8)),
+        ("6a plain q-grams (q=3)", variants, lambda a, b: collapse(extended_qgrams_blocking(a, b, q=3, t=None))),
+        ("6b extended q-grams (t=0.6)", variants, lambda a, b: collapse(extended_qgrams_blocking(a, b, q=3, t=0.6, max_keys=500))),
+        ("7 passjoin tau=2 (candidates)", variants, lambda a, b: collapse(passjoin(a, b, tau=2))),
+    ]
+    try:
+        from blockers.minhash_lsh import minhash_lsh
+        methods.append(("5 minhash-lsh (3-grams)", variants, lambda a, b: collapse(minhash_lsh(a, b, threshold=0.3))))
+    except ImportError:
+        print("skip method 5 (pip install datasketch)")
+    try:
+        from blockers.dense import dense_knn
+        import faiss, sentence_transformers  # noqa: F401
+        methods.append(("1 LaBSE + kNN", raw, lambda a, b: dense_knn(a, b, k=args.k)))
+    except ImportError:
+        print("skip method 1 (pip install sentence-transformers faiss-cpu)")
+
+    print(f"{'method':34s} {'PC':>6s} {'PQ':>6s} {'RR':>6s} {'|C|':>7s} {'sec':>6s}")
+    for label, view, fn in methods:
+        a, b = view(RA), view(RB)
+        t0 = time.time()
+        cands = fn(a, b)
+        dt = time.time() - t0
+        m = evaluate(cands, gold, len(RA), len(RB))
+        print(f"{label:34s} {m['PC']:6.3f} {m['PQ']:6.3f} {m['RR']:6.3f} {m['candidates']:7d} {dt:6.2f}")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+Run it:
+
+```bash
+python run_comparison.py --demo
+python run_comparison.py --a A.json --b B.json --gold gold.json --name-attrs name alt --k 10
+```
+
+Output of `--demo` in the sandbox (methods 1 and 5 skipped because their packages weren't installed):
+
+```
+skip method 5 (pip install datasketch)
+skip method 1 (pip install sentence-transformers faiss-cpu)
+method                                 PC     PQ     RR     |C|    sec
+4 token+purge+filter+meta(WNP)      1.000  0.625  0.810       8   0.00
+6a plain q-grams (q=3)              1.000  0.625  0.810       8   0.00
+6b extended q-grams (t=0.6)         1.000  1.000  0.881       5   0.00
+7 passjoin tau=2 (candidates)       1.000  1.000  0.881       5   0.00
+```
+
+That is a 6-vs-7-record toy with 5 gold pairs. It checks that the plumbing works, not which method is better. Methods 2 and 3 are not in the harness: add them once you have a train/test split of gold pairs.
+
+`demo_data.py`, the toy data used above:
+
+```python
+"""Tiny semi-structured toponym demo (A = historical gazetteer, B = modern gazetteer)."""
+A = [
+    {"id": "a1", "name": "Constantinople", "alt": ["Konstantiniyye"], "geo": {"lat": 41.0, "lon": 28.98}, "country": "Turkey"},
+    {"id": "a2", "name": "Baghdad", "alt": ["Bagdad"], "geo": {"lat": 33.31, "lon": 44.37}, "country": "Iraq"},
+    {"id": "a3", "name": "Alexandria", "alt": [], "geo": {"lat": 31.2, "lon": 29.92}, "country": "Egypt"},
+    {"id": "a4", "name": "Antioch", "alt": ["Antakya"], "geo": {"lat": 36.2, "lon": 36.16}, "country": "Turkey"},
+    {"id": "a5", "name": "Damascus", "alt": ["Dimashq"], "geo": {"lat": 33.51, "lon": 36.29}, "country": "Syria"},
+    {"id": "a6", "name": "York", "alt": [], "geo": {"lat": 53.96, "lon": -1.08}, "country": "England"},
+]
+B = [
+    {"id": "b1", "name": "Istanbul", "alt": ["Konstantinopel", "Constantinople"], "geo": {"lat": 41.01, "lon": 28.97}, "country": "Turkey"},
+    {"id": "b2", "name": "Bagdad", "alt": ["Baghdād"], "geo": {"lat": 33.3, "lon": 44.4}, "country": "Iraq"},
+    {"id": "b3", "name": "Alexandrie", "alt": ["Al-Iskandariyah"], "geo": {"lat": 31.2, "lon": 29.9}, "country": "Egypt"},
+    {"id": "b4", "name": "Antakya", "alt": ["Antioche"], "geo": {"lat": 36.2, "lon": 36.17}, "country": "Turkey"},
+    {"id": "b5", "name": "Dimashq", "alt": ["Damas"], "geo": {"lat": 33.5, "lon": 36.3}, "country": "Syria"},
+    {"id": "b6", "name": "Cairo", "alt": ["Al-Qahira"], "geo": {"lat": 30.04, "lon": 31.24}, "country": "Egypt"},
+    {"id": "b7", "name": "New York", "alt": [], "geo": {"lat": 40.7, "lon": -74.0}, "country": "USA"},
+]
+GOLD = [("a1", "b1"), ("a2", "b2"), ("a3", "b3"), ("a4", "b4"), ("a5", "b5")]
+```
+
+## 8. Smoke test, then real evaluation
+
+1. `python run_comparison.py --demo` should print the table without errors. If it prints "skip method 1/5", install the missing packages and rerun.
+2. `python test_pure.py` re-runs the PassJoin brute-force check and the toy tests (stdlib only).
+3. Compare methods **at matched candidate-set size** (or matched RR). PC always rises as you allow more candidates, so a method with a bigger |C| looks better unless you control for it. Sweep each method's main parameter (k, threshold, tau, filter ratio) and plot PC against |C|.
+4. Prioritise **PC**. The matcher only sees the candidates, so a pair missed here can't be recovered later. Then pick the method with the smallest |C| that keeps PC acceptably high, and check its runtime.
+5. Keep train / dev / test separate for methods 2 and 3, and tune every method's parameters on dev pairs only.
+
+## 9. Existing libraries (not checked)
+
+- **pyJedAI** and **BlockingPy** are Python libraries for entity-resolution blocking. A search result describes BlockingPy as ANN-based blocking (n-gram encoding or embeddings, neighbour search, graph components). I haven't checked either library's current API, so read their documentation before relying on them. pyJedAI appears to bundle several of the blocking, meta-blocking and embedding methods covered here, which would give you BLAST and supervised meta-blocking without implementing them.
+- The hand-written versions above are meant to be readable and to run without heavy dependencies, not to be the fastest.
+
+## 10. Sources
+
+- Papadakis, Skoutas, Thanos, Palpanas. *Blocking and Filtering Techniques for Entity Resolution: A Survey.* ACM CSUR 2020. https://doi.org/10.1145/3377455
+- Zeakis, Papadakis, Skoutas, Koubarakis. *Pre-trained Embeddings for Entity Resolution: An Experimental Analysis.* https://arxiv.org/abs/2304.12329
+- Brinkmann, Shraga, Bizer. *SC-Block.* https://arxiv.org/abs/2303.03132
+- *Neural Locality Sensitive Hashing for Entity Blocking (NLSHBlock).* https://arxiv.org/abs/2401.18064
