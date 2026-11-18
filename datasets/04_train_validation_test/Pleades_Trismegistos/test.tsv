@@ -1,0 +1,14 @@
+group	source_dataset	source_id	target_dataset	target_id	label
+9	Pleiades	383706	Trismegistos	3308	1
+11	Pleiades	383815	Trismegistos	3313	1
+14	Pleiades	432721	Trismegistos	3305	1
+18	Pleiades	462281	Trismegistos	22315	1
+33	Pleiades	668331	Trismegistos	3353	1
+41	Pleiades	687934	Trismegistos	936	1
+42	Pleiades	687968	Trismegistos	3148	1
+43	Pleiades	687995	Trismegistos	1568	1
+51	Pleiades	785977	Trismegistos	8665	1
+54	Pleiades	786010	Trismegistos	1159	1
+56	Pleiades	786059	Trismegistos	1227	1
+58	Pleiades	786127	Trismegistos	2312	1
+61	Pleiades	874298	Trismegistos	11274	1
