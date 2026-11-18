@@ -8,18 +8,58 @@ For more technical details, see the [Deep Entity Matching with Pre-Trained Langu
 
 ## Requirements
 
-* Python 3.7.7
-* PyTorch 1.9
-* HuggingFace Transformers 4.9.2
-* Spacy with the ``en_core_web_lg`` models
-* NVIDIA Apex (fp16 training)
+* Python 3.10 or newer
+* PyTorch 2.3 or newer and HuggingFace Transformers (see the repository's root `requirements.txt`)
+* `--fp16` uses PyTorch's built-in automatic mixed precision
+* spaCy and the `en_core_web_lg` model are optional and only needed for `--dk`
 
-Install required packages
+From the repository root, install the core dependencies with
+`python -m pip install -r requirements.txt`. spaCy and the `en_core_web_lg`
+model are only needed when using `--dk`.
+
+### Using your own data
+
+Ditto does not split or transform your data automatically. Supply the paths to
+your existing train, validation, and test files when training. Each file must
+already use Ditto's labeled TSV format: one pair per line, with the serialized
+left record, serialized right record, and label (`0` or `1`) separated by tabs.
+See [Using Ditto with Our Data](USING_OUR_DATA.md) for the complete data
+preparation, training, AMD setup, and matching steps.
+From `third_party\ditto`, run:
+
+```powershell
+python train_ditto.py --task toponym_experiment `
+  --trainset ..\..\datasets\your_data\train.txt `
+  --validset ..\..\datasets\your_data\valid.txt `
+  --testset ..\..\datasets\your_data\test.txt `
+  --lm distilbert --max_len 128 --batch_size 16 --n_epochs 5 --save_model
 ```
-conda install -c conda-forge nvidia-apex
-pip install -r requirements.txt
-python -m spacy download en_core_web_lg
+
+For matching, pass your validation file (used to tune the match threshold) and
+a JSONL candidate file. Each candidate JSONL row is a two-element list of
+records, for example `[{"id":"a","name":"..."},{"id":"b","name":"..."}]`:
+
+```powershell
+python matcher.py --task toponym_experiment `
+  --validset ..\..\datasets\your_data\valid.txt `
+  --checkpoint_path checkpoints\ `
+  --input_path ..\..\datasets\your_data\candidates.jsonl `
+  --output_path ..\..\datasets\your_data\predictions.jsonl `
+  --lm distilbert --max_len 128
 ```
+
+If you trained with `--summarize`, also pass the same `--trainset` and
+`--testset` paths to the matcher. Custom task names do not include task-specific
+settings for domain knowledge injection.
+
+Use the same `--task` name for training and matching; it identifies the
+checkpoint directory and need not be added to `configs.json` when the required
+data paths are supplied. Existing configured tasks continue to work, and any
+of their paths can be overridden with the same options. Add `--class_weighted`
+for imbalanced training data. Training uses CUDA/ROCm when available and
+otherwise runs on CPU. `--fp16` uses PyTorch AMP and requires a supported GPU
+backend. AMD GPUs need a compatible ROCm-enabled PyTorch installation; see
+[AMD's PyTorch installation guide](https://rocm.docs.amd.com/projects/ai-ecosystem/en/latest/frameworks/pytorch/install.html).
 
 ## The EM pipeline
 
@@ -59,7 +99,7 @@ The meaning of the flags:
 * ``--task``: the name of the tasks (see ``configs.json``)
 * ``--batch_size``, ``--max_len``, ``--lr``, ``--n_epochs``: the batch size, max sequence length, learning rate, and the number of epochs
 * ``--lm``: the language model. We now support ``bert``, ``distilbert``, and ``albert`` (``distilbert`` by default).
-* ``--fp16``: whether train with the half-precision floating point optimization
+* ``--fp16``: train with PyTorch automatic mixed precision on a supported GPU
 * ``--da``, ``--dk``, ``--summarize``: the 3 optimizations of Ditto. See the followings for details.
 * ``--save_model``: if this flag is on, then save the checkpoint to ``{logdir}/{task}/model.pt``.
 

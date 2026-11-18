@@ -9,13 +9,15 @@ import random
 sys.path.insert(0, "Snippext_public")
 
 from ditto_light.dataset import DittoDataset
-from ditto_light.summarize import Summarizer
-from ditto_light.knowledge import *
 from ditto_light.ditto import train
+from ditto_light.config import resolve_task_config
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--task", type=str, default="Structured/Beer")
+    parser.add_argument("--trainset", type=str)
+    parser.add_argument("--validset", type=str)
+    parser.add_argument("--testset", type=str)
     parser.add_argument("--run_id", type=int, default=0)
     parser.add_argument("--batch_size", type=int, default=64)
     parser.add_argument("--max_len", type=int, default=256)
@@ -31,6 +33,7 @@ if __name__=="__main__":
     parser.add_argument("--dk", type=str, default=None)
     parser.add_argument("--summarize", dest="summarize", action="store_true")
     parser.add_argument("--size", type=int, default=None)
+    parser.add_argument("--class_weighted", action="store_true")
 
     hp = parser.parse_args()
 
@@ -51,22 +54,39 @@ if __name__=="__main__":
     run_tag = run_tag.replace('/', '_')
 
     # load task configuration
-    configs = json.load(open('configs.json'))
-    configs = {conf['name'] : conf for conf in configs}
-    config = configs[task]
+    with open('configs.json', encoding='utf-8') as file:
+        configs = {conf['name']: conf for conf in json.load(file)}
+    try:
+        config = resolve_task_config(
+            configs,
+            task,
+            {
+                "trainset": hp.trainset,
+                "validset": hp.validset,
+                "testset": hp.testset,
+            },
+            required=("trainset", "validset", "testset"),
+        )
+    except ValueError as error:
+        parser.error(str(error))
+    hp.class_weighted = config.get("class_weighted", False) or hp.class_weighted
 
-    trainset = config['trainset']
-    validset = config['validset']
-    testset = config['testset']
+    trainset = config["trainset"]
+    validset = config["validset"]
+    testset = config["testset"]
 
     # summarize the sequences up to the max sequence length
     if hp.summarize:
+        from ditto_light.summarize import Summarizer
+
         summarizer = Summarizer(config, lm=hp.lm)
         trainset = summarizer.transform_file(trainset, max_len=hp.max_len)
         validset = summarizer.transform_file(validset, max_len=hp.max_len)
         testset = summarizer.transform_file(testset, max_len=hp.max_len)
 
     if hp.dk is not None:
+        from ditto_light.knowledge import GeneralDKInjector, ProductDKInjector
+
         if hp.dk == 'product':
             injector = ProductDKInjector(config, hp.dk)
         else:
@@ -82,8 +102,8 @@ if __name__=="__main__":
                                    max_len=hp.max_len,
                                    size=hp.size,
                                    da=hp.da)
-    valid_dataset = DittoDataset(validset, lm=hp.lm)
-    test_dataset = DittoDataset(testset, lm=hp.lm)
+    valid_dataset = DittoDataset(validset, lm=hp.lm, max_len=hp.max_len)
+    test_dataset = DittoDataset(testset, lm=hp.lm, max_len=hp.max_len)
 
     # train and evaluate the model
     train(train_dataset,
