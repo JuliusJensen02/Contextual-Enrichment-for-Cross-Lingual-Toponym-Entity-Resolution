@@ -1,0 +1,5 @@
+testset,title_method,phonetic_method,title_weight,k,min_score,truth,found,PC,candidates,seconds
+mehdie,labse,none,1.0,1,,114,51,0.4474,63334,17.2
+mehdie,labse,none,1.0,3,,114,67,0.5877,182333,17.2
+mehdie,labse,none,1.0,5,,114,73,0.6404,299224,17.2
+mehdie,labse,none,1.0,10,,114,78,0.6842,587468,17.2

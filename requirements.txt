@@ -1,3 +1,24 @@
+# pip install -r requirements.txt
+
+# Data handling (scripts/, candidate_generation/run_candidate_generation.py)
+pandas
+
+# Candidate generation (candidate_generation/)
+scikit-learn            # TFIDF_kNN, LM_kNN_search
+datasketch              # MinHash_LSH
+sentence-transformers   # LM_kNN_search (pulls in torch)
+pypinyin                # Chinese names -> pinyin for the phonetic (IPA) encoding
+
+
+# Experiments (candidate_generation/experiments/)
+scipy                   # sparse score matrices
+torch                   # geo_threshold.py: gradient descent
+rapidfuzz               # edit distance and Jaro-Winkler scores
+anyascii                # titles in Latin letters for the letter-based title scores
+
+# Tests (tests/): python -m pytest
+pytest
+
 requests>=2.31.0 #To make LLAMA API calls
 openai>=1.40.0 #To make OPENAI API calls
 anthropic>=0.40.0 #To make Anthropic API calls
