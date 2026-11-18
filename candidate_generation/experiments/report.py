@@ -63,7 +63,7 @@ def main():
         test_set = load(name)
         sizes = {d.label: len(d) for d in test_set.datasets}
         possible = sum(len(test_set.dataset(s)) * len(test_set.dataset(t)) for s, t in test_set.pairs)
-        coordinates = {d.label: sum(bool(p) for p in d.coordinates.values()) for d in test_set.datasets}
+        coordinates = {d.label: sum(bool(r.coordinates) for r in d) for d in test_set.datasets}
         summary.setdefault("sets", {})[name] = {"records": sizes, "links": len(test_set.links), "pairs": possible,
                                                 "with_coordinates": coordinates}
         rows.append([LABELS[name], ", ".join(f"{k} {v:,}" for k, v in sizes.items()), f"{len(test_set.links):,}",
