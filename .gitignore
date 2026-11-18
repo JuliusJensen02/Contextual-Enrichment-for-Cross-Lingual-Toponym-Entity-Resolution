@@ -2,3 +2,10 @@
 .venv
 .env
 placename_master.csv
+.vscode
+__pycache__/
+*.pyc
+.pytest_cache/
+candidate_generation/results/rerun/cache/
+candidate_generation/results/rerun/logs/
+candidate_generation/results/rerun/status.*

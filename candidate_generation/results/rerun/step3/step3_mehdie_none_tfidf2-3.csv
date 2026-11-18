@@ -1,0 +1,5 @@
+testset,title_method,phonetic_method,title_weight,k,min_score,truth,found,PC,candidates,seconds
+mehdie,none,tfidf:2-3,0.0,1,,114,69,0.6053,62446,20.8
+mehdie,none,tfidf:2-3,0.0,3,,114,88,0.7719,177162,20.8
+mehdie,none,tfidf:2-3,0.0,5,,114,94,0.8246,287842,20.8
+mehdie,none,tfidf:2-3,0.0,10,,114,99,0.8684,553823,20.8
