@@ -33,14 +33,14 @@ COLUMNS = ["testset", "title_method", "phonetic_method", "title_weight", "k", "m
 
 def ipa_strings(dataset) -> list[str]:
     """The phonetic title of every record, as pipeline.py reads it (the first encoding)."""
-    return [(dataset.phonetic[rid] or [""])[0].lower() for rid in dataset.ids]
+    return [(record.phonetic or [""])[0].lower() for record in dataset]
 
 
 def latin_titles(dataset) -> list[str]:
     """The title of every record in Latin letters, normalised like the names the methods get."""
     from anyascii import anyascii
 
-    return [CandidateGenerator._normalize(anyascii(title)) for title in dataset.frame["title"]]
+    return [CandidateGenerator._normalize(anyascii(record.title)) for record in dataset]
 
 
 def scorers(testset, A, B, title, phonetic):

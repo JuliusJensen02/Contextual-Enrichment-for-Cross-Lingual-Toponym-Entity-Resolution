@@ -94,7 +94,7 @@ def run_testset(testset, methods, args, writer):
 
     # Upper bound set by the geo restriction alone: ground truth links it keeps at each threshold.
     n_truth = sum(len(g) for g in truth_by_pair.values())
-    with_coords = sum(bool(by_name[s].coordinates[a] and by_name[t].coordinates[b])
+    with_coords = sum(bool(by_name[s][a].coordinates and by_name[t][b].coordinates)
                       for (s, t), g in truth_by_pair.items() for a, b in g)
     if n_truth:
         print(f"ground truth links with coordinates on both sides: {with_coords}/{n_truth}. Ground truth links "
@@ -129,7 +129,7 @@ def run_testset(testset, methods, args, writer):
                 if args.show:
                     for (s, t), cands in results.items():
                         for a, b in sorted(truth_by_pair[(s, t)] - cands)[: args.show]:
-                            print(f"{'':24s} missed: {by_name[s].names[a][0]}  <->  {by_name[t].names[b][0]}")
+                            print(f"{'':24s} missed: {by_name[s][a].names[0]}  <->  {by_name[t][b].names[0]}")
 
 
 def report(results, truth_by_pair, by_name, per_pair) -> list[dict]:
