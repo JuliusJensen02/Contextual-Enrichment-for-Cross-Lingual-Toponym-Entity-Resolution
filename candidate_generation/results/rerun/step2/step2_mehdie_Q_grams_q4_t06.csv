@@ -1,0 +1,2 @@
+testset,pair,method,params,input,max_km,truth,PC,PQ,RR,candidates,seconds
+mehdie,ALL PAIRS,Q_grams,"q=4,t=0.6",ipa,100,114,0.5614,0.0042,0.999958,15159,13.22

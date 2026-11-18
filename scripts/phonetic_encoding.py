@@ -44,15 +44,15 @@ class DatasetSpec:
 
 DATASETS: dict[str, DatasetSpec] = {
     "mehdie_db_kima_flat": DatasetSpec(
-        Path("datasets") / "MEHDIE" / "flattened" / "mehdie_db_kima_flat.tsv",
+        Path("datasets") / "MEHDIE" / "flattened" / "kima.tsv",
         ("title",),
     ),
     "mehdie_db_thurayya_flat": DatasetSpec(
-        Path("datasets") / "MEHDIE" / "flattened" / "mehdie_db_thurayya_flat.tsv",
+        Path("datasets") / "MEHDIE" / "flattened" / "thurayya.tsv",
         ("title",),
     ),
     "mehdie_db_yaqut_flat": DatasetSpec(
-        Path("datasets") / "MEHDIE" / "flattened" / "mehdie_db_yaqut_flat.tsv",
+        Path("datasets") / "MEHDIE" / "flattened" / "yaqut.tsv",
         ("title",),
     ),
     "pleiades": DatasetSpec(

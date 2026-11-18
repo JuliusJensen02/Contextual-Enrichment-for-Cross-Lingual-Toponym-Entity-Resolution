@@ -1,4 +1,0 @@
-dataset,source,records,name,name_variants,mean_names_per_record,transliteration_in_dataset,transliteration_derived,ipa_in_dataset,ipa_derived_any,ipa_primary_epitran,ipa_primary_rules,ipa_primary_anyascii,coordinates,feature_type,scripts
-mehdie,kima,6211,1.0,0.9279,3.94,0.9638,0.0362,0.0,1.0,0.0,1.0,0.0,0.5954,0.0531,"{""Hebr"": 5986, ""Latn"": 225}"
-mehdie,yaqut,15904,1.0,0.0108,1.01,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.1682,0.905,"{""Arab"": 15904}"
-mehdie,thurayya,2241,1.0,1.0,3.58,1.0,0.0,0.0,1.0,1.0,0.0,0.0,1.0,1.0,"{""Arab"": 2241}"
