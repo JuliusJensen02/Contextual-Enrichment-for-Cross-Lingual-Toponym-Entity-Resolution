@@ -9,7 +9,6 @@ import json
 
 import numpy as np
 from xgboost import XGBClassifier
-
 from bi_encoder import FEATURE_NAMES, compare, encode_entity
 
 
@@ -20,19 +19,21 @@ def make_dataset(pairs, entities):
         for eid in (p["left_id"], p["right_id"]):
             if eid not in cache:  # encode every entity only once
                 cache[eid] = encode_entity(entities[eid])
-        X.append(compare(cache[p["left_id"]], cache[p["right_id"]]))
-        y.append(int(p["label"]))
+        X.append(compare(cache[p["left_id"]], cache[p["right_id"]])) # Feature vector for the pair
+        y.append(int(p["label"])) # Given label is 0 or 1, but we want int for XGBoost
     return np.array(X, dtype=np.float32), np.array(y)
 
 
-def train(X, y):
-    pos, neg = int((y == 1).sum()), int((y == 0).sum())
+DEFAULT_PARAMS = {"n_estimators": 300, "max_depth": 4, "learning_rate": 0.05}
+
+
+def train(X, y, **params):
+    """Any XGBoost setting can be passed as a keyword argument; it overrides the default."""
+    pos, neg = int((y == 1).sum()), int((y == 0).sum()) # Count matches and non-matches, used to avoid bias toward the majority class
     clf = XGBClassifier(
-        n_estimators=300,
-        max_depth=4,
-        learning_rate=0.05,
         scale_pos_weight=neg / max(pos, 1),
         eval_metric="logloss",
+        **{**DEFAULT_PARAMS, **params},
     )  # NaN is treated as "missing" by XGBoost, so no imputation is needed
     clf.fit(X, y)
     return clf
@@ -55,7 +56,7 @@ def main():
         raise SystemExit("Training pairs need both matches (label 1) and non-matches (label 0).")
 
     clf = train(X, y)
-    print("feature importance:", dict(zip(FEATURE_NAMES, clf.feature_importances_.round(3))))
+    print("feature importance:", dict(zip(FEATURE_NAMES, clf.feature_importances_.round(3)))) # Print the importance of each feature in the trained model
 
     clf.save_model(args.out)
     print(f"saved {args.out}")

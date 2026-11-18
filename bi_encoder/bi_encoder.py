@@ -7,7 +7,16 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 from xgboost import XGBClassifier
 
-model = SentenceTransformer("sentence-transformers/LaBSE")
+MODEL_NAME = "sentence-transformers/LaBSE"
+_model = None
+
+
+def get_model():
+    """Load LaBSE the first time it is needed, not when this file is imported."""
+    global _model
+    if _model is None:
+        _model = SentenceTransformer(MODEL_NAME)
+    return _model
 
 # Attributes that get encoded with LaBSE. Coordinates and temporal are NOT encoded.
 TEXT_ATTRIBUTES = ["name", "name_variants", "ipa", "relational_geography", "classification", "description"]
@@ -33,7 +42,7 @@ def encode_entity(e):
     for attr in TEXT_ATTRIBUTES:
         texts = as_list(e.get(attr))
         if texts:
-            enc[attr] = model.encode(texts, normalize_embeddings=True) 
+            enc[attr] = get_model().encode(texts, normalize_embeddings=True) 
 
     coords = e.get("coordinates")
     if isinstance(coords, dict) and not is_missing(coords.get("lat")) and not is_missing(coords.get("lon")):
@@ -66,7 +75,7 @@ def compare(a, b):
     features = []
     for attr in TEXT_ATTRIBUTES:
         if attr in a and attr in b:
-            features.append(float((a[attr] @ b[attr].T).max()))  # best cosine over all string pairs
+            features.append(float((a[attr] @ b[attr].T).max()))  # NumPy matrix multiplication: best cosine over all string pairs
         else:
             features.append(np.nan)
 
@@ -105,3 +114,18 @@ def match_probability(clf, entity_a, entity_b):
 def is_match(clf, entity_a, entity_b, threshold):
     p = match_probability(clf, entity_a, entity_b)
     return {"match": p >= threshold, "probability": p}
+
+
+def classify_pairs(clf, pairs, entities, threshold, cache=None):
+    """Verdict for many pairs. pairs: [{"left_id", "right_id"}], entities: {id: entity dict}.
+    Each entity is encoded once, however many pairs it appears in."""
+    cache = {} if cache is None else cache
+    rows = []
+    for p in pairs:
+        for eid in (p["left_id"], p["right_id"]):
+            if eid not in cache:
+                cache[eid] = encode_entity(entities[eid])
+        rows.append(compare(cache[p["left_id"]], cache[p["right_id"]]))
+    probs = clf.predict_proba(np.array(rows, dtype=np.float32))[:, 1]
+    return [{"left_id": p["left_id"], "right_id": p["right_id"],
+             "probability": float(pr), "match": bool(pr >= threshold)} for p, pr in zip(pairs, probs)]
