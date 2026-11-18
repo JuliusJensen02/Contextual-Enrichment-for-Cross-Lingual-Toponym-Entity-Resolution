@@ -3,3 +3,4 @@
 .env
 placename_master.csv
 .__pycache__
+.vscode
