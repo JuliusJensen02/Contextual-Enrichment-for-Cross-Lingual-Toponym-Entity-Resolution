@@ -3,7 +3,7 @@
 
 Runs wikidata_zh.rq, wikidata_mn.rq and wikidata_ru.rq on QLever, keeps the items in
 the region, fetches attributes one query at a time and writes one TSV per language.
-The sets are separate pools. em.tsv (zh-mn), em_zh_ru.tsv and em_mn_ru.tsv hold the id
+The sets are separate pools. em.tsv (zh-mn), em.tsv and em_mn_ru.tsv hold the id
 pairs for items in both pools.
 See datasets/Wikidata-zh-ru/README.md for the rules.
 
@@ -324,7 +324,7 @@ def main():
             for r in pool:
                 w.writerow([r[f'id_{s}'], r[s][0], ';'.join(n.replace(';', ',') for n in r[s][1:]), r[f'desc_{s}'], r[f'wiki_{s}'],
                             *[r['shared'][c] for c in SHARED], *[r['tgaz'].get(c, '') for c in extra]])
-    for filename, a, b in (('em.tsv', 'zh', 'mn'), ('em_zh_ru.tsv', 'zh', 'ru'), ('em_mn_ru.tsv', 'mn', 'ru')):
+    for filename, a, b in (('em.tsv', 'zh', 'mn'), ('em.tsv', 'zh', 'ru'), ('em_mn_ru.tsv', 'mn', 'ru')):
         pairs = sorted((r for r in rows if r[a] and r[b]), key=lambda r: r[f'id_{a}'])
         with open(OUT / filename, 'w', encoding='utf-8', newline='') as f:
             w = csv.writer(f, delimiter='\t', lineterminator='\n')
