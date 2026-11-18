@@ -2,5 +2,6 @@
 .venv
 .env
 placename_master.csv
-.__pycache__
+__pycache__/
+*.py[cod]
 .vscode
