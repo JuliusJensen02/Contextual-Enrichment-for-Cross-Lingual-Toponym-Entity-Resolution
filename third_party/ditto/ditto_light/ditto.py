@@ -11,9 +11,9 @@ import argparse
 
 from .dataset import DittoDataset
 from torch.utils import data
-from transformers import AutoModel, AdamW, get_linear_schedule_with_warmup
+from torch.optim import AdamW
+from transformers import AutoModel, get_linear_schedule_with_warmup
 from tensorboardX import SummaryWriter
-from apex import amp
 
 lm_mp = {'roberta': 'roberta-base',
          'distilbert': 'distilbert-base-uncased'}
@@ -105,7 +105,7 @@ def evaluate(model, iterator, threshold=None):
         return f1, best_th
 
 
-def train_step(train_iter, model, optimizer, scheduler, hp):
+def train_step(train_iter, model, optimizer, scheduler, scaler, hp):
     """Perform a single training step
 
     Args:
@@ -118,27 +118,42 @@ def train_step(train_iter, model, optimizer, scheduler, hp):
     Returns:
         None
     """
-    criterion = nn.CrossEntropyLoss()
+    loss_weights = None
+    if getattr(hp, 'class_weighted', False):
+        labels = torch.tensor(train_iter.dataset.labels, dtype=torch.long)
+        counts = torch.bincount(labels, minlength=2).float()
+        if torch.all(counts > 0):
+            loss_weights = (len(labels) / (2 * counts)).to(model.device)
+    criterion = nn.CrossEntropyLoss(weight=loss_weights)
     # criterion = nn.MSELoss()
     for i, batch in enumerate(train_iter):
         optimizer.zero_grad()
 
-        if len(batch) == 2:
-            x, y = batch
-            prediction = model(x)
-        else:
-            x1, x2, y = batch
-            prediction = model(x1, x2)
+        with torch.autocast(
+            device_type=model.device,
+            dtype=torch.float16,
+            enabled=hp.fp16,
+        ):
+            if len(batch) == 2:
+                x, y = batch
+                prediction = model(x)
+            else:
+                x1, x2, y = batch
+                prediction = model(x1, x2)
 
-        loss = criterion(prediction, y.to(model.device))
+            loss = criterion(prediction, y.to(model.device))
 
         if hp.fp16:
-            with amp.scale_loss(loss, optimizer) as scaled_loss:
-                scaled_loss.backward()
+            previous_scale = scaler.get_scale()
+            scaler.scale(loss).backward()
+            scaler.step(optimizer)
+            scaler.update()
+            if scaler.get_scale() >= previous_scale:
+                scheduler.step()
         else:
             loss.backward()
-        optimizer.step()
-        scheduler.step()
+            optimizer.step()
+            scheduler.step()
         if i % 10 == 0: # monitoring
             print(f"step: {i}, loss: {loss.item()}")
         del loss
@@ -178,15 +193,15 @@ def train(trainset, validset, testset, run_tag, hp):
 
     # initialize model, optimizer, and LR scheduler
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    if hp.fp16 and device != 'cuda':
+        raise RuntimeError("--fp16 requires PyTorch to detect a supported CUDA/ROCm GPU")
     model = DittoModel(device=device,
                        lm=hp.lm,
                        alpha_aug=hp.alpha_aug)
-    model = model.cuda()
+    model = model.to(device)
     optimizer = AdamW(model.parameters(), lr=hp.lr)
-
-    if hp.fp16:
-        model, optimizer = amp.initialize(model, optimizer, opt_level='O2')
-    num_steps = (len(trainset) // hp.batch_size) * hp.n_epochs
+    scaler = torch.amp.GradScaler("cuda", enabled=hp.fp16)
+    num_steps = ((len(trainset) + hp.batch_size - 1) // hp.batch_size) * hp.n_epochs
     scheduler = get_linear_schedule_with_warmup(optimizer,
                                                 num_warmup_steps=0,
                                                 num_training_steps=num_steps)
@@ -198,7 +213,7 @@ def train(trainset, validset, testset, run_tag, hp):
     for epoch in range(1, hp.n_epochs+1):
         # train
         model.train()
-        train_step(train_iter, model, optimizer, scheduler, hp)
+        train_step(train_iter, model, optimizer, scheduler, scaler, hp)
 
         # eval
         model.eval()

@@ -12,7 +12,7 @@ pypinyin                # Chinese names -> pinyin for the phonetic (IPA) encodin
 
 # Experiments (candidate_generation/experiments/)
 scipy                   # sparse score matrices
-torch                   # geo_threshold.py: gradient descent
+torch>=2.3              # Ditto native AMP and geo_threshold.py
 rapidfuzz               # edit distance and Jaro-Winkler scores
 anyascii                # titles in Latin letters for the letter-based title scores
 
@@ -23,3 +23,10 @@ requests>=2.31.0 #To make LLAMA API calls
 openai>=1.40.0 #To make OPENAI API calls
 anthropic>=0.40.0 #To make Anthropic API calls
 python-dotenv>=1.0.0
+
+
+# Ditto (Deep Entity Matching)
+transformers>=4.45,<5
+jsonlines>=4.0
+tensorboardX>=2.6
+tqdm>=4.66
