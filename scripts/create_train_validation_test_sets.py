@@ -27,109 +27,50 @@ sys.path.append(str(Path(__file__).resolve().parents[1]))  # the repo root, for 
 from data_loader import TestSetLoader, TestSetName  # noqa: E402
 
 OUT_DIR = Path(__file__).resolve().parents[1] / "datasets" / "04_train_validation_test"
-TRAIN_SHARE = 0.6
-VALIDATION_SHARE = 0.2  # the rest is the test set
-NEGATIVES_PER_RECORD = 5
+SPLIT = (0.6, 0.2, 0.2)  # train, validation, test
+NEGATIVES_PER_RECORD = 20
 SEED = 13
 
-# A record is (dataset, record id) and a pair is (record, record).
+CANDIDATE_SETS = [TestSetName.MEHDIE, TestSetName.PLEIADES_TRISMEGISTOS, TestSetName.WIKIDATA_ZH_RU]
+HARD_NEGATIVES_PER_RECORD = -1 # -1 = every record to all entities
+
+class EntityPair:
+    def __init__(self, src_id: str, target_id: str, match: bool):
+        self.src_id = src_id
+        self.target_id = target_id
+        self.match = match
 
 
-def find_groups(pairs):
-    """{record: group number}. Records are in the same group when they are connected by the
-    pairs, directly or through other records."""
-    graph = nx.Graph()
-    graph.add_edges_from(pairs)
-    groups = sorted(sorted(group) for group in nx.connected_components(graph))
-    return {record: number for number, group in enumerate(groups) for record in group}
+def EntityPair_from_list(source_id: str, target_ids: list[str], match: bool) -> list[EntityPair]:
+    return [EntityPair(source_id, target_id, match) for target_id in target_ids]
 
-
-def split_groups(group_of):
-    """{record: "train" / "validation" / "test"}. The groups are shuffled and divided, and
-    every record gets the set of its group."""
-    numbers = sorted(set(group_of.values()))
-    random.Random(SEED).shuffle(numbers)
-    n_train = round(len(numbers) * TRAIN_SHARE)
-    n_validation = round(len(numbers) * VALIDATION_SHARE)
-    split_of_group = {}
-    for position, number in enumerate(numbers):
-        if position < n_train:
-            split_of_group[number] = "train"
-        elif position < n_train + n_validation:
-            split_of_group[number] = "validation"
-        else:
-            split_of_group[number] = "test"
-    return {record: split_of_group[number] for record, number in group_of.items()}
-
-
-def labelled_negatives(truth, source, target):
-    """The pairs between two datasets that the ground truth says are not a match. The file
-    lists them in both directions, here they all go from source to target."""
-    rows = truth[truth["link_type"] != "same_as"]
-    forward = rows[(rows["source_dataset"] == source) & (rows["target_dataset"] == target)]
-    backward = rows[(rows["source_dataset"] == target) & (rows["target_dataset"] == source)]
-    pairs = set(zip(forward["source_place_id"], forward["target_place_id"]))
-    pairs |= set(zip(backward["target_place_id"], backward["source_place_id"]))
-    return [((source, source_id), (target, target_id)) for source_id, target_id in sorted(pairs)]
-
-
-def candidate_negatives(candidate_set, entity_of, split_of):
-    """For every linked source record: its best candidates that are not the same place.
-    A candidate that belongs to another set is skipped."""
-    source, target = candidate_set.source.label, candidate_set.target.label
-    negatives = []
-    for source_id in sorted({source_id for source_id, _ in candidate_set.links}):
-        record = (source, source_id)
-        found = 0
-        for target_id in candidate_set.candidates[source_id]:
-            candidate = (target, target_id)
-            in_other_set = candidate in split_of and split_of[candidate] != split_of[record]
-            if found < NEGATIVES_PER_RECORD and not same_entity(record, candidate, entity_of) and not in_other_set:
-                negatives.append((record, candidate))
-                found += 1
-    return negatives
-
-
-def same_entity(record_1, record_2, entity_of):
-    return record_1 in entity_of and entity_of[record_1] == entity_of.get(record_2)
-
-
-def main():
-    loader = TestSetLoader()
-    for name in TestSetName:
-        test_set = loader.load(name)
-        candidate_sets = loader.load_candidates(name)
-
-        matches, negatives = [], []
-        for candidate_set in candidate_sets:
-            source, target = candidate_set.source.label, candidate_set.target.label
-            matches += [((source, source_id), (target, target_id))
-                        for source_id, target_id in sorted(candidate_set.links)]
-            negatives += labelled_negatives(test_set.ground_truth.frame, source, target)
-
-        entity_of = find_groups(matches)
-        group_of = find_groups(matches + negatives)  # without labelled negatives a group is an entity
-        split_of = split_groups(group_of)
-
-        if negatives:
-            negatives = [pair for pair in negatives if not same_entity(*pair, entity_of)]
-        else:
-            for candidate_set in candidate_sets:
-                negatives += candidate_negatives(candidate_set, entity_of, split_of)
-
-        rows = [[split_of[source], group_of[source], *source, *target, label]
-                for pairs, label in [(matches, 1), (negatives, 0)] for source, target in pairs]
-        columns = ["split", "group", "source_dataset", "source_id", "target_dataset", "target_id", "label"]
-        pairs = pd.DataFrame(rows, columns=columns)
-
-        folder = OUT_DIR / test_set.datasets[0].name.folder
-        folder.mkdir(parents=True, exist_ok=True)
-        print(f"{name.name}: {len(set(entity_of.values()))} entities")
-        for split in ["train", "validation", "test"]:
-            part = pairs[pairs["split"] == split].drop(columns="split")
-            part.to_csv(folder / f"{split}.tsv", sep="\t", index=False)
-            print(f"  {split:10s} {(part['label'] == 1).sum():5d} matches, {(part['label'] == 0).sum():5d} negatives")
+def random_split_list_n(lst: list, splits: tuple[float, float, float]) -> list[list]:
+    """Randomises a list, then splits it into n parts, where the sizes of the parts are given in splits."""
+    assert sum(splits) == 1, f"sum(splits)={sum(splits)} != 1"
+    result = []
+    start = 0
+    random.Random(SEED).shuffle(lst)
+    for size in splits:
+        result.append(lst[start:start + size])
+        start += size
+    return result
 
 
 if __name__ == "__main__":
-    main()
+    for candidates_set_name in CANDIDATE_SETS:
+        train_set, validation_set, test_set = [], [], []
+        for candidate_set in TestSetLoader().load_candidates(candidates_set_name):
+            for source_id in candidate_set.candidates.keys():
+                positive_candidates, negative_candidates = candidate_set.split_candidates(source_id)
+                n = len(positive_candidates) + len(negative_candidates)
+                if len(train_set) + n < SPLIT[0] * candidate_set.amount_of_candidates:
+                    train_set += EntityPair_from_list(source_id, positive_candidates, True)
+                    train_set += EntityPair_from_list(source_id, negative_candidates, False)
+                elif len(validation_set) + n < SPLIT[1] * candidate_set.amount_of_candidates:
+                    validation_set += EntityPair_from_list(source_id, positive_candidates, True)
+                    validation_set += EntityPair_from_list(source_id, negative_candidates, False)
+                else:
+                    test_set += EntityPair_from_list(source_id, positive_candidates, True)
+                    test_set += EntityPair_from_list(source_id, negative_candidates, False)
+        print(
+            f"{candidates_set_name.name}: {len(train_set)} train, {len(validation_set)} validation, {len(test_set)} test")
