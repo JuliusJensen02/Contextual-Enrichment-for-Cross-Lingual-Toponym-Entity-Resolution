@@ -121,12 +121,12 @@ class CandidateGenerator:
         are never used. A record has one title; it can have several IPA encodings of it
         (Trismegistos), which are compared one at a time."""
         raw = self.method.raw_names
-        titles = {rid: names[:1] for rid, names in dataset.names.items()}  # the main name comes first
-        names_by_record = dataset.phonetic if self.phonetic and not raw else titles
         out = {}
-        for rid, names in names_by_record.items():
+        for record in dataset:
+            # the main name comes first in record.names
+            names = record.phonetic if self.phonetic and not raw else record.names[:1]
             names = [name.strip() if raw else self._normalize(name) for name in names]
-            out.update({(rid, i): name for i, name in enumerate(dict.fromkeys(x for x in names if x))})
+            out.update({(record.id, i): name for i, name in enumerate(dict.fromkeys(x for x in names if x))})
         return out
 
     @staticmethod
@@ -143,10 +143,9 @@ def within_distance(pairs, source: Dataset, target: Dataset, max_km) -> set:
     """Keeps a candidate pair (source_id, target_id) only if the two places are at most max_km
     apart. If a record has several points, the closest two count. Pairs where a record has no
     coordinates are always kept."""
-    coords_a, coords_b = source.coordinates, target.coordinates
     kept = set()
     for a, b in pairs:
-        points_a, points_b = coords_a[a], coords_b[b]
+        points_a, points_b = source[a].coordinates, target[b].coordinates
         if not points_a or not points_b or min(_km(p, q) for p in points_a for q in points_b) <= max_km:
             kept.add((a, b))
     return kept
@@ -161,7 +160,7 @@ def _km(p, q) -> float:
 
 def _points(dataset: Dataset, record_ids) -> np.ndarray:
     """[len(record_ids), max points per record, 2] in radians, nan where a record has fewer points."""
-    coords = [dataset.coordinates[rid] for rid in record_ids]
+    coords = [dataset[rid].coordinates for rid in record_ids]
     out = np.full((len(coords), max(1, max(map(len, coords), default=1)), 2), np.nan)
     for r, points in enumerate(coords):
         if points:

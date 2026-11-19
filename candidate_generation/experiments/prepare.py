@@ -33,7 +33,7 @@ def main():
 
     encoder = LMKNNSearch()
     for dataset in test_set.datasets:
-        titles = [title.strip() for title in dataset.frame["title"]]  # as pipeline.py embeds them
+        titles = [record.title.strip() for record in dataset]  # as pipeline.py embeds them
         np.save(embedding_path(args.testset, dataset), encoder._embed(titles))
         print(f"embedded {dataset.label}: {len(titles):,} titles", flush=True)
 

@@ -2,7 +2,6 @@
 .venv
 .env
 placename_master.csv
-.vscode
 __pycache__/
 *.pyc
 .pytest_cache/
@@ -11,3 +10,5 @@ candidate_generation/results/rerun/logs/
 candidate_generation/results/rerun/status.*
 datasets/ditto/
 third_party/ditto/checkpoints/
+*.py[cod]
+.vscode
