@@ -1,0 +1,2 @@
+testset,pair,method,params,input,max_km,truth,PC,PQ,RR,candidates,seconds
+pleiades-tm,Pleiades-Trismegistos,PassJoin,tau=1,ipa,100,65,0.5846,0.0198,0.999083,1921,0.1
