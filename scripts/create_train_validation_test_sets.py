@@ -11,7 +11,7 @@ The negatives come from one of two places:
     of such a row are kept in the same set, so none of these pairs is lost in the split.
   - The other test sets only list matches. There we assume that a candidate from candidate
     generation (datasets/03_candidate_generation/) that is not the match is a negative, and
-    add the best ones to the training and validation set.
+    add the best ones of every linked record to its set.
 
   python scripts/create_train_validation_test_sets.py
 """
@@ -74,14 +74,12 @@ def labelled_negatives(truth, source, target):
 
 
 def candidate_negatives(candidate_set, entity_of, split_of):
-    """For every linked source record in training and validation: its best candidates that are
-    not the same place. A candidate that belongs to another set is skipped."""
+    """For every linked source record: its best candidates that are not the same place.
+    A candidate that belongs to another set is skipped."""
     source, target = candidate_set.source.label, candidate_set.target.label
     negatives = []
     for source_id in sorted({source_id for source_id, _ in candidate_set.links}):
         record = (source, source_id)
-        if split_of[record] == "test":
-            continue
         found = 0
         for target_id in candidate_set.candidates[source_id]:
             candidate = (target, target_id)
