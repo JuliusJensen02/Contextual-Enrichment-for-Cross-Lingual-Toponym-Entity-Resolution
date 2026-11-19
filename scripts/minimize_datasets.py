@@ -168,6 +168,7 @@ def transform(filename, row):
 
     if filename == "pleiades.tsv":
         result.update(
+            id=row.get("pleiades_id", ""),
             name_variants=combine(
                 row,
                 ["names_by_language", "names_romanized", "names_greek", "names_latin"],
@@ -201,6 +202,7 @@ def transform(filename, row):
         )
     elif filename in MEHDIE_FILES:
         result.update(
+            id = row.get("id"),
             name_variants=row.get("name_variants", ""),
             country=combine(row, ["ccodes", "relation"]),
             begin_date=row.get("begin_date", ""),
@@ -212,6 +214,7 @@ def transform(filename, row):
             result[field] = result[field].replace("; ", VALUE_SEPARATOR)
     else:
         result.update(
+            id=row.get("id", ""),
             name_variants=combine(row, ["variants", "replaces", "replaced_by"]),
             country=combine(row, ["country", "admin_unit", "part_of"]),
             wiki_title=row.get("wiki_title", ""),
