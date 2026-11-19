@@ -1,24 +1,25 @@
-"""data_loader: Dataset, GroundTruth, TestSet and TestSetLoader."""
-import pandas as pd
+"""data_loader: Record, Dataset, ground truth, TestSet and TestSetLoader."""
 import pytest
 
-from data_loader import CandidateSet, DatasetName, GroundTruth, TestSet, TestSetLoader, TestSetName
+from data_loader import CandidateSet, DatasetName, TestSet, TestSetLoader, TestSetName, read_links
 
 KIMA, YAQUT, THURAYYA = DatasetName.KIMA, DatasetName.YAQUT, DatasetName.THURAYYA
 
-
-def internal_links(rows) -> pd.DataFrame:
-    """A MEHDIE ground truth table from (link_type, source_id, source, target_id, target) rows."""
-    return pd.DataFrame(rows, columns=GroundTruth.COLUMNS, dtype=str)
+INTERNAL_COLUMNS = ["link_type", "source_place_id", "source_dataset", "target_place_id", "target_dataset"]
 
 
-# ============================================================================ Dataset
+def internal_links(rows) -> list[dict]:
+    """MEHDIE ground truth rows from (link_type, source_id, source, target_id, target) tuples."""
+    return [dict(zip(INTERNAL_COLUMNS, row)) for row in rows]
+
+
+# ============================================================================ Record
 def test_names_put_the_title_first_and_split_all_variant_separators(dataset_factory):
     dataset = dataset_factory(KIMA, [
         {"id": "1", "title": "Antakya", "name_variants": "Antioch | Antiochia; Antakiya، أنطاكية"},
     ])
 
-    assert dataset.names["1"] == ["Antakya", "Antioch", "Antiochia", "Antakiya", "أنطاكية"]
+    assert dataset["1"].names == ["Antakya", "Antioch", "Antiochia", "Antakiya", "أنطاكية"]
 
 
 def test_names_drop_duplicates_blanks_language_tags_and_trailing_qualifiers(dataset_factory):
@@ -26,7 +27,7 @@ def test_names_drop_duplicates_blanks_language_tags_and_trailing_qualifiers(data
         {"id": "1", "title": "Aethusa (island)", "name_variants": "Aethusa | Ἄλπεις@grc |  | Alpes@la-x"},
     ])
 
-    assert dataset.names["1"] == ["Aethusa", "Ἄλπεις", "Alpes"]
+    assert dataset["1"].names == ["Aethusa", "Ἄλπεις", "Alpes"]
 
 
 def test_names_include_the_wikipedia_title_when_the_dataset_has_one(dataset_factory):
@@ -35,7 +36,7 @@ def test_names_include_the_wikipedia_title_when_the_dataset_has_one(dataset_fact
         {"id": "Q2", "title": "Казань", "name_variants": "", "wiki_title": "Казань"},
     ])
 
-    assert dataset.names == {"Q1": ["Москва", "Moskva"], "Q2": ["Казань"]}
+    assert [record.names for record in dataset] == [["Москва", "Moskva"], ["Казань"]]
 
 
 def test_phonetic_splits_on_pipes_and_drops_blanks_and_duplicates(dataset_factory):
@@ -44,7 +45,7 @@ def test_phonetic_splits_on_pipes_and_drops_blanks_and_duplicates(dataset_factor
         {"id": "2", "title_ipa": ""},
     ])
 
-    assert dataset.phonetic == {"1": ["memfis", "mempʰis"], "2": []}
+    assert [record.phonetic for record in dataset] == [["memfis", "mempʰis"], []]
 
 
 def test_coordinates_can_be_missing_single_or_several(dataset_factory):
@@ -55,7 +56,7 @@ def test_coordinates_can_be_missing_single_or_several(dataset_factory):
         {"id": "semicolons", "lat": "10; 11", "lon": "20; 21"},
     ])
 
-    assert dataset.coordinates == {
+    assert {record.id: record.coordinates for record in dataset} == {
         "none": [],
         "one": [(31.5, 34.25)],
         "pipes": [(10.0, 20.0), (11.0, 21.0)],
@@ -63,6 +64,7 @@ def test_coordinates_can_be_missing_single_or_several(dataset_factory):
     }
 
 
+# ============================================================================ Dataset
 def test_len_contains_ids_and_label(dataset_factory):
     dataset = dataset_factory(KIMA, [{"id": "007"}, {"id": "8"}])
 
@@ -73,53 +75,38 @@ def test_len_contains_ids_and_label(dataset_factory):
     assert repr(dataset) == "Dataset(KIMA, 2 records)"
 
 
-def test_filter_and_subset_return_new_datasets(dataset_factory):
+def test_subset_returns_a_new_dataset(dataset_factory):
     dataset = dataset_factory(KIMA, [
         {"id": "a", "lat": "1", "lon": "1"},
         {"id": "b"},
         {"id": "c", "lat": "3", "lon": "3"},
     ])
 
-    with_coordinates = dataset.filter(dataset.frame.lat != "")
     reordered = dataset.subset(["c", "a"])
 
-    assert with_coordinates.ids == ["a", "c"]
     assert reordered.ids == ["c", "a"]          # the given order, not the row order
-    assert reordered.coordinates == {"c": [(3.0, 3.0)], "a": [(1.0, 1.0)]}
+    assert reordered["c"].coordinates == [(3.0, 3.0)]
     assert reordered.name is KIMA
     assert dataset.ids == ["a", "b", "c"]       # the original is untouched
 
 
-# ============================================================================ GroundTruth
+# ============================================================================ ground truth
 def test_mehdie_ground_truth_only_counts_same_as_rows_as_links():
-    truth = GroundTruth(TestSetName.MEHDIE, internal_links([
+    links = read_links(TestSetName.MEHDIE, internal_links([
         ("same_as", "1", "Kima", "10", "Yaqut"),
         ("different", "2", "Kima", "20", "Yaqut"),
         ("same_as", "3", "Yaqut", "30", "Thurayya"),
     ]))
 
-    assert len(truth) == 3
-    assert truth.links == {((KIMA, "1"), (YAQUT, "10")), ((YAQUT, "3"), (THURAYYA, "30"))}
+    assert links == {((KIMA, "1"), (YAQUT, "10")), ((YAQUT, "3"), (THURAYYA, "30"))}
 
 
-def test_pleiades_trismegistos_ground_truth_is_normalized():
-    raw = pd.DataFrame({"pleiades_id": ["100", "200"], "trismegistos_id": ["7", "8"],
-                        "pleiades_title": ["a", "b"], "sources": ["x", "y"]})
+def test_ground_truth_files_with_only_matches():
+    pleiades = read_links(TestSetName.PLEIADES_TRISMEGISTOS, [{"pleiades_id": "100", "trismegistos_id": "7"}])
+    wikidata = read_links(TestSetName.WIKIDATA_ZH_RU, [{"id_1": "Q1", "id_2": "Q2"}])
 
-    truth = GroundTruth(TestSetName.PLEIADES_TRISMEGISTOS, raw)
-
-    assert list(truth.frame.columns) == GroundTruth.COLUMNS
-    assert set(truth.frame["link_type"]) == {"same_as"}
-    assert truth.links == {((DatasetName.PLEIADES, "100"), (DatasetName.TRISMEGISTOS, "7")),
-                           ((DatasetName.PLEIADES, "200"), (DatasetName.TRISMEGISTOS, "8"))}
-
-
-def test_wikidata_ground_truth_is_normalized():
-    raw = pd.DataFrame({"id_1": ["Q1"], "id_2": ["Q1"]})
-
-    truth = GroundTruth(TestSetName.WIKIDATA_ZH_RU, raw)
-
-    assert truth.links == {((DatasetName.WIKIDATA_ZH, "Q1"), (DatasetName.WIKIDATA_RU, "Q1"))}
+    assert pleiades == {((DatasetName.PLEIADES, "100"), (DatasetName.TRISMEGISTOS, "7"))}
+    assert wikidata == {((DatasetName.WIKIDATA_ZH, "Q1"), (DatasetName.WIKIDATA_RU, "Q2"))}
 
 
 # ============================================================================ TestSet
@@ -128,7 +115,7 @@ def mehdie(dataset_factory) -> TestSet:
     kima = dataset_factory(KIMA, [{"id": f"k{i}"} for i in range(6)])
     yaqut = dataset_factory(YAQUT, [{"id": f"y{i}"} for i in range(6)])
     thurayya = dataset_factory(THURAYYA, [{"id": f"t{i}"} for i in range(6)])
-    truth = GroundTruth(TestSetName.MEHDIE, internal_links([
+    links = read_links(TestSetName.MEHDIE, internal_links([
         ("same_as", "k0", "Kima", "y0", "Yaqut"),
         ("same_as", "y0", "Yaqut", "k0", "Kima"),         # the same link, listed the other way
         ("same_as", "k1", "Kima", "y1", "Yaqut"),
@@ -137,7 +124,7 @@ def mehdie(dataset_factory) -> TestSet:
         ("same_as", "k4", "Kima", "missing", "Yaqut"),     # the Yaqut record is not in the dataset
         ("different", "k5", "Kima", "y5", "Yaqut"),
     ]))
-    return TestSet(TestSetName.MEHDIE, [kima, yaqut, thurayya], truth)
+    return TestSet(TestSetName.MEHDIE, [kima, yaqut, thurayya], links)
 
 
 def test_links_count_once_and_need_both_records(mehdie):
@@ -200,15 +187,12 @@ def test_loader_reads_strings_only_and_keeps_empty_cells_empty(tmp_path):
 
     zh = test_set.dataset(DatasetName.WIKIDATA_ZH)
     assert zh.ids == ["007"]                      # the leading zeros survive
-    assert zh.frame.loc[0, "lat"] == ""           # not NaN
-    assert zh.frame.loc[0, "name_variants"] == "NA"  # not read as a missing value
+    assert zh["007"].lat == ""                    # not NaN
+    assert zh["007"].name_variants == "NA"        # not read as a missing value
     assert test_set.links_between(DatasetName.WIKIDATA_ZH, DatasetName.WIKIDATA_RU) == {("007", "007")}
 
 
 # ============================================================================ the real files
-SHARED_COLUMNS = ["id", "title", "title_ipa", "name_variants", "lat", "lon"]
-
-
 @pytest.mark.parametrize("name", list(TestSetName), ids=lambda name: name.name)
 def test_the_datasets_in_the_repo_load_and_are_consistent(name):
     test_set = TestSetLoader().load(name)
@@ -217,12 +201,10 @@ def test_the_datasets_in_the_repo_load_and_are_consistent(name):
     assert test_set.links, "no ground truth link has both its records in the datasets"
     for dataset in test_set.datasets:
         assert len(dataset) > 0
-        assert set(SHARED_COLUMNS) <= set(dataset.frame.columns)
         assert len(set(dataset.ids)) == len(dataset.ids), f"{dataset.label} has duplicate ids"
         assert all(dataset.ids), f"{dataset.label} has a record without an id"
-        assert len(dataset.coordinates) == len(dataset)  # every lat / lon cell parses
-        for points in dataset.coordinates.values():
-            assert all(-90 <= lat <= 90 and -180 <= lon <= 180 for lat, lon in points)
+        for record in dataset:  # every lat / lon cell parses
+            assert all(-90 <= lat <= 90 and -180 <= lon <= 180 for lat, lon in record.coordinates)
     for source, target in test_set.pairs:
         for source_id, target_id in test_set.links_between(source, target):
             assert source_id in test_set.dataset(source) and target_id in test_set.dataset(target)
@@ -236,45 +218,17 @@ def candidate_set(dataset_factory):
     return CandidateSet(source, target, {"k1": ["y2", "y1"], "k2": []}, links={("k1", "y1")})
 
 
-def test_candidate_set_lists_its_pairs_in_the_stored_order(candidate_set):
-    assert candidate_set.pairs == [("k1", "y2"), ("k1", "y1")]
-    assert len(candidate_set) == 2
-    assert candidate_set.links == {("k1", "y1")}
-
-
-def test_records_hold_the_id_and_only_the_chosen_columns(candidate_set):
-    records = list(candidate_set.records(["title"]))
-
-    assert records == [
-        ({"id": "k1", "title": "Akko"}, [{"id": "y2", "title": "يافا"}, {"id": "y1", "title": "عكا"}]),
-        ({"id": "k2", "title": "Yafo"}, []),
+def test_iterating_gives_every_source_record_with_its_candidate_records_in_order(candidate_set):
+    assert [(record.title, [c.title for c in candidates]) for record, candidates in candidate_set] == [
+        ("Akko", ["يافا", "عكا"]),
+        ("Yafo", []),
     ]
-
-
-def test_records_can_take_other_columns_for_the_target_and_default_to_all(candidate_set):
-    record, candidates = next(candidate_set.records(["title", "lat"], target_columns=[]))
-    assert record == {"id": "k1", "title": "Akko", "lat": "32.9"}
-    assert candidates == [{"id": "y2"}, {"id": "y1"}]
-
-    record, _ = next(candidate_set.records())
-    assert list(record) == list(candidate_set.source.frame.columns)
-
-
-def test_frame_has_one_row_per_pair_with_prefixed_columns(candidate_set):
-    frame = candidate_set.frame(["title"])
-
-    assert list(frame.columns) == ["source_id", "source_title", "target_id", "target_title"]
-    assert frame.values.tolist() == [["k1", "Akko", "y2", "يافا"], ["k1", "Akko", "y1", "عكا"]]
-
-
-def test_an_unknown_column_is_reported(candidate_set):
-    with pytest.raises(KeyError, match="no column"):
-        list(candidate_set.records(["population"]))
 
 
 @pytest.mark.parametrize("name", list(TestSetName), ids=lambda name: name.name)
 def test_the_candidates_in_the_repo_load_and_refer_to_known_records(name):
     for candidate_set in TestSetLoader().load_candidates(name):
         assert list(candidate_set.candidates) == candidate_set.source.ids
-        assert all(target_id in candidate_set.target for _, target_id in candidate_set.pairs)
-        assert len(set(candidate_set.pairs)) == len(candidate_set.pairs)
+        for target_ids in candidate_set.candidates.values():
+            assert all(target_id in candidate_set.target for target_id in target_ids)
+            assert len(set(target_ids)) == len(target_ids)
