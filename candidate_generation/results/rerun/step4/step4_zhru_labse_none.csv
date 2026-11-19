@@ -1,0 +1,5 @@
+testset,title_method,phonetic_method,title_weight,k,min_score,truth,found,PC,candidates,seconds
+zh-ru,labse,none,1.0,1,,3263,1912,0.586,19451,3.8
+zh-ru,labse,none,1.0,3,,3263,2352,0.7208,59034,3.8
+zh-ru,labse,none,1.0,5,,3263,2536,0.7772,98929,3.8
+zh-ru,labse,none,1.0,10,,3263,2770,0.8489,198976,3.8

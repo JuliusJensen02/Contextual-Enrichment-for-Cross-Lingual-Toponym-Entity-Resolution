@@ -1,0 +1,5 @@
+testset,pair,method,params,input,max_km,truth,PC,PQ,RR,candidates,seconds
+pleiades-tm,Pleiades-Trismegistos,TFIDF_kNN,"k=1,n=1-2",ipa,100,65,0.8154,0.0113,0.997752,4709,1.07
+pleiades-tm,Pleiades-Trismegistos,TFIDF_kNN,"k=3,n=1-2",ipa,100,65,0.8923,0.0044,0.993637,13328,0.37
+pleiades-tm,Pleiades-Trismegistos,TFIDF_kNN,"k=5,n=1-2",ipa,100,65,0.8923,0.0027,0.989677,21622,0.4
+pleiades-tm,Pleiades-Trismegistos,TFIDF_kNN,"k=10,n=1-2",ipa,100,65,0.8923,0.0014,0.979961,41973,0.5

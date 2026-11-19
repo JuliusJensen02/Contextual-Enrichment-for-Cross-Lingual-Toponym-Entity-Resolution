@@ -1,47 +1,34 @@
 import os
 import requests
 from dotenv import load_dotenv
+from openai import OpenAI
+from anthropic import Anthropic
 
 load_dotenv()
 
 
 class LLMClient:
-    """Simple client for calling local LLM server."""
-
-    def __init__(self, env_model_ref: str, env_url_ref : str, env_api_ref: str, endpoint_path: str):
-        self.api_url = os.getenv(env_url_ref)
-        self.api_token = os.getenv(env_api_ref)
-        self.model = os.getenv(env_model_ref)
+    def __init__(self, prompt: str, instructions: str):
         self.timeout = 30
-        self.endpoint = endpoint_path
+        self.prompt = prompt
+        self.instructions = instructions
 
-
-    def call(self, prompt: str, instructions: str = None) -> str:
-
+    def call_llama(self, model: str = os.getenv("LLAMA_MODEL"), url: str = os.getenv("LLAMA_API_URL"), token: str = os.getenv("LLAMA_API_TOKEN")):
         payload = {
-            "model": self.model
+            "model": model
         }
-
-        if self.endpoint.__contains__("responses"):
-            payload["input"] = prompt
-            if instructions:
-                payload["instructions"] = instructions
-        else:
-            messages = []
-            if instructions:
-                messages.append({"role": "system", "content": instructions})
-            messages.append({"role": "user", "content": prompt})
-            payload["messages"] = messages
-
-
+        messages = []
+        messages.append({"role": "system", "content": self.instructions})
+        messages.append({"role": "user", "content": self.prompt})
+        payload["messages"] = messages
         headers = {
-            "Authorization": f"Bearer {self.api_token}",
+            "Authorization": f"Bearer {token}",
             "Content-Type": "application/json",
         }
 
         try:
             response = requests.post(
-                self.api_url,
+                url,
                 json=payload,
                 headers=headers,
                 timeout=self.timeout,
@@ -58,17 +45,43 @@ class LLMClient:
 
             raise RuntimeError(f"API call failed: {e}") from e
 
-    def call_batch(self, prompts: list[str]) -> list[str]:
-        """Call the LLM multiple times."""
-        return [self.call(prompt) for prompt in prompts]
+    def call_openai(self, model: str = os.getenv("OPENAI_MODEL"), token: str = os.getenv("OPENAI_API_TOKEN")):
+        client = OpenAI(api_key=token, timeout=self.timeout)
+
+        response = client.responses.create(model=model, input=self.prompt, instructions=self.instructions)
+
+        return response
+
+    def call_anthropic(self, model: str = os.getenv("CLAUDE_MODEL"), token: str = os.getenv("CLAUDE_API_TOKEN"),
+                    workspace_id: str = os.getenv("CLAUDE_WORKSPACE_ID")):
+        client = Anthropic(
+            api_key=token,
+            timeout=self.timeout,
+            default_headers={"anthropic-workspace-id": workspace_id} if workspace_id else None,
+        )
+
+        # Anthropic does not accept a "system" role in messages; it is a separate parameter.
+        message = client.messages.create(
+            max_tokens=1024,
+            system=self.instructions,
+            messages=[
+                {
+                    "content": self.prompt,
+                    "role": "user",
+                },
+            ],
+            model=model,
+        )
+        return message
+
 
 
 
 if __name__ == "__main__":
-    llama_client = LLMClient("LLAMA_MODEL", "LLAMA_API_URL", "LLAMA_API_TOKEN", "chat/completions")
-    openai_client = LLMClient("OPENAI_MODEL", "OPENAI_API_URL", "OPENAI_API_TOKEN", "responses")
-    print("LLAMA")
-    print(llama_client.call("Hello!"))
-    print("\n")
-    print("OPEN AI")
-    print(openai_client.call("Hello!"))
+    client = LLMClient("Hello!", "Return ONLY strictly JSON (No markdown, no extra text)")
+    print("Anthropic")
+    print(client.call_anthropic())
+    # print("\nOpenAI")
+    # print(client.call_openai())
+    # print("\nLlama")
+    # print(client.call_llama())
