@@ -65,8 +65,8 @@ class CandidatePipeline:
         ids_a, ids_b = A.ids, B.ids
         k_rows, k_cols = min(self.k, len(ids_b)), min(self.k, len(ids_a))
 
-        title_a, title_b = (self._encoder._embed([t.strip() for t in d.frame["title"]]) for d in (A, B))
-        ipa_a, ipa_b = ([(d.phonetic[i] or [""])[0].lower() for i in d.ids] for d in (A, B))
+        title_a, title_b = (self._encoder._embed([r.title.strip() for r in d]) for d in (A, B))
+        ipa_a, ipa_b = ([(r.phonetic or [""])[0].lower() for r in d] for d in (A, B))
         tfidf = TfidfVectorizer(analyzer="char_wb", ngram_range=(2, 3)).fit(ipa_a + ipa_b)
         phon_a, phon_b = tfidf.transform(ipa_a), tfidf.transform(ipa_b).T.tocsr()
         points_a, points_b = _points(A), _points(B)
@@ -96,7 +96,7 @@ class CandidatePipeline:
 # ============================================================================ geo filter
 def _points(dataset: Dataset) -> np.ndarray:
     """[records, max points per record, 2] in radians, nan where a record has fewer points."""
-    coords = [dataset.coordinates[i] for i in dataset.ids]
+    coords = [record.coordinates for record in dataset]
     out = np.full((len(coords), max(1, max(map(len, coords))), 2), np.nan)
     for r, points in enumerate(coords):
         if points:

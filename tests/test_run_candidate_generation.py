@@ -6,7 +6,7 @@ from argparse import Namespace
 import pytest
 
 import run_candidate_generation as runner
-from data_loader import DatasetName, GroundTruth, TestSet, TestSetName
+from data_loader import DatasetName, TestSet, TestSetName
 from methods import LMKNNSearch, PassJoin
 
 KIMA, YAQUT, THURAYYA = DatasetName.KIMA, DatasetName.YAQUT, DatasetName.THURAYYA
@@ -102,10 +102,8 @@ def test_main_runs_a_test_set_and_writes_the_table(dataset_factory, monkeypatch,
         {"id": "y2", "title": "Baghdad", "title_ipa": "bagdad"},
     ])
     thurayya = dataset_factory(THURAYYA, [{"id": "t1", "title": "Halab", "title_ipa": "halab"}])
-    truth = GroundTruth(TestSetName.MEHDIE, __import__("pandas").DataFrame(
-        [("same_as", "k1", "Kima", "y1", "Yaqut"), ("same_as", "k2", "Kima", "t1", "Thurayya")],
-        columns=GroundTruth.COLUMNS))
-    test_set = TestSet(TestSetName.MEHDIE, [kima, yaqut, thurayya], truth)
+    links = {((KIMA, "k1"), (YAQUT, "y1")), ((KIMA, "k2"), (THURAYYA, "t1"))}
+    test_set = TestSet(TestSetName.MEHDIE, [kima, yaqut, thurayya], links)
 
     class FakeLoader:
         def load(self, name):
