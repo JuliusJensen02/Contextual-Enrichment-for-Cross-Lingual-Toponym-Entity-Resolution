@@ -5,3 +5,9 @@ placename_master.csv
 __pycache__/
 *.py[cod]
 .vscode
+
+# candidate generation experiments: caches, logs and run state (the results themselves are committed)
+candidate_generation/results/rerun/cache/
+candidate_generation/results/rerun/logs/
+candidate_generation/results/rerun/status.json
+candidate_generation/results/rerun/*.log
