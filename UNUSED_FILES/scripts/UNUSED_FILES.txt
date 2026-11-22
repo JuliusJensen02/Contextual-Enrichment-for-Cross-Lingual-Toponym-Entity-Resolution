@@ -36,13 +36,13 @@ ACTIVE MODULES (NOT archived):
 ================================
 
 ✓ /data_loader/ - Core Record/Pair classes (heavily used)
-✓ /bi_encoder/ - Bi-encoder entity matching implementation
-✓ /llm_integration/ - LLM-based entity matching methods
+✓ /Methods/bi_encoder/ - Bi-encoder entity matching implementation
+✓ /Methods/llm_integration/ - LLM-based entity matching methods
 ✓ /candidate_generation/ - Candidate generation methods
 ✓ /candidate_generation/experiments/ - Candidate gen evaluation
 ✓ /experiments/ - **NEW** Unified data preparation for all matching methods
 ✓ /tests/ - Test suite
-✓ /third_party/ - Third-party dependencies
+✓ /Methods/ditto/ - Ditto entity matching implementation
 ✓ main.py - Entry point
 ✓ final_verification.py - Data verification
 ✓ requirements.txt - Project dependencies

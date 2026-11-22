@@ -7,7 +7,7 @@ import re
 import sys
 
 from data_loader import CATEGORIES, TestSetLoader, TestSetName
-from llm_integration.create_prompt import SYSTEM_PROMPT, create_prompt
+from Methods.llm_integration.create_prompt import SYSTEM_PROMPT, create_prompt
 
 # ------------------------------------------------------------------ settings
 TEST_SET = TestSetName.MEHDIE
@@ -50,7 +50,7 @@ def pick_query_records(candidate_set):
 
 def ask_llm(prompt: str) -> int:
     """The number of the candidate the LLM picks; 0 if it picks none."""
-    from llm_integration.llm_calls import LLMClient  # only needed when the LLM is called
+    from Methods.llm_integration.llm_calls import LLMClient  # only needed when the LLM is called
 
     client = LLMClient(prompt, SYSTEM_PROMPT)
     if LLM == "llama":

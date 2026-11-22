@@ -54,6 +54,171 @@ data_preparation.py:
   - DataLoader: Main class for loading and hydrating data
   - load_pairs(): Unified loader for all matching methods
 
+matching.py:
+  - match_with_llm(): Match one query against candidates with an LLM
+  - match_with_bi_encoder(): Match one query/candidate pair with XGBoost
+  - load_ditto_model(): Load a trained Ditto checkpoint
+  - match_with_ditto(): Match one query against candidates with Ditto
+  - call_matching_methods(): Run selected methods over a list of pairs
+
+metrics.py:
+  - calculate_metrics(): Precision, recall, F1, and confusion counts
+  - llm_predictions(): Convert LLM candidate numbers to source/target pairs
+  - candidate_predictions(): Convert bi-encoder or Ditto results to pairs
+  - get_ground_truth_links(): Get ground truth for a dataset pair
+
+example_match.py:
+  - Runnable end-to-end LLM matching example
+
+MATCHING API:
+=============
+
+load_pairs() returns a list of Pair objects:
+
+    pairs = [
+        Pair(
+            query=source_record,
+            candidates=[candidate_record_1, candidate_record_2],
+        ),
+        ...
+    ]
+
+LLM matching
+------------
+
+    from experiments.matching import match_with_llm
+
+    candidate_number = match_with_llm(
+        pair.query,
+        pair.candidates,
+        provider="llama",
+    )
+
+Parameters:
+
+  - query: One source Record.
+  - candidates: Candidate Record objects for that query.
+  - provider: "llama", "openai", or "anthropic".
+  - Prompt fields come only from the filtered records in each Pair.
+
+The result is a candidate number, or 0 when no candidate was selected.
+
+Bi-encoder matching
+-------------------
+
+    from Methods.bi_encoder.bi_encoder import load_classifier
+    from experiments.matching import match_with_bi_encoder
+
+    classifier = load_classifier("path/to/gradientboost-model.json")
+
+    result = match_with_bi_encoder(
+        classifier,
+        pair.query,
+        pair.candidates[0],
+        threshold=0.5,
+    )
+
+Parameters:
+
+  - classifier: Loaded trained XGBoost classifier.
+  - query: One source Record.
+  - candidate: One target/candidate Record.
+  - threshold: Match probability required for match=True.
+
+This function compares one candidate at a time. Score every candidate with:
+
+    results = [
+        match_with_bi_encoder(
+            classifier,
+            pair.query,
+            candidate,
+            threshold=0.5,
+        )
+        for candidate in pair.candidates
+    ]
+
+Ditto
+-----
+
+Train Ditto separately with Methods/ditto/train_ditto.py, then load the
+checkpoint:
+
+    from experiments.matching import load_ditto_model, match_with_ditto
+
+    model = load_ditto_model(
+        checkpoint_path="checkpoints",
+        task="toponym_experiment",
+        lm="distilbert",
+        use_gpu=True,
+    )
+
+load_ditto_model parameters:
+
+  - checkpoint_path: Directory containing task checkpoint folders.
+  - task: Task name for the checkpoint_path/task/model.pt file.
+  - lm: Language model used during training; normally "distilbert".
+  - use_gpu: Use GPU acceleration when supported GPU hardware is available.
+
+Score all candidates for one query:
+
+    results = match_with_ditto(
+        model,
+        pair.query,
+        pair.candidates,
+        lm="distilbert",
+        max_len=256,
+        threshold=0.5,
+        fp16=False,
+    )
+
+match_with_ditto parameters:
+
+  - model: Loaded Ditto model.
+  - query: One source Record.
+  - candidates: Candidate Record objects.
+  - lm: Language model used during training.
+  - max_len: Maximum tokenized sequence length.
+  - threshold: Match probability cutoff.
+  - fp16: Enable half-precision inference on supported GPU hardware.
+
+Ditto requires a checkpoint trained for the attribute configuration being used.
+A checkpoint contains learned weights.
+
+Unified dispatcher
+------------------
+
+    from experiments.matching import call_matching_methods
+
+    results = call_matching_methods(
+        pairs,
+        methods=("llm", "bi_encoder", "ditto"),
+        classifier=classifier,
+        ditto_model=ditto_model,
+        bi_encoder_threshold=0.5,
+        ditto_threshold=0.5,
+        llm_provider="llama",
+    )
+
+Parameters:
+
+  - pairs: List of Pair(query, candidates) objects.
+  - methods: Methods to run: "llm", "bi_encoder", and/or "ditto".
+  - classifier: Required for "bi_encoder".
+  - ditto_model: Required for "ditto".
+  - bi_encoder_threshold: Cutoff used by the bi-encoder.
+  - ditto_threshold: Cutoff used by Ditto.
+  - llm_provider: Provider used by "llm".
+  - ditto_lm: Ditto language model.
+  - ditto_max_len: Ditto maximum sequence length.
+
+Metrics
+-------
+
+    from experiments.metrics import calculate_metrics, llm_predictions
+
+    predicted_pairs = llm_predictions(pairs, results["llm"])
+    metrics = calculate_metrics(predicted_pairs, true_pairs)
+
 FEATURES:
 =========
 
@@ -116,5 +281,5 @@ STATUS:
 ✓ TESTED: All 46,818 pairs verified
 ✓ OPTIMIZED: Effective caching across experiments
 ✓ DOCUMENTED: Architecture explained in ARCHITECTURE.md
-⏳ NEXT: Integrate with matching methods (bi-encoder, Ditto, LLMs)
+✓ INTEGRATED: Matching wrappers, metrics, and example experiment added
 """

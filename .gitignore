@@ -9,6 +9,6 @@ candidate_generation/results/rerun/cache/
 candidate_generation/results/rerun/logs/
 candidate_generation/results/rerun/status.*
 datasets/ditto/
-third_party/ditto/checkpoints/
+Methods/ditto/checkpoints/
 *.py[cod]
 .vscode

@@ -25,7 +25,7 @@ already use Ditto's labeled TSV format: one pair per line, with the serialized
 left record, serialized right record, and label (`0` or `1`) separated by tabs.
 See [Using Ditto with Our Data](USING_OUR_DATA.md) for the complete data
 preparation, training, AMD setup, and matching steps.
-From `third_party\ditto`, run:
+From `Methods\ditto`, run:
 
 ```powershell
 python train_ditto.py --task toponym_experiment `
