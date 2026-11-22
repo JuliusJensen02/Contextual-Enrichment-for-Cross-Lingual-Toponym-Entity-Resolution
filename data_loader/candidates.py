@@ -53,3 +53,12 @@ class CandidateSet:
             else:
                 negative_candidates.append(target_id)
         return positive_candidates, negative_candidates
+
+    def get_soft_negatives(self, source_id: str):
+        positives, hard_negatives = self.split_candidates(source_id)
+        all_target_ids = [record.id for record in self.target.records]
+        ids_to_remove = set(positives + hard_negatives)
+        # Ground truth matches that candidate generation missed must not become soft negatives either.
+        ids_to_remove |= {target_id for linked_source_id, target_id in self.links if linked_source_id == source_id}
+        ids_to_remove |= {target_id for s, target_id in self.links if s == source_id}
+        return [target_id for target_id in all_target_ids if target_id not in ids_to_remove]
