@@ -66,12 +66,12 @@ PyTorch among its supported AI frameworks.
 
 ## 3. Train a model
 
-From `third_party\ditto`, pass the three files explicitly. The task name is
+From `Methods\ditto`, pass the three files explicitly. The task name is
 used to name the checkpoint and does not need to be added to `configs.json`
 when all dataset paths are provided:
 
 ```powershell
-Set-Location third_party\ditto
+Set-Location Methods\ditto
 python train_ditto.py --task pleiades_trismegistos `
   --trainset ..\..\datasets\your_dataset\train.txt `
   --validset ..\..\datasets\your_dataset\valid.txt `
@@ -108,7 +108,7 @@ pairs supplied; candidate generation remains a separate step.
 
 ## 5. Run matching
 
-Run the matcher from `third_party\ditto` using the same task name and validation
+Run the matcher from `Methods\ditto` using the same task name and validation
 file as training:
 
 ```powershell
