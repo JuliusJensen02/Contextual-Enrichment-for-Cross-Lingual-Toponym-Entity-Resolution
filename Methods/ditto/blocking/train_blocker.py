@@ -40,7 +40,7 @@ def train(hp):
         None
     """
     # define model
-    model_names = {'distilbert': 'distilbert-base-uncased',
+    model_names = {'distilbert': 'distilbert/distilbert-base-multilingual-cased',
                    'bert': 'bert-base-uncased',
                    'albert': 'albert-base-v2' }
 
