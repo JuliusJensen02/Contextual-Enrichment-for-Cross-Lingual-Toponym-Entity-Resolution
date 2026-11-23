@@ -6,28 +6,25 @@ from data_loader import DatasetName, TestSetLoader, TestSetName  # noqa: E402
 
 OUT_DIR = Path(__file__).resolve().parents[1] / "datasets" / "04_train_validation_test"
 SPLIT = (0.6, 0.2, 0.2)  # train, validation, test
-HARD_NEGATIVES_PER_RECORD = 20  # at most this many negatives per source record and candidate set, best score first (IF Soft negatives are included then the value should be 6)
-#SOFT_NEGATIVES_PER_RECORD = 6000 # at most this many soft negatives per source record, i.e. negatives that are not in the candidate set
-SEED = 42
-SOFT_NEGATIVE_SEED = 42  # for reproducibility of the soft negatives, which are randomly sampled from the target dataset
+HARD_NEGATIVES_PER_RECORD = 20  # at most this many negatives per source record and candidate set, best score first
+SEED = 42  # for reproducibility
 
 CANDIDATE_SETS = [TestSetName.MEHDIE, TestSetName.PLEIADES_TRISMEGISTOS, TestSetName.WIKIDATA_ZH_RU]
 
 class EntityPair:
     def __init__(self, test_set: TestSetName, source_dataset: DatasetName, target_dataset: DatasetName,
-                 src_id: str, target_id: str, match: bool, soft: bool):
+                 src_id: str, target_id: str, match: bool):
         self.test_set = test_set
         self.source_dataset = source_dataset
         self.target_dataset = target_dataset
         self.src_id = src_id
         self.target_id = target_id
         self.match = match
-        self.soft = soft
 
     @staticmethod
     def list_from_list(test_set: TestSetName, source_dataset: DatasetName, target_dataset: DatasetName,
-                             source_id: str, target_ids: list[str], match: bool, soft: bool = False) -> list[EntityPair]:
-        return [EntityPair(test_set, source_dataset, target_dataset, source_id, target_id, match, soft)
+                             source_id: str, target_ids: list[str], match: bool) -> list[EntityPair]:
+        return [EntityPair(test_set, source_dataset, target_dataset, source_id, target_id, match)
                 for target_id in target_ids]
 
 
@@ -54,11 +51,7 @@ if __name__ == "__main__":
             source_dataset, target_dataset = candidate_set.source.name, candidate_set.target.name
             for source_id in candidate_set.candidates.keys():
                 positives, hard_negatives = candidate_set.split_candidates(source_id)
-                #soft_negatives = candidate_set.get_soft_negatives(source_id)
-                #Random(SOFT_NEGATIVE_SEED).shuffle(soft_negatives)
-                #SOFT_NEGATIVE_SEED += 1  # change the seed for the next record, so that the soft negatives are different for each record
                 hard_negatives = hard_negatives[:HARD_NEGATIVES_PER_RECORD]
-                #soft_negatives = soft_negatives[:SOFT_NEGATIVES_PER_RECORD]
 
                 pairs = []
 
@@ -81,17 +74,6 @@ if __name__ == "__main__":
                     hard_negatives,
                     False
                 )
-
-                # Soft negatives
-                #pairs += EntityPair.list_from_list(
-                #    candidates_set_name,
-                #    source_dataset,
-                #    target_dataset,
-                #    source_id,
-                #    soft_negatives,
-                #    False,
-                #    True
-                #)
 
                 if pairs_per_record.get((source_dataset, source_id)) is None:
                     pairs_per_record[(source_dataset, source_id)] = pairs
