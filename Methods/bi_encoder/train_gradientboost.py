@@ -9,7 +9,10 @@ import json
 
 import numpy as np
 from xgboost import XGBClassifier
-from bi_encoder import FEATURE_NAMES, compare, encode_entity
+try:
+    from .bi_encoder import FEATURE_NAMES, compare, encode_entity
+except ImportError:
+    from Methods.bi_encoder.bi_encoder import FEATURE_NAMES, compare, encode_entity
 
 
 def make_dataset(pairs, entities):

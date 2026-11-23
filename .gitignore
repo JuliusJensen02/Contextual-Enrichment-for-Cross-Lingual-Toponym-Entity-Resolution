@@ -3,6 +3,13 @@
 .env
 placename_master.csv
 __pycache__/
+*.pyc
+.pytest_cache/
+candidate_generation/results/rerun/cache/
+candidate_generation/results/rerun/logs/
+candidate_generation/results/rerun/status.*
+datasets/ditto/
+Methods/ditto/checkpoints/
 *.py[cod]
 .vscode
 
