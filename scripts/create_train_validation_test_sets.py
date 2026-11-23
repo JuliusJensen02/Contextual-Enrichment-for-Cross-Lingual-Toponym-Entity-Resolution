@@ -10,6 +10,7 @@ HARD_NEGATIVES_PER_RECORD = 20  # at most this many negatives per source record 
 SEED = 42  # for reproducibility
 
 CANDIDATE_SETS = [TestSetName.MEHDIE, TestSetName.PLEIADES_TRISMEGISTOS, TestSetName.WIKIDATA_ZH_RU]
+EXCLUDED_DATASETS = {DatasetName.THURAYYA}  # candidate sets with one of these datasets are left out
 
 class EntityPair:
     def __init__(self, test_set: TestSetName, source_dataset: DatasetName, target_dataset: DatasetName,
@@ -49,6 +50,8 @@ if __name__ == "__main__":
 
         for candidate_set in TestSetLoader().load_candidates(candidates_set_name):
             source_dataset, target_dataset = candidate_set.source.name, candidate_set.target.name
+            if EXCLUDED_DATASETS & {source_dataset, target_dataset}:
+                continue
             for source_id in candidate_set.candidates.keys():
                 positives, hard_negatives = candidate_set.split_candidates(source_id)
                 hard_negatives = hard_negatives[:HARD_NEGATIVES_PER_RECORD]

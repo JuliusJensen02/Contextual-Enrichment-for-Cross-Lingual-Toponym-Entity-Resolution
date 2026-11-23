@@ -1,5 +1,5 @@
 testset,pair,method,params,input,max_km,truth,PC,PQ,RR,candidates,seconds
-zh-ru,Wikidata_zh-Wikidata_ru,TFIDF_kNN,"k=1,n=2-4",ipa,100,3263,0.4327,0.071,0.999788,19876,23.11
-zh-ru,Wikidata_zh-Wikidata_ru,TFIDF_kNN,"k=3,n=2-4",ipa,100,3263,0.5731,0.0315,0.999365,59447,24.94
-zh-ru,Wikidata_zh-Wikidata_ru,TFIDF_kNN,"k=5,n=2-4",ipa,100,3263,0.6295,0.0208,0.998943,98904,24.07
-zh-ru,Wikidata_zh-Wikidata_ru,TFIDF_kNN,"k=10,n=2-4",ipa,100,3263,0.6997,0.0117,0.997913,195252,23.92
+zh-ru,Wikidata_zh-Wikidata_ru,TFIDF_kNN,"k=1,n=2-4",ipa,100,3263,0.4327,0.071,0.999788,19876,11.68
+zh-ru,Wikidata_zh-Wikidata_ru,TFIDF_kNN,"k=3,n=2-4",ipa,100,3263,0.5731,0.0315,0.999365,59447,8.72
+zh-ru,Wikidata_zh-Wikidata_ru,TFIDF_kNN,"k=5,n=2-4",ipa,100,3263,0.6295,0.0208,0.998943,98904,8.59
+zh-ru,Wikidata_zh-Wikidata_ru,TFIDF_kNN,"k=10,n=2-4",ipa,100,3263,0.6997,0.0117,0.997913,195252,9.59

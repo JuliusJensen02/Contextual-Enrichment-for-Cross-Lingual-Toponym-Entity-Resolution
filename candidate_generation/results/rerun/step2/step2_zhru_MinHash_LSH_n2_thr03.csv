@@ -1,2 +1,2 @@
 testset,pair,method,params,input,max_km,truth,PC,PQ,RR,candidates,seconds
-zh-ru,Wikidata_zh-Wikidata_ru,MinHash_LSH,"n=2,thr=0.3",ipa,100,3263,0.2663,0.015,0.999379,58055,21.38
+zh-ru,Wikidata_zh-Wikidata_ru,MinHash_LSH,"n=2,thr=0.3",ipa,100,3263,0.2663,0.015,0.999379,58055,20.54

@@ -1,5 +1,5 @@
 testset,title_method,phonetic_method,title_weight,k,min_score,truth,found,PC,candidates,seconds
-pleiades-tm,none,tfidf:2-3,0.0,1,,65,52,0.8,4160,0.2
-pleiades-tm,none,tfidf:2-3,0.0,3,,65,54,0.8308,12215,0.2
-pleiades-tm,none,tfidf:2-3,0.0,5,,65,54,0.8308,20192,0.2
-pleiades-tm,none,tfidf:2-3,0.0,10,,65,58,0.8923,40074,0.2
+pleiades-tm,none,tfidf:2-3,0.0,1,,65,52,0.8,4160,0.4
+pleiades-tm,none,tfidf:2-3,0.0,3,,65,54,0.8308,12215,0.4
+pleiades-tm,none,tfidf:2-3,0.0,5,,65,54,0.8308,20192,0.4
+pleiades-tm,none,tfidf:2-3,0.0,10,,65,58,0.8923,40074,0.4

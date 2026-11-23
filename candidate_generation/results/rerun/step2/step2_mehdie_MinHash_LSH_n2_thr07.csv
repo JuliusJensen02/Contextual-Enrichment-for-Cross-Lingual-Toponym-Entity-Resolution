@@ -1,2 +1,2 @@
 testset,pair,method,params,input,max_km,truth,PC,PQ,RR,candidates,seconds
-mehdie,ALL PAIRS,MinHash_LSH,"n=2,thr=0.7",ipa,100,114,0.4035,0.0093,0.999986,4959,35.33
+mehdie,Kima-Yaqut,MinHash_LSH,"n=2,thr=0.7",ipa,100,95,0.4526,0.0291,0.999994,1477,12.57

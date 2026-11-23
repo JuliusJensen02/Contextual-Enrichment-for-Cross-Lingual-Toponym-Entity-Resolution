@@ -11,7 +11,7 @@ for path in (ROOT, CANDIDATE_GENERATION):
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
-from data_loader import TestSet, TestSetLoader, TestSetName  # noqa: E402
+from data_loader import DatasetName, TestSet, TestSetLoader, TestSetName  # noqa: E402
 
 RERUN = CANDIDATE_GENERATION / "results" / "rerun"   # everything the experiments write
 CACHE = RERUN / "cache"                              # embeddings and geo masks, not committed
@@ -19,13 +19,15 @@ CACHE = RERUN / "cache"                              # embeddings and geo masks,
 TESTSETS = {"mehdie": TestSetName.MEHDIE, "pleiades-tm": TestSetName.PLEIADES_TRISMEGISTOS,
             "zh-ru": TestSetName.WIKIDATA_ZH_RU}
 LABELS = {"mehdie": "MEHDIE", "pleiades-tm": "Pleiades-TM", "zh-ru": "zh-ru"}
+# Datasets the experiments leave out: MEHDIE is run on Kima-Yaqut only (al-Thurayya has 19 of its 114 links).
+EXCLUDED = {"mehdie": (DatasetName.THURAYYA,)}
 
 MAX_KM = 100
 CHUNK = 1000  # source records handled at a time
 
 
 def load(testset: str) -> TestSet:
-    return TestSetLoader().load(TESTSETS[testset])
+    return TestSetLoader().load(TESTSETS[testset]).without(*EXCLUDED.get(testset, ()))
 
 
 def embedding_path(testset: str, dataset) -> Path:

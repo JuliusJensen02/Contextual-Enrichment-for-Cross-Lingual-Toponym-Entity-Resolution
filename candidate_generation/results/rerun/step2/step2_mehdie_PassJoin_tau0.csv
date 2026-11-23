@@ -1,2 +1,2 @@
 testset,pair,method,params,input,max_km,truth,PC,PQ,RR,candidates,seconds
-mehdie,ALL PAIRS,PassJoin,tau=0,ipa,100,114,0.3509,0.0171,0.999994,2345,0.55
+mehdie,Kima-Yaqut,PassJoin,tau=0,ipa,100,95,0.3895,0.0713,0.999998,519,0.23

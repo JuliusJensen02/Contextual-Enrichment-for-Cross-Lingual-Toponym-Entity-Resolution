@@ -1,5 +1,5 @@
 testset,pair,method,params,input,max_km,truth,PC,PQ,RR,candidates,seconds
-mehdie,ALL PAIRS,TFIDF_kNN,"k=1,n=1-2",ipa,100,114,0.6404,0.0012,0.999827,63060,173.79
-mehdie,ALL PAIRS,TFIDF_kNN,"k=3,n=1-2",ipa,100,114,0.7719,0.0005,0.999504,180239,194.49
-mehdie,ALL PAIRS,TFIDF_kNN,"k=5,n=1-2",ipa,100,114,0.807,0.0003,0.999191,294339,202.27
-mehdie,ALL PAIRS,TFIDF_kNN,"k=10,n=1-2",ipa,100,114,0.8509,0.0002,0.998424,573247,184.82
+mehdie,Kima-Yaqut,TFIDF_kNN,"k=1,n=1-2",ipa,100,95,0.6421,0.0022,0.999876,28254,79.56
+mehdie,Kima-Yaqut,TFIDF_kNN,"k=3,n=1-2",ipa,100,95,0.7263,0.0009,0.999649,80149,132.83
+mehdie,Kima-Yaqut,TFIDF_kNN,"k=5,n=1-2",ipa,100,95,0.7684,0.0006,0.999429,130198,100.58
+mehdie,Kima-Yaqut,TFIDF_kNN,"k=10,n=1-2",ipa,100,95,0.8211,0.0003,0.998896,251781,107.72
