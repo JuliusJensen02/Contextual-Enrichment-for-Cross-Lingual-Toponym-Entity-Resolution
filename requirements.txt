@@ -3,6 +3,8 @@
 # Data handling (scripts/, candidate_generation/run_candidate_generation.py)
 pandas
 
+networkx                # scripts/create_train_validation_test_sets.py: entities from the ground truth links
+
 # Candidate generation (candidate_generation/)
 scikit-learn            # TFIDF_kNN, LM_kNN_search
 datasketch              # MinHash_LSH
