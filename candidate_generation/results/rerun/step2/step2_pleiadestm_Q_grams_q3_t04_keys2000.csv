@@ -1,2 +1,2 @@
 testset,pair,method,params,input,max_km,truth,PC,PQ,RR,candidates,seconds
-pleiades-tm,Pleiades-Trismegistos,Q_grams,"q=3,t=0.4,keys=2000",ipa,100,65,0.6923,0.0202,0.998937,2227,6.05
+pleiades-tm,Pleiades-Trismegistos,Q_grams,"q=3,t=0.4,keys=2000",ipa,100,65,0.6923,0.0202,0.998937,2227,9.31

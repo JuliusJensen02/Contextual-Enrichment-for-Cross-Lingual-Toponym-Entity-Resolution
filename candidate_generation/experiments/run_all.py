@@ -26,7 +26,7 @@ import time
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from common import CANDIDATE_GENERATION, LABELS, RERUN, TESTSETS
+from common import CANDIDATE_GENERATION, EXCLUDED, LABELS, RERUN, TESTSETS
 
 LOGS = RERUN / "logs"
 STATUS = RERUN / "status.json"
@@ -87,6 +87,7 @@ def build_jobs(testsets, steps) -> list[Job]:
     python, jobs, earlier = sys.executable, [], old_seconds()
     for testset in testsets:
         slug = testset.replace("-", "")
+        exclude = ["--exclude", *(d.label for d in EXCLUDED[testset])] if EXCLUDED.get(testset) else []
         if steps & {"3", "4"}:
             jobs.append(Job(f"prepare_{slug}", "prepare", [python, "experiments/prepare.py", "--testset", testset],
                             GUESS["prepare"][testset], threads=4))
@@ -109,7 +110,7 @@ def build_jobs(testsets, steps) -> list[Job]:
                 elif testset == "pleiades-tm":
                     estimate = estimate * 3    # the new Pleiades-TM has three times as many pairs
                 jobs.append(Job(name, "2", [python, "run_candidate_generation.py", "--testset", testset, "--full",
-                                            "--phonetic", "on", "--methods", method, *flags,
+                                            "--phonetic", "on", "--methods", method, *flags, *exclude,
                                             "--out", str(RERUN / "step2" / f"{name}.csv")],
                                 max(estimate, 3) + 5, limit=TIME_LIMIT))
         for step, combinations in (("3", STEP3), ("4", STEP4)):

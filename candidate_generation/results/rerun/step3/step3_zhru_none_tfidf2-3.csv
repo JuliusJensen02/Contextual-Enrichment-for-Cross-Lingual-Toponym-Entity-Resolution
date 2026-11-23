@@ -1,5 +1,5 @@
 testset,title_method,phonetic_method,title_weight,k,min_score,truth,found,PC,candidates,seconds
-zh-ru,none,tfidf:2-3,0.0,1,,3263,1412,0.4327,19921,4.1
-zh-ru,none,tfidf:2-3,0.0,3,,3263,1872,0.5737,59515,4.1
-zh-ru,none,tfidf:2-3,0.0,5,,3263,2064,0.6325,98932,4.1
-zh-ru,none,tfidf:2-3,0.0,10,,3263,2282,0.6994,195165,4.1
+zh-ru,none,tfidf:2-3,0.0,1,,3263,1412,0.4327,19921,5.2
+zh-ru,none,tfidf:2-3,0.0,3,,3263,1872,0.5737,59515,5.2
+zh-ru,none,tfidf:2-3,0.0,5,,3263,2064,0.6325,98932,5.2
+zh-ru,none,tfidf:2-3,0.0,10,,3263,2282,0.6994,195165,5.2

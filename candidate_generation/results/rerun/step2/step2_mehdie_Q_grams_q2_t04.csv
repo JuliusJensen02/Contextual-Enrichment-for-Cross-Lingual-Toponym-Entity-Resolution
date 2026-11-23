@@ -1,2 +1,2 @@
 testset,pair,method,params,input,max_km,truth,PC,PQ,RR,candidates,seconds
-mehdie,ALL PAIRS,Q_grams,"q=2,t=0.4",ipa,100,114,0.8596,0.0,0.9926,2690908,157.79
+mehdie,Kima-Yaqut,Q_grams,"q=2,t=0.4",ipa,100,95,0.8737,0.0001,0.993796,1414941,22.54

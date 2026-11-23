@@ -45,6 +45,10 @@ class TestSet:
                 out.add((id_2, id_1))
         return out
 
+    def without(self, *names: DatasetName) -> "TestSet":
+        """The test set without the given datasets (and so without their links)."""
+        return TestSet(self.name, [dataset for dataset in self.datasets if dataset.name not in names], self.links)
+
     def sample(self, n_links: int, n_distractors: int, seed: int) -> "TestSet":
         """The records of n_links random links, plus n_distractors random unlinked records per
         dataset (something to reject)."""

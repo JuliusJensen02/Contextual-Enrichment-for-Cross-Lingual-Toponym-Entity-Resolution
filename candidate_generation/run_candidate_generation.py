@@ -80,6 +80,7 @@ def inputs_for(method, phonetic: str) -> list[str]:
 
 def run_testset(testset, methods, args, writer):
     test_set: TestSet = LOADER.load(TESTSETS[testset])
+    test_set = test_set.without(*(d.name for d in test_set.datasets if d.label in args.exclude))
     if not args.full:
         test_set = test_set.sample(args.n_links, args.n_distractors, args.seed)
     datasets = test_set.datasets
@@ -179,6 +180,8 @@ def main():
     ap.add_argument("--max-km", nargs="*", type=float, default=[100],
                     help="geo filter in km, applied first; several values = one run of each, "
                          "no value = no geo filter")
+    ap.add_argument("--exclude", nargs="+", default=[], metavar="DATASET",
+                    help="datasets to leave out, by label (e.g. Thurayya): their records and links are dropped")
     ap.add_argument("--per-pair", action="store_true", help="also show every dataset pair, not only the total")
     ap.add_argument("--show", type=int, default=0, help="print N missed ground truth pairs per method and pair")
     ap.add_argument("--out", metavar="FILE.csv", help="also save the table here, one row per run")

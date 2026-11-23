@@ -10,6 +10,7 @@ TestSetLoader().load_candidates(...) from data_loader.
 
   python export_candidates.py                       # all test sets
   python export_candidates.py --testset pleiades-tm
+  python export_candidates.py --exclude Thurayya    # MEHDIE as Kima-Yaqut only
 """
 import argparse
 import json
@@ -26,10 +27,13 @@ DATASETS = Path(__file__).resolve().parents[1] / "datasets"
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--testset", choices=[*TESTSETS, "all"], default="all")
+    ap.add_argument("--exclude", nargs="+", default=[], metavar="DATASET",
+                    help="datasets to leave out, by label (e.g. Thurayya): no candidates are written for their pairs")
     args = ap.parse_args()
 
     for name in (TESTSETS if args.testset == "all" else [args.testset]):
         test_set = TestSetLoader().load(TESTSETS[name])
+        test_set = test_set.without(*(d.name for d in test_set.datasets if d.label in args.exclude))
         pipeline = CandidatePipeline(test_set.datasets)
         for source, target in test_set.pairs:
             started = time.time()
