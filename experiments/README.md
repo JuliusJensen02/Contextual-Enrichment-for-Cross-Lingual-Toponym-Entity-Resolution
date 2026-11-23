@@ -32,13 +32,14 @@ ARCHITECTURE:
 Three-step pipeline for efficient caching:
 
     Step 1: LOAD & CACHE (by dataset only)
-            @lru_cache on _load_full_dataset(dataset)
+            @lru_cache on _load_records(dataset)
             All fields loaded once per dataset
             Cache reused across attribute permutations
 
     Step 2: BUILD PAIRS (complete, with all fields)
-            Load candidate IDs from JSON
-            Build Pair objects with full records
+            Load labelled candidates from datasets/04_train_validation_test/<test set>/<split>.tsv
+            (columns: source_dataset, source_id, target_dataset, target_id, label)
+            Build Pair objects with full records and per-candidate labels
 
     Step 3: FILTER ATTRIBUTES (cheap memory operation)
             Select only requested fields per Pair
@@ -50,7 +51,7 @@ MODULE CONTENTS:
 ================
 
 data_preparation.py:
-  - Pair: NamedTuple for (query_record, [candidate_records])
+  - Pair: NamedTuple for (query_record, [candidate_records], [labels])
   - DataLoader: Main class for loading and hydrating data
   - load_pairs(): Unified loader for all matching methods
 

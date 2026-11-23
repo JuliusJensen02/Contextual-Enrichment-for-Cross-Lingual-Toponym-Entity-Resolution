@@ -21,7 +21,7 @@ The original architecture had **two critical inefficiencies**:
 ```
 ┌────────────────────────────────────────────────────────┐
 │ Step 1: LOAD & CACHE (by dataset only)                │
-│         @lru_cache on _load_full_dataset(dataset)     │
+│         @lru_cache on _load_records(dataset)     │
 │         Cache key: dataset ONLY (not attributes!)     │
 │         Returns: {id: Record(all_fields)}             │
 │         First call: ~10s (disk I/O)                   │
@@ -84,21 +84,21 @@ pairs3 = load_pairs(..., ["temporal"])                   # 0.07s (CACHE HIT!)
 ```python
 # STEP 1: Load & Cache (by dataset only)
 @lru_cache(maxsize=16)
-def _load_full_dataset(dataset: DatasetName) -> dict[str, Record]:
+def _load_records(dataset: DatasetName) -> dict[str, Record]:
     # Read TSV file with ALL fields
     # Return complete records
     # Cache this for all future attribute_categories!
 
 # STEP 2: Load Candidates & Build Pairs
-def _load_candidate_pairs_from_file(...) -> dict[str, list[str]]:
+def _read_split(...) -> dict[str, list[str]]:
     # Load JSON: {source_id: [target_ids]}
 
-def _build_complete_pairs(candidates_map, source_records, target_records) -> list[Pair]:
+def _build_pairs(candidates_map, source_records, target_records) -> list[Pair]:
     # For each source_id -> target_ids, create Pair
     # Return complete Pairs with all fields
 
 # STEP 3: Filter Attributes
-def _filter_pair_attributes(pairs, attribute_categories) -> list[Pair]:
+def _keep_categories(pairs, attribute_categories) -> list[Pair]:
     # For each Pair, keep only requested attributes
     # Return filtered Pairs
 
@@ -106,15 +106,15 @@ def _filter_pair_attributes(pairs, attribute_categories) -> list[Pair]:
 class DataLoader:
     def load(self) -> list[Pair]:
         # Step 1: Cached!
-        source_records = _load_full_dataset(self.source_dataset)
-        target_records = _load_full_dataset(self.target_dataset)
+        source_records = _load_records(self.source_dataset)
+        target_records = _load_records(self.target_dataset)
         
         # Step 2: Quick!
-        candidates_map = _load_candidate_pairs_from_file(...)
-        pairs = _build_complete_pairs(candidates_map, source_records, target_records)
+        candidates_map = _read_split(...)
+        pairs = _build_pairs(candidates_map, source_records, target_records)
         
         # Step 3: Cheap!
-        return _filter_pair_attributes(pairs, self.attribute_categories)
+        return _keep_categories(pairs, self.attribute_categories)
 ```
 
 ## Verification
@@ -165,11 +165,11 @@ pairs = load_pairs(
 )
 
 # Internally:
-# 1. _load_full_dataset(KIMA) -> cached {id: Record(all_fields)}
-# 2. _load_full_dataset(YAQUT) -> cached {id: Record(all_fields)}
-# 3. _load_candidate_pairs_from_file() -> {source_id: [target_ids]}
-# 4. _build_complete_pairs() -> [Pair(query, [candidates])]
-# 5. _filter_pair_attributes() -> [Pair(query, [candidates])] (filtered fields)
+# 1. _load_records(KIMA) -> cached {id: Record(all_fields)}
+# 2. _load_records(YAQUT) -> cached {id: Record(all_fields)}
+# 3. _read_split() -> {source_id: [target_ids]}
+# 4. _build_pairs() -> [Pair(query, [candidates])]
+# 5. _keep_categories() -> [Pair(query, [candidates])] (filtered fields)
 # Returns to user: list[Pair] with requested attributes only
 ```
 
