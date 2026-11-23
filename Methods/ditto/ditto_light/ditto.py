@@ -16,7 +16,7 @@ from transformers import AutoModel, get_linear_schedule_with_warmup
 from tensorboardX import SummaryWriter
 
 lm_mp = {'roberta': 'roberta-base',
-         'distilbert': 'distilbert-base-uncased'}
+         'distilbert': 'distilbert/distilbert-base-multilingual-cased'}
 
 class DittoModel(nn.Module):
     """A baseline model for EM."""
