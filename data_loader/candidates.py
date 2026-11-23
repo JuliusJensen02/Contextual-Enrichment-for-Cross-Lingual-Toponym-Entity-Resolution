@@ -34,14 +34,6 @@ class CandidateSet:
         """True if the two records are linked in the ground truth."""
         return (source_id, target_id) in self.links
 
-    def is_hard_negative(self, source_id: str, target_id: str) -> bool:
-        """True if the two records are not linked in the ground truth, but are candidates of each other."""
-        return target_id in self.candidates.get(source_id, []) and (source_id, target_id) not in self.links
-
-    def is_soft_negative(self, source_id: str, target_id: str) -> bool:
-        """True if the two records are not linked in the ground truth, and are not candidates of each other."""
-        return target_id not in self.candidates.get(source_id, []) and (source_id, target_id) not in self.links
-
     def split_candidates(self, source_id: str) -> tuple[list[str], list[str]]:
         """Returns a tuple of two lists: the first list contains the positive candidates (linked in ground truth),
         and the second list contains the negative candidates (not linked in ground truth) for the given source_id."""
@@ -53,12 +45,3 @@ class CandidateSet:
             else:
                 negative_candidates.append(target_id)
         return positive_candidates, negative_candidates
-
-    def get_soft_negatives(self, source_id: str):
-        positives, hard_negatives = self.split_candidates(source_id)
-        all_target_ids = [record.id for record in self.target.records]
-        ids_to_remove = set(positives + hard_negatives)
-        # Ground truth matches that candidate generation missed must not become soft negatives either.
-        ids_to_remove |= {target_id for linked_source_id, target_id in self.links if linked_source_id == source_id}
-        ids_to_remove |= {target_id for s, target_id in self.links if s == source_id}
-        return [target_id for target_id in all_target_ids if target_id not in ids_to_remove]
