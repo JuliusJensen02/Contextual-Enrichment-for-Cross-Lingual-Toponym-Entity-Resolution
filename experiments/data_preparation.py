@@ -1,25 +1,23 @@
-"""Data preparation for matching methods: load candidates, hydrate with full records, filter by attributes.
+"""Data preparation for matching methods.
 
-Architecture: Load full records (cached by dataset) → Build complete Pairs → Filter attributes
-
-This ensures caching works effectively even when permuting attribute_categories across experiments.
-Uses dataset-specific category mappings from cat_caller.py to ensure proper field selection per dataset.
+Reads the labelled candidates of a split (datasets/04_train_validation_test/<test set>/<split>.tsv,
+one row per query-candidate with columns source_dataset, source_id, target_dataset, target_id, label),
+fills in the full records from datasets/02_minimized_datasets, and keeps only the requested attribute
+categories. Full records are cached per dataset, so changing the categories between experiments is cheap.
 """
-import json
 from functools import lru_cache
 from pathlib import Path
-from typing import NamedTuple
+from typing import NamedTuple, Optional
 
 import pandas as pd
 
 from data_loader import DatasetName, Record, TestSetName
 
+DATASETS_ROOT = Path(__file__).resolve().parents[1] / "datasets"
+DATASET_TYPES = ("train", "validation", "test")
+_DATASETS_BY_LABEL = {dataset.label: dataset for dataset in DatasetName}
 
-# ============================================================================
-# CATEGORY MAPPINGS (from cat_caller.py patterns)
-# ============================================================================
-
-# Shared categories for most datasets (Arabic, Persian)
+# Record fields per attribute category, for each dataset
 _BASE_CATEGORIES = {
     "name_variants":    ["title_ipa", "name_variants"],
     "absolute":         ["lat", "lon"],
@@ -27,8 +25,6 @@ _BASE_CATEGORIES = {
     "temporal":         ["begin_date", "end_date"],
     "classification":   ["types"],
 }
-
-# Extended categories for Wikipedia datasets (Wikidata)
 _WIKI_CATEGORIES = {
     "name_variants":    ["title_ipa", "name_variants", "wiki_title"],
     "absolute":         ["lat", "lon"],
@@ -37,8 +33,6 @@ _WIKI_CATEGORIES = {
     "classification":   ["instance_of_label"],
     "description":      ["description", "described_by"],
 }
-
-# Map each dataset to its category definitions
 DATASET_CATEGORIES = {
     DatasetName.KIMA:         {**_BASE_CATEGORIES, "description": ["description"]},
     DatasetName.THURAYYA:     {**_BASE_CATEGORIES, "description": ["description"]},
@@ -48,338 +42,119 @@ DATASET_CATEGORIES = {
     DatasetName.WIKIDATA_RU:  _WIKI_CATEGORIES,
     DatasetName.WIKIDATA_ZH:  _WIKI_CATEGORIES,
 }
+AVAILABLE_CATEGORIES = {"name_variants", "absolute", "relation", "temporal", "classification", "description"}
 
-# Valid category names across all datasets
-AVAILABLE_CATEGORIES = {
-    "name_variants", "absolute", "relation", "temporal", "classification", "description"
-}
-
-
-# ============================================================================
-# DATA TYPES
-# ============================================================================
 
 class Pair(NamedTuple):
-    """A query record and its candidate records."""
+    """A query record and its candidates; `labels[i]` is True when `candidates[i]` is a golden link."""
     query: Record
     candidates: list[Record]
+    labels: list[bool] = []
 
-
-# ============================================================================
-# FILE PATH MAPPING
-# ============================================================================
-
-# TestSetName -> folder in 03_candidate_generation/
-_TEST_SET_FOLDERS = {
-    TestSetName.MEHDIE: "MEHDIE",
-    TestSetName.PLEIADES_TRISMEGISTOS: "Pleades_Trismegistos",
-    TestSetName.WIKIDATA_ZH_RU: "Wikidata-zh-ru",
-}
-
-# DatasetName -> filename prefix
-_DATASET_NAME_MAP = {
-    DatasetName.KIMA: "kima",
-    DatasetName.YAQUT: "yaqut",
-    DatasetName.THURAYYA: "thurayya",
-    DatasetName.PLEIADES: "pleiades",
-    DatasetName.TRISMEGISTOS: "trismegistos",
-    DatasetName.WIKIDATA_ZH: "wikidata_zh",
-    DatasetName.WIKIDATA_RU: "wikidata_ru",
-}
-
-
-# ============================================================================
-# RECORD LOADING (load complete records with ALL fields, cached by dataset only)
-# ============================================================================
 
 @lru_cache(maxsize=16)
-def _load_full_dataset(dataset: DatasetName) -> dict[str, Record]:
-    """Load all records from a dataset with ALL fields, cached in memory.
-    
-    Returns:
-        Dict mapping record_id -> Record (with all available fields)
-    """
-    datasets_root = Path(__file__).resolve().parents[1] / "datasets"
-    tsv_path = datasets_root / "02_minimized_datasets" / dataset.folder / dataset.file
-    
-    if not tsv_path.exists():
-        raise FileNotFoundError(f"Dataset file not found: {tsv_path}")
-    
-    # Read TSV (keep all as strings to preserve leading zeros)
-    df = pd.read_csv(
-        tsv_path,
-        sep="\t",
-        dtype=str,
-        keep_default_na=False,
-        encoding="utf-8-sig"
-    )
-    
-    # Load records with ALL fields
-    records = {}
-    for _, row in df.iterrows():
-        # Build row dict with all possible fields
-        row_dict = {col: row.get(col, "") for col in [
-            "id", "title", "title_ipa", "name_variants", "wiki_title",
-            "lat", "lon", "country", "capital", "neighbours", "population",
-            "begin_date", "end_date", "inception", "dissolved",
-            "types", "instance_of_label", "details", "described_by", "description", "text_snippets"
-        ]}
-        record = Record.from_row(dataset, row_dict)
-        records[record.id] = record
-    
-    return records
+def _load_records(dataset: DatasetName) -> dict[str, Record]:
+    """All records of a dataset with all their fields, by id."""
+    path = DATASETS_ROOT / "02_minimized_datasets" / dataset.folder / dataset.file
+    rows = pd.read_csv(path, sep="\t", dtype=str, keep_default_na=False, encoding="utf-8-sig")
+    records = (Record.from_row(dataset, row) for row in rows.to_dict("records"))
+    return {record.id: record for record in records}
 
 
-# ============================================================================
-# CANDIDATE PAIRS LOADING
-# ============================================================================
-
-def _load_candidate_pairs_from_file(test_set: TestSetName, source: DatasetName, target: DatasetName) -> dict[str, list[str]]:
-    """Load precomputed candidate IDs from JSON file.
-    
-    Returns:
-        Dict mapping source_id -> [target_ids]
-    """
-    datasets_root = Path(__file__).resolve().parents[1] / "datasets"
-    folder_name = _TEST_SET_FOLDERS[test_set]
-    
-    source_name = _DATASET_NAME_MAP[source]
-    target_name = _DATASET_NAME_MAP[target]
-    filename = f"{source_name}_{target_name}.json"
-    
-    candidates_file = datasets_root / "03_candidate_generation" / folder_name / filename
-    
-    if not candidates_file.exists():
-        raise FileNotFoundError(f"Candidates file not found: {candidates_file}")
-    
-    data = json.loads(candidates_file.read_text(encoding="utf-8"))
-    return data.get("candidates", {})
+def _read_split(test_set: TestSetName, dataset_type: str) -> pd.DataFrame:
+    """The labelled candidate rows of one split of a test set."""
+    if dataset_type not in DATASET_TYPES:
+        raise ValueError(f"Invalid dataset_type '{dataset_type}'. Valid: {list(DATASET_TYPES)}")
+    path = DATASETS_ROOT / "04_train_validation_test" / test_set.datasets[0].folder / f"{dataset_type}.tsv"
+    return pd.read_csv(path, sep="\t", dtype=str, keep_default_na=False, encoding="utf-8-sig")
 
 
-def _build_complete_pairs(candidates_map: dict[str, list[str]], source_records: dict[str, Record], target_records: dict[str, Record]) -> list[Pair]:
-    """Build Pair objects with complete records from candidates mapping.
-    
-    Args:
-        candidates_map: {source_id: [target_ids]} from JSON
-        source_records: {id: Record} for query side
-        target_records: {id: Record} for candidate side
-    
-    Returns:
-        List of Pair with complete records
-    """
-    pairs = []
-    for source_id, target_ids in candidates_map.items():
-        if source_id not in source_records:
-            raise ValueError(f"Source ID {source_id} not found in source records")
-        
-        query = source_records[source_id]
-        candidates = [target_records[tid] for tid in target_ids if tid in target_records]
-        
-        if candidates:
-            pairs.append(Pair(query, candidates))
-    
-    return pairs
+def _build_pairs(rows: pd.DataFrame) -> list[Pair]:
+    """One Pair per (source dataset, source id, target dataset), in file order."""
+    pairs: dict[tuple[str, str, str], Pair] = {}
+    columns = ["source_dataset", "source_id", "target_dataset", "target_id", "label"]
+    for source_label, source_id, target_label, target_id, label in zip(*(rows[c] for c in columns)):
+        targets = _load_records(_DATASETS_BY_LABEL[target_label])
+        key = (source_label, source_id, target_label)
+        if key not in pairs:
+            sources = _load_records(_DATASETS_BY_LABEL[source_label])
+            pairs[key] = Pair(sources[source_id], [], [])
+        pairs[key].candidates.append(targets[target_id])
+        pairs[key].labels.append(label == "1")
+    return list(pairs.values())
 
 
-# ============================================================================
-# ATTRIBUTE FILTERING
-# ============================================================================
+def _keep_categories(record: Record, categories: list[str]) -> Record:
+    """A copy of the record with only id, title and the fields of the given categories."""
+    dataset_categories = DATASET_CATEGORIES[record.dataset]
+    fields = {"id", "title"}
+    for category in categories:
+        fields.update(dataset_categories.get(category, []))
+    return Record.from_row(record.dataset, {field: getattr(record, field) for field in fields})
 
-def _filter_pair_attributes(pairs: list[Pair], attributes: list[str]) -> list[Pair]:
-    """Filter Pair records to only requested attributes.
-    
-    Creates new Records containing only the requested fields (plus id and title).
-    This is a cheap operation - real work is caching full records.
-    
-    Args:
-        pairs: List of Pair with complete records
-        attributes: Categories to include (e.g., ["name_variants", "absolute"])
-    
-    Returns:
-        List of Pair with filtered records
-    """
-    if not attributes:
-        return pairs
-    
-    filtered_pairs = []
-    for pair in pairs:
-        # Filter query record
-        filtered_query = _filter_record_attributes(pair.query, attributes)
-        
-        # Filter candidate records
-        filtered_candidates = [_filter_record_attributes(cand, attributes) for cand in pair.candidates]
-        
-        filtered_pairs.append(Pair(filtered_query, filtered_candidates))
-    
-    return filtered_pairs
-
-
-def _filter_record_attributes(record: Record, attribute_categories: list[str]) -> Record:
-    """Filter a record to only requested attributes.
-    
-    Creates a new Record dict with only the requested fields (plus id and title always).
-    """
-    # Infer dataset from record properties
-    dataset = record.dataset if hasattr(record, 'dataset') else None
-    
-    # Get field mappings for this dataset
-    if dataset:
-        dataset_cats = DATASET_CATEGORIES.get(dataset, {})
-    else:
-        dataset_cats = {}
-    
-    # Determine which fields to keep
-    keep_fields = {"id", "title"}
-    for category in attribute_categories:
-        if category in dataset_cats:
-            keep_fields.update(dataset_cats[category])
-    
-    # Build filtered row dict
-    row_dict = {}
-    for field in keep_fields:
-        value = getattr(record, field, None)
-        row_dict[field] = value if value is not None else ""
-    
-    # Create new Record with only these fields
-    return Record.from_row(dataset, row_dict)
-
-
-# ============================================================================
-# PUBLIC API
-# ============================================================================
 
 class DataLoader:
-    """Loads candidate pairs with complete records, filtered to requested attributes.
-    
-    Architecture:
-      1. Load full records (cached by dataset only - no attributes in cache key)
-      2. Load candidate pair mappings from JSON
-      3. Build complete Pair objects
-      4. Filter to only requested attributes (cheap operation)
-    
-    This ensures caching works across different attribute permutations.
-    
-    Example:
-        loader = DataLoader(
-            test_set=TestSetName.MEHDIE,
-            source_dataset=DatasetName.KIMA,
-            target_dataset=DatasetName.YAQUT,
-            attribute_categories=["name_variants", "absolute"]
-        )
-        pairs = loader.load()  # list[Pair]
+    """Loads the labelled Pairs of one split of a test set, restricted to the given attribute categories.
+
+    source_dataset / target_dataset optionally restrict the queries / candidates to one dataset.
+
+        pairs = DataLoader(TestSetName.MEHDIE, ["name_variants", "absolute"], "test",
+                           source_dataset=DatasetName.KIMA, target_dataset=DatasetName.YAQUT).load()
     """
 
     def __init__(
         self,
         test_set: TestSetName,
-        source_dataset: DatasetName,
-        target_dataset: DatasetName,
         attribute_categories: list[str],
+        dataset_type: str = "test",
+        source_dataset: Optional[DatasetName] = None,
+        target_dataset: Optional[DatasetName] = None,
     ):
-        """Initialize the loader.
-        
-        Args:
-            test_set: TestSetName.MEHDIE, PLEIADES_TRISMEGISTOS, or WIKIDATA_ZH_RU
-            source_dataset: Query dataset (e.g., KIMA)
-            target_dataset: Candidate dataset (e.g., YAQUT)
-            attribute_categories: Categories to include (["name_variants", "absolute"])
-        
-        Raises:
-            ValueError: If any attribute category is invalid
-        """
-        # Validate attributes
-        for cat in attribute_categories:
-            if cat not in AVAILABLE_CATEGORIES:
-                raise ValueError(f"Invalid category '{cat}'. Valid: {sorted(AVAILABLE_CATEGORIES)}")
-        
+        for category in attribute_categories:
+            if category not in AVAILABLE_CATEGORIES:
+                raise ValueError(f"Invalid category '{category}'. Valid: {sorted(AVAILABLE_CATEGORIES)}")
+        if dataset_type not in DATASET_TYPES:
+            raise ValueError(f"Invalid dataset_type '{dataset_type}'. Valid: {list(DATASET_TYPES)}")
+
         self.test_set = test_set
+        self.attribute_categories = attribute_categories
+        self.dataset_type = dataset_type
         self.source_dataset = source_dataset
         self.target_dataset = target_dataset
-        self.attribute_categories = attribute_categories
-    
+
     def load(self) -> list[Pair]:
-        """Load candidate pairs with requested attributes.
-        
-        Returns:
-            List of Pair(query, candidates) with filtered attributes
-        """
-        # Step 1: Load full records (cached by dataset only)
-        source_records = _load_full_dataset(self.source_dataset)
-        target_records = _load_full_dataset(self.target_dataset)
-        
-        # Step 2: Load candidate pair mappings
-        candidates_map = _load_candidate_pairs_from_file(self.test_set, self.source_dataset, self.target_dataset)
-        
-        # Step 3: Build complete pairs
-        complete_pairs = _build_complete_pairs(candidates_map, source_records, target_records)
-        
-        # Step 4: Filter to requested attributes
-        filtered_pairs = _filter_pair_attributes(complete_pairs, self.attribute_categories)
-        
-        return filtered_pairs
+        rows = _read_split(self.test_set, self.dataset_type)
+        if self.source_dataset:
+            rows = rows[rows["source_dataset"] == self.source_dataset.label]
+        if self.target_dataset:
+            rows = rows[rows["target_dataset"] == self.target_dataset.label]
+
+        pairs = _build_pairs(rows)
+        if not self.attribute_categories:
+            return pairs
+
+        filtered = []
+        for pair in pairs:
+            query = _keep_categories(pair.query, self.attribute_categories)
+            candidates = [_keep_categories(candidate, self.attribute_categories) for candidate in pair.candidates]
+            filtered.append(Pair(query, candidates, pair.labels))
+        return filtered
 
 
 def load_pairs(
     test_set: TestSetName,
-    source_dataset: DatasetName,
-    target_dataset: DatasetName,
-    attribute_categories: list[str],
+    source_dataset: Optional[DatasetName] = None,
+    target_dataset: Optional[DatasetName] = None,
+    attribute_categories: Optional[list[str]] = None,
+    dataset_type: str = "test",
 ) -> list[Pair]:
-    """Load candidate pairs for entity matching experiments.
-    
-    Unified loader for all matching methods (bi-encoder, Ditto, LLMs).
-    
-    Args:
-        test_set: TestSetName.MEHDIE, PLEIADES_TRISMEGISTOS, or WIKIDATA_ZH_RU
-        source_dataset: Query dataset (e.g., KIMA)
-        target_dataset: Candidate dataset (e.g., YAQUT)
-        attribute_categories: Categories to include (["name_variants", "absolute"])
-    
-    Returns:
-        List of Pair(query, candidates) with filtered attributes
-    
-    Example:
-        pairs = load_pairs(
-            TestSetName.MEHDIE,
-            DatasetName.KIMA,
-            DatasetName.YAQUT,
-            ["name_variants", "absolute"]
-        )
+    """The labelled Pairs of one split, for any matching method (bi-encoder, Ditto, LLMs).
+
+        pairs = load_pairs(TestSetName.MEHDIE, DatasetName.KIMA, DatasetName.YAQUT,
+                           ["name_variants", "absolute"], dataset_type="test")
         for pair in pairs:
-            print(f"Query: {pair.query.title}")
-            for cand in pair.candidates:
-                print(f"  Candidate: {cand.title}")
+            for candidate, is_match in zip(pair.candidates, pair.labels):
+                ...
     """
-    loader = DataLoader(test_set, source_dataset, target_dataset, attribute_categories)
+    loader = DataLoader(test_set, attribute_categories or [], dataset_type, source_dataset, target_dataset)
     return loader.load()
-
-
-"""
-EXAMPLE OUTPUT:
-
-When running load_pairs():
-
-    pairs = load_pairs(
-        test_set=TestSetName.MEHDIE,
-        source_dataset=DatasetName.KIMA,
-        target_dataset=DatasetName.YAQUT,
-        attribute_categories=["name_variants", "absolute"]
-    )
-
-Returns: list[Pair]
-  - Pair(0):
-      query: Record(id=<query_id>, name_variants=<list>, absolute=<coords>)
-      candidates: [Record(id=<cand_id>, name_variants=<list>, absolute=<coords>), ...]
-  - Pair(1):
-      query: Record(id=<query_id>, name_variants=<list>, absolute=<coords>)
-      candidates: [Record(id=<cand_id>, name_variants=<list>, absolute=<coords>), ...]
-  - ... (total pairs varies by test_set)
-
-Each Record contains ONLY the requested attributes:
-  - name_variants: list of alternative names
-  - absolute: tuple of (lat, lon) coordinates
-  - description: text snippets or full descriptions
-  - temporal: begin/end dates
-  - relation: country/capital/borders info
-  - classification: entity types
-"""
