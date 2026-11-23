@@ -8,10 +8,73 @@ load_dotenv()
 
 
 class LLMClient:
-    def __init__(self, prompt: str, instructions: str):
+    def __init__(
+        self,
+        prompt: str,
+        instructions: str = None,
+        token: str = None,
+        endpoint: str = None,
+    ):
         self.timeout = 30
+
+        if token is not None and endpoint is not None:
+            self.model = os.getenv(prompt)
+            self.api_url = os.getenv(instructions)
+            self.api_token = os.getenv(token)
+            self.endpoint = endpoint
+            self.prompt = None
+            self.instructions = None
+            return
+
         self.prompt = prompt
         self.instructions = instructions
+        self.model = os.getenv("LLAMA_MODEL")
+        self.api_url = os.getenv("LLAMA_API_URL")
+        self.api_token = os.getenv("LLAMA_API_TOKEN")
+        self.endpoint = "chat/completions"
+
+    def call(self, prompt: str, instructions: str = None):
+        """Call a generic chat/completions or responses endpoint."""
+        if hasattr(self, "api_url") and self.api_url:
+            url = self.api_url
+            token = self.api_token
+        else:
+            url = os.getenv("LLAMA_API_URL")
+            token = os.getenv("LLAMA_API_TOKEN")
+
+        if self.endpoint.endswith("responses"):
+            payload = {"model": self.model, "input": prompt}
+            if instructions:
+                payload["instructions"] = instructions
+        else:
+            messages = []
+            if instructions:
+                messages.append({"role": "system", "content": instructions})
+            messages.append({"role": "user", "content": prompt})
+            payload = {"model": self.model, "messages": messages}
+
+        try:
+            response = requests.post(
+                url,
+                json=payload,
+                headers={
+                    "Authorization": f"Bearer {token}",
+                    "Content-Type": "application/json",
+                },
+                timeout=self.timeout,
+                verify=False,
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as error:
+            if getattr(error, "response", None) is not None:
+                print(f"Response: {error.response.status_code}")
+                print(f"Body: {error.response.text}")
+            raise RuntimeError(f"API call failed: {error}") from error
+
+    def call_batch(self, prompts: list[str], instructions: str = None):
+        """Call the endpoint once for each prompt, preserving input order."""
+        return [self.call(prompt, instructions=instructions) for prompt in prompts]
 
     def call_llama(self, model: str = os.getenv("LLAMA_MODEL"), url: str = os.getenv("LLAMA_API_URL"), token: str = os.getenv("LLAMA_API_TOKEN")):
         payload = {

@@ -1,11 +1,11 @@
-"""llm_integration/llm_calls.py, without a server: requests.post is replaced."""
+"""Methods/llm_integration/llm_calls.py, without a server: requests.post is replaced."""
 import pytest
 
 requests = pytest.importorskip("requests")
 pytest.importorskip("dotenv")
 
-from llm_integration import llm_calls  # noqa: E402
-from llm_integration.llm_calls import LLMClient  # noqa: E402
+from Methods.llm_integration import llm_calls  # noqa: E402
+from Methods.llm_integration.llm_calls import LLMClient  # noqa: E402
 
 
 class FakeResponse:

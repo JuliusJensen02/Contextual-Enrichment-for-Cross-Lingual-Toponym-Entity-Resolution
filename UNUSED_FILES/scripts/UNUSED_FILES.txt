@@ -1,0 +1,66 @@
+ARCHIVED/UNUSED FILES DIRECTORY
+================================
+
+Location: /UNUSED_FILES/ (project root)
+
+ARCHIVED CONTENTS:
+===================
+
+1. /UNUSED_FILES/scripts/ - Data preparation scripts (21 files, 3,839 lines)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   
+   Reason for archival:
+   - Datasets are finalized; these one-time build scripts are no longer needed
+   - Original TSV data preparation now handled by experiments/data_preparation.py
+   - Train/test/valid split handled by external data team (blocked task)
+   
+   Files included:
+   - build_*.py: Dataset construction scripts (Wikidata, Pleiades, Trismegistos, YAQUT)
+   - minimize_datasets.py: Dataset size optimization
+   - inspect_datasets.py: Dataset inspection utilities
+   - phonetic_encoding.py: Phonetic matching support
+   - generate_*.py: Report and subset generation
+   - flatten_mehdie_db.py: MEHDIE database flattening
+   - cross_match.py: Cross-matching utilities
+   - attribute_overlap.py: Attribute analysis
+   - identify_languages.py: Language identification
+   - cat_caller.py: Attribute category definitions (reference)
+   - trismegistos/: Trismegistos-specific build routines
+
+   Keep these for:
+   - Datasets need to be regenerated
+   - Build process needs to be audited
+   - Original TSV construction needs to be re-examined
+
+ACTIVE MODULES (NOT archived):
+================================
+
+✓ /data_loader/ - Core Record/Pair classes (heavily used)
+✓ /Methods/bi_encoder/ - Bi-encoder entity matching implementation
+✓ /Methods/llm_integration/ - LLM-based entity matching methods
+✓ /candidate_generation/ - Candidate generation methods
+✓ /candidate_generation/experiments/ - Candidate gen evaluation
+✓ /experiments/ - **NEW** Unified data preparation for all matching methods
+✓ /tests/ - Test suite
+✓ /Methods/ditto/ - Ditto entity matching implementation
+✓ main.py - Entry point
+✓ final_verification.py - Data verification
+✓ requirements.txt - Project dependencies
+
+WHY THIS CLEANUP:
+=================
+
+The refactored experiments/data_preparation.py replaces the functionality
+of the archived scripts by providing a unified data loading interface that:
+
+1. Loads full records (cached by dataset only) → 88x speedup
+2. Builds complete Pair objects with candidates  
+3. Filters attributes to requested categories at query time
+
+This eliminates the need for:
+- Separate data preparation steps per dataset
+- Multiple dataset-specific loaders
+- Attribute-based caching (now done at dataset level only)
+
+For more details on the new architecture:
+See experiments/ARCHITECTURE.md and experiments/README.md
