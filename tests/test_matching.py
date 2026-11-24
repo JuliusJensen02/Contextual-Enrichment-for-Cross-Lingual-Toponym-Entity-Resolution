@@ -247,3 +247,41 @@ def test_call_matching_methods_requires_classifier(pair):
             [pair],
             methods=("bi_encoder",),
         )
+
+
+def test_call_matching_methods_runs_deeper(monkeypatch, pair):
+    thresholds = []
+    prepared_pairs = []
+    monkeypatch.setattr(
+        "experiments.matching.match_with_deeper",
+        lambda classifier, query, candidate, threshold: (
+            thresholds.append(threshold)
+            or {"match": candidate.id == "y1", "probability": 0.8}
+        ),
+    )
+    monkeypatch.setattr(
+        "Methods.deepER.deeper.get_default_extractor",
+        lambda: SimpleNamespace(prepare_pairs=lambda pairs: prepared_pairs.extend(pairs)),
+    )
+
+    results = call_matching_methods(
+        [pair],
+        methods=("deeper",),
+        deeper_classifier="deeper-model",
+        deeper_threshold=0.73,
+    )
+
+    assert thresholds == [0.73, 0.73]
+    assert prepared_pairs == [pair]
+    assert results["deeper"][0] == [
+        {"match": True, "probability": 0.8, "candidate": "y1"},
+        {"match": False, "probability": 0.8, "candidate": "y2"},
+    ]
+
+
+def test_call_matching_methods_requires_deeper_classifier(pair):
+    with pytest.raises(ValueError, match="deeper_classifier is required"):
+        call_matching_methods(
+            [pair],
+            methods=("deeper",),
+        )

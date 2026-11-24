@@ -46,6 +46,13 @@ def match_with_bi_encoder(classifier, query, candidate, threshold: float):
     )
 
 
+def match_with_deeper(classifier, query, candidate, threshold: float):
+    """Run the DeepER classifier for one query/candidate pair."""
+    from Methods.deepER.deeper import is_match
+
+    return is_match(classifier, query, candidate, threshold)
+
+
 def load_ditto_model(
     checkpoint_path: str,
     task: str,
@@ -133,8 +140,10 @@ def call_matching_methods(
     methods: tuple[str, ...] = ("llm", "bi_encoder"),
     *,
     classifier=None,
+    deeper_classifier=None,
     ditto_model=None,
     bi_encoder_threshold: float = 0.5,
+    deeper_threshold: float = 0.5,
     ditto_threshold: float = 0.5,
     llm_provider: str = "llama",
     ditto_lm: str = "distilbert",
@@ -164,6 +173,25 @@ def call_matching_methods(
                         candidate,
                         bi_encoder_threshold,
                     )
+                    for candidate in pair.candidates
+                ]
+            )
+
+        if "deeper" in methods:
+            if deeper_classifier is None:
+                raise ValueError("deeper_classifier is required when using the deeper method")
+            from Methods.deepER.deeper import get_default_extractor
+
+            get_default_extractor().prepare_pairs(pairs)
+            results["deeper"].append(
+                [
+                    match_with_deeper(
+                        deeper_classifier,
+                        pair.query,
+                        candidate,
+                        deeper_threshold,
+                    )
+                    | {"candidate": candidate.id}
                     for candidate in pair.candidates
                 ]
             )

@@ -1,7 +1,7 @@
 """Experiments infrastructure for toponym entity matching methods.
 
 This module provides unified data preparation for running matching experiments across
-multiple methods (bi-encoder, Ditto, LLM-based) on all datasets.
+multiple methods (bi-encoder, DeepER, Ditto, and LLM-based) on all datasets.
 
 QUICK START:
 ============
@@ -58,6 +58,7 @@ data_preparation.py:
 matching.py:
   - match_with_llm(): Match one query against candidates with an LLM
   - match_with_bi_encoder(): Match one query/candidate pair with XGBoost
+  - match_with_deeper(): Match one query/candidate pair with DeepER
   - load_ditto_model(): Load a trained Ditto checkpoint
   - match_with_ditto(): Match one query against candidates with Ditto
   - call_matching_methods(): Run selected methods over a list of pairs
@@ -185,6 +186,44 @@ match_with_ditto parameters:
 Ditto requires a checkpoint trained for the attribute configuration being used.
 A checkpoint contains learned weights.
 
+DeepER matching
+---------------
+
+DeepER follows the paper's averaging-based tuple representation and
+attribute-wise similarity classifier. It uses LaBSE for multilingual text
+vectors, and supplements those features with coordinate distance, temporal
+overlap, and IPA similarity for toponym records.
+
+Train a classifier from the project's training split (never the validation or
+test split):
+
+    python -m Methods.deepER.train_deeper \
+        --test-set MEHDIE \
+        --source-dataset KIMA \
+        --target-dataset YAQUT \
+        --out Methods/deepER/models/kima_yaqut.joblib
+
+Use the trained classifier with the shared `Pair` input and candidate-result
+output:
+
+    from Methods.deepER.deeper import load_classifier
+    from experiments.matching import call_matching_methods
+
+    deeper_classifier = load_classifier("Methods/deepER/models/kima_yaqut.joblib")
+    results = call_matching_methods(
+        pairs,
+        methods=("deeper",),
+        deeper_classifier=deeper_classifier,
+        deeper_threshold=0.5,
+    )
+
+`results["deeper"]` contains one list per query, with each candidate represented
+as `{"candidate": candidate_id, "match": bool, "probability": float}`. Use
+`candidate_predictions()` to convert those results into links for evaluation.
+The model is direction- and dataset-pair-specific; train it with the same pair
+direction used at inference. The LaBSE model is loaded lazily and requires
+access to its model weights on first use.
+
 Unified dispatcher
 ------------------
 
@@ -192,10 +231,12 @@ Unified dispatcher
 
     results = call_matching_methods(
         pairs,
-        methods=("llm", "bi_encoder", "ditto"),
+        methods=("llm", "bi_encoder", "deeper", "ditto"),
         classifier=classifier,
+        deeper_classifier=deeper_classifier,
         ditto_model=ditto_model,
         bi_encoder_threshold=0.5,
+        deeper_threshold=0.5,
         ditto_threshold=0.5,
         llm_provider="llama",
     )
@@ -203,8 +244,10 @@ Unified dispatcher
 Parameters:
 
   - pairs: List of Pair(query, candidates) objects.
-  - methods: Methods to run: "llm", "bi_encoder", and/or "ditto".
+  - methods: Methods to run: "llm", "bi_encoder", "deeper", and/or "ditto".
   - classifier: Required for "bi_encoder".
+  - deeper_classifier: Required for "deeper".
+  - deeper_threshold: Match-probability cutoff used by DeepER.
   - ditto_model: Required for "ditto".
   - bi_encoder_threshold: Cutoff used by the bi-encoder.
   - ditto_threshold: Cutoff used by Ditto.

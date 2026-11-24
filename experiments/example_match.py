@@ -43,8 +43,10 @@ def main() -> None:
 
     # Load the trained local models once, before dispatching across all pairs.
     from Methods.bi_encoder.bi_encoder import load_classifier
+    from Methods.deepER.deeper import load_classifier as load_deeper_classifier
 
     classifier = load_classifier(BI_ENCODER_MODEL)
+    deeper_classifier = load_deeper_classifier(DEEPER_MODEL)
     ditto_model = load_ditto_model(
         checkpoint_path=DITTO_CHECKPOINT_PATH,
         task=DITTO_TASK,
@@ -54,11 +56,13 @@ def main() -> None:
 
     results = call_matching_methods(
         pairs,
-        methods=("llm", "bi_encoder", "ditto"),
+        methods=("llm", "bi_encoder", "deeper", "ditto"),
         classifier=classifier,
+        deeper_classifier=deeper_classifier,
         ditto_model=ditto_model,
         llm_provider=LLM_PROVIDER,
         bi_encoder_threshold=BI_ENCODER_THRESHOLD,
+        deeper_threshold=DEEPER_THRESHOLD,
         ditto_threshold=DITTO_THRESHOLD,
         ditto_lm=DITTO_LM,
     )
@@ -71,6 +75,7 @@ def main() -> None:
     predicted_by_method = {
         "llm": llm_predictions(pairs, results["llm"]),
         "bi_encoder": candidate_predictions(pairs, results["bi_encoder"]),
+        "deeper": candidate_predictions(pairs, results["deeper"]),
         "ditto": candidate_predictions(pairs, results["ditto"]),
     }
 
