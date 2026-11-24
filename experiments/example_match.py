@@ -24,10 +24,12 @@ TARGET_DATASET = DatasetName.YAQUT
 ATTRIBUTE_CATEGORIES = ["name_variants", "absolute"]
 LLM_PROVIDER = "llama"
 BI_ENCODER_MODEL = "path/to/gradientboost-model.json"
+DEEPER_MODEL = "path/to/deeper-model.joblib"
 DITTO_CHECKPOINT_PATH = "checkpoints"
 DITTO_TASK = "toponym_experiment"
 DITTO_LM = "distilbert"
 BI_ENCODER_THRESHOLD = 0.5
+DEEPER_THRESHOLD = 0.5
 DITTO_THRESHOLD = 0.5
 
 
